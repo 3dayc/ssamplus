@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
+  <g id="업무시간" transform="translate(-30 -5235)">
+    <g id="패스_1351" data-name="패스 1351" transform="translate(30 5235)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="1.5">
+      <circle cx="14.5" cy="14.5" r="14.5" stroke="none"/>
+      <circle cx="14.5" cy="14.5" r="13.75" fill="none"/>
+    </g>
+    <circle id="패스_1351-2" data-name="패스 1351" cx="10.35" cy="10.35" r="10.35" transform="translate(34.12 5238.87)" fill="#0e935d" stroke="#333" stroke-width="1.5"/>
+    <path id="패스_1352" data-name="패스 1352" d="M44.75,5242.868v7.46l5.8,3.315" fill="none" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+  </g>
+</svg>

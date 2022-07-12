@@ -1,0 +1,574 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: common.css
+* @Description : 이벤트 공통 스타일 정의
+* @Create Date: 2021-11-15
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ====================== */
+/* UI Reset */
+/* ====================== */
+/* ===== Default ===== */
+hr, caption {display:none;}
+dl,ul,ol,menu,li {list-style:none;}
+body,div,span,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,label,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0;box-sizing:border-box;}
+body, * {font-family:'NotoSans';letter-spacing:-0.04em;word-spacing:-0.02em;font-size:14px;color:#333;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;/*word-break:keep-all;*/-webkit-appearance:none;-webkit-border-radius:0;}
+html, body {min-height:100vh;-webkit-margin-start:0;-webkit-padding-start:0px;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;scroll-behavior:smooth;}
+body {word-break:keep-all;background:#fff;}
+blockquote, q {quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";content:none;}
+a {outline:none;text-decoration:none;-webkit-tap-highlight-color:rgba(0,0,0,0.0);}
+button {outline:none;background:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+a img {border:none;}
+address, caption, cite, code, dfn, em, th, var, i {font-style:normal;font-weight:normal;}
+a, button, input, textarea, select {-webkit-tap-highlight-color:transparent;}
+a, button, input:focus, select:focus, textarea:focus {outline:0 none;}
+/* ===== Interval ===== */
+/* align */
+.tL {text-align:left !important;}
+.tR {text-align:right !important;}
+.tC {text-align:center !important;}
+
+/* ====================== */
+/* Components */
+/* ====================== */
+/* radio */
+.radioSet {position:relative;display:inline-block;vertical-align:middle;text-align:left;margin-right:1.538rem;}
+.radioSet input {position:absolute;opacity:0;left:0;top:0;width:100%;height:100%;border:none;background:transparent;z-index:10;}
+.radioSet label {display:block;position:relative;padding-left:26px;word-break:break-word;}
+.radioSet label > i {position:absolute;display:block;left:0;top:50%;margin-top:-9px;width:18px;height:18px;box-sizing:border-box;border:1px solid #666;background:#fff;}
+.radioSet input:disabled + label {color:#888;font-weight:100;}
+.radioSet input:disabled + label > i {border-color:#ddd;background:#fafafa;}
+.radioSet input:disabled + label > i:before {border-color:#fafafa;}
+.radioSet input:checked:disabled + label {color:#999;}
+.radioSet.noLabel {margin-right:0;vertical-align:middle;}
+.radioSet.noLabel label {padding-left:0;}
+.radioSet.noLabel label > i {position:relative;top:0;margin-top:0;}
+.radioSet label i {border-radius:100%;}
+.radioSet label i:before {content:'';position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:100%;background:#fff;}
+.radioSet input:checked + label i {border-color:#333;}
+.radioSet input:checked + label i:before {background:#333;}
+.radioSet input:checked:disabled + label i {border-color:#999;}
+.radioSet input:checked:disabled + label i:before {background:#999;}
+/* checkBox */
+.checkSet {position:relative;display:inline-block;vertical-align:middle;text-align:left;margin-right:1.538rem;}
+.checkSet input {position:absolute;opacity:0;left:0;top:0;width:100%;height:100%;border:none;background:transparent;z-index:10;}
+.checkSet label {display:block;position:relative;padding-left:26px;word-break:break-word;}
+.checkSet label > i {position:absolute;display:block;left:0;top:50%;margin-top:-9px;width:18px;height:18px;box-sizing:border-box;border:1px solid #666;background:#fff;}
+.checkSet input:disabled + label {color:#888;font-weight:100;}
+.checkSet input:disabled + label > i {border-color:#ddd;background:#fafafa;}
+.checkSet input:disabled + label > i:before {border-color:#fafafa;}
+.checkSet input:checked:disabled + label {color:#999;}
+.checkSet.noLabel {margin-right:0;vertical-align:middle;}
+.checkSet.noLabel label {padding-left:0;}
+.checkSet.noLabel label > i {position:relative;top:0;margin-top:0;}
+.checkSet input + label i {border-color:#ddd;}
+.checkSet input + label i:before {content:'';position:absolute;left:3px;top:3px;display:inline-block;width:10px;height:6px;box-sizing:border-box;border:2px solid #ddd;border-top:0;border-right:0;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg);}
+.checkSet input:checked + label i {border-color:#333;}
+.checkSet input:checked + label i:before {border-color:#0e935d;}
+.checkSet input:checked:disabled + label i {border-color:#999;}
+.checkSet input:checked:disabled + label i:before {border-color:#999;}
+.checkSet.loginType label {padding-left:1.857rem;font-size:13px;color:#333;}
+.checkSet.loginType input:checked + label i {background:#ddd;border:0;}
+.checkSet.loginType input:checked + label i:before {left:6px;top:6px;border:2px solid #fff;border-top:0;border-right:0;}
+/* select */
+.selectSet {position:relative;display:inline-block;padding:0;overflow:hidden;vertical-align:middle;}
+.selectSet:after {content:"";position:absolute;left:auto;right:16px;top:50%;display:block;margin-top:-7px;height:8px;width:8px;border:1px solid #666;border-width:1px 1px 0 0;-webkit-transform:rotate(135deg);-moz-transform:rotate(135deg);-ms-transform:rotate(135deg);-o-transform:rotate(135deg);transform:rotate(135deg);pointer-events:none;}
+.selectSet select {display:block;padding:0 3.214rem 0 15px;height:50px;width:100%;color:#666;vertical-align:top;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;border:none;border:1px solid #ddd;background:#fff;outline:0 none;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+.selectSet select:focus {border-color:#333;}
+.selectSet select:disabled {border-radius:0;background-color:#fafafa;}
+.selectSet.error select {border-color:#d1555f;}
+.selectSet.disCase:after {content:none;}
+.selectSet select:required:invalid {color:#999;}
+.selectSet option[value="0"][disabled] {display:none;}
+.selectSet.label select {color:#999;font-weight:200;}
+/* grid */
+.gridSet {display:table;width:100%;box-sizing:border-box;table-layout:fixed;}
+.gridSet .gridItem {display:table-cell;width:100%;vertical-align:middle;box-sizing:border-box;}
+.gridSet.grid1 .gridItem {width:100%;}
+.gridSet.grid2 .gridItem {width:50%;}
+.gridSet.grid3 .gridItem {width:33.3333333333%;}
+.gridSet.grid4 .gridItem {width:25%;}
+.gridSet.grid5 .gridItem {width:20%;}
+/* -- 태그형 아이콘 -- */
+/* 과목 (태그형) */
+.iSbjSetMini {display:inline-block;width:50px;height:19px;margin-right:5px;font-size:12px;color:#fff;vertical-align:middle;text-align:center;font-weight:100;letter-spacing:-0.02em;border-radius:3px;box-sizing:border-box;overflow:hidden;background:#666;}
+.iSbjSetMini.line {font-weight:300;color:#333;line-height:1.4;border:1px solid #333;background:#fff;}
+.iSbjSetMini.lineLong {padding:0 4px;width:auto;font-weight:300;color:#333;line-height:1.4;border:1px solid #333;background:#fff;}
+.iSbjSetMini.red {background:#d1555f;}
+.iSbjSetMini.green {background:#0e935d;}
+.iSbjSetMini.black {background:#333;}
+/* 결제 및 배송의 상품구분 */
+.iPro {display:inline-block;width:50px;height:19px;margin-right:5px;font-size:12px;color:#fff;vertical-align:middle;text-align:center;font-weight:100;letter-spacing:-0.02em;border-radius:3px;box-sizing:border-box;overflow:hidden;background:#666;}
+.iPro.line {font-weight:300;color:#333;line-height:1.4;border:1px solid #333;background:#fff;}
+.iPro.lineLong {padding:0 4px;width:auto;font-weight:300;color:#333;line-height:1.4;border:1px solid #333;background:#fff;}
+.iPro.red {background:#d1555f;}
+.iPro.green {background:#0e935d;}
+.iPro.black {background:#333;}
+.iPro.book {background:#888;}
+.iPro.device {background:#333;}
+.iPro.goods {background:#333;}
+.iPro.bonus {background:#f3b100;}
+.iPro.my {width:70px;background:#579bd6;}
+/* 일반 상태표시 */
+.division {display:inline-block;vertical-align:middle;color:#0068b7;font-size:12px;font-weight:500;}
+
+
+/* popup */
+.modalDim {position:fixed;z-index:400;top:0;left:0;width:100%;height:100%;display:table;background:rgba(0, 0, 0, 0.5);transition:opacity 0.3s ease;}
+.modalDim .modalWrapper {display:table-cell;vertical-align:middle;}
+.modalDim .modalContainer {padding:20px 30px 35px;margin:0 auto;width:960px;box-shadow:0 2px 8px rgba(0, 0, 0, 0.33);background:#fff;transition:all 0.3s ease;}
+.modalDim .modalClose {position:absolute;top:1.786rem;right:1.786rem;width:2rem;height:2rem;overflow:hidden;font-size:0;vertical-align:middle;background:url('../images/btn_modal_Close.svg') no-repeat center;}
+.modalDim .modalheader {position:relative;padding:0 0 15px;border-bottom:2px solid #333;background:#fff;}
+.modalDim .modalheader h1 {font-size:18px;}
+.modalDim .modalheader span {display:block;padding-top:5px;font-size:14px;font-weight:normal;color:#666;}
+.modalDim .modalheader .modalClose {top:-1px;right:0;width:28px;height:28px;}
+.modalDim .modalbody {padding:15px 0 20px;max-height:550px;overflow-y:auto;}
+.modalDim .modalbody::-webkit-scrollbar {width:5px;}
+.modalDim .modalbody::-webkit-scrollbar-thumb {background-color:#7d7d7d;}
+.modalDim .modalbody::-webkit-scrollbar-track {background-color:#a9a9a9;}
+.modalDim .modalBtn {display:inline-block;width:100%;text-align:center;}
+.modalDim .modalBtn:after {content:"";display:block;clear:both;}
+.modalDim .modalBtn [class*=btn] {margin:0 5px;width:10rem;}
+.modalDim .modalBtn.soloCase [class*=btn] {width:15rem;}
+.modalDim .modalBtn.line {padding-top:20px;border-top:1px solid #ddd;}
+/* ====================== */
+/* event 공통 */
+/* ====================== */
+/* ===== 레이아웃 ===== */
+.eventWrap .frameBack {margin:0 auto;width:1100px;}
+.eventWrap img {max-width:100%;}
+.eventWrap .eventHead {position:relative;text-align:center;background-repeat:no-repeat;background-position:center;}
+.eventWrap .eventHead img {display:block;margin:0 auto;}
+.eventWrap .eventContents {position:relative;}
+
+/* ===== 과목/선생님 선택 ===== */
+.selectForm {border-bottom:2px solid #333;}
+.selectForm .selectArea {padding:30px 0 30px;}
+.selectForm .selectArea:after {content:"";display:block;clear:both;}
+.selectForm .selectArea label {display:inline-block;width:70px;font-weight:600;font-size:20px;}
+.selectForm .selectArea .selectSet {width:260px;}
+.selectForm .kind ~ .kind {margin-left:48px;}
+
+/* ===== 연간 커리큘럼 ===== */
+.annualPlan {padding:50px 0 50px;}
+.annualPlan > strong {display:block;padding:0 0 15px;font-size:18px;}
+.planList {width:100%;}
+.planList div {display:inline-flex;}
+.planList dl {display:table-cell;width:calc(100% / 4);border:1px solid #ccc;border-right:0;}
+.planList dl dt {height:60px;padding:0 19px 0 21px;margin-left:-1px;color:#fff;font-weight:500;line-height:2.8;letter-spacing:-0.04em;font-size:20px;border-right:1px solid #fff;background:#9AB6C4;}
+.planList dl dt em {display:inline-block;float:right;border:1px solid #fff;border-radius:5px;margin:16px 0 0 0;height:22px;width:54px;font-weight:200;letter-spacing:0.01em;text-align:center;font-size:16px;line-height:1.3;color:#fff;}
+.planList dl dd {padding:15px 21px 32px 21px;min-height:170px;}
+.planList dl dd strong {display:block;font-size:18px;font-weight:600;line-height:1.4;padding-bottom:13px;}
+.planList dl dd strong strong {display:block;font-size:18px;font-weight:600;padding-bottom:0;}
+.planList dl dd span {display:block;color:#666;}
+.planList dl dd:nth-child(n+3) {border-top:1px solid #ccc}
+.planList dl:first-child {border-radius:10px 0 0 10px;}
+.planList dl:first-child dt {border-radius:10px 0 0 0;}
+.planList dl:last-child {border-radius:0 10px 10px 0;border-right:1px solid #ccc;}
+.planList dl:last-child dt {border-radius:0 10px 0 0;border-right:0;margin-right:-1px;}
+.planList dl:nth-child(2) dt {background:#89a6b4;}
+.planList dl:nth-child(3) dt {background:#7191a1;}
+.planList dl:nth-child(4) dt {background:#5a7b8b;}
+
+/* ===== 강의 리스트 ===== */
+/* tab */
+.tabBack .tabNav ul:after {content:"";display:block;clear:both;}
+.tabBack {position:relative;}
+.tabBack .tabNav {line-height:0;}
+.tabBack .tabNav ul {width:100%;height:3.429rem;}
+.tabBack .tabNav ul li {display:inline-block;height:3.429rem;color:#888;box-sizing:border-box;background:#f3f3f3;}
+.tabBack .tabNav ul li a, 
+.tabBack .tabNav ul li button {display:block;padding:0 15px;width:100%;height:3.429rem;font-size:16px;text-align:center;line-height:3;cursor:pointer;word-break:break-all;border:none;box-sizing:border-box;background:transparent;}
+.tabBack .tabNav ul li.on {position:relative;z-index:2;background:#0e935d;}
+.tabBack .tabNav ul li.on a, 
+.tabBack .tabNav ul li.on button {color:#fff;}
+.tabBack .tabNav ul.blackLineTab {height:50px;border-bottom:2px solid #333;background:#fafafa;}
+.tabBack .tabNav ul.blackLineTab li {position:relative;width:20%;height:48px;box-sizing:border-box;background:none;}
+.tabBack .tabNav ul.blackLineTab li:before {content:'';position:absolute;top:0;left:-1px;display:inline-block;width:0;height:46px;border-left:1px solid #e9e9e9;}
+.tabBack .tabNav ul.blackLineTab li:first-child:before {display:none;}
+.tabBack .tabNav ul.blackLineTab li button {position:relative;padding:0 15px 2px;height:48px;line-height:2.8;font-size:16px;color:#666;background:none;}
+.tabBack .tabNav ul.blackLineTab li.on {border:2px solid #333;border-bottom:0;background:#fff;}
+.tabBack .tabNav ul.blackLineTab li.on:after {content:'';position:absolute;bottom:-4px;left:0;display:inline-block;width:100%;height:4px;background:#fff;}
+.tabBack .tabNav ul.blackLineTab li.on button {color:#333;font-weight:600;background:#fff;}
+.tabBack .tabNav ul.blackLineTab li.on:before {display:none;}
+.tabBack .tabNav ul.blackLineTab.case3 li {width:calc(100% / 3);}
+.tabLayout {clear:left;display:block;padding-top:20px;width:100%;box-sizing:border-box;}
+.tabLayout .tabData {display:none;}
+
+/* ========= 강과관련 (수강신청, 내강의실 등) ========= */
+/* 강좌 타이틀 기본 */
+.lecTt {display:inline-block;}
+.lecTt a {display:block;}
+.lecTt .tt {padding:6px 0;display:block;font-size:18px;color:#000;letter-spacing:-0.04em;}
+.lecTt .tt .iLocSet {margin:-4px 4px 0 0;}
+.lecTt .tt .iLocSet + .iPro.bonus {margin-top:-4px;}
+.lecTt .iSet {width:50px;}
+.lecTt .iSet.gray {width:auto;}
+.lecTt .division {padding:0 0 0 5px;margin-top:-5px;}
+.lecTt .ssam {display:block;padding-bottom:5px;}
+.lecTt .ssam span {font-size:16px;font-weight:600;}
+.lecTt .ssam i {display:none;}
+.lecTt .ingRate {display:inline-block;}
+.lecTt .ingRate .rateBar {vertical-align:middle;width:314px;background:#ddd;}
+.lecTt .ingRate em {display:inline-block;margin:-2px 0 0 10px;color:#666;vertical-align:middle;}
+.lecTt .ingRate strong {display:inline-block;margin-left:5px;}
+.lecTt .msg {display:block;color:#888;font-weight:100;}
+.lecTt .msg em, .lecTt .msg button {margin:-3px 0 0 5px;vertical-align:middle;}
+.lecTt .msg button {position:relative;}
+.lecTt .msg + .limitNtime {padding-top:10px;}
+.lecTt .tt + .limitNtime {padding-bottom:5px;}
+.lecTt .tt + .lecLimit {display:inline-block;margin:10px 0 9px;}
+.lecTt .liveState {padding:7px 0 0 0;}
+.lecTt .lecUnit .iStartSet, 
+.lecTt .lecUnit .iApplySet, 
+.lecTt .lecUnit .iMaking {display:none;}
+.lecBasic {position:relative;width:100%;padding:18px 300px 21px 0;}
+.lecBasic .kind {position:absolute;top:0;bottom:0;left:-95px;display:table;width:95px;height:100%;text-align:center;}
+.lecBasic .kind span {display:table-cell;width:100%;height:100%;vertical-align:middle;}
+.lecBasic .kind em {margin-bottom:5px;text-align:center;}
+.lecBasic .choice {position:absolute;top:50%;right:20px;transform:translateY(-50%);display:inline-block;width:268px;}
+/* 수강신청 가격체크 */
+.lecBasic .choice .priceCheck {float:right;margin:3px 0 4px;position:relative;display:inline-block;vertical-align:middle;text-align:left;margin-right:1.538rem;margin-right:0;}
+.lecBasic .choice .priceCheck input {position:absolute;opacity:0;left:0;top:0;width:100%;height:100%;border:none;background:transparent;z-index:10;}
+.lecBasic .choice .priceCheck label {display:block;position:relative;padding-left:26px;word-break:break-word;}
+.lecBasic .choice .priceCheck label > i {position:absolute;display:block;left:0;top:50%;margin-top:-9px;width:18px;height:18px;box-sizing:border-box;border:1px solid #666;background:#fff;}
+.lecBasic .choice .priceCheck input:disabled + label {color:#888;font-weight:100;}
+.lecBasic .choice .priceCheck input:disabled + label > i {border-color:#ddd;background:#fafafa;}
+.lecBasic .choice .priceCheck input:disabled + label > i:before {border-color:#fafafa;}
+.lecBasic .choice .priceCheck input:checked:disabled + label {color:#999;}
+.lecBasic .choice .priceCheck.noLabel {margin-right:0;vertical-align:middle;}
+.lecBasic .choice .priceCheck.noLabel label {padding-left:0;}
+.lecBasic .choice .priceCheck.noLabel label > i {position:relative;top:0;margin-top:0;}
+.lecBasic .choice .priceCheck input + label > i:before {content:'';position:absolute;left:3px;top:3px;display:inline-block;width:10px;height:6px;box-sizing:border-box;border:2px solid #fff;border-top:0;border-right:0;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg);}
+.lecBasic .choice .priceCheck label {padding:0 20px 0 46px;width:255px;height:55px;border:1px solid #888;border-radius:5px;background:#fafafa;}
+.lecBasic .choice .priceCheck label > i {left:20px;}
+.lecBasic .choice .priceCheck label em {line-height:3.8;color:#888;}
+.lecBasic .choice .priceCheck input:checked + label {border:1px solid #0e935d;box-shadow:inset 0 0 0 1px #0e935d;background:#fff;}
+.lecBasic .choice .priceCheck input:checked + label > i:before {border-color:#0e935d;}
+.lecBasic .choice .priceCheck input:checked + label em {color:#333;}
+.lecBasic .choice .priceCheck input:disabled + label {border-color:#ddd;color:#aaa;}
+.lecBasic .choice .priceCheck input:disabled + label em {color:#aaa;}
+.lecBasic .choice .priceCheck input:disabled + label > i {border-color:#ddd;background:#fafafa;}
+.lecBasic .choice .priceCheck input:checked:disabled + label {border:1px solid #0e935d;box-shadow:inset 0 0 0 1px #0e935d;background:#fff;}
+.lecBasic .choice .priceCheck .price {float:right;margin-top:6px;text-align:right;line-height:1.3;}
+.lecBasic .choice .priceCheck .price strong {font-size:20px;}
+.lecBasic .choice .priceCheck .price del {display:block;margin-right:0;font-size:12px;}
+.lecBasic .choice .priceCheck .notOnline {float:right;text-align:right;line-height:3.7;color:#666;letter-spacing:-0.02em;font-size:13px;}
+.lecBasic .choice.waiting:before {content:'';display:block;position:absolute;left:0;top:0;right:0;bottom:0;z-index:2;background:rgba(255, 255, 255, .5);}
+.lecBtnSet {padding-top:9px;}
+.lecBtnSet:after {content:"";display:block;clear:both;}
+.lecBtnSet * {display:inline-block;position:relative;padding:0 20px 0 10px;font-size:12px;line-height:2;border-radius:12px;border:1px solid #d1555f;float:left;width:89px;height:28px;margin-right:-1px;text-align:left;white-space:nowrap;color:#666;border-color:#888;border-radius:0;}
+.lecBtnSet *:hover {text-decoration:none !important;}
+.lecBtnSet *::after {content:'';position:absolute;right:10px;top:50%;transform:translateY(-50%) rotate(-45deg);width:6px;height:6px;border-width:0 1px 1px 0;border-style:solid;border-color:#d1555f;border-color:#888;}
+.lecBtnSet *.btnPgOpner {width:121px;overflow:hidden;}
+.lecBtnSet *.btnPgOpner::after {-webkit-transform:translateY(-70%) rotate(45deg);-moz-transform:translateY(-70%) rotate(45deg);-ms-transform:translateY(-70%) rotate(45deg);-o-transform:translateY(-70%) rotate(45deg);transform:translateY(-70%) rotate(45deg);transition:all 0.3s;}
+.lecBtnSet *.btnPgOpner.on {color:#fff;background:#888;font-weight:200;}
+.lecBtnSet *.btnPgOpner.on::after {border-color:#fff;-webkit-transform:translateY(-30%) rotate(-135deg);-moz-transform:translateY(-30%) rotate(-135deg);-ms-transform:translateY(-30%) rotate(-135deg);-o-transform:translateY(-30%) rotate(-135deg);transform:translateY(-30%) rotate(-135deg);}
+.lecBtnSet .lecSale {color:#888;animation:lecSaleColor 2s infinite;}
+@keyframes lecSaleColor {
+    0% {color:#888;background:#fff;}
+  25% {color:#fff;background:#d1555f;}
+  50% {color:#fff;background:#4288bf;}
+  75% {color:#fff;background:#d1555f;}
+  100% {color:#888;background:#fff;}
+}
+.lecBtnSet .lecSale::after {border-color:#888;animation:lecSaleColor2 2s infinite;}
+@keyframes lecSaleColor2 {
+  0% {border-color:#888;}
+  25% {border-color:#fff;}
+  50% {border-color:#fff;}
+  75% {border-color:#fff;}
+  100% {border-color:#888;}
+}
+.lecBasic + .lecBtnSet {margin:-25px 0 15px;}
+/* 강좌 목록 */
+.ssamLecList {padding:0 0 40px;}
+.ssamLecList ul {border-top:1px solid #ddd;}
+.ssamLecList ul > li {padding:0 0 0 95px;border-bottom:1px solid #ddd;}
+.ssamLecList ul > li:hover {background:#fffef7;}
+.ssamLecList ul > li.unOpen {background:#fafafa;opacity:0.5;}
+.ssamLecList ul > li.unOpen .lecUnit * {background:#ddd;}
+.ssamLecList ul > li.unOpen .division {color:#ddd;}
+.ssamLecList ul > li.unOpen .iPro {background:#ddd;}
+.ssamLecList ul > li.unOpen .iPro.bonus {background:#ddd;}
+.ssamLecList ul > li.unOpen .lecLimit.red {color:#666;}
+.ssamLecList ul > li.unOpen .lecLimit.red::before {background:#666;}
+.ssamLecList .inPackage {height:0;overflow:hidden;}
+.ssamLecList .inPackage .openerLine {padding:13px 0;text-align:center;}
+.ssamLecList .inPackage .openerLine button {padding:0 18px;margin-left:-6px;font-size:12px;color:#666;}
+.ssamLecList .inPackage .openerLine button:after {content:"";display:inline-block;margin:2px 0 0 13px;height:6px;width:6px;vertical-align:middle;background:0;border:1px solid #999;border-bottom-color:transparent;border-right-color:transparent;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);transform:rotate(45deg);pointer-events:none;}
+.ssamLecList .inPackage .widthList {padding:5px 20px 4px 19px;background:#fafafa;}
+.ssamLecList .inPackage.on {padding:1px 20px 20px 0;height:auto;}
+.ssamLecList .inbLecture {padding:0 20px 0 0;}
+.ssamLecList .inbLecture .widthList {padding:14px 0 10px;border-top:1px solid #e3e3e3;}
+.ssamLecList .inbLecture .widthList ol li {padding:0;border-bottom:0;}
+.ssamLecList ul.myCase > li {padding:0 0 0 100px;}
+.ssamLecList ul.myCase .lecBasic {padding:22px 300px 21px 0;}
+.ssamLecList ul.myCase .lecBasic .kind span {vertical-align:top;padding-top:12px;}
+.ssamLecList ul.myCase .lecBasic .lecTt .tt {padding:3px 0 6px 0;display:inline;vertical-align:middle;}
+.ssamLecList ul.myCase .choice {text-align:right;}
+.ssamLecList ul > li.holding {background:#fafafa;}
+.ssamLecList ul > li.holding .kind span *, 
+.ssamLecList ul > li.holding .iLocSet {color:#fff !important;background:#ddd;}
+.ssamLecList ul > li.holding .kind span .iSbjSet {color:#ddd !important;background:transparent;border-color:#ddd;}
+.ssamLecList ul > li.holding .kind .iStartSet {font-weight:400;}
+.ssamLecList ul > li.holding .lecTt * {color:#ddd;}
+.ssamLecList ul > li.holding .lecTt .tt {color:#888;}
+.ssamLecList ul > li.holding .iMaking, 
+.ssamLecList ul > li.holding .lecTimes {border-color:#ddd;}
+.ssamLecList ul > li.holding .rateBar {background:#fff;}
+.ssamLecList ul > li.holding .rateBar span {background:#ddd;}
+.ssamLecList ul > li.holding .lecBbsSet {opacity:0.4;}
+.ssamLecList ul > li.holding .lecBbsSet * {cursor:default;}
+.ssamLecList ul > li.holding .lecBasic {position:relative;}
+.ssamLecList ul > li.holding .lecBasic:before {content:'';display:block;position:absolute;left:0;top:0;right:300px;bottom:0;z-index:2;background:transparent;}
+.ssamLecList ul > li.closing {background:#fafafa;}
+.ssamLecList ul > li.closing .kind span .iSbjSet {color:#ddd !important;background:transparent;border-color:#ddd;}
+.ssamLecList ul > li.closing .lecTimes {color:#666;border-color:#666;}
+.ssamLecList ul > li.closing .lecLiveGo {opacity:0.4;cursor:default;}
+.ssamLecList ul > li.closing .lecBasic {position:relative;}
+.ssamLecList ul > li.closing .lecBasic:before {content:'';display:block;position:absolute;left:0;top:0;right:300px;bottom:0;z-index:2;background:transparent;}
+/* (패키지 포함) 강좌 및 교재 목록 */
+.widthList li {padding:9px 0 9px 2px;margin-bottom:2px;border-bottom:1px solid #e3e3e3;}
+.widthList .item {display:table;padding:6px 0 9px;width:100%;}
+.widthList .item .tL {display:table-cell;position:relative;padding:0 0 0 56px;width:60%;vertical-align:top;}
+.widthList .item .tL em, 
+.widthList .item .tL button, 
+.widthList .item .tL i {vertical-align:inherit;}
+.widthList .item .tL i {margin:0 6px 0 6px;}
+.widthList .item .tL [class*=iSet], 
+.widthList .item .tL [class*=iPro] {position:absolute;left:0;top:2px;min-width:50px;width:50px;height:19px;line-height:1.6;}
+.widthList .item .tL strong {display:block;font-weight:500;color:#666;letter-spacing:-0.1em;}
+.widthList .item .tR {display:table-cell;width:40%;vertical-align:top;}
+.widthList .item .tR .price {display:inline-block;margin:-5px 0 0 0;}
+.widthList .item .tR .price strong {font-size:20px;}
+.widthList .item .tR .price del {font-size:12px;}
+.widthList .item .tR .checkSet {margin:-4px 0 0 22px;}
+.widthList .item .tR .notOnline {margin:-3px 0 0 41px;color:#888;font-weight:100;letter-spacing:-0.02em;}
+.widthList .lecBtnSet {display:inline-block;padding:0 0 0 56px;}
+.widthList .lecBtnSet * {border-color:#ddd;}
+.widthList .lecBtnSet *::after {border-color:#999;}
+/* 결제 가격정보 */
+.viewPrice {float:right;position:sticky;right:0;top:50px;width:290px;padding:9px 17px 20px 17px;border:1px solid #ddd;overflow:hidden;/*background:$whiteColor;*/}
+.viewPrice h2 {padding:4px 0 12px;font-size:20px;border-bottom:1px dotted #ddd;}
+.viewPrice .priceOrderSet {padding:0 3px 18px 3px;}
+.viewPrice .priceOrderSet dl {display:table;width:100%;padding:8px 0 2px;}
+.viewPrice .priceOrderSet dl dt {display:table-cell;padding-top:21px;text-align:left;vertical-align:middle;font-size:16px;}
+.viewPrice .priceOrderSet dl dd {display:table-cell;text-align:right;vertical-align:middle;}
+.viewPrice .priceOrderSet dl dd .price del {display:block;margin:0;letter-spacing:0;}
+.viewPrice .priceOrderSet dl dd .price strong {font-size:20px;}
+.viewPrice .priceOrderSet dl.delivery dt {padding-top:0;}
+.viewPrice .priceOrderSet dl.last {margin-top:22px;padding-top:4px;border-top:1px dashed #ddd;}
+.viewPrice .priceOrderSet dl.last dt {display:block;padding-bottom:5px;font-size:16px;text-align:right;color:#000;font-weight:600;}
+.viewPrice .priceOrderSet dl.last dd {display:block;}
+.viewPrice .priceOrderSet dl.last dd .price {color:#d1555f;}
+.viewPrice .priceOrderSet dl.last dd .price strong {font-size:30px;margin-top:-6px;color:inherit;}
+.viewPrice .priceOrderSet dl.last dd .price i {font-size:18px;color:inherit;}
+.viewPrice .agree {padding:25px 8px;border-top:1px dashed #ddd;}
+.viewPrice .agree button {position:relative;display:block;margin:2px 0;width:100%;height:35px;color:#666;text-align:left;border:none;}
+.viewPrice .agree button::after {content:'';position:absolute;right:10px;top:50%;transform:translateY(-50%) rotate(-45deg);width:6px;height:6px;border:1px solid #333;border-width:0 1px 1px 0;}
+.viewPrice .agree .checkSet {margin:25px 0 0;}
+.viewPrice .agree .checkSet label {color:#666;}
+.viewPrice .btn [class*=btn] {width:100%;}
+.viewPrice .btn [class*=btn] ~ [class*=btn] {margin-top:5px;}
+.viewPrice p {padding-top:20px;word-break:initial !important;line-height:1.6;color:#666;}
+.viewPrice p strong {color:#d1555f;font-weight:bold;font-size:inherit;}
+/* 공통사용 쌤팩 및 이벤트 용 선생님 셋트 */
+.subjectSet {margin-bottom:-1px;}
+.subjectSet .ssamBasic {background:#fafafa;}
+.subjectSet .ssamBasic .gridItem {height:140px;}
+.subjectSet .ssamBasic .name {padding:23px 20px 27px;}
+.subjectSet .ssamBasic .name .ssamImg {position:relative;margin-right:5px;display:inline-block;width:86px;height:86px;border-radius:5px;vertical-align:middle;overflow:hidden;border:1px solid #ddd;box-sizing:border-box;background:#fff;}
+.subjectSet .ssamBasic .name .ssamImg img {position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);width:auto;height:auto;max-width:100%;max-height:100%;display:block;}
+.subjectSet .ssamBasic .name div {display:inline-block;padding:0 0 5px 25px;vertical-align:middle;}
+.subjectSet .ssamBasic .name strong {font-size:18px;vertical-align:middle;}
+.subjectSet .ssamBasic .name .msg {display:block;padding-top:5px;color:#666;font-weight:200;}
+.subjectSet .ssamBasic .name .iSbjSetMini {min-width:46px;width:auto;}
+.subjectSet .ssamBasic .goBtn {padding:25px 9px 20px;text-align:right;}
+.subjectSet .ssamBasic .goBtn span {display:inline-block;}
+.subjectSet .ssamBasic .goBtn span * {float:left;display:inline-block;padding:24px 0 0 0;width:98px;height:42px;text-align:center;font-size:12px;color:#666;border-right:1px solid #ddd;box-sizing:border-box;background-color:transparent;}
+.subjectSet .ssamBasic .goBtn span:after {content:"";display:block;clear:both;}
+.subjectSet .ssamBasic .goBtn .ssamHome {width:90px;background:url('../images/i_home_black.svg') no-repeat center top;}
+.subjectSet .ssamBasic .goBtn .curriculum {background:url('../images/i_open_curriculum.svg') no-repeat center top;}
+.subjectSet .ssamBasic .goBtn .ssamNotice {background:url('../images/i_open_ssamNotic.svg') no-repeat center top;}
+.subjectSet .ssamBasic .goBtn span *:last-child {border-right:none;}
+.subjectSet .ssamLecList {padding-bottom:50px;}
+.subjectSet .ssamLecList ul {border-top:0;}
+.subjectSet .ssamLecList li {padding-left:0;}
+.subjectSet .ssamLecList .lecBasic {display:table;padding:0;}
+.subjectSet .ssamLecList .lecBasic .lecTt {display:table-cell;padding:25px 300px 24px 20px;height:157px;vertical-align:middle;}
+.subjectSet .ssamLecList .lecBasic .lecTt .tt {padding:0;}
+.subjectSet .ssamLecList .lecBasic .lecTt .msg {padding-top:5px;}
+.subjectSet .ssamLecList .lecBasic .lecTt .tL {display:block;padding:13px 0 0;}
+.subjectSet .ssamLecList .inPackage.on {padding:1px 20px 20px 20px;}
+
+
+/* ================================================================================= */
+/* ===== 모바일 반응형 대응 ===== */
+/* ================================================================================= */
+/* ====================== */
+/* Components */
+/* ====================== */
+/* grid */
+.eventWrap.mDevice .gridSet {display:block;width:100%;}
+.eventWrap.mDevice .gridSet .gridItem {display:block;width:100%;}
+.eventWrap.mDevice .gridSet.grid1 .gridItem,
+.eventWrap.mDevice .gridSet.grid2 .gridItem,
+.eventWrap.mDevice .gridSet.grid3 .gridItem,
+.eventWrap.mDevice .gridSet.grid4 .gridItem,
+.eventWrap.mDevice .gridSet.grid5 .gridItem {display:block;}
+
+/* ===== 레이아웃 ===== */
+.eventWrap.mDevice .frameBack {width:100%;}
+.eventWrap.mDevice .eventContents {padding:20px 20px 50px;}
+
+/* ===== 과목/선생님 선택 ===== */
+.eventWrap.mDevice .selectForm .selectArea {padding:20px 0 20px;}
+.eventWrap.mDevice .selectForm .selectArea label {display:none;padding-bottom:10px;width:100;font-weight:600;font-size:16px;}
+.eventWrap.mDevice .selectForm .selectArea .selectSet {width:100%;}
+.eventWrap.mDevice .selectForm .selectArea .selectSet select {height:40px;padding:0 15px 0 15px;}
+.eventWrap.mDevice .selectForm .kind ~ .kind {margin-left:10px;}
+.eventWrap.mDevice .selectForm .kind {display:inline-block;width:calc((100% - 10px)/2);}
+
+/* ===== 연간 커리큘럼 ===== */
+.eventWrap.mDevice .planList {width:100%;}
+.eventWrap.mDevice .planList div {display:block;border:1px solid #ddd;background:#fff;}
+.eventWrap.mDevice .planList dl {display:inline-block;float:none;width:100%;border:0;padding-bottom:13px;}
+.eventWrap.mDevice .planList dl dt {height:40px;padding:0 13px 0 13px;margin-left:0;color:#fff;font-weight:500;line-height:2.8;letter-spacing:-0.04em;font-size:14px;border-right:0;background:#9ab6c4;}
+.eventWrap.mDevice .planList dl dt em {margin:10px 0 0 0;height:16px;width:40px;font-size:11px;line-height:1.4;border-radius:3px;}
+.eventWrap.mDevice .planList dl dd {padding:13px 21px 0 13px;min-height:auto;}
+.eventWrap.mDevice .planList dl dd strong {display:block;font-size:13px;font-weight:600;line-height:1.4;padding-bottom:3px;}
+.eventWrap.mDevice .planList dl dd strong strong {display:inline;font-size:13px;font-weight:600;padding-bottom:0;}
+.eventWrap.mDevice .planList dl dd span {font-size:12px;}
+.eventWrap.mDevice .planList dl dd:nth-child(n+3) {border-top:0;}
+.eventWrap.mDevice .planList dl:first-child {border-radius:0 0 0 0;}
+.eventWrap.mDevice .planList dl:first-child dt {border-radius:0 0 0 0;}
+.eventWrap.mDevice .planList dl:last-child {border-radius:0 0 0 0;}
+.eventWrap.mDevice .planList dl:last-child dt {border-radius:0 0 0 0;border-right:0;margin-right:0;}
+.eventWrap.mDevice .planList dl:nth-child(2) dt {background:#89a6b4;}
+.eventWrap.mDevice .planList dl:nth-child(3) dt {background:#7191a1;}
+.eventWrap.mDevice .planList dl:nth-child(4) dt {background:#5a7b8b;}
+
+/* ===== 강의 리스트 ===== */
+/* tab */
+.eventWrap.mDevice .tabBack {position:relative;}
+.eventWrap.mDevice .tabBack .tabNav ul.blackLineTab {height:40px;}
+.eventWrap.mDevice .tabBack .tabNav ul.blackLineTab li {height:40px;}
+.eventWrap.mDevice .tabBack .tabNav ul.blackLineTab li:before {height:36px;}
+.eventWrap.mDevice .tabBack .tabNav ul.blackLineTab li button {padding:0 5px 4px;height:38px;line-height:1;}
+.eventWrap.mDevice .tabLayout {padding-top:15px;}
+
+/* ========= 강과관련 (수강신청, 내강의실 등) ========= */
+/* 강좌 타이틀 기본 */
+.eventWrap.mDevice .lecTt {display:block;}
+.eventWrap.mDevice .lecTt .tt {padding:8px 60px 6px 0;display:block;line-height:1.4;}
+.eventWrap.mDevice .lecTt .tt .iMaking {display:none;}
+.eventWrap.mDevice .lecTt .ssam {position:absolute;right:20px;top:21px;text-align:right;color:#666;white-space:nowrap;}
+.eventWrap.mDevice .lecTt .ssam * {color:#666;}
+.eventWrap.mDevice .lecTt .ssam i {display:inline-block;margin-right:4px;}
+.eventWrap.mDevice .lecTt .ingRate {display:block;padding-top:5px;white-space:nowrap;}
+.eventWrap.mDevice .lecTt .ingRate .rateBar {width:calc((100% / 3) * 2);}
+.eventWrap.mDevice .lecTt .msg {font-weight:400;}
+.eventWrap.mDevice .lecTt .tt + .lecLimit {margin:6px 0 7px;}
+.eventWrap.mDevice .lecTt .lecLimit + .iSetLine {margin-bottom:4px;}
+.eventWrap.mDevice .lecTt .lecLimit.multy {display:block;margin:0 0 10px;}
+.eventWrap.mDevice .lecTt .liveState {padding:0 0 0 0;}
+.eventWrap.mDevice .lecTt .limitNtime {padding:6px 0 7px;}
+.eventWrap.mDevice .lecTt .lecUnit em {width:auto;padding:0 4px;}
+.eventWrap.mDevice .lecTt .lecUnit .iStartSet, eventWrap.mDevice .lecTt .lecUnit .iApplySet, eventWrap.mDevice .lecTt .lecUnit .iMaking {display:inline-block;width:55px;height:19px;line-height:1.4;border-radius:20px;margin-right:5px;}
+.eventWrap.mDevice .lecTt .lecUnit .iMaking {width:auto;border-radius:3px;}
+.eventWrap.mDevice .lecBasic {position:initial;width:100%;padding:18px 0 0 0;}
+.eventWrap.mDevice .lecBasic .kind {position:absolute;top:34px;bottom:auto;left:auto;right:20px;width:50px;height:auto;}
+.eventWrap.mDevice .lecBasic .choice {top:auto;right:20px;left:20px;bottom:30px;transform:translateY(0);width:calc(100% - 40px);}
+.eventWrap.mDevice .lecBasic .choice:after {content:"";display:block;clear:both;}
+/* 수강신청 가격체크 */
+.eventWrap.mDevice .lecBasic .choice .priceCheck {float:left;margin:0;width:calc((100% - 8px)/2);}
+.eventWrap.mDevice .lecBasic .choice .priceCheck ~ .priceCheck {margin-left:8px;}
+.eventWrap.mDevice .lecBasic .choice .priceCheck label {padding:0 20px 0 33px;width:100%;height:56px;}
+.eventWrap.mDevice .lecBasic .choice .priceCheck label > i {left:10px;top:10px;margin-top:0;}
+.eventWrap.mDevice .lecBasic .choice .priceCheck label em {line-height:2.6;}
+.eventWrap.mDevice .lecBasic .choice .priceCheck .price {margin-top:0;position:absolute;right:10px;top:9px;}
+.eventWrap.mDevice .lecBasic .choice .priceCheck .price strong {margin-top:2px;}
+.eventWrap.mDevice .lecBasic .choice .priceCheck .notOnline {position:absolute;right:12px;bottom:11px;line-height:1;}
+.eventWrap.mDevice .lecBasic .choice .lecBbsSet {height:auto;padding-bottom:0;}
+.eventWrap.mDevice .lecBasic .choice .lecBbsSet span {float:left;}
+.eventWrap.mDevice .lecBasic .choice .lecBbsSet span * {margin-right:10px;width:70px;height:70px;line-height:4;font-size:12px;border:none;border-radius:50%;background-color:#fafafa;background-position:center 14px;}
+.eventWrap.mDevice .lecBasic .choice .lecReAddSet {width:100%;}
+.eventWrap.mDevice .lecBasic .choice .lecReAddSet * {display:inline-block;position:relative;width:calc(100% / 3);height:36px;padding:0 20px 0 16px;padding-left:16px;font-size:13px;line-height:2;text-align:left;border-radius:0;border:1px solid #999;}
+.eventWrap.mDevice .lecBasic .choice .lecReAddSet *:hover {text-decoration:none !important;}
+.eventWrap.mDevice .lecBasic .choice .lecReAddSet *::after {content:'';position:absolute;right:10px;top:50%;transform:translateY(-50%) rotate(-45deg);width:6px;height:6px;border-width:0 1px 1px 0;border-style:solid;border-color:#333;}
+.eventWrap.mDevice .lecBasic .choice .lecReAddSet *:disabled {padding:0 0 2px;text-align:center;border-color:#bbb;}
+.eventWrap.mDevice .lecBasic .choice .lecReAddSet *:disabled::after {display:none;}
+.eventWrap.mDevice .lecBasic .choice .lecReAddSet *.red {padding:0 0 2px;text-align:center;border-color:#d1555f;color:#d1555f;}
+.eventWrap.mDevice .lecBasic .choice .lecReAddSet *.red::after {display:none;}
+.eventWrap.mDevice .lecBasic .choice .lecBbsSet + .lecReAddSet {padding-top:15px;}
+.eventWrap.mDevice .lecBtnSet {padding:6px 0 15px;}
+.eventWrap.mDevice .lecBtnSet * {height:32px;}
+/* 강좌 목록 */
+.eventWrap.mDevice .ssamLecList {padding:0 0 40px;width:calc(100% + 40px);margin-left:-20px;}
+.eventWrap.mDevice .ssamLecList ul > li {position:relative;padding:0 20px 86px;border-bottom:1px solid #ddd;}
+.eventWrap.mDevice .ssamLecList ul > li:hover {background:none;}
+.eventWrap.mDevice .ssamLecList .inPackage {margin-top:-5px;}
+.eventWrap.mDevice .ssamLecList .inPackage .widthList {padding:0;border:1px solid #ddd;}
+.eventWrap.mDevice .ssamLecList .inPackage .widthList ol li .item:first-child {border-top:0;}
+.eventWrap.mDevice .ssamLecList .inPackage.on {padding:1px 0 16px 0;}
+.eventWrap.mDevice .ssamLecList .inbLecture {padding:0;}
+.eventWrap.mDevice .ssamLecList .inbLecture .widthList {padding:0 0 10px;border-top:0;}
+.eventWrap.mDevice .ssamLecList .inbLecture .widthList ol {padding:0 0 0;border-bottom:1px solid #ddd;}
+.eventWrap.mDevice .ssamLecList .inbLecture .widthList ol li {padding:0;border-bottom:0;margin-bottom:0;background:#fff;}
+.eventWrap.mDevice .ssamLecList ul > li.unOpen .inbLecture .widthList {background:#fafafa;}
+.eventWrap.mDevice .ssamLecList ul > li.unOpen .inbLecture .widthList ol {background:#fafafa;}
+.eventWrap.mDevice .ssamLecList ul > li.unOpen .inbLecture .widthList ol li {background:#fafafa;}
+.eventWrap.mDevice .ssamLecList ul.myCase > li {padding:0 20px;}
+.eventWrap.mDevice .ssamLecList ul.myCase .kind {display:none;}
+.eventWrap.mDevice .ssamLecList ul.myCase .lecBasic {padding:22px 0 21px 0;}
+.eventWrap.mDevice .ssamLecList ul.myCase .lecBasic .lecTt .tt {display:block;padding:9px 0 4px 0;font-size:16px;}
+.eventWrap.mDevice .ssamLecList ul.myCase .lecBasic .choice {position:relative;right:auto;left:auto;bottom:auto;padding-top:15px;width:100%;}
+.eventWrap.mDevice .ssamLecList ul > li.holding .ssam {color:#ddd;}
+.eventWrap.mDevice .ssamLecList ul > li.holding .ssam * {color:#ddd;}
+.eventWrap.mDevice .ssamLecList ul > li.holding .lecBasic:before {right:0;bottom:140px;}
+.eventWrap.mDevice .ssamLecList ul > li.holding .lecBasic .lecTt .tt {color:#888;}
+.eventWrap.mDevice .ssamLecList ul > li.closing .lecBasic:before {right:0;bottom:140px;}
+.eventWrap.mDevice .ssamLecList ul > li.closing .lecBbsSet span * {background-color:#fff;}
+.eventWrap.mDevice .ssamLecList.topNoline ul {border-top:0;}
+.eventWrap.mDevice .ssamLecList .paginate {padding:25px 20px 0;}
+/* (패키지 포함) 강좌 및 교재 목록 */
+.eventWrap.mDevice .widthList {background:#fff;}
+.eventWrap.mDevice .widthList ol {background:#fafafa;}
+.eventWrap.mDevice .widthList li {padding:0 20px 0 21px;margin-bottom:2px;border-bottom:1px solid #e3e3e3;}
+.eventWrap.mDevice .widthList .item {display:block;padding:13px 0 16px;width:100%;border-top:1px solid #e3e3e3;}
+.eventWrap.mDevice .widthList .item .tL {display:block;position:relative;padding:0 0 0 56px;width:100%;vertical-align:top;box-sizing:border-box;}
+.eventWrap.mDevice .widthList .item .tR {display:block;width:100%;padding-top:10px;vertical-align:top;text-align:left !important;}
+.eventWrap.mDevice .widthList .item .tR .price {float:right;display:inline-block;margin:-2px 0 0 0;}
+.eventWrap.mDevice .widthList .item .tR .checkSet {margin:0 0 0 0;}
+.eventWrap.mDevice .widthList .item .tR .notOnline {margin:0 0 0 0;color:#888;font-weight:100;letter-spacing:-0.02em;font-size:13px;}
+.eventWrap.mDevice .widthList .singleLec {padding:0;}
+.eventWrap.mDevice .widthList .singleLec .item {padding:13px 0 10px;}
+.eventWrap.mDevice .widthList .lecBtnSet {padding:0 0 11px;margin-top:0;}
+@media only screen and (max-width:376px) {
+  .eventWrap.mDevice .ssamLecList .lecTt .ingRate .rateBar {width:225px;}
+  .eventWrap.mDevice .ssamLecList .limitNtime em {padding-left:5px;}
+}
+/* 쌤팩 및 이벤트 용 선생님 */
+.eventWrap.mDevice .subjectSet {position:relative;margin-bottom:0;}
+.eventWrap.mDevice .subjectSet .ssamBasic {border-top:1px solid #ddd;background:#fafafa;}
+.eventWrap.mDevice .subjectSet .ssamBasic .gridItem {height:auto;}
+.eventWrap.mDevice .subjectSet .ssamBasic .name {padding:15px 15px 15px;}
+.eventWrap.mDevice .subjectSet .ssamBasic .goBtn {padding:15px 15px 15px;background:#f2f2f2;}
+.eventWrap.mDevice .subjectSet .ssamBasic .goBtn span {width:100%;}
+.eventWrap.mDevice .subjectSet .ssamBasic .goBtn span * {float:left;display:inline-block;padding:24px 0 0 0;width:calc(100%/3);height:42px;font-size:14px;border-right:none;}
+.eventWrap.mDevice .subjectSet .ssamBasic .goBtn .ssamHome {width:calc(100%/3);}
+.eventWrap.mDevice .subjectSet .ssamLecList {padding-bottom:0;width:100%;margin-left:0;}
+.eventWrap.mDevice .subjectSet .ssamLecList li {padding:0 0 28px;margin:0;}
+.eventWrap.mDevice .subjectSet .ssamLecList li:last-child {border-bottom:0;}
+.eventWrap.mDevice .subjectSet .ssamLecList .lecBasic {display:block;padding:0;}
+.eventWrap.mDevice .subjectSet .ssamLecList .lecBasic .lecTt {display:block;padding:22px 0 12px 0;height:auto;}
+.eventWrap.mDevice .subjectSet .ssamLecList .lecBasic .lecTt .tL {padding:8px 0 0;}
+.eventWrap.mDevice .subjectSet .ssamLecList .lecBasic .lecBtnSet {padding:9px 0 0;}
+.eventWrap.mDevice .subjectSet .ssamLecList .choice {position:relative;right:auto;left:auto;bottom:auto;width:100%;}
+.eventWrap.mDevice .subjectSet .ssamLecList .inPackage.on {padding:10px 0 0 0;}
+.eventWrap.mDevice .subjectSet .ssamLecList .widthList ol {padding:0;}
+.eventWrap.mDevice .subjectSet .ssamLecList .widthList ol li {padding:0 20px;margin:0;}

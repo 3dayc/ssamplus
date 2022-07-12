@@ -1,0 +1,61 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _join.scss
+* @Description : 로그인, 회원가입 등
+* @Create Date: 2021-04-05
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ====================== */
+/* Login Layout */
+/* ====================== */
+#joinWrap {text-align:center;
+  .formBack {width:47.69rem;margin:0 auto;padding:5.769rem 0;}
+  .whiteBox {padding:4.615rem 8.462rem;}
+  h1 {height:6.538rem;}
+  h1 img {width:22.77rem;}
+  h2 {font-size:1.846rem;font-weight:700;height:5rem;}
+  h3 {font-size:1.385rem;font-weight:600;height:3rem;text-align:left;}
+  input {height:36px;margin-bottom:10px;}
+  [class*="sizeM"] {margin-bottom:10px;}
+  [class*="btnL"] {margin-top:20px;}
+  .goJoin {padding:1rem 0 0;text-align:right;}
+  .goJoin:after {content:"";display:block;clear:both;}
+  .goJoin .checkSet {float:left;}
+  .goJoin a {margin-left:1rem;color:#666666;font-weight:500;border-bottom:1px solid #666666;}
+  .loginFooter {padding:4.615rem 0 0;font-size:11px;color:#acacac;line-height:1.8;}
+}
+#joinWrap .accountInfo {
+  h2 {display:none;}
+  .basicIp {padding-bottom:20px;}
+  .infoMsg {text-align:left;color:$greenColor;margin-bottom:10px;}
+  .erMsg {padding:0;margin-bottom:10px;}
+  .btnArea {clear:both;padding-bottom:0;}
+  .btnArea:after {content:"";display:block;clear:both;}
+  .btnArea [class*="btn"] {float:left;margin-right:0;width:calc(80% - 18px);}
+  .btnArea .greenline {width:20%;margin-right:.6rem;}
+}
+#joinWrap .joinEnd {
+  h2 {height:auto;padding:6.538rem 0 0;background:url('../images/i_joinEnd.png') no-repeat center top;}
+  p {padding:1rem 0 2.769rem;font-weight:500;font-size:1.308rem;}
+  p strong {font-size:1.308rem;color:#16923e;}
+}
+#joinWrap .pwSettingEnd {
+  h2 {height:auto;padding:6.538rem 0 0;background:url('../images/i_joinEnd.png') no-repeat center top;}
+  p {padding:1rem 0 2.769rem;font-weight:500;font-size:1.308rem;}
+}
+#joinWrap .findAccount {
+  h2 {display:none;}
+  h3 {padding-top:20px;height:5rem;}
+  .infoMsg {padding:0;font-size:16px;text-align:left;}
+  .infoMsg strong {color:$greenColor;font-size:20px;}
+  .tabBack .tabNav ul {border-bottom:0;}
+  .tabBack .tabNav ul li {width:50%;text-align:center;border:0;}
+  .tabBack .tabNav ul li.on {background:0;border:0;}
+  .tabBack .tabNav ul li button {width:100%;background:0;border-bottom:3px solid #ddd;}
+  .tabBack .tabNav ul li.on button {color:#000;border-color:$greenColor;}
+  .btnArea {margin-top:20px;padding:0;
+    [class*="btnL"] {margin-top:10px;}
+  }
+}

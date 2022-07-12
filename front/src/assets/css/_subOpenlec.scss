@@ -1,0 +1,495 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _sub.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ===== 무료강의 메인 ===== */
+.openLecIndex {
+  text-align: center;
+  .subTit {
+    border: none;
+    text-align: center;
+    padding-bottom: 25px;
+    h3 {
+      font-size: $txtSizeP10;
+      font-weight: normal;
+    }
+    strong {
+      font-size: $txtSizeP10;
+      color: #0e935d;
+    }
+  }
+  .indexMain {
+    @extend %clearBh;
+    margin: 0 auto;
+    height: 532px;
+    text-align: center;
+    background: $lightGrayColor;
+    .swiper-container {
+      padding: 60px 0 0;
+      margin: 0 auto;
+    }
+    .swiper-slide {
+      position: relative;
+      width: 640px;
+      opacity: 0;
+      visibility: hidden;
+      .videoPlay {
+        display: inline-block;
+        width: 100%;
+        height: 360px;
+      }
+      .videoPlay::before {
+        display: none;
+        width: 74px;
+        height: 74px;
+      }
+      .videoPlay img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        filter: brightness(30%);
+        -webkit-filter: brightness(30%);
+        // opacity: 0.9;
+      }
+      &.swiper-slide-active .videoPlay img {
+        filter: none;
+        -webkit-filter: none;
+        opacity: 1;
+      }
+    }
+    .swiper-container-3d .swiper-slide-shadow-left,
+    .swiper-container-3d .swiper-slide-shadow-right,
+    .swiper-container-3d .swiper-slide-shadow-top,
+    .swiper-container-3d .swiper-slide-shadow-bottom {
+      display: none;
+      height: 99%;
+    }
+    .mbPage {
+      position: relative;
+      width: 638px;
+      margin: 0 auto;
+    }
+    .swiper-slide-prev,
+    .swiper-slide-active,
+    .swiper-slide-next {
+      position: relative;
+      visibility: visible;
+      opacity: 1;
+    }
+    .swiper-slide-active {
+      cursor: pointer;
+      .videoPlay::before {
+        display: block;
+      }
+    }
+    .swiper-slide-prev::before,
+    .swiper-slide-next::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      margin-top: -209px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      background: $whiteColor;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 20px;
+        background: url(../images/i_arrow.svg) no-repeat center;
+        background-size: 100% 100%;
+      }
+      &::after {
+        font-size: 0;
+      }
+    }
+    .swiper-button-prev {
+      left: -22px;
+    }
+    .swiper-button-next {
+      right: -22px;
+      &::before {
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+    }
+    .swiper-pagination {
+      position: relative;
+      display: inline-block;
+      left: auto;
+      padding-top: 39px;
+      width: auto;
+      text-align: center;
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: url("../images/i_openlecMain.svg") no-repeat bottom left;
+        background-size: 50px auto;
+      }
+      .swiper-pagination-bullet {
+        display: none;
+        width: 480px;
+        height: 40px;
+        padding: 0 12px 0 61px;
+        font-weight: 300;
+        color: #fff;
+        letter-spacing: -0.06em;
+        text-align: left;
+        font-size: 16px;
+        line-height: 2.4;
+        border-radius: 40px;
+        box-sizing: border-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
+        overflow: hidden;
+      }
+      .swiper-pagination-bullet strong {
+        color: #49b68a;
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .swiper-pagination-bullet-active {
+        display: block;
+        background: $blackColor;
+        &:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .frameBack {
+    position: relative;
+  }
+  .indexHighlight {
+    padding: 51px 0 51px 0;
+    .subTit {
+      background: url(../images/openlec_icon1.png) no-repeat top center;
+      h3 {
+        margin-top: 20px;
+      }
+    }
+  }
+  .indexComment {
+    padding: 50px 0 51px;
+    background: $lightGrayColor;
+    .subTit {
+      padding-bottom: 26px;
+      background: url(../images/openlec_icon2.png) no-repeat top center;
+      h3 {
+        margin-top: 20px;
+      }
+    }
+  }
+  .indexPresentation {
+    padding: 50px 0 100px;
+    .subTit {
+      background: url(../images/openlec_icon3.png) no-repeat top center;
+      h3 {
+        margin-top: 20px;
+      }
+    }
+  }
+  .bothArrows {
+    position: relative;
+    height: 290px;
+    .swiper-button-prev {
+      left: -25px;
+      margin-top: -93px;
+    }
+    .swiper-button-next {
+      right: -25px;
+      margin-top: -93px;
+    }
+  }
+  .btnL.line {
+    width: 280px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 2.8;
+  }
+  &.mCase {
+    .indexMainM {
+      // height: 317px;
+      height: auto;
+      .swiper-container {
+        padding: 0 30px 0;
+        margin: 0 auto;
+      }
+      .swiper-slide {
+        position: relative;
+        width: 100%; max-width: 640px;
+        box-sizing: border-box;
+        line-height: 0;
+        .videoPlay {
+          @extend %imgAlignCenter;
+          display: inline-block;
+          width: 100%;
+          height: 233px;
+          background-color: #f5f5f5;
+        }
+        .videoPlay::before {
+          width: 60px;
+          height: 60px;
+        }
+        .videoPlay img {
+          border-radius: 0;
+          width: 100%; height: 100%;
+          object-fit: cover;
+        }
+      }
+      .mbPage {
+        position: relative;
+        width: 100%;
+        // height: 50px;
+        height: auto;
+        background: transparent;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        margin-top: -12px;
+        width: 24px;
+        height: 24px;
+        background: url("../images/i_arrow_white.svg") no-repeat center;
+        background-size: auto 100%;
+        &::after {
+          display: none;
+        }
+      }
+      .swiper-button-next {
+        transform: rotate(180deg);
+      }
+      .swiper-pagination {
+        position: relative;
+        z-index: 0;
+        display: block;
+        width: auto;
+        text-align: center;
+        overflow: hidden;
+        .swiper-pagination-bullet {
+          display: none;
+          width: 100%;
+          height: auto;
+          padding: 15px 47px 50px;
+          font-weight: 300;
+          color: #333;
+          letter-spacing: -0.06em;
+          text-align: center;
+          font-size: 14px;
+          line-height: 120%;
+          border-radius: 0;
+          box-sizing: border-box;
+          // text-overflow: ellipsis;
+          // white-space: nowrap;
+          // word-wrap: normal;
+          // overflow: hidden;
+        }
+        .swiper-pagination-bullet strong {
+          color: #0e935d;
+          font-weight: 600;
+          font-size: 14px;
+        }
+        .swiper-pagination-bullet-active {
+          display: block;
+          background: #f5f5f5;
+          &:after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ===== 무료강의 공통 ===== */
+.openSorting {
+  .selectSet {
+    width: 150px;
+    margin-left: 10px;
+  }
+}
+.openLecThumbnail {
+  width: 256px;
+  height: 244px;
+  text-align: left;
+  .videoPlay {
+    @extend %imgAlignCenter;
+    display: inline-block;
+    width: 256px;
+    height: 156px;
+  }
+  .tit {
+    @extend %clearBh;
+    margin: 13px 0 8px;
+    height: 40px;
+    line-height: 1.4;
+    color: #666;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+  .btnTcHomeName {
+    font-weight: 600;
+  }
+}
+.openLecList {
+  ul {
+    @extend %clearBh;
+    padding: 15px 0 0;
+    border-bottom: 1px solid $grayColor;
+  }
+  li {
+    float: left;
+    width: 256px;
+    height: 291px;
+    margin-right: 25px;
+    &:nth-child(4n) {
+      margin-right: 0;
+      margin-left: 1px;
+    }
+    .tit {
+      margin: 12px 0 9px;
+    }
+  }
+  li:nth-last-child(-n + 4) {
+    height: 261px;
+  }
+}
+
+/* ===== 무료특강 ===== */
+.openLecFree {
+  padding: 50px 0 0;
+}
+.openSpecialList {
+  padding: 20px 0 100px;
+  h4 {
+    padding-bottom: 15px;
+    font-size: $txtSizeP4;
+  }
+}
+.lecturePriceTotal.openCase {
+  position: sticky;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  width: 100%;
+  height: 70px;
+  border-top: 1px solid $blackColor;
+  box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.1);
+  background: $whiteColor;
+  .frameBack {
+    padding: 5px 0;
+  }
+  dl {
+    padding-top: 17px !important;
+  }
+  .right [class*="btn"] {
+    margin: 8px 0 0 5px;
+  }
+}
+
+.lecTt .msg {font-weight:400;}
+
+.openLecHighLight {
+  .subTit {
+    .selectSet {width:148px; margin-right: 10px;}
+    .listSearch {}
+    &.for_search {
+      border: none;
+      padding-top: 16px;
+      .search_box {
+        background-color: #fafafa;
+        padding: 11px 16px 9px;
+        display: block;
+        .multiselect + * {margin-left: 10px;}
+      }
+      .multiselect__select {position: absolute;}
+      .multiselect__select:before  {position: absolute; width: 8px; height: 8px; border: 1px solid #666; border-width: 1px 1px 0 0; display: block; transform: translate(-50%, -50%) rotate(135deg); left: 50%; margin: 0px; top: 50%;}
+    }
+
+  }
+}
+.openLecComment {
+  .subTit {
+    .selectSet {width:148px; margin-right: 10px;}
+    .listSearch {}
+    &.for_search {
+      border: none;
+      padding-top: 16px;
+      .search_box {
+        background-color: #fafafa;
+        padding: 11px 16px 9px;
+        display: block;
+        .multiselect + * {margin-left: 10px;}
+      }
+      .multiselect__select {position: absolute;}
+      .multiselect__select:before  {position: absolute; width: 8px; height: 8px; border: 1px solid #666; border-width: 1px 1px 0 0; display: block; transform: translate(-50%, -50%) rotate(135deg); left: 50%; margin: 0px; top: 50%;}
+    }
+
+  }
+}
+.openLecPresentation {
+  .subTit {
+    .selectSet {width:148px; margin-right: 10px;}
+    .listSearch {}
+    &.for_search {
+      border: none;
+      padding-top: 16px;
+      .search_box {
+        background-color: #fafafa;
+        padding: 11px 16px 9px;
+        display: block;
+        .multiselect + * {margin-left: 10px;}
+      }
+      .multiselect__select {position: absolute;}
+      .multiselect__select:before  {position: absolute; width: 8px; height: 8px; border: 1px solid #666; border-width: 1px 1px 0 0; display: block; transform: translate(-50%, -50%) rotate(135deg); left: 50%; margin: 0px; top: 50%;}
+    }
+
+  }
+}
+.openLecFree {
+  .subTit {
+    .selectSet {width:148px; margin-right: 10px;}
+    .listSearch {}
+    &.for_search {
+      border: none;
+      padding-top: 16px;
+      .search_box {
+        background-color: #fafafa;
+        padding: 11px 16px 9px;
+        display: block;
+        .multiselect + * {margin-left: 10px;}
+      }
+      .multiselect__select {position: absolute;}
+      .multiselect__select:before  {position: absolute; width: 8px; height: 8px; border: 1px solid #666; border-width: 1px 1px 0 0; display: block; transform: translate(-50%, -50%) rotate(135deg); left: 50%; margin: 0px; top: 50%;}
+    }
+
+  }
+}

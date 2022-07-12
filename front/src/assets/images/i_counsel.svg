@@ -1,0 +1,15 @@
+<svg id="Vector_Smart_Object" data-name="Vector Smart Object" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="17" viewBox="0 0 20 17">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_52" data-name="사각형 52" width="20" height="17" transform="translate(0 0)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="그룹_71" data-name="그룹 71">
+    <g id="그룹_70" data-name="그룹 70" clip-path="url(#clip-path)">
+      <path id="패스_78" data-name="패스 78" d="M10,.611C4.822.611.625,4.029.625,8.246a6.717,6.717,0,0,0,1.846,4.535L.625,16.389l4.7-1.532A10.986,10.986,0,0,0,10,15.88c5.178,0,9.375-3.418,9.375-7.635S15.178.611,10,.611Z" fill="none" stroke="#fff" stroke-linejoin="round" stroke-width="1.236"/>
+      <path id="패스_79" data-name="패스 79" d="M9.1,8.5a1.042,1.042,0,1,1,1.042,1.018A1.03,1.03,0,0,1,9.1,8.5" fill="#fff"/>
+      <path id="패스_80" data-name="패스 80" d="M12.227,8.5a1.042,1.042,0,1,1,1.042,1.018A1.03,1.03,0,0,1,12.227,8.5" fill="#fff"/>
+      <path id="패스_81" data-name="패스 81" d="M5.977,8.5A1.042,1.042,0,1,1,7.019,9.518,1.03,1.03,0,0,1,5.977,8.5" fill="#fff"/>
+    </g>
+  </g>
+</svg>

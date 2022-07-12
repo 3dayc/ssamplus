@@ -1,0 +1,27 @@
+/*===================================================================
+* INFORMATION: ;
+* -------------------------------------------------------------------
+* @File Name:application.scss
+* @Description : css 랜더링용
+* @Create Date: 2021-04-05
+* @Last Update Date: N/A
+* @History: N/A
+* -------------------------------------------------------------------
+* font	      : 폰트 정의
+* common	    : 초기화 및 변수선언
+* component	  : input, input form, 버튼, 전체 세부 항목 디자인 적용
+* layout	    : 본창 & 윈도우 팝업 레이아웃, 에러 화면
+* join	      : 로그인, 회원가입 등
+* popup	      : 레이어팝업 / 윈도우 팝업 관련 된것만
+* sub	        : 각 화면별 정의
+* application	: css 랜더링용
+* ====================================================================*/
+@charset "UTF-8";
+@import 'font';   
+@import 'common';
+@import 'component';
+@import 'layout';
+@import 'popup';
+@import 'join'; 
+@import 'sub';
+@import 'player';

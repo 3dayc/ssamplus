@@ -1,0 +1,60 @@
+/* =================================================================================
+* INFORMATION
+* -----------------------------------------------------------------------
+* @File Name: _font.scss
+* @Description : 폰트 정의
+* @Create Date: 2021-06-23
+* @Update Date: N/A
+* @History: N/A
+* ================================================================================= */
+
+/* ====================== */
+/* TT UI library */
+/* ====================== */
+/* ===== Webfont ===== */
+@font-face{font-family:'NotoSans';font-style:normal;font-weight:100; src:url(../font/_kglight/NotoSansLight.eot); src:local('¡Ø'), url(../font/_kglight/NotoSansLight.woff) format('woff'); }
+@font-face{font-family:'NotoSans';font-style:normal;font-weight:200; src:url(../font/_kglight/NotoSansLight.eot); src:local('¡Ø'), url(../font/_kglight/NotoSansLight.woff) format('woff'); }
+@font-face{font-family:'NotoSans';font-style:normal;font-weight:300; src:url(../font/_kglight/NotoSansLight.eot); src:local('¡Ø'), url(../font/_kglight/NotoSansLight.woff) format('woff'); }
+@font-face{font-family:'NotoSans';font-style:normal;font-weight:400; src:url(../font/_kglight/NotoSansRegular.eot); src:local('¡Ø'), url(../font/_kglight/NotoSansRegular.woff) format('woff'); }
+@font-face{font-family:'NotoSans';font-style:normal;font-weight:500; src:url(../font/_kglight/NotoSansRegular.eot); src:local('¡Ø'), url(../font/_kglight/NotoSansRegular.woff) format('woff'); }
+@font-face{font-family:'NotoSans';font-style:normal;font-weight:700; src:url(../font/_kglight/NotoSansBold.eot); src:local('¡Ø'), url(../font/_kglight/NotoSansBold.woff) format('woff'); }
+@font-face{font-family:'NotoSans';font-style:normal;font-weight:900; src:url(../font/_kglight/NotoSansBold.eot); src:local('¡Ø'), url(../font/_kglight/NotoSansBold.woff) format('woff'); }
+
+/****************/
+@font-face {
+ font-family: 'SourceHanSerifK';
+ font-weight: normal;
+ src: url('../font/SourceHanSerifK-Regular.otf') format('truetype');
+}
+@font-face {
+ font-family: 'SourceHanSerifK';
+ font-weight: 500;
+ src: url('../font/SourceHanSerifK-SemiBold.otf') format('truetype');
+}
+/****************/
+@font-face {
+ font-family: 'Roboto';
+ font-weight: 300;
+ src: url('../font/Roboto-Light.ttf') format('truetype'),
+}
+@font-face {
+ font-family: 'Roboto';
+ font-weight: 400;
+ src: url('../font/Roboto-Regular.ttf') format('truetype'),
+}
+@font-face {
+ font-family: 'Roboto';
+ font-weight: 700;
+ src: url('../font/Roboto-Bold.ttf') format('truetype'),
+}
+/****************/
+@font-face {
+ font-family: 'AppleSDGothicNeoL';
+ font-weight: 200;
+ src: url('../font/AppleSDGothicNeoL.ttf') format('truetype'),
+}
+@font-face {
+ font-family: 'AppleSDGothicNeoH';
+ font-weight: 900;
+ src: url('../font/AppleSDGothicNeoH.ttf') format('truetype'),
+}

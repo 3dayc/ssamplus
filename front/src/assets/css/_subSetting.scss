@@ -1,0 +1,57 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _sub.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+
+/* ===== 셋팅 메인  ===== */
+.mobileSetting {padding:0 20px 20px;
+  dl {display:table;width:100%;padding:15px 0;border-bottom:1px solid $grayColor;
+    dt {display:table-cell;font-weight:500;font-size:$txtSizeP2;color:$lightBlackColor;vertical-align:middle;
+      em {display:block;font-size:$txtSizeM2;color:$brightGrayColor;}
+    }
+    dd {display:table-cell;padding-right:12px;width:60px;vertical-align:middle;text-align:right;}
+    &.pushNoty {
+      dt.new {
+        &:after {content:'';display:inline-block;margin:0 0 0 5px;vertical-align:top;width:6px;height:6px;border-radius:100%;background:#F45555;}
+      }
+      dd {padding-right:0;}
+      a {@extend %arrowBtn;color:$lightBlackColor !important;border-color:$whiteColor;
+        &::after {border-color:$lightBlackColor;}
+      }
+    }
+    &.version {
+      dd {width:120px;}
+      strong {font-weight:200;font-size:$txtSizeP2;color:$brightGrayColor;}
+      em {display:block;font-size:$txtSizeM2;color:$brightGrayColor;}
+    }
+  }
+  .pushLast {margin-top:-10px;padding:10px 0 15px;border-top:1px solid $lightGrayColor;border-bottom:1px solid $grayColor;background:$whiteColor;
+    em {display:block;font-weight:200;font-size:$txtSizeM2;color:$brightGrayColor;}
+    a {font-weight:300;}
+  }
+}
+
+/* ===== 푸시 알림 목록 ===== */
+.mobilePush {padding:20px;
+  dl {display:block;padding:15px 0 0;border-bottom:1px solid $grayColor;
+    dt {position:relative;padding:0 0 15px;display:block;
+      em {display:block;font-weight:200;font-size:$txtSizeM2;color:$brightGrayColor;}
+      &.new {
+        &:after {content:'';display:inline-block;margin:4px 0 0 3px;vertical-align:top;width:6px;height:6px;border-radius:100%;background:#F45555;}
+      }
+    }
+    dd {display:block;padding:10px 15px 15px 15px;color:$brightGrayColor;border-top:1px dotted $grayColor;background:$lightGrayColor;}
+    &.more {position:relative;
+      &::after {content:'';position:absolute;right:20px;top:26px;z-index:1;transform:rotate(-90deg);width:10px;height:20px;background:url(../images/i_arrow.svg) no-repeat center;background-size:100%;transition:all 0.3s;}
+      dt {position:relative;padding-right:20px;z-index:2;}
+      &.on {
+        &::after {transform:rotate(90deg);}
+      }
+    }
+  }
+}

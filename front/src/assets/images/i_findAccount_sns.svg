@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67">
+  <g id="그룹_2" data-name="그룹 2" transform="translate(-1101 -773)">
+    <circle id="타원_3" data-name="타원 3" cx="33.5" cy="33.5" r="33.5" transform="translate(1101 773)" fill="#35b934"/>
+    <g id="btn_mass">
+      <path id="빼기_1" data-name="빼기 1" d="M1142.141,822.753h-14.285c-1.576,0-2.857-1.611-2.857-3.591V792.839c0-1.981,1.282-3.592,2.857-3.592h14.285c1.576,0,2.858,1.611,2.858,3.592v26.323C1145,821.142,1143.718,822.753,1142.141,822.753ZM1135,817.27a2.04,2.04,0,1,0,2.04,2.039A2.042,2.042,0,0,0,1135,817.27Zm-8.49-23.081V815.82h16.969V794.19Z" fill="#fff"/>
+      <rect id="Rectangle_709" data-name="Rectangle 709" width="15" height="9" rx="2" transform="translate(1133 799)" fill="#fff"/>
+      <path id="Shape_1" data-name="Shape 1" d="M1137,806v6l5-6Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

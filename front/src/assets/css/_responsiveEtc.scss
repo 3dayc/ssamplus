@@ -1,0 +1,751 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _responsiveEtc.scss
+* @Description : 전체 타블릿 및 기타 대응
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* -----------------------------------------------------------------------
+* Area Setting  : 정렬이나, box 등 영역에 대한 정의
+* Area Detail   : 목록, 상세, 등록 등 CRUD 기본 셋팅
+* ====================================================================*/
+
+
+/* ====================== */
+/* ===== 타블릿 대응 ===== */
+/* ====================== */
+#wrapBack.mDevice {
+	@include mq(tablet) {
+    /* ===== _layout.scss ===== */
+    /* gnb */
+    #mobileGnb {
+      .mobileGnbBack2 {width:430px;}
+    }
+    /* ===== _main.scss ===== */
+    #mainContainer {
+			/* 메인비쥬얼 이미지 */
+			.mainBannerMcase {
+				.swiper-slide {width:100%;height:auto;/*padding-bottom:56.075%;*/ max-height: 480px;
+          img {
+            position: inherit; transform: translate(0,0); margin: 0 auto;
+          }
+        }
+			}
+      /* 선생님 메인 배너 */
+      .ssamBanner {
+        .ssamSet {width:680px;margin:15px auto 0;
+          .ssamPosts {left:50%;margin-left:-50vw;width:100vw;}
+          .majorImg {right:32px;bottom:-51px;width:auto;height:400px; max-width: 340px;}
+        }
+      }
+			.topdayPic {background-size:contain, 100% 100%;}
+      .mainSsampack {max-width: 640px;}
+      /* 하이라이트 Set  */
+    //   .mainKindBanner {
+    //     .firstImportant {position:relative;
+	// 				.indexBig {position:absolute;left:0;top:0;width:calc(100% - 250px);
+	// 					span {padding-bottom:0;height:342px;}
+	// 				}
+    //       ul li {width:calc((100% - 10px)/2);height:auto;min-height:270px;}
+    //       ul li ~ li {margin-left:0;}
+    //       ul li:nth-child(2n) {margin-left:0;}
+    //       ul li:nth-child(1),
+    //       ul li:nth-child(2) {margin-left:auto;float:none;display:block;width:240px;min-height:200px;}
+    //       ul li:nth-child(3),
+    //       ul li:nth-child(5) {margin-right:10px;}
+    //     }
+    //     .allSame {
+    //       ul li {height:auto;min-height:270px;}
+    //     }
+    //   }
+    .mainKindBanner {
+      .firstImportant {
+        .indexBig {max-width: 640px;margin: 0 auto;}
+        ul {
+          display: flex;
+          li {
+            width:calc(50% - 12px);
+          }
+        }
+      }
+    }
+      /* 리얼적중 */
+      .mainHit {
+        .swiper-container {
+          .swiper-slide {width:350px;}
+        }
+      }
+	    /* 합격자 */
+	    .mainPass {position:relative;height:400px;text-align:center;overflow:hidden;background:#2b2927 url('../images/bg_main_successfulbg.jpg') no-repeat center bottom;background-size:cover;
+	      .frameBack {position:relative;z-index:2}
+	      * {color:$whiteColor;}
+	      p {padding:35px 0 0;height:173px;font-size:22px;line-height:1.45;
+	        strong {display:block;font-size:inherit;color:#55CF96;}
+	        em {font-size:$txtSize;}
+	      }
+	      .successfulSwiper {z-index:2;text-align:left;//background:#000;
+	        .swiper-container {height:200px;}
+	        .swiper-slide {padding:0 0 0 40px;height:22px !important;margin:0 !important;}
+	        .swiper-slide span {display:inline-block;width:25%;height:16px;font-size:11px;font-weight:200;letter-spacing:-0.05em;}
+	        .swiper-slide span:last-child {width:25%;}
+	        .swiper-slide {opacity:1;}
+	        .swiper-slide.swiper-slide-prev {opacity:1;}
+	        .swiper-slide.swiper-slide-active {opacity:1;}
+	        .swiper-slide.swiper-slide-next {opacity:1;}
+	        .swiper-slide.swiper-slide-next + .swiper-slide {opacity:1;}
+	        .swiper-slide.swiper-slide-next + .swiper-slide + .swiper-slide {opacity:1;}
+	        .swiper-slide.swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide {opacity:1;}
+	        .swiper-slide.swiper-slide-next + .swiper-slide + .swiper-slide + .swiper-slide + .swiper-slide {opacity:1;}
+	      }
+	    }
+      /* 학원안내 */
+      .mainCallAre {
+        dl {
+          dd {
+            div {float:left;width:calc(100% / 3);padding:8px 0 8px 14px;height:auto;
+              strong + span {width:100%;}
+            }
+            .technic {float:left;}
+          }
+        }
+      }
+    }
+    /* 레이어 팝업 */
+    .popupBanner {
+	    .popupBoxWrap {position:fixed;top:0;bottom:0;left:0;right:0;width:100%;margin:0 auto;z-index:200;background:rgba(0, 0, 0, 0.5);}
+			.popupBox {position:fixed;top:50%;bottom:auto;left:50%;right:auto;width:350px;height:auto;transform:translate(-50%,-50%);
+				a {position:relative;margin:0 auto;}
+				a img {position:relative;top:auto;bottom:auto;left:auto;right:auto;width:100%;height:auto;}
+				em {position:relative;}
+			}
+    }
+    /* 쌤팩 */
+    .ssampackWrap {
+		.product_cont {background-color:#ededed;}
+		.product-list-wrap {max-width: 640px; margin: 0 auto;}
+	}
+    /* ===== _join.scss ===== */
+    #joinWrap {width:500px;margin:0 auto;}
+    /* ===== _sub.scss ===== */
+    /* 슬라이딩 배너 영역2 */
+    .slidingBannerCase2 {
+      .swiper-slide {width:60%;}
+    }
+    /* 상품 목록 (쌤몰검색결과)  */
+    .productList {
+      li {
+        .productBtn {position:absolute;display:table;top:0;right:0;bottom:0;width:120px;height:100%;min-height:163px;
+          & > span {display:table-cell;}
+          [class*=btn] {margin:0 0 8px;width:100%;}
+          [class*=btn]:last-child {margin-bottom:0;}
+          [class*=btn] ~ [class*=btn] {margin-left:0;}
+        }
+      }
+    }
+	  /* 교재 목록 (4단) */
+	  .bookList {
+		li { width: calc((100% - 30px) / 3);
+			&:nth-child(2n + 1)::after {display: block;}
+			&:nth-child(3n + 1)::after {display: none;}
+		}
+	  }
+	  /* 게시판 상세 */
+	  .boardDetail {
+	    &.write {padding-top:10px;
+	      .box {
+	        &.checkSetArea {
+	          &.col2 {padding:10px 0 15px;height:auto;
+	            p span {display:inline;margin:5px 5px 0 0;font-size:$txtSizeM1;}
+	          }
+	        }
+	        &.columMulty {
+	          .selectSet,
+						.baseMultiSelect,
+	          input {width:calc((100% - 20px) / 3) !important;min-width:calc((100% - 20px) / 3) !important;}
+	          .selectSet ~ .selectSet {margin:0 0 0 10px;}
+	          .baseMultiSelect ~ .selectSet {margin:0 0 0 10px;}
+	          input ~ input {margin-top:0;}
+	        }
+	      }
+	    }
+	  }
+	  .cleanReport {
+		.boardDetail {
+			&.write {
+			  .box {
+				&.columMulty {
+				  .selectSet,
+				  .baseMultiSelect,
+				  input {width:calc((100% - 30px) / 4) !important;min-width:calc((100% - 30px) / 4) !important;}
+				}
+			  }
+			}
+		  }
+	  }
+		/* 강과관련 (수강신청, 내강의실 등) */
+		/* 강좌 타이틀 기본  */
+		.lecTt {
+			.tt {padding:6px 0;}
+		}
+		.lecBasic {position:relative;width:100%;padding:18px 255px 21px 0;
+		  .kind {position:absolute;top:0;bottom:0;left:-95px;display:table;width:95px;height:100%;text-align:center;min-height:163px;}
+		  .choice {position:absolute;top:50%;right:20px;left:auto;bottom:auto;transform:translateY(-50%);display:inline-block;width:220px;
+		    /* 수강신청 가격체크 */
+		    .priceCheck {float:right;margin:3px 0 4px;width:100%;margin-right:0;}
+		  }
+		}
+	  .lecBtnSet {padding:6px 0 0;}
+		/* 강좌 목록  */
+		.ssamLecList {
+			ul>li {padding:0 0 0 95px;}
+			.inPackage {
+				&.on {padding:1px 20px 20px 0;height:auto;}
+			}
+	    .inbLecture {
+	      .widthList {padding:0 20px 0 0;
+	        ol {border-bottom:0;}
+	      }
+	    }
+			ul.myCase {
+				.lecBasic {
+					.choice {position:relative;top:auto;transform:translateY(0);width:345px;}
+				}
+			}
+		}
+		/* 공통사용 쌤팩 및 이벤트 용 선생님 셋트 */
+		.subjectSet {
+			.ssamLecList {
+			  ul {border-top:0;}
+			  li {padding:0;}
+			  .lecBasic {display:table;padding:0;
+			    .lecTt {display:table-cell;padding:25px 260px 24px 20px;height:157px;vertical-align:middle;
+			      .tt {padding:0;}
+			      .msg {padding-top:5px;}
+			      .tL {display:block;padding:13px 0 0;}
+			    }
+			  }
+				.choice {position:absolute;right:20px;left:auto;bottom:auto;width:220px;}
+				.inbLecture {margin-top:0;
+					.widthList ol li {padding:0 20px;}
+				}
+			  .inPackage.on {padding:1px 20px 20px 20px;}
+			}
+		}
+		/* 선생님 스와이퍼 리스트 (스페셜, 합격수기) */
+		.ssamSwiperlist {
+			.swiper-slide {width:140px}
+			&.off {
+				.interviewSwiper {
+					.swiper-wrapper {padding-left:18px;}
+					.swiper-slide {width:135px;}
+				}
+			}
+			&.off.off2 {position:inherit;
+				.bothArrowsBacK {height:calc(100vh * 0.4);}
+				.frameBack {height:calc((100vh * 0.4) - 60px);}
+			}
+			@keyframes ssam_slide {0%{height:195px;} 100%{height:calc(100vh * 0.4);}}
+		}
+    /* ===== _subLecture.scss ===== */
+    /* 수강신청 과목별 선생님 목록 */
+    .lectureSsamList {
+      ul {
+        li {width:calc((100% - 20px) / 3);
+          .ssamArea {
+            img {width:70%;}
+          }
+        }
+        li ~ li {margin-left:10px;}
+        li:nth-child(2n+2) {margin-left:10px;}
+        li:nth-child(5n-1) {margin-left:0;}
+      }
+    }
+    /* 수강신청 강좌 상세 */
+    .lecViewContainer {
+      .lecViewContents {
+        .lecBasicBack {
+          .lecViewPrice {padding:10px 12px 0 125px;}
+        }
+      }
+    }
+		/* 선생님홈 인트로 */
+		.ssamLecListArea {
+			.homeIntro {
+				.welcome {
+					.txtCut {left:140px;}
+					span {left:165px;}
+          button {left:165px;}
+				}
+				// .mBanner {
+				// 	a,
+				// 	img {height:auto;}
+				// }
+        .sampleLec .swiper-slide {
+          span {height:180px;}
+          img {height:180px;}
+        }
+			}
+		}
+    .teacherCourse .videoCase .videoArea {max-width: 640px; margin: 0 auto; float: none;}
+    .lecBasic .lecBtnSet *.btnPgOpner,
+    .lecBasic .lecBtnSet * {max-width: 150px;}
+    .productList li .productBtn [class*=btn] ~ [class*=btn] {border-left: #ddd solid 1px;}
+    /* ===== _subSsammall.scss ===== */
+	  /* 학습기기 메인 목록 (4단) */
+	  .deviceList {font-size:0;margin:0 0 0;
+	    li {width:calc((100% - 30px)/3);height:281px;padding-bottom:25px;
+	      & ~ li {margin-left:15px}
+	      &:nth-child(2n+1) {margin-left:15px}
+				&:nth-child(3n+1) {margin-left:0 !important;}
+			}
+	  }
+	  /* 학습기기 메인 */
+	  .ssammallDevice {
+		  .hitItem {
+		    .itemDetail {display:table;width:100%;margin:20px 0 50px;}
+		    .imgBox {display:table-cell;position:relative;width:280px;height:230px;vertical-align:top;background:$lightGrayColor;
+		      .img {width:200px;height:200px;}
+					.saleIcon {right:auto;bottom:auto;top:10px;left:10px;}
+		    }
+		    .infoBox {display:table-cell;padding:10px 0 0 55px;width:auto;vertical-align:top;}
+		  }
+	  }
+		/* 백퍼 추천하는 솔직 후기 */
+		.ssammallReview {
+			.reviewBoxList {
+				li {width:calc((100% - 10px)/2);}
+				li:nth-child(2n) {margin-left:10px;}
+			}
+		}
+	  /* ===== _subExam.scss ===== */
+	  /* 시험정보 메인 상단 */
+	  .infoGuideTop {height:auto;padding-bottom:30px;background:url('../images/bg_infroMockExam.png') no-repeat center top;background-size:auto 450px;border-bottom:20px solid $lightGrayColor;background-color:#333;
+	    &:after {height:450px;bottom:auto;}
+	    .frameBack {position:relative;z-index:2;margin:0 auto;padding:60px 20px 0;}
+	    .tit {float:none;display:inline-block;width:100%;padding-bottom:20px;}
+	    .schedule {float:left;display:inline-block;width:calc((100% - 20px)/2);height:260px;margin:0;
+				dt {background: linear-gradient(170deg, #45c1a9 0%, #428cbd 100%);}
+			}
+	    .examNotice {float:right;display:inline-block;width:calc((100% - 20px)/2);height:260px;padding:19px 16px 0 15px;background:rgba(0,0,0,.4);border-radius:15px;
+				dl {
+					dt {border-bottom:1px solid $brightGrayColor;
+						strong {color:#49B68A;}
+						.btnMore::after {border-color:#49B68A;background:url('../images/i_plus_green.png') no-repeat center;}
+					}
+					dd li a {color:$grayColor;}
+				}
+
+	    }
+	  }
+		/* 임용시험 안내 */
+		.infoGuide {
+			.conditionTabWrap {
+				.tabLayout {
+					.tabData.case1 {background-size:auto 82%;}
+					.tabData.case2 {background-size:auto 82%;}
+				}
+			}
+		}
+		/* 모집인원 및 경쟁률 */
+		.infoCompetition {
+		  .fullDataTable {
+		    td {width:calc((100% - 100px) / 15);}
+		    tr th:first-child,
+		    tr td:first-child {width:100px;border-right:1px solid $grayColor;}
+		  }
+		}
+	  /* 임용 칼럼 */
+	  .column {
+	    .columnList {
+		  li .thumbnail {height:30vw;}	
+	      &.cardCase {
+	        li {width:calc((100% - 40px)/3);height:265px;margin:0 0 0 20px;
+	          .thumbnail {position:relative;left:auto;top:auto;width:100%;height:158px;}
+	          &:nth-child(3n+1) {margin-left:0;}
+	        }
+	      }
+	    }
+	  }
+    /* ===== _subSpecial.scss ===== */
+    /* 메인 */
+    .specialIndex {
+      .spSsamEvent {
+        .swiper-slide {width:350px !important;
+          ul {padding:0 0 20px;}
+        }
+      }
+    }
+		/* 선생님 이벤트 */
+		.specialEvent {
+			.thumbnailList:after {content:"";display:block;clear:both;}
+			.thumbnailList li {float:left;width:calc((100% - 10px)/2);}
+			.thumbnailList li:nth-child(2n) {margin-left:10px;}
+			.thumbnailList.case3 { gap: 10px;
+				li {float:left;width:calc((100% - 20px)/3);
+					&:nth-child(2n) {margin: 0;}
+				}
+			}
+		}
+    /* 리얼 적중 */
+    .realHit {
+      .sbjBox {padding:0 0 35px;
+        ul {
+          li {margin:0 10px 10px 0;width:calc((100% - 20px)/3);
+            .txt {width:140px;font-size:$txtSizeM2;}
+						&:nth-child(3n) {margin-right:0;}
+          }
+        }
+      }
+    }
+		/* ===== _subOpenlec.scss ===== */
+		/* ===== 무료강의 메인 ===== */
+		.openLecIndex {
+			&.mCase {
+				.indexMainM {
+					.swiper-slide {
+						.videoPlay {display:inline-block;width:100%;height:auto;padding-bottom:56%;}
+					}
+				}
+			}
+		}
+  	/* 무료강의 공통 */
+		.openLecList {
+			li {float:left;width:calc((100% - 10px)/2);
+				&:nth-child(2n) {margin-left:10px;}
+			}
+		}
+		/* ===== _subBbs.scss ===== */
+		/* 프리미엄 쌤팩 */
+	  .premiumSsampack {padding:30px 0 0;
+	    .ssampackOk {
+	      .btnSpecial {padding:15px 0 30px;
+	        .set {float:left;padding:13px 0 0 60px;width:calc((100% - 20px)/3);height:70px;}
+	        .set.special02 {margin:0 10px;}
+	        .set.special03 {padding:0 0 0 60px;}
+		      button.set {padding-bottom:12px;}
+		      span {font-size:$txtSizeM2;}
+		      strong {font-size:$txtSize;}
+		      @for $i from 1 to 4 {
+		        .special0#{$i} {background-position:10px center;background-size:auto 45%;}
+		      }
+	      }
+	      .applyList {padding:0 20px 20px;margin-bottom:30px;border-bottom:15px solid $lightGrayColor;
+	        li {float:left;width:calc((100% - 20px)/2);margin-bottom:20px;}
+	        li ~ li {margin-left:0;}
+	        li:nth-child(even) {margin-left:20px}
+	        .packItem {padding:10px 15px 15px;width:100%;height:110px;
+	          &.applyCase {margin-top:0;}
+	        }
+	      }
+	      .etcApply {padding:0 0;background:$whiteColor;
+	        .applyList.couponCase {
+						.packItem {height:126px;}
+					}
+	      }
+	    }
+	  }
+		/* 이벤트 */
+		.eventTabwrap {
+			.thumbnailList:after {content:"";display:block;clear:both;}
+			.thumbnailList li {float:left;width:calc((100% - 10px)/2);}
+			.thumbnailList li:nth-child(2n) {margin-left:10px;}
+		}
+		/* ===== _subMypage.scss ===== */
+		/* 사물함 신청 */
+		.paymentLocker {
+			.resTls .tbody ul li {
+				.item0 {width:50%;}
+			}
+		}
+		.lockerDate {
+			.selectDirect {width:165px;}
+			.selectLocation {width:215px;}
+			.selectDate {
+				.selectSet {width:180px;}
+				}
+				strong {float:none;width:auto;padding:14px 0 0 18px;}
+			}
+		/* 1:1 상담 예약 */
+		.counselReserve {
+			.subTit .right-po .btnM {width:100%;}
+			.resTls {
+				.tbody {
+					.ig1 {width:calc(100% - 100px);}
+					.ig2 {width:40%;margin:10px 0 0;}
+					.ig3 {display:inline-block;width:50%;margin:10px 0 0;line-height:1.5;}
+					.item6 {display:inline-block;width:50%}
+					.item7 {display:inline-block;
+						.mTit {width:30px;}
+					}
+					.item8 {bottom:25px;}
+				}
+			}
+		}
+		.reserveLine {
+			.col {float:left;display:block;width:calc((100% - 270px)/2);margin-bottom:10px;
+				& ~ .col {margin-left:10px;}
+				&:nth-child(3n+1) {margin-left:0;}
+				&:nth-child(2),
+				&:nth-child(5) {width:250px;}
+			}
+			dl {width:100%;
+				dd {
+					.vc-container.vc-is-expanded {width:100%;}
+					ul {height:230px;overflow-y:auto;}
+				}
+			}
+			.how {margin-top:0;}
+			.how ul,
+			.short ul {height:230px;}
+			.ssamChoice {
+				dl dd {
+					ul {height:230px;overflow-y:visible;}
+				}
+			}
+		}
+		/* 내정보 수정 */
+		.myInfoModify {
+			.loginInfo {padding:20px;
+				dl {float:left;display:inline-block;padding:0 0;width:50%}
+				dt {display:inline-block;width:50px;padding-right:9px;vertical-align:middle;}
+				dd.data {display:inline-block;padding:0 0 0 10px;width:auto;height:auto;vertical-align:middle;}
+				dd.txt {position:relative;left:auto;bottom:auto;width:100%;padding:10px 0 0 0;}
+				dl:last-child {float:none;width:50%}
+				dl:last-child dd.txt {bottom:auto;}
+			}
+			.smsArea {
+				&:after {content:"";display:block;clear:both;}
+				.btnSns {width:calc((100% - 10px)/2);float:left;
+					&.kakao {margin-left:10px;}
+				}
+			}
+		}
+		/* ===== _subBbs.scss ===== */
+		/* 학습 Q&A */
+		.counselBbsWrite {
+			.boardDetail.write {
+				.box {
+					.selectSet {min-width:calc((100% - 20px)/3);}
+					.selectSet ~ .selectSet {margin:0 0 0 10px;}
+				}
+			}
+		}
+		/* ===== _subPass.scss ===== */
+		/* 합격수기 홈 */
+		.passIndex {
+			.mainVisual {
+				.successfulList {
+					.swiper-container {
+						.swiper-slide {height:25px !important;}
+						.swiper-slide span {width:25%;}
+					}
+				}
+			}
+		}
+		/* 합격수기/인터뷰 */
+		.passInterview {
+			.ssamMainBanner {
+				.frameBack { max-width: 640px;
+					.btnLinkBox {
+						a, button {width: 196px;}
+					}
+					.ssamimg {right:64px;}
+					div {padding:0;}
+					.btnTcHomeName {padding:10px 50px}
+				}
+			}
+		}
+		/**/
+		.passInterviewVideo {
+			.pivVideoList {
+				li {margin-right:0;width:50%;}
+			}
+		}
+		/**/
+		.passReview {
+			.comment {
+				.commentBox {
+					ul {display:flex;flex-wrap:wrap;}
+					li {width:50%;}
+				}
+			}
+		}
+		/* ===== _subMylec.scss ===== */
+		/* 강의리스트  */
+		.playerList {
+			dl {
+				&.on {
+					dt {color:#333;font-weight:500;background:#B3D465;}
+				}
+			}
+		}
+		/* ===== _subCounsel.scss ===== */
+		/* 상담센터 메인 */
+		.counselIndex {
+			/**/
+			.counselQuick {
+				div {
+					a {width:25%;}
+					a:nth-child(2n+1) {width:25%;}
+					a:nth-child(4n) {width:calc(25% + 4px);}
+				}
+			}
+			/**/
+			.counselContact {
+				.frameBack {position:relative;}
+				.btnKaKaoChannel {position:absolute;right:0;top:50%;display:inline-block;margin:-70px 19px 0 0;width:150px;height:150px;padding-left:0;line-height:normal;text-align:center;border-radius:50%;
+					&:before {position:relative;right:auto;top:auto;margin:20px auto 0;height:50px;background-size:100% auto;}
+					strong {display:block;}
+				}
+			}
+			/**/
+			.lecCheck {padding:0 20px;
+				a {float:left;width:calc(100% / 3);}
+				.check02 {border-width:1px 0;}
+			}
+		}
+		/* 학습 Q&A */
+		.counselBbsWrite {
+			.boardDetail.write {
+				.box {
+					.selectSet {min-width:calc((100% - 20px)/3);}
+					.selectSet ~ .selectSet {margin:0 0 0 10px;}
+				}
+			}
+		}
+		/* ===== _subSmart.scss ===== */
+	  .smartLecture {
+	    .slList {
+	      .ssamLecList {margin:0;width:100%;padding:0;
+	        .lecBasic {padding:18px 210px 21px 0;}
+	        .lecBasic .kind {left:auto;right:94px;}
+	        ul>li {padding:0 20px 0;}
+		      .moreInfo {z-index:10;right:0;top:50%;transform:translateY(-50%);display:inline-block;width:auto;
+		        &.open {
+		          span {top:50%;margin-top:0;transform:translateY(-50%);}
+		        }
+		      }
+				}
+			}
+	  }
+		.smartApply {
+			.smartPrice {display:inline-block;}
+		}
+	 	/* ===== _subAcademy.scss ===== */
+  	/* 희소 고시학원 메인 */
+		.academyIndex {
+      .classSchedule .scheduleArea .scheduleCal table {width: 100%}
+      .goLocker .bothArrows {height:410px;}
+      .goStudy {height:500px;}
+			/* 학원 시설 */
+			.directPanorama {
+				.tabNav ul li button {height:100%;}
+        .panorama02, .panorama03 {padding-top: 400px;}
+        .swiper-slide div {height:340px;}
+			}
+			/* 1:1 상담하기 */
+			.goCounsel {
+				.detail {display:table;width:100%;
+					span {display:table-cell;width:50%;height:186px;padding:15px 0;}
+				}
+			}
+		}
+	  /* 스터디 */
+	  .academyStudy {
+	    .mainSlogan {
+	      .infoGuide {
+			flex-direction: row;
+	        dl {width:calc((100% - 40px) / 4);}
+	      }
+	    }
+	    .studyList {
+	      li {margin:0 5px 10px;width:calc((100% - 30px) / 3);}
+	    }
+	  }
+		/* ===== _subInside.scss ===== */
+    .insideMainSlogan .fitstArea .cut {max-width: 640px; margin: 0 auto;}
+		.ssamplusInfo {
+			.infoGuide {
+				.tabLayout {
+					.guide01 .detail {padding-top:15px;
+						dl {margin:0 auto 10px;width:380px;}
+						dl:last-child {margin:0 auto 10px;}
+					}
+					.guide03 .detail {/*padding:15px 100px 26px;*/ max-width: 380px;
+						.successfulSwiper {
+							.swiper-slide {text-align:center;}
+							.swiper-slide span,
+							.swiper-slide span:last-child {width:180px;}
+						}
+						.case {
+							dl,
+							dl:last-child {width:50%;}
+
+						}
+					}
+				}
+			}
+			.infroMockExam {
+				.detail {
+          padding: 50px 70px 0;
+					dl,
+					dl:last-child {width:540px;}
+				}
+			}
+			.infoCounsel {
+				.detail {
+					.back div {display:block;float:none;width:540px;}
+				}
+			}
+			.infoLife {
+				.detail {
+					.data.center {margin:0 auto;width:360px;}
+				}
+			}
+		}
+    .ssamplusScholarship .scholarshipKind .swiper-slide {max-width: 640px;}
+    .ssamplusUniversity .bothArrows .swiper-slide {max-width: 640px;}
+		/********/
+    /* 초보자사이트 */
+    #introContainer .introVisual .goLogin i {display: block;
+      a::before {position: inherit; transform: translateY(0); margin: 0 11px;}
+    }
+    #introContainer .introEvent .iEvent {display: block; max-width: 640px; margin: 0 auto;
+      .iEventSwiperList {
+        .swiper-slide {
+          button {
+            height: 180px;
+          }
+        } 
+      }
+    }
+    #introContainer .introDirectionBack {
+      .rightArea {max-width: 640px; margin: 0 auto;
+      }
+      &:after {background:url('../images/bg_intro_direction01.png') no-repeat;background-size:640px auto; background-position: center;}
+      &.bg0:after {background:url('../images/bg_intro_direction01.png') no-repeat;background-size:640px auto; background-position: center;}
+      &.bg1:after {background:url('../images/bg_intro_direction02.png') no-repeat;background-size:640px auto; background-position: center;}
+      &.bg2:after {background:url('../images/bg_intro_direction03.png') no-repeat;background-size:640px auto; background-position: center;}
+    }
+	}
+}
+/* ====================== */
+/* ===== ios vs android 분기일 경우 ===== */
+/* ====================== */
+#wrapBack.mDevice.android {
+  .studyMyStatus .graphArea {
+    .label {padding:15px 0 0 5px;
+      span {height:19px;}
+      span ~ span {margin:24px 0 0 0;}
+    }
+  }
+}
+#wrapBack.mDevice.ios {
+  .studyMyStatus .graphArea {
+    .label {padding:13px 0 0 5px;
+      span {height:26px;}
+      span ~ span {margin:21px 0 1px 0;}
+    }
+  }
+}

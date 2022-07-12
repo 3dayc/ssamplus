@@ -1,0 +1,3615 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _player.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+
+/* ===== 강의상세 화면 (플레이어 - 공통) ===== */
+.tabLayout {
+  /* 강좌 플레이어 및 상세 */
+  .mylecViewDetail {position:relative;width:1100px;margin:0 auto;padding:32px 0 100px;
+    .lecInfoArea {@extend %clearBh;position:relative;display:block;width:1100px;margin:0 auto;}
+    .lecArea {float:left;display:inline-block;padding:507px 0 0 0;width:690px;vertical-align:top;
+      /* 강좌 관련 정보 */
+      .tabNav li {width:25%; border-right: 1px solid #e1e1e1;}
+      .tabNav li:last-child {border-right: none;}
+      .notice {
+        .resTls {
+          .item0 {padding-left:10px;}
+          .item1 {width:70px;}
+          .item2 {width:85px;}
+          .item3 {width:130px;padding-right:10px;}
+        }
+      }
+      .paginate {
+        .selectSet.pcCase {display:none;}
+        .selectSet.mCase {display:inline-block;}
+      }
+    }
+    .playerListArea {float:right;display:inline-block;width:380px;padding-top:35px;vertical-align:top;
+      /* 강의리스트 구분  */
+      .playTab {position:relative;height:40px;border-bottom:2px solid $blackColor;background:$lightGrayColor;
+        span {float:left;display:inline-block;width:50%;height:40px;box-sizing:border-box;}
+        span button {display:block;width:100%;height:100%;text-align:center;font-size:$txtSizeP2;color:$lightBlackColor;background:transparent;}
+        span button em {margin:0 0 0 5px;}
+        span.bookmarkTab button:after {margin:-2px 0 0 10px;content:'';display:inline-block;width:12px;height:16px;vertical-align:middle; background-size:100%;opacity:0.6;}
+        span.on {position:relative;z-index:2;height:40px;border:2px solid $blackColor;background:$whiteColor;}
+        span.on:after {content:'';position:absolute;bottom:-2px;left:0;display:inline-block;width:100%;height:2px;background:$whiteColor;}
+        span.on button {color:$blackColor;}
+        span.on.bookmarkTab button:after {opacity:1;}
+      }
+      .tit {@extend %clearBh;width:100%;height:38px;
+        h2 {display:inline-block;font-size:$txtSizeP4;}
+        .btnBookmark {float:right;}
+      }
+    }
+    .liveChatArea {float:right;display:inline-block;width:380px;vertical-align:top;}
+    &.full {
+      .playerArea {position:relative;width:100%;height:auto;}
+      .lecArea {padding-top:0;}
+      .playerListArea {padding-top:0;}
+    }
+  }
+}
+/* 동영상 */
+.playerArea {position:absolute;width:690px;height:507px;z-index:2;
+  .mode {@extend %clearBh;width:100%;height:35px;
+    .labelToggleSet {
+      label {width:80px;height:24px;border:1px solid $darkGrayColor;background:$darkGrayColor;
+        &:after {right:58px;}
+        span {font-size:$txtSizeM2;line-height:1.8;
+          &:first-child {padding-left:18px;}
+          &:last-child {padding-right:18px;}
+        }
+      }
+      input[type="checkbox"] {
+        &:checked + label {border-color:$greenColor;background:$greenColor;}
+        &:checked + label:after {right:3px;}
+      }
+    }
+    .labelToggleSet_off {display:inline-block;position:relative;vertical-align:middle;
+      input[type="checkbox"] {display:block;position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;}
+      label {
+        position:relative;display:block;width:84px;height:26px;border-radius:$iHeight;border:1px solid darken($grayColor, $cPX16);background:darken($grayColor, $cPX16);
+        width:80px;height:24px;border:1px solid $darkGrayColor;background:$darkGrayColor;
+        &:after {
+          position:absolute;right:61px;top:50%;content:"";display:block;width:16px;height:16px;margin-top:-8px;box-sizing:border-box;border-radius:50%;background:$whiteColor;transition:all .3s ease;
+          right:58px;
+        }
+        span {
+          display:block;padding:0 0;line-height:1.6;color:$whiteColor;text-align:center;
+          font-size:$txtSizeM2;line-height:1.8;
+          &:first-child {display:block; padding-left:18px;}
+          &:last-child {display:none; padding-right:18px;}
+        }
+      }
+    }
+    .labelToggleSet_on {display:inline-block;position:relative;vertical-align:middle;
+      input[type="checkbox"] {display:block;position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;}
+      label {
+        position:relative;display:block;width:84px;height:26px;border-radius:$iHeight;border:1px solid darken($grayColor, $cPX16);background:darken($grayColor, $cPX16);
+        width:80px;height:24px;border:1px solid $greenColor;background:$greenColor;
+        &:after {
+          position:absolute;right:61px;top:50%;content:"";display:block;width:16px;height:16px;margin-top:-8px;box-sizing:border-box;border-radius:50%;background:$whiteColor;transition:all .3s ease;
+          right:3px;
+        }
+        span {
+          display:block;padding:0 0;line-height:1.6;color:$whiteColor;text-align:center;
+          font-size:$txtSizeM2;line-height:1.8;
+          &:first-child {display:none; padding-left:18px;}
+          &:last-child {display:block; padding-right:18px;}
+        }
+      }
+    }
+    .right {font-family:'Roboto';color:$redColor;font-size:$txtSizeM2;white-space:nowrap;}
+    .right strong {display:inline-block;margin-right:7px;font-size:inherit;color:$redColor;}
+  }
+  .player {
+    .skin-catvod .mpv-view-box {right:5px}
+    img {display:block;width:100%;height:auto;}
+    .player_wrap2 {
+      width:690px; height:388px; margin:0 auto;
+      &.full {
+        width:1100px; height:620px; margin:0 auto;
+      }
+    }
+    .player_wrap3 {
+      width:960px; height:540px; margin:0 auto;
+      &.full {
+        width:1280px; height:720px; margin:0 auto;
+      }
+    }
+  }
+  .tit {position:relative;height:85px;padding:15px 118px 0 0;
+    h2 {font-size:$txtSizeP6;letter-spacing:-0.06em;}
+    .playPrevNext {position:absolute;right:0;top:20px;}
+  }
+}
+/* 강의리스트  */
+.playerList {padding:20px 0 0 0; background-color: #fff;
+  dl {
+    dt {position:relative;padding:0 20px;height:40px;cursor:pointer;line-height:1;line-height:2.5;color:$whiteColor;font-size:$txtSizeP2;background:$lightBlackColor;}
+    dt:after {content:'';position:absolute;right:21px;top:16px;display:inline-block;width:8px;height:8px;box-sizing:border-box;border:2px solid $whiteColor;border-bottom:0;border-left:0;
+      @include venderPrefix(transform, rotate(135deg));
+    }
+    dd {display:none;}
+    &.on {
+      dt {background:$greenColor;}
+      dt:after {@include venderPrefix(transform, rotate(315deg));}
+      dd {display:block;}
+    }
+  }
+  .courseList {
+    li {position:relative;display:table;width:100%;cursor:pointer;overflow:hidden;border-bottom:1px solid $grayColor;
+      .basic {display:table-cell;width:100%;height:55px;vertical-align:middle;padding:10px 105px 10px 20px;}
+      .basic span {line-height:1.6;}
+      .basic span i {display:inline-block;padding:2px 5px;border-radius:30px;border:1px solid $redColor; color: #f00; margin-left: 5px;}
+      .basic em {position:absolute;right:13px;top:50%;transform:translateY(-50%);display:inline-block;width:67px;height:24px;line-height:1.8;font-family:'Roboto';background:url('../images/i_videoTime.svg') no-repeat right center;background-size:auto 100%;}
+      .over {position:absolute;top:0;right:-100%;bottom:0;width:380px;padding:18px 18px 0;box-sizing:border-box;background:rgba(51,51,51,.9);transition:all 0.8s;
+        & * {color:$whiteColor;}
+        .time {display:block;padding-bottom:6px;}
+        .time em {margin-right:12px;}
+        .time em i {color:#e75a5a;font-weight:bold;}
+        .rateBar {height:5px;width:120px;}
+        .rateBar span {height:5px;background:$greenColor;}
+        .rateBar em {position:absolute;right:-40px;top:50%;transform:translateY(-56%);display:inline-block;width:25px;text-align:left;}
+      }
+      &:hover {
+        .over {right:0;}
+      }
+      &.end {cursor:default;opacity:.5;}
+      &.on {background:$lightGrayColor;}
+      &.on .basic em {background:url('../images/i_videoTime_on.svg') no-repeat right center;background-size:auto 100%;}
+      &:last-child {border-bottom:0;}
+    }
+  }
+  &.bookmarkCase {
+    .courseList {
+      .basic em.bookmarkTime {}
+    }
+  }
+  dl:last-child {
+    .courseList li:last-child {border-bottom:1px solid $grayColor;}
+  }
+}
+.resTls .listGrid .lgItem [class*=mT] {
+  display: none;
+}
+
+.mylecViewDetail.liveCase {
+  // .tabNav {border-bottom:1px solid $grayColor;}
+  .liveChatArea {padding-top:11px;}
+}
+.mylecViewDetail.mockCase {
+  .tabNav {border-bottom:1px solid $grayColor;}
+}
+.lecArea .tabBack .tabNav ul li button {
+  width: 100%;
+}
+.subTit .wfullBtn .listSearch {
+  display: inline-block;
+  padding: 0;
+}
+.playerArea .playPrevNext .btnMove {
+  background: none;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  text-indent: -9999px;
+  font-size: 0;
+  overflow: hidden;
+  border: none;
+  vertical-align: middle;
+  position: relative;
+  margin: 0 0 0 5px;
+  border: 1px solid #ccc;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    border-bottom: 0;
+    border-left: 0;
+    transform: rotate(45deg);
+  }
+  &.prev::before {
+    left: 7px;
+    transform: rotate(225deg);
+  }
+  &.wide {border:none;background:url('../images/i_wide.png') no-repeat center;}
+  &.wide::before {display:none; }
+  &.small {border:none;background:url('../images/i_small.png') no-repeat center;}
+  &.small::before {display:none;}
+}
+
+
+.skin-catvod.mpv-runtime.mpv-fixed {
+  border: 0;
+}
+
+.skin-catvod button {
+  border: none;
+}
+.skin-catvod button:focus {
+  outline: 0;
+  outline-color: initial;
+  outline-style: initial;
+  outline-width: 0px;
+}
+
+/* 기본 공통 */
+.skin-catvod * {
+  margin: 0px 0px;
+  padding: 0px 0px;
+  font: normal 13px 굴림, Gulim, Tahoma;
+}
+.skin-catvod .mpv-hide {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+.skin-catvod .mpv-zindex {
+  z-index: 2000;
+}
+.skin-catvod .mpv-zindex1 {
+  z-index: 2001;
+}
+.skin-catvod .mpv-zindex2 {
+  z-index: 2002;
+}
+.skin-catvod .mpv-confirm-layer .mpv-zindex {
+  z-index: 2003;
+}
+.skin-catvod .mpv-alert-layer .mpv-zindex {
+  z-index: 2003;
+}
+.skin-catvod .mpv-button {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.skin-catvod .mpv-left {
+  float: left;
+}
+.skin-catvod .mpv-right {
+  float: right;
+}
+.skin-catvod .mpv-bctrl-btn {
+  margin-top: 30px;
+  right: 380px;
+}
+.skin-catvod .mpv-ectrl-btn {
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px 5px;
+  border: solid 1px #fff;
+}
+.skin-catvod .mpv-ectrl-btn:hover {
+  border: solid 1px #87e4ff;
+}
+.skin-catvod .mpv-ectrl-btn.mpv-left {
+  margin: 5px 0px 0px 5px;
+}
+.skin-catvod .mpv-ectrl-btn.mpv-right {
+  margin: 5px 5px 0px 0px;
+}
+.skin-catvod .mpv-edge-left {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+}
+.skin-catvod .mpv-edge-right {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  right: 0px;
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-ie8bg {
+  background: url(../images/catvod/cont_bg2_a60.png);
+}
+.skin-catvod .mpv-edge-center {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.skin-catvod .mpv-edge-rightbottom {
+  display: none;
+  position: absolute;
+  right: 10px;
+  bottom: 55px;
+  border: solid 0px;
+  width: 170px;
+}
+
+.skin-catvod .mpv-inner-player {
+  background-color: #000;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.skin-catvod .mpv-player {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.skin-catvod .mpv-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.skin-catvod.mpv-separate-control .mpv-screen {
+  height: calc(100% - 45px);
+}
+
+.skin-catvod .mpv-poster {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.skin-catvod .mpv-foreground {
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  bottom: 0px;
+}
+
+/* OSD 영역 */
+.skin-catvod .mpv-osd .mpv-ectrl-btn {
+  margin-top: 0px;
+  border-radius: 0px 0px;
+}
+.skin-catvod.mpv-b-ie .mpv-osd {
+  background: url(../images/catvod/blank.png) center center no-repeat;
+}
+.skin-catvod .mpv-osd-loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a url(../images/catvod/loading.gif) center center no-repeat;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  border: 0px;
+}
+.skin-catvod .mpv-osd-loading.mpv-hide {
+  width: 0px;
+  height: 0px;
+}
+.skin-catvod.mpv-hide-control .mpv-ectrl-btn.mpv-osd-loading {
+  display: block;
+}
+.skin-catvod .mpv-osd-toggle {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border: 0px;
+  transform: translate(-50%, -50%);
+}
+.skin-catvod .mpv-osd-toggle.mpv-ectrl-btn:hover {
+  border: 0px;
+}
+.skin-catvod .mpv-osd-toggle.mpv-transform-show {
+  transform: translate(-50%, -50%) scale(1.5);
+  -webkit-transform: translate(-50%, -50%) scale(1.5);
+  -moz-transform: translate(-50%, -50%) scale(1.5);
+  -ms-transform: translate(-50%, -50%) scale(1.5);
+  -o-transform: translate(-50%, -50%) scale(1.5);
+  opacity: 0.3;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.skin-catvod .mpv-osd-toggle.mpv-hide {
+  width: 0px;
+  height: 0px;
+}
+.skin-catvod.mpv-hide-control .mpv-ectrl-btn.mpv-osd-toggle {
+  display: block;
+}
+.skin-catvod.mpv-state-playing .mpv-osd-toggle {
+  background: url(../images/catvod/osd_pause2.png) center center no-repeat;
+}
+.skin-catvod.mpv-state-paused .mpv-osd-toggle {
+  background: url(../images/catvod/osd_play2.png) center center no-repeat;
+}
+.skin-catvod .mpv-osd-play-btn {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
+  width: 100px;
+  height: 100px;
+  border: 0px;
+  background: url(../images/catvod/osd_play2.png) center center no-repeat;
+  cursor: pointer;
+}
+.skin-catvod .mpv-osd-play-btn.mpv-hide {
+  display: none;
+}
+.skin-catvod .mpv-osd-reload-btn {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
+  width: 100px;
+  height: 100px;
+  border: 0px;
+  background: url(../images/catvod/replay_white_24dp.png) center center
+    no-repeat;
+  cursor: pointer;
+}
+.skin-catvod .mpv-osd-reload-btn.mpv-hide {
+  display: none;
+}
+
+/* 영상 제목 */
+.skin-catvod .mpv-title-text-btn {
+  width: auto;
+  min-width: 100px;
+  max-width: 350px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.skin-catvod .mpv-title-text {
+  margin: 8px 8px 0px 8px;
+}
+
+/* 하단 영역 */
+.skin-catvod .mpv-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+.skin-catvod .mpv-bottom.mpv-ani {
+  transition: bottom 0.5s;
+}
+.skin-catvod.mpv-hide-control .mpv-bottom {
+  bottom: -70px;
+}
+
+/* 컨트롤 영역 */
+.skin-catvod .mpv-control {
+  position: relative;
+  width: 100%;
+  height: 70px;
+  bottom: 0px;
+}
+.skin-catvod .mpv-control.mpv-hide {
+  display: block;
+}
+.skin-catvod .mpv-control.mpv-hide .mpv-progress .mpv-progress-handler {
+  display: none;
+}
+.skin-catvod .mpv-control.mpv-hide .mpv-progress .mpv-bookmark-progress {
+  display: none;
+}
+
+/* 하단 컨트롤 영역 */
+.skin-catvod .mpv-control-bottom {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #212630;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 컨트롤 비표시 상태 */
+.skin-catvod.mpv-hide-control .mpv-ectrl-btn {
+  display: none;
+}
+.skin-catvod.mpv-hide-control .mpv-openlayer-screen .mpv-openlayer-button {
+  display: none;
+}
+.skin-catvod.mpv-hide-control .mpv-repeat-marker {
+  display: none;
+}
+
+/* 재생바 영역 */
+.skin-catvod .mpv-progress {
+  position: absolute;
+  left: 20px;
+  width: calc(100% - 210px);
+  margin-top: 17px;
+}
+.skin-catvod .mpv-progress.hover {
+  cursor: pointer;
+}
+.skin-catvod .mpv-progress .mpv-progress-layout {
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+.skin-catvod .mpv-progress .mpv-progressbar {
+  height: 2px;
+}
+.skin-catvod .mpv-progress.hover .mpv-progressbar {
+  height: 7px;
+}
+.skin-catvod .mpv-progress .mpv-total-progress {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.skin-catvod .mpv-progress .mpv-buffer-progress {
+  position: absolute;
+  width: 0px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.skin-catvod .mpv-progress .mpv-over-progress {
+  display: none;
+  position: absolute;
+  width: 0px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.skin-catvod .mpv-progress.hover .mpv-over-progress {
+  display: block;
+}
+.skin-catvod .mpv-progress.hover.disable-overbar .mpv-over-progress {
+  display: none;
+}
+.skin-catvod .mpv-progress .mpv-current-progress {
+  position: absolute;
+  width: 0px;
+  background-color: #3ac28b;
+  height: 4px;
+  margin-top: -1px;
+}
+.skin-catvod .mpv-progress.hover .mpv-current-progress {
+  margin-top: 0;
+}
+.skin-catvod .mpv-progress .mpv-bookmark-progress {
+  position: absolute;
+  width: 100%;
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-progress .mpv-total-progress {
+  background-color: #fff;
+  filter: alpha(opacity=20);
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-progress .mpv-buffer-progress {
+  background-color: #fff;
+  filter: alpha(opacity=40);
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-progress .mpv-over-progress {
+  background-color: #fff;
+  filter: alpha(opacity=60);
+}
+/* 재생바 핸들러 */
+.skin-catvod .mpv-progress .mpv-progress-handler {
+  position: absolute;
+  top: -8px;
+  margin-left: -5px;
+  width: 19px;
+  height: 19px;
+  background-color: #0e935d;
+  border: #fff solid 4px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.skin-catvod .mpv-progress.hover .mpv-progress-handler {
+  top: -7.7px;
+  margin-left: -7px;
+  width: 22px;
+  height: 22px;
+}
+.skin-catvod .mpv-progress .mpv-progress-handler.onts {
+  width: 18px;
+  height: 18px;
+  top: -5.5px;
+}
+/* 타임스템프 재생바 */
+.skin-catvod .mpv-progress .mpv-timestamp-layout {
+  position: absolute;
+  display: none;
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item {
+  position: absolute;
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item .mpv-ts-bar {
+  position: absolute;
+  height: 100%;
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item .mpv-total-timestamp {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item .mpv-buffer-timestamp {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item .mpv-over-timestamp {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item .mpv-prefix-timestamp {
+  display: none;
+  font-size: 3px;
+  background-color: #819ff7;
+  color: yellow;
+  text-align: center;
+  overflow: hidden;
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item .mpv-current-timestamp {
+  background-color: rgb(255, 0, 0);
+}
+.skin-catvod .mpv-progress.hover .mpv-timestamp-item.hover {
+  height: 12px;
+  margin-top: -2.5px;
+}
+.skin-catvod .mpv-progress.hover .mpv-timestamp-item .mpv-over-timestamp {
+  display: block;
+}
+.skin-catvod
+  .mpv-progress.hover.disable-overbar
+  .mpv-timestamp-item
+  .mpv-over-timestamp {
+  display: none;
+}
+.skin-catvod.mpv-b-under-ie8
+  .mpv-progress
+  .mpv-timestamp-item
+  .mpv-total-timestamp {
+  background-color: #fff;
+  filter: alpha(opacity=20);
+}
+.skin-catvod.mpv-b-under-ie8
+  .mpv-progress
+  .mpv-timestamp-item
+  .mpv-buffer-timestamp {
+  background-color: #fff;
+  filter: alpha(opacity=40);
+}
+.skin-catvod.mpv-b-under-ie8
+  .mpv-progress
+  .mpv-timestamp-item
+  .mpv-over-timestamp {
+  background-color: #fff;
+  filter: alpha(opacity=60);
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item.hover .mpv-prefix-timestamp {
+  display: block;
+  background-color: #2e64fe;
+}
+.skin-catvod
+  .mpv-progress
+  .mpv-timestamp-item.prefixover
+  .mpv-prefix-timestamp {
+  background-color: #0040ff;
+  font-size: 6px;
+}
+.skin-catvod
+  .mpv-progress
+  .mpv-timestamp-item.prefixover
+  .mpv-prefix-timestamp
+  span {
+  font-weight: bold;
+}
+.skin-catvod .mpv-progress .mpv-timestamp-item .mpv-prefix-timestamp span {
+  position: absolute;
+  margin-top: -4.8px;
+  letter-spacing: -3px;
+  animation-name: prefix-animation;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+.skin-catvod
+  .mpv-progress.hover
+  .mpv-timestamp-item
+  .mpv-prefix-timestamp
+  span {
+  margin-top: -3.1px;
+}
+.skin-catvod
+  .mpv-progress
+  .mpv-timestamp-item.hover
+  .mpv-prefix-timestamp
+  span {
+  margin-top: 0px;
+}
+.skin-catvod.mpv-b-ie
+  .mpv-progress
+  .mpv-timestamp-item
+  .mpv-prefix-timestamp
+  span {
+  letter-spacing: 0px;
+  margin-top: -4px;
+}
+.skin-catvod.mpv-b-ie
+  .mpv-progress.hover
+  .mpv-timestamp-item
+  .mpv-prefix-timestamp
+  span {
+  margin-top: -2.5px;
+}
+.skin-catvod.mpv-b-ie
+  .mpv-progress
+  .mpv-timestamp-item.hover
+  .mpv-prefix-timestamp
+  span {
+  margin-top: 2px;
+}
+.skin-catvod
+  .mpv-progress
+  .mpv-timestamp-layout.mpv-prefix-always
+  .mpv-timestamp-item
+  .mpv-prefix-timestamp {
+  display: block;
+}
+@keyframes prefix-animation {
+  0% {
+    margin-left: -20px;
+  }
+  100% {
+    margin-left: -100px;
+  }
+}
+
+/* 타임스탬프 버튼 */
+.skin-catvod .mpv-timestamp-box {
+  display: none;
+  float: left;
+  margin-left: -10px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.skin-catvod .mpv-timestamp-icon {
+  float: left;
+  margin-top: 9px;
+  background: url(../images/catvod/timestamp_title_btn.png) center center
+    no-repeat;
+  background-size: 35%;
+}
+.skin-catvod .mpv-timestamp-text {
+  float: left;
+  height: 20px;
+  margin: 16px 0px 0px -3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0);
+}
+.skin-catvod .mpv-timestamp-after {
+  float: left;
+  margin: 8px 0px 0px -7px;
+  background: url(../images/catvod/key_right.png) center center no-repeat;
+}
+
+/* TimeStamp screen (타임스탬프모드) */
+.skin-catvod.mpv-ts-screen .mpv-timestamp-box {
+  display: inline-block;
+}
+.skin-catvod.mpv-ts-screen .mpv-timestamp-box .mpv-timestamp-text {
+  width: auto;
+  min-width: 80px;
+  max-width: 200px;
+}
+.skin-catvod.mpv-ts-screen .mpv-progress .mpv-timestamp-layout {
+  display: block;
+}
+
+.skin-catvod.mpv-ts-screen .mpv-progress .mpv-total-progress {
+  background-color: rgba(255, 0, 0, 0);
+}
+.skin-catvod.mpv-ts-screen .mpv-progress .mpv-buffer-progress {
+  background-color: rgba(255, 0, 0, 0);
+}
+.skin-catvod.mpv-ts-screen .mpv-progress .mpv-over-progress {
+  background-color: rgba(255, 0, 0, 0);
+}
+.skin-catvod.mpv-ts-screen .mpv-progress .mpv-current-progress {
+  background-color: rgba(255, 0, 0, 0);
+}
+
+/* 재생바 구간반복 영역 */
+.skin-catvod .mpv-repeat-progressbar {
+  position: absolute;
+  background-color: yellow;
+}
+
+/* 재생 버튼 */
+.skin-catvod .mpv-toggle-btn {
+}
+.skin-catvod .mpv-toggle-btn.mpv-play {
+  background: url(../images/catvod/pause.png) center center no-repeat;
+  position: absolute;
+  left: 200px;
+}
+.skin-catvod .mpv-toggle-btn.mpv-pause {
+  background: url(../images/catvod/play.svg) center center no-repeat;
+  position: absolute;
+  left: 200px;
+}
+
+/* 정지 벼튼 */
+.skin-catvod .mpv-stop-btn {
+  background: url(../images/catvod/stop.svg) center center no-repeat;
+  position: absolute;
+  left: 250px;
+}
+
+/* 이전 영상 버튼 */
+.skin-catvod .mpv-previous-btn {
+  background: url(../images/catvod/previous.svg) center center no-repeat;
+  position: absolute;
+  left: 150px;
+}
+/* 다음 영상 버튼 */
+.skin-catvod .mpv-next-btn {
+  background: url(../images/catvod/next.svg) center center no-repeat;
+  position: absolute;
+  left: 300px;
+}
+
+/* 스킵 */
+/* MOVE */
+.skin-catvod .mpv-skip-move {
+  position: absolute;
+  top: 0;
+  right: 130px;
+  width: 40px;
+  height: 19px;
+  line-height: 19px;
+  margin-top: 35px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  color: #909297;
+}
+/* 뒤로 스킵 버튼 */
+.skin-catvod .mpv-previous-skip-btn {
+  background: url(../images/catvod/previous_skip.svg) center center no-repeat;
+  width: 20px;
+  height: 19px;
+  position: absolute;
+  right: 90px;
+  border-radius: 2px;
+  background-color: #13161c;
+}
+/* 앞으로 스킵 버튼 */
+.skin-catvod .mpv-next-skip-btn {
+  background: url(../images/catvod/next_skip.svg) center center no-repeat;
+  width: 20px;
+  height: 19px;
+  position: absolute;
+  right: 50px;
+  background-color: #13161c;
+}
+/* 스킵 입력값 */
+.skin-catvod .mpv-skip-input {
+  width: 20px !important;
+  height: 19px !important;
+  border: 0px !important;
+  padding: 0 !important;
+  text-align: center;
+  position: absolute;
+  right: 80px;
+  margin-top: 35px;
+  background-color: #13161c;
+  color: #9fa0a4;
+  z-index: 1;
+}
+/* 탭으로 스킵 UI */
+.skin-catvod .mpv-side-double-tab {
+  position: absolute;
+  display: none;
+  top: 0px;
+  height: 100%;
+  width: 100px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.skin-catvod .mpv-side-double-tab .mpv-side-double-tab-image {
+  position: relative;
+  width: 58px;
+  height: 38px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -15px;
+}
+.skin-catvod .mpv-side-double-tab.mpv-tab-left .mpv-side-double-tab-image {
+  background: url(../images/catvod/left_arrow_ani.gif) center center no-repeat;
+}
+.skin-catvod .mpv-side-double-tab.mpv-tab-right .mpv-side-double-tab-image {
+  background: url(../images/catvod/right_arrow_ani.gif) center center no-repeat;
+}
+.skin-catvod .mpv-side-double-tab .mpv-side-double-tab-text {
+  position: relative;
+  width: 80px;
+  height: 30px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: 10px;
+  color: #fff;
+  font-weight: bold;
+}
+.skin-catvod .mpv-side-double-tab.mpv-tab-on {
+  display: block;
+}
+.skin-catvod .mpv-side-double-tab.mpv-tab-left {
+  left: 0px;
+  right: none;
+  border-top-right-radius: 15% 50%;
+  border-bottom-right-radius: 15% 50%;
+}
+.skin-catvod .mpv-side-double-tab.mpv-tab-right {
+  right: 0px;
+  left: none;
+  border-top-left-radius: 15% 50%;
+  border-bottom-left-radius: 15% 50%;
+}
+.skin-catvod .mpv-side-double-tab-helper {
+  position: relative;
+  top: 10px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  color: #ff0000;
+  font-size: 18px;
+}
+
+/* 볼륨 버튼 및 볼륨 영역 */
+.skin-catvod .mpv-volume-layout {
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
+.skin-catvod .mpv-mute-toggle-btn {
+  background: url(../images/catvod/volume_up.svg) center center no-repeat;
+  margin-top: 5px;
+}
+.skin-catvod .mpv-mute-toggle-btn.mpv-muted {
+  background: url(../images/catvod/volume_off.png) center center no-repeat;
+}
+.skin-catvod .mpv-volume-layout .mpv-volume-ground {
+  display: inline-block;
+}
+.skin-catvod .mpv-volume-layout .mpv-volume-foreground {
+  background-color: #ffffff;
+  width: 5px;
+}
+.skin-catvod .mpv-volume-layout .mpv-volume-slider-layout.mpv-volume-disable {
+  display: none;
+}
+/* 세로 볼륨 형식 */
+.skin-catvod .mpv-volume-layout.mpv-up-vertical .mpv-volume-slider-layout {
+  position: absolute;
+  width: 32px;
+  height: 80px;
+  margin-top: -113px;
+  margin-left: 0px;
+  overflow: hidden;
+}
+.skin-catvod
+  .mpv-volume-layout.mpv-up-vertical
+  .mpv-volume-slider-layout.mpv-ani {
+  transition: height 0.3s, margin-top 0.3s;
+}
+.skin-catvod
+  .mpv-volume-layout.mpv-up-vertical
+  .mpv-volume-slider-layout.mpv-hide {
+  display: block;
+  height: 0px;
+  margin-top: -33px;
+}
+.skin-catvod .mpv-volume-layout.mpv-up-vertical .mpv-volume-slider {
+  position: relative;
+  background: url(../images/catvod/volume_slider.png) center center no-repeat;
+  width: 32px;
+  height: 80px;
+}
+.skin-catvod .mpv-volume-layout.mpv-up-vertical .mpv-volume-background {
+  position: relative;
+  background: url(../images/catvod/volume_track.png) center center no-repeat;
+  width: 6px;
+  height: 55px;
+  top: 10px;
+  left: 12px;
+}
+.skin-catvod .mpv-volume-layout.mpv-up-vertical .mpv-volume-foreground {
+  position: absolute;
+  background: url(../images/catvod/volume_value.png) center center no-repeat;
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+  left: 0px;
+}
+.skin-catvod .mpv-volume-layout.mpv-up-vertical .mpv-volume-handler {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  background: url(../images/catvod/volume_handler.png) center center no-repeat;
+  width: 16px;
+  height: 16px;
+  left: -4px;
+  margin-top: -7px;
+}
+/* 가로 볼륨 형식 */
+.skin-catvod .mpv-volume-layout.mpv-horizontal .mpv-mute-toggle-btn {
+  float: left;
+}
+.skin-catvod .mpv-volume-layout.mpv-horizontal .mpv-volume-slider-layout {
+  float: right;
+  width: 100px;
+  height: 20px;
+  margin: 4px 0px 0px 10px;
+}
+.skin-catvod
+  .mpv-volume-layout.mpv-horizontal
+  .mpv-volume-slider-layout.mpv-hide {
+  display: none;
+}
+.skin-catvod .mpv-volume-layout.mpv-horizontal .mpv-volume-background {
+  position: relative;
+  background: #7a7d83;
+  width: 100px;
+  height: 2px;
+  top: 5px;
+  left: 0px;
+}
+.skin-catvod .mpv-volume-layout.mpv-horizontal .mpv-volume-foreground {
+  position: absolute;
+  background: #3ac28b;
+  width: 0px;
+  height: 4px;
+  top: -1px;
+  left: 0px;
+}
+.skin-catvod .mpv-volume-layout.mpv-horizontal .mpv-volume-handler {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  left: 0px;
+  margin: -7px 0px 0px -8px;
+  padding: 0px 0px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 15px;
+}
+
+/* 현재/영상 시간 */
+.skin-catvod .mpv-time-layout {
+  float: left;
+  margin: 30px 10px 0px 15px;
+  padding: 0px 0px;
+  cursor: default;
+}
+.skin-catvod .mpv-currenttime-text {
+  float: left;
+  color: #ffffff;
+  padding: 0px 0px;
+  margin-top: 10px;
+  margin-right: 2px;
+}
+.skin-catvod .mpv-currenttime-text:after {
+  content: "/";
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 7px;
+}
+.skin-catvod .mpv-duration-text {
+  float: left;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0px 3px;
+  margin-top: 10px;
+}
+
+/* 구간 반복 */
+/* .skin-catvod .mpv-repeat-btn { float: left; } */
+.skin-catvod .mpv-repeat-btn.mpv-repeat-on {
+  background: url(../images/catvod/repeat2_on.png) center center no-repeat;
+  width: 61px;
+  position: absolute;
+  right: 350px;
+}
+.skin-catvod .mpv-repeat-btn.mpv-repeat-on1 {
+  background: url(../images/catvod/repeat_on1.png) center center no-repeat;
+}
+.skin-catvod .mpv-repeat-btn.mpv-repeat-off {
+  background: url(../images/catvod/repeat2_off.png) center center no-repeat;
+  width: 61px;
+  position: absolute;
+  right: 350px;
+}
+.skin-catvod .mpv-repeat-marker {
+  position: absolute;
+  width: 20px;
+  height: 25px;
+  padding: 0px 0px;
+  margin: -15px 0px 0px -10px;
+  cursor: pointer;
+  background: url(../images/catvod/repeat_marker.png) center center no-repeat;
+}
+.skin-catvod .mpv-repeat-start-marker {
+  background: url(../images/catvod/repeat_marker_left.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-repeat-end-marker {
+  background: url(../images/catvod/repeat_marker_right.png) center center
+    no-repeat;
+}
+
+/* 화질 버튼 및 화질 목록 */
+.skin-catvod .mpv-quality-layout {
+  float: right;
+}
+.skin-catvod .mpv-bctrl-btn.mpv-quality-btn {
+  margin-top: 14px;
+}
+
+/* 소스 선택 버튼 및 목록 */
+.skin-catvod .mpv-switchsource-layout {
+  float: right;
+}
+
+/* 배속 버튼*/
+.skin-catvod .mpv-rate-layout {
+  float: right;
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-view-layout.mpv-rate-layout {
+  display: none;
+}
+/* ( < 배속 > ) 형식 */
+.skin-catvod .mpv-rate-layout.mpv-rate-type-button {
+  height: 22px;
+  margin: 12px 5px 0px 5px;
+  padding: 0px 5px;
+  border: solid 0.5px #fff;
+  border-radius: 10px 10px;
+}
+.skin-catvod .mpv-rate-up-btn {
+  position: relative;
+  float: right;
+  width: 15px;
+  height: 15px;
+  margin-top: 4px;
+  background: url(../images/catvod/key_right.png) center center no-repeat;
+}
+.skin-catvod .mpv-rate-text {
+  position: relative;
+  display: inline-block;
+  margin-top: 3px;
+  color: #ffffff;
+  cursor: default;
+}
+.skin-catvod .mpv-rate-text.mpv-hide {
+  display: none;
+}
+.skin-catvod .mpv-rate-down-btn {
+  position: relative;
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin-top: 4px;
+  background: url(../images/catvod/key_left.png) center center no-repeat;
+}
+.skin-catvod .mpv-bctrl-btn.mpv-rate-up-btn {
+  margin-top: 4px;
+}
+.skin-catvod .mpv-bctrl-btn.mpv-rate-text {
+  margin-top: 3px;
+}
+.skin-catvod .mpv-bctrl-btn.mpv-rate-down-btn {
+  margin-top: 4px;
+  margin-left: 2px;
+}
+.skin-catvod .mpv-bctrl-btn.mpv-rate-btn {
+  margin-top: 36px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 2px;
+  border-right: none;
+  position: absolute;
+  right: 179px;
+  background-color: #13161c;
+}
+
+/* 배속 목록 */
+.skin-catvod .mpv-rate-layout.mpv-rate-type-list .mpv-rate-up-btn {
+  display: none;
+}
+.skin-catvod .mpv-rate-layout.mpv-rate-type-list .mpv-rate-text {
+  display: none;
+}
+.skin-catvod .mpv-rate-layout.mpv-rate-type-list .mpv-rate-down-btn {
+  display: none;
+}
+.skin-catvod .mpv-rate-layout.mpv-rate-type-button .mpv-rate-btn {
+  display: none;
+}
+
+/* 자막 버튼 */
+.skin-catvod .mpv-subtitle-layout {
+  float: right;
+}
+.skin-catvod .mpv-bctrl-btn.mpv-subtitle-btn {
+  margin-top: 14px;
+}
+/* 자막 표시 영역 */
+.skin-catvod .mpv-subtitle-display {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.skin-catvod .mpv-subtitle-display .mpv-subtitle-content {
+  display: inline-block;
+  margin: 0px 70px;
+  padding: 10px 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-subtitle-display .mpv-subtitle-content {
+  background: url(../images/catvod/cont_bg2_a60.png);
+}
+.skin-catvod .mpv-subtitle-display .mpv-subtitle-content .mpv-subtitle-text {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  transition-duration: 0.5s;
+  padding: 5px 10px;
+}
+
+/* 설정 버튼 및 설정 영역 */
+.skin-catvod .mpv-config-layout {
+  float: right;
+}
+.skin-catvod .mpv-config-btn {
+  background: url(../images/catvod/settings_btn.png) center center no-repeat;
+  margin-right: 15px;
+}
+/* 설정 목록 */
+.skin-catvod .mpv-config-menu .mpv-config-menu-title-icon {
+  margin-top: 6px;
+  background: url(../images/catvod/settings_small_btn.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-config-menu .mpv-config-menu-title {
+  height: 30px;
+  border-bottom: solid 1px #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.skin-catvod .mpv-config-menu .mpv-config-menu-title-nm {
+  float: left;
+  margin: 6px 0px 0px 6px;
+}
+.skin-catvod .mpv-config-menu .mpv-view-rows {
+  padding: 5px 0px;
+}
+.skin-catvod .mpv-config-menu .mpv-view-item .mpv-view-name {
+  float: left;
+  margin: 3px 6px;
+}
+.skin-catvod .mpv-config-menu .mpv-view-item .mpv-view-value {
+  float: right;
+  width: 100px;
+  margin: 3px 6px;
+  text-align: right;
+}
+.skin-catvod
+  .mpv-config-menu
+  .mpv-view-item.mpv-view-submenu
+  .mpv-view-value:after {
+  float: right;
+  width: 20px;
+  height: 20px;
+  margin-top: -3.5px;
+  padding: 0px 0px;
+  content: "";
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+}
+.skin-catvod
+  .mpv-config-menu
+  .mpv-view-item.mpv-view-submenu
+  .mpv-view-value:after {
+  background-image: url(../images/catvod/chevron_right.png);
+  background-size: 100%;
+  margin-top: -2px;
+}
+
+/* 책갈피 북마크 */
+.skin-catvod .mpv-view-layout.mpv-bookmark-layout {
+  float: right;
+}
+.skin-catvod.mpv-b-ie7 .mpv-view-layout.mpv-bookmark-layout.mpv-1btn {
+  width: 30px;
+}
+.skin-catvod.mpv-b-ie7 .mpv-view-layout.mpv-bookmark-layout.mpv-2btn {
+  width: 60px;
+}
+.skin-catvod.mpv-b-ie7 .mpv-view-layout.mpv-bookmark-layout.mpv-hide {
+  width: 0px;
+  display: inline-block;
+}
+.skin-catvod .mpv-bookmark-add-btn {
+  float: right;
+  background: url(../images/catvod/bookmark2_off.png) center center no-repeat;
+  position: absolute;
+  right: 265px;
+  top: 0;
+  margin: 30px 10px 0 0;
+  width: 61px;
+}
+.skin-catvod .mpv-bookmark-menu-btn {
+  float: right;
+  background: url(../images/catvod/bookmark_menu_btn.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-progress .mpv-bookmark-pointer {
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background-color: #00ff00;
+}
+.skin-catvod .mpv-progress .mpv-bookmark-text-layout {
+  position: absolute;
+  top: -25px;
+  margin-left: -18px;
+  min-width: 36px;
+  height: 20px;
+}
+.skin-catvod .mpv-progress .mpv-bookmark-text {
+  margin-top: 0px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3x;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border: solid 1px #fff;
+}
+/* 책갈피 북마크 목록 */
+.skin-catvod .mpv-bookmark-menu.mpv-view-box {
+  min-width: 200px;
+}
+.skin-catvod .mpv-bookmark-menu .mpv-bookmark-add-btn {
+  background: url(../images/catvod/bookmark_add_small_btn.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-bookmark-menu .mpv-bookmark-menu-title-icon {
+  margin-top: 6px;
+  background: url(../images/catvod/bookmark_menu_small_btn.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-bookmark-menu .mpv-bookmark-menu-title {
+  height: 30px;
+  border-bottom: solid 1px #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.skin-catvod .mpv-bookmark-menu .mpv-bookmark-menu-title-nm {
+  float: left;
+  margin: 6px 0px 0px 6px;
+}
+.skin-catvod .mpv-bookmark-menu .mpv-bookmark-menu-time {
+  float: left;
+  width: 45px;
+  margin: 5px 5px 0px 5px;
+}
+/* 책갈피 입력 화면 */
+.skin-catvod .mpv-bookmark-input-layout .mpv-bookmark-contents {
+  margin-bottom: 5px;
+}
+.skin-catvod .mpv-bookmark-input-layout .mpv-input-icon {
+  background: url(../images/catvod/bookmark_add_small_btn.png) center center
+    no-repeat;
+}
+
+/* 구간반복 북마크 */
+.skin-catvod .mpv-repmark-layout {
+  float: right;
+}
+.skin-catvod.mpv-b-ie7 .mpv-view-layout.mpv-repmark-layout.mpv-1btn {
+  width: 30px;
+}
+.skin-catvod.mpv-b-ie7 .mpv-view-layout.mpv-repmark-layout.mpv-2btn {
+  width: 60px;
+}
+.skin-catvod.mpv-b-ie7 .mpv-view-layout.mpv-repmark-layout.mpv-hide {
+  width: 0px;
+  display: inline-block;
+}
+.skin-catvod .mpv-repmark-add-btn {
+  float: right;
+  background: url(../images/catvod/repmark_add_btn.png) center center no-repeat;
+}
+.skin-catvod .mpv-repmark-menu-btn {
+  float: right;
+  background: url(../images/catvod/repmark_menu_btn.png) center center no-repeat;
+}
+/* 구간반복 북마크 목록 */
+.skin-catvod .mpv-repmark-menu.mpv-view-box {
+  min-width: 200px;
+}
+.skin-catvod .mpv-repmark-menu .mpv-repmark-add-btn {
+  background: url(../images/catvod/repmark_add_small_btn.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-repmark-menu .mpv-repmark-menu-title-icon {
+  margin-top: 6px;
+  background: url(../images/catvod/repmark_menu_small_btn.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-repmark-menu .mpv-repmark-menu-title {
+  height: 30px;
+  border-bottom: solid 1px #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.skin-catvod .mpv-repmark-menu .mpv-repmark-menu-title-nm {
+  float: left;
+  margin: 6px 0px 0px 6px;
+}
+.skin-catvod .mpv-repmark-menu .mpv-repmark-menu-start {
+  float: left;
+  width: 45px;
+  margin: 5px 5px 0px 5px;
+}
+.skin-catvod .mpv-repmark-menu .mpv-repmark-menu-end {
+  float: left;
+  width: 45px;
+  margin: 5px 5px 0px 5px;
+}
+/* 구간반복 입력 화면 */
+.skin-catvod .mpv-repmark-input-layout .mpv-repmark-contents {
+  margin-bottom: 5px;
+}
+.skin-catvod .mpv-repmark-input-layout .mpv-input-icon {
+  background: url(../images/catvod/repmark_add_small_btn.png) center center
+    no-repeat;
+}
+
+/* 플레이리스트 */
+.skin-catvod .mpv-playlist-layout {
+  float: right;
+}
+.skin-catvod.mpv-b-ie7 .mpv-playlist-layout.mpv-1btn {
+  width: 30px;
+}
+.skin-catvod.mpv-b-ie7 .mpv-playlist-layout.mpv-2btn {
+  width: 60px;
+}
+.skin-catvod.mpv-b-ie7 .mpv-playlist-layout.mpv-hide {
+  width: 0px;
+  display: inline-block;
+}
+.skin-catvod .mpv-playlist-add-btn {
+  float: right;
+  background: url(../images/catvod/playlist_add.png) center center no-repeat;
+}
+.skin-catvod .mpv-playlist-menu-btn {
+  float: right;
+  background: url(../images/catvod/playlist_play.png) center center no-repeat;
+}
+/* 플레이리스트 목록 */
+.skin-catvod .mpv-playlist-menu.mpv-view-box {
+  min-width: 250px;
+}
+.skin-catvod .mpv-playlist-menu .mpv-playlist-menu-title {
+  height: 30px;
+  border-bottom: solid 1px #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.skin-catvod .mpv-playlist-menu .mpv-playlist-menu-title-icon {
+  margin: 7px 3px 0px 5px;
+  background: url(../images/catvod/playlist_play_small.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-playlist-menu .mpv-playlist-menu-title-nm {
+  float: left;
+  margin: 6px 0px 0px 0px;
+}
+.skin-catvod .mpv-playlist-menu .mpv-playlist-add-btn {
+  margin: 0px 0px 0px 5px;
+  background: url(../images/catvod/playlist_add_small.png) center center
+    no-repeat;
+}
+.skin-catvod .mpv-playlist-menu .mpv-view-item .mpv-view-checked {
+  margin-top: 2px;
+}
+.skin-catvod .mpv-playlist-menu .mpv-playlist-menu-nm {
+  max-width: 300px;
+  min-width: 150px;
+  height: 18px;
+  margin: 7px 5px 0px 5px;
+}
+.skin-catvod
+  .mpv-playlist-menu
+  .mpv-view-item.mpv-option-selected
+  .mpv-playlist-menu-nm {
+  color: #87e4ff;
+}
+/* 플레이리스트 입력 화면 */
+.skin-catvod .mpv-playlist-input-layout .mpv-playlist-contents {
+  /*height: 107px;*/
+  display: inline-block;
+}
+.skin-catvod .mpv-playlist-input-layout .mpv-input-icon {
+  background: url(../images/catvod/playlist_add_small.png) center center
+    no-repeat;
+}
+
+/* 공통 서브 목록 (자막목록, 화질목록, 배속목록, 북마크목록, 소스선택목록, 설정목록) */
+.skin-catvod .mpv-view-layout {
+  margin: 0px 0px 0px 0px;
+}
+/* 공통 서브 목록 버튼 */
+.skin-catvod .mpv-bmenu-btn {
+  margin: 30px 5px 0px 5px;
+  padding: 0px 25px 0px 10px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-right: solid 1px currentColor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: url(../images/catvod/arrow_up.png) top 2px right 7px no-repeat;
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-bmenu-btn {
+  border: 0px;
+}
+.skin-catvod .mpv-bmenu-btn.mpv-on {
+  color: #87e4ff;
+  border-color: #87e4ff;
+}
+.skin-catvod .mpv-bmenu-btn:hover {
+  color: #87e4ff;
+  border-color: #87e4ff;
+}
+.skin-catvod .mpv-menu-title-icon {
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin: 2px 0px 0px 5px;
+}
+/* 공통 서브 목록 */
+.skin-catvod .mpv-view-box {
+  position: absolute;
+  display: block;
+  max-height: 500px;
+  bottom: 70px;
+  margin-left: -130px;
+  color: #ffffff;
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.65);
+  border: solid 1px #fff;
+  overflow: hidden;
+  transition: max-height 0.5s, bottom 0.5s, opacity 0.5s;
+}
+.skin-catvod .mpv-view-box * {
+  color: #fff;
+  box-sizing: content-box;
+}
+.skin-catvod .mpv-view-box.mpv-rate-menu {
+  margin-left: -245px;
+}
+.skin-catvod.mpv-b-ie7 .mpv-view-box {
+  width: 280px;
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-view-box {
+  background: url(../images/catvod/cont_bg2_a60.png);
+}
+.skin-catvod .mpv-view-box .mpv-view-bottom {
+  display: none;
+}
+.skin-catvod .mpv-view-box.mpv-hide {
+  border: 0px;
+  display: block;
+  max-height: 0px;
+  opacity: 0.5;
+  bottom: -100px;
+}
+.skin-catvod .mpv-view-box.mpv-overflow-right {
+  right: 5px;
+}
+.skin-catvod .mpv-view-rows {
+  max-height: 300px;
+  min-height: 120px;
+  overflow-y: auto;
+}
+.skin-catvod .mpv-view-item {
+  height: 25px;
+  cursor: pointer;
+}
+.skin-catvod .mpv-view-item:hover {
+  color: #ff0000;
+}
+.skin-catvod .mpv-view-ele {
+  display: table-cell;
+}
+.skin-catvod .mpv-view-item .mpv-view-checked {
+  float: left;
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+.skin-catvod .mpv-view-item.mpv-option-selected .mpv-view-checked {
+  background: url(../images/catvod/option_selected.png) no-repeat;
+  background-position: 7px 7px;
+}
+.skin-catvod .mpv-view-item .mpv-view-text {
+  float: right;
+  width: 80px;
+  height: 18px;
+  padding: 5px 0px 0px 5px;
+}
+.skin-catvod .mpv-view-item.mpv-option-selected .mpv-view-text {
+  color: #87e4ff;
+}
+.skin-catvod .mpv-view-item:hover .mpv-view-text {
+  color: red;
+}
+.skin-catvod .mpv-view-item:hover .mpv-view-name {
+  color: red;
+}
+.skin-catvod .mpv-view-item:hover .mpv-view-value {
+  color: red;
+}
+.skin-catvod .mpv-view-close-btn {
+  cursor: pointer;
+}
+.skin-catvod .mpv-view-item.mpv-view-line {
+  height: 1px;
+  background-color: #fff;
+}
+.skin-catvod .mpv-view-item.mpv-view-line * {
+  display: none;
+}
+.skin-catvod .mpv-view-box .mpv-menu-nm {
+  float: left;
+  max-width: 130px;
+  min-width: 100px;
+  height: 18px;
+  margin: 5px 5px 0px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.skin-catvod .mpv-view-box .mpv-menu-del-btn {
+  float: right;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  background: url(../images/catvod/delete_small_btn.png) center center no-repeat;
+  cursor: pointer;
+}
+/* 목록의 닫기 버튼 */
+.skin-catvod .mpv-view-box .mpv-menu-close-btn {
+  float: right;
+  width: 12px;
+  height: 12px;
+  margin: 8px 8px 0px 0px;
+  background: url(../images/catvod/close_small_btn.png) center center no-repeat;
+}
+
+/* 공통 입력창 영역 */
+.skin-catvod .mpv-input-layout {
+  position: absolute;
+  display: inline-block;
+  bottom: 70px;
+  left: 80%;
+  transform: translateX(-50%);
+  transition: bottom 0.5s, opacity 0.5s;
+}
+.skin-catvod.mpv-b-ie7 .mpv-input-layout {
+  width: 280px;
+}
+.skin-catvod .mpv-input-layout.mpv-hide {
+  opacity: 0;
+  bottom: -700px;
+}
+.skin-catvod .mpv-input-layout .mpv-input-box {
+  border: solid 1px #fff;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.skin-catvod .mpv-input-layout .mpv-input-subject {
+  height: 26px;
+  padding: 10px 0px 0px 5px;
+  border-bottom: solid 1px #fff;
+  text-align: left;
+}
+.skin-catvod .mpv-input-layout .mpv-input-icon {
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin: -6px 0px 0px 0px;
+}
+/* 공통 입력창 입력 태그 */
+.skin-catvod .mpv-input-layout .mpv-input-tag-border {
+  padding: 5px 0px 5px 10px;
+  height: 25px;
+}
+.skin-catvod .mpv-input-layout .mpv-input-tag-nm {
+  float: left;
+  width: 80px;
+  margin-top: 2px;
+}
+.skin-catvod .mpv-input-layout .mpv-input-tag-nm::after {
+  content: " : ";
+}
+.skin-catvod .mpv-input-layout .mpv-input-tag {
+  float: left;
+  width: 178px;
+  height: 20px;
+  background-color: #000;
+  color: #fff;
+  margin: 0px 5px 0px 0px;
+  padding: 2px 5px;
+  border: solid 0.5px #fff;
+}
+.skin-catvod.mpv-b-ie7 .mpv-input-layout .mpv-input-tag {
+  width: 168px;
+}
+.skin-catvod .mpv-input-layout .mpv-input-tag:hover {
+  border: solid 1px #fff;
+}
+/* 공통 입력창 입력 태그 (시간) */
+.skin-catvod .mpv-input-layout .mpv-input-time-border {
+  padding: 5px 0px 5px 10px;
+  height: 22px;
+}
+.skin-catvod .mpv-input-layout .mpv-input-time {
+  float: left;
+  width: 74px;
+  height: 20px;
+  background-color: #000;
+  color: #fff;
+  margin: 0px 105px 0px 0px;
+  padding: 2px 5px;
+  border: solid 0.5px #fff;
+}
+.skin-catvod .mpv-input-layout .mpv-input-time.selected {
+  border: solid 1px #87e4ff;
+}
+/* 공통 입력창 확인/닫기 버튼 영역 */
+.skin-catvod .mpv-input-layout .mpv-input-confirm-box {
+  width: 100%;
+  height: 35px;
+  padding-top: 7px;
+  border-top: solid 1px #fff;
+  text-align: center;
+}
+.skin-catvod .mpv-input-layout .mpv-input-confirm-btn {
+  display: inline-block;
+  width: 70px;
+  border: solid 1px #fff;
+  margin: 0px 5px;
+  padding: 2px 5px;
+  border-radius: 5px 5px;
+}
+.skin-catvod .mpv-input-layout .mpv-input-confirm-btn:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+}
+.skin-catvod .mpv-input-layout .mpv-input-close-btn {
+  display: inline-block;
+  width: 70px;
+  border: solid 1px #fff;
+  margin: 0px 5px;
+  padding: 2px 5px;
+  border-radius: 5px 5px;
+}
+.skin-catvod .mpv-input-layout .mpv-input-close-btn:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+}
+.skin-catvod .mpv-input-layout .mpv-input-menu-btn {
+  float: right;
+  border: solid 1px #fff;
+  margin: -5px 5px 0px 5px;
+  padding: 2px 5px;
+  border-radius: 5px 5px;
+}
+.skin-catvod .mpv-input-layout .mpv-input-menu-btn:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+}
+
+/* 극장 모드 */
+.skin-catvod.mpv-wide-screen {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+}
+/* 극장 모드 버튼 */
+.skin-catvod .mpv-wide-btn {
+  float: right;
+  background: url(../images/catvod/theater_on.png) center center no-repeat;
+}
+.skin-catvod .mpv-wide-btn.mpv-sel1 {
+  background: url(../images/catvod/theater_off.png) center center no-repeat;
+}
+
+/* 풀스크린 버튼 */
+.skin-catvod .mpv-fullscreen-btn {
+  float: right;
+  background: url(../images/catvod/fullscreen.svg) center center no-repeat;
+  margin-right: 16px;
+}
+.skin-catvod.mpv-fullscreen .mpv-fullscreen-btn {
+  background: url(../images/catvod/fullscreen_exit.png) center center no-repeat;
+}
+/* 풀스크린 화면 */
+.skin-catvod.mpv-fullscreen {
+  position: fixed;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  border: solid 0px;
+  z-index: 2000;
+}
+body.skin-catvod-fullscreen {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+body.skin-catvod-virtual-fullscreen {
+  overflow: hidden;
+}
+.skin-catvod.mpv-fullscreen.mpv-virtual-fullscreen {
+  overflow: hidden;
+}
+.skin-catvod.mpv-fullscreen .mpv-wide-btn {
+  display: none;
+}
+.skin-catvod.mpv-fullscreen .mpv-openlayer-btn {
+  display: none;
+}
+.mpv-fullscreen-none-node {
+  display: none;
+}
+
+/* 터치 이벤트 도움말 영역 (재생바 이동, 볼륨, 밝기) */
+.skin-catvod .mpv-touch-helper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  min-width: 100px;
+  min-height: 60px;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+
+/* Rotate screen (회전모드) */
+.skin-catvod .mpv-rotate-btn {
+  float: right;
+  background: url(../images/catvod/rotate_right_btn.png) center center no-repeat;
+  background-size: 75% 75%;
+  cursor: pointer;
+}
+.skin-catvod.mpv-rotate-screen1 .mpv-device {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.skin-catvod.mpv-rotate-screen2 .mpv-device {
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.skin-catvod.mpv-rotate-screen3 .mpv-device {
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+/* Lock screen (화면잠금모드) */
+.skin-catvod .mpv-lock-btn {
+  background: url(../images/catvod/lock_open_btn.png) center center no-repeat;
+  cursor: pointer;
+}
+.skin-catvod.mpv-lock-screen .mpv-lock-btn {
+  background: url(../images/catvod/lock_btn.png) center center no-repeat;
+}
+.skin-catvod.mpv-lock-screen .mpv-control {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-openlayer-button {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-config-btn {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-exit-btn {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-title-text-btn {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-view-box {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-bookmark-input-layout {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-repmark-input-layout {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-playlist-input-layout {
+  display: none;
+}
+.skin-catvod.mpv-lock-screen .mpv-openlayer-screen .mpv-openlayer-button {
+  display: none;
+}
+
+/* 프리뷰 */
+.skin-catvod .mpv-preview-message-btn {
+  display: none;
+  height: 30px;
+  margin-top: 5px;
+  padding: 7px 20px 0px 20px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px 5px;
+  border: solid 0.5px #fff;
+}
+.skin-catvod.mpv-preview-screen .mpv-preview-message-btn {
+  display: block;
+}
+
+/* 인트로 영상 */
+.skin-catvod .mpv-intro-btn {
+  display: none;
+}
+.skin-catvod.mpv-intro-screen .mpv-edge-rightbottom {
+  display: inline-block;
+}
+.skin-catvod.mpv-intro-screen .mpv-intro-btn {
+  display: inline-block;
+}
+.skin-catvod .mpv-intro-skip-btn {
+  float: right;
+  height: 28px;
+  min-width: 100px;
+  margin: 3px 0px 0px 0px;
+  padding: 10px 10px 0px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border: solid 1px #fff;
+  border-radius: 5px 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.skin-catvod .mpv-intro-skip-btn:hover {
+  border: solid 1px #ff0000;
+}
+
+/* 광고 */
+.skin-catvod .mpv-ad-message-btn {
+  display: none;
+  height: 30px;
+  margin-top: 5px;
+  padding: 7px 20px 0px 20px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px 5px;
+  border: solid 0.5px #fff;
+}
+.skin-catvod .mpv-ad-btn {
+  display: none;
+}
+.skin-catvod .mpv-ad-detail-btn {
+  float: right;
+  height: 28px;
+  min-width: 100px;
+  margin: 3px 0px 0px 0px;
+  padding: 10px 10px 0px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border: solid 1px #fff;
+  border-radius: 5px 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.skin-catvod .mpv-ad-detail-btn:hover {
+  border: solid 1px #ff0000;
+}
+.skin-catvod .mpv-ad-skip-btn {
+  float: right;
+  height: 28px;
+  min-width: 100px;
+  margin: 3px 0px 0px 0px;
+  padding: 10px 10px 0px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border: solid 1px #fff;
+  border-radius: 5px 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.skin-catvod .mpv-ad-skip-btn:hover {
+  border: solid 1px #ff0000;
+}
+/* 광고 화면 (AD) */
+.skin-catvod.mpv-ad-screen .mpv-ad-message-btn {
+  display: block;
+}
+.skin-catvod.mpv-ad-screen .mpv-edge-rightbottom {
+  display: inline-block;
+}
+.skin-catvod.mpv-ad-screen .mpv-ad-btn {
+  display: inline-block;
+}
+.skin-catvod.mpv-ad-screen .mpv-ad-btn.mpv-hide {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-subtitle-display {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-stop-btn {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-previous-btn {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-next-btn {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-previous-skip-btn {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-skip-input {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-next-skip-btn {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-repeat-btn {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-config-layout {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-playlist-layout {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-repmark-layout {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-bookmark-layout {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-switchsource-layout {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-rate-layout {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-quality-layout {
+  display: none;
+}
+.skin-catvod.mpv-ad-screen .mpv-subtitle-layout {
+  display: none;
+}
+/* 광고 화면 (VAST) */
+.skin-catvod.mpv-vast-screen .mpv-ad-message-btn {
+  display: block;
+}
+.skin-catvod.mpv-vast-screen .mpv-edge-rightbottom {
+  display: inline-block;
+}
+.skin-catvod.mpv-vast-screen .mpv-ad-btn {
+  display: inline-block;
+}
+.skin-catvod.mpv-vast-screen .mpv-ad-btn.mpv-hide {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-subtitle-display {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-stop-btn {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-previous-btn {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-next-btn {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-previous-skip-btn {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-skip-input {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-next-skip-btn {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-repeat-btn {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-config-layout {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-playlist-layout {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-repmark-layout {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-bookmark-layout {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-switchsource-layout {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-rate-layout {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-quality-layout {
+  display: none;
+}
+.skin-catvod.mpv-vast-screen .mpv-subtitle-layout {
+  display: none;
+}
+
+/* App */
+.skin-catvod .mpv-exit-btn {
+  background: url(../images/catvod/close_btn.png) center center no-repeat;
+  cursor: pointer;
+}
+
+/* Flash */
+.skin-catvod .mpv-flash-icon {
+  display: none;
+  background: url(../images/catvod/flash_on_icon.png) center center no-repeat;
+  cursor: pointer;
+}
+.skin-catvod.mpv-device-flash .mpv-flash-icon {
+  display: block;
+}
+.skin-catvod.mpv-device-flash2 .mpv-flash-icon {
+  display: block;
+}
+
+/* 썸네일 */
+.skin-catvod .mpv-thumbnail {
+  position: absolute;
+  bottom: 20px;
+  border: solid 1px #fff;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+}
+.skin-catvod .mpv-thumbnail .mpv-thumbnail-top {
+  border: solid 0px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  vertical-align: middle;
+}
+.skin-catvod .mpv-thumbnail .mpv-thumbnail-image {
+  width: 120px;
+  height: 80px;
+  background-size: 120px 80px;
+  border: solid 0px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.skin-catvod .mpv-thumbnail .mpv-thumbnail-bottom {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 20px;
+  margin: -18px 0px 0px 0px;
+  padding: 0px 0px;
+  text-align: center;
+}
+.skin-catvod .mpv-thumbnail .mpv-thumbnail-text {
+  display: none;
+  max-width: 120px;
+  height: 18px;
+  margin: 3px 0px 0px 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  font: normal 12px "나눔고딕", "NanumGothic", NGB, "맑은 고딕", "Malgun Gothic";
+  font-weight: bold;
+}
+.skin-catvod .mpv-thumbnail .mpv-thumbnail-time {
+  height: 18px;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fff;
+  font: normal 12px "나눔고딕", "NanumGothic", NGB, "맑은 고딕", "Malgun Gothic";
+  font-weight: bold;
+}
+.skin-catvod.mpv-b-under-ie8 .mpv-thumbnail {
+  display: none;
+}
+/* 썸네일 A 타입 */
+.skin-catvod .mpv-thumbnail.mod-atype .mpv-thumbnail-bottom {
+  margin-top: -38px;
+  height: 38px;
+}
+.skin-catvod .mpv-thumbnail.mod-atype .mpv-thumbnail-text {
+  display: block;
+}
+/* 썸네일 B 타입 */
+.skin-catvod .mpv-thumbnail.btype {
+  bottom: 40px;
+}
+.skin-catvod .mpv-thumbnail.btype .mpv-thumbnail-bottom {
+  margin-top: 0px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.skin-catvod .mpv-thumbnail.btype .mpv-thumbnail-text {
+  height: 16px;
+  font-size: 12px;
+  font-weight: normal;
+}
+.skin-catvod .mpv-thumbnail.btype .mpv-thumbnail-time {
+  height: 16px;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: normal;
+}
+.skin-catvod .mpv-thumbnail.mod-btype .mpv-thumbnail-text {
+  display: block;
+}
+.skin-catvod .mpv-thumbnail.mod-btype .mpv-thumbnail-time {
+  margin-top: 0px;
+}
+/* 썸네일 C 타입 */
+.skin-catvod .mpv-thumbnail.ctype {
+  border: 0px;
+  width: 150px;
+  bottom: 40px;
+}
+.skin-catvod .mpv-thumbnail.ctype .mpv-thumbnail-top {
+  display: inline-block;
+}
+.skin-catvod .mpv-thumbnail.ctype .mpv-thumbnail-image {
+  width: 150px;
+  border: solid 0px #fff;
+}
+.skin-catvod .mpv-thumbnail.ctype .mpv-thumbnail-bottom {
+  margin-top: 0px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+}
+.skin-catvod .mpv-thumbnail.ctype .mpv-thumbnail-text {
+  height: 16px;
+  font-size: 12px;
+  font-weight: normal;
+}
+.skin-catvod .mpv-thumbnail.ctype .mpv-thumbnail-time {
+  width: 150px;
+  height: 16px;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: normal;
+}
+.skin-catvod .mpv-thumbnail.mod-ctype .mpv-thumbnail-text {
+  display: block;
+  max-width: 150px;
+}
+.skin-catvod .mpv-thumbnail.mod-ctype .mpv-thumbnail-time {
+  margin-top: 0px;
+}
+
+/* 라이브 모드 */
+.skin-catvod.mpv-live-screen .mpv-thumbnail {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-stop-btn {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-rate-layout {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-repeat-btn {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-skip-input {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-previous-skip-btn {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-next-skip-btn {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-bookmark-layout {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-bookmark-add-btn {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-bookmark-menu-btn {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-bookmark-menu {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-repmark-layout {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-repmark-add-btn {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-repmark-menu-btn {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-repmark-menu {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-time-layout {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-subtitle-layout {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-subtitle-display {
+  display: none;
+}
+.skin-catvod.mpv-live-screen .mpv-progress {
+  display: none;
+}
+
+/* DVR 모드 (Seekable 라이브 모드) */
+.skin-catvod.mpv-dvr-screen .mpv-thumbnail {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-stop-btn {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-rate-layout {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-repeat-btn {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-bookmark-layout {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-bookmark-add-btn {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-bookmark-menu-btn {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-bookmark-menu {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-repmark-layout {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-repmark-add-btn {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-repmark-menu-btn {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-repmark-menu {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-subtitle-layout {
+  display: none;
+}
+.skin-catvod.mpv-dvr-screen .mpv-subtitle-display {
+  display: none;
+}
+
+/* 오픈레이어 (소형/미니 플레이어) 버튼 */
+.skin-catvod .mpv-openlayer-btn {
+  float: right;
+  background: url(../images/catvod/openlayer_btn.png) center center no-repeat;
+}
+.skin-catvod .mpv-openlayer-close-btn {
+  background: url(../images/catvod/key_down.png) center center no-repeat;
+}
+.skin-catvod .mpv-openlayer-rollback-btn {
+  background: url(../images/catvod/rollback_btn.png) center center no-repeat;
+}
+.skin-catvod .mpv-openlayer-button {
+  display: none;
+}
+/* 오픈레이어 (소형/미니 플레이어) 화면 */
+.skin-catvod .mpv-openlayer-screen {
+  position: fixed;
+  width: 400px;
+  height: 300px;
+  top: auto;
+  left: auto;
+  bottom: 0px;
+  right: 0px;
+  margin: 0px 20px 20px 0px;
+  padding: 0px 0px;
+  z-index: 2000;
+}
+/* .skin-catvod .mpv-openlayer-screen { transition: width 0.3s, height 0.3s; } */
+.skin-catvod .mpv-openlayer-screen .mpv-openlayer-button {
+  display: block;
+}
+.skin-catvod.mpv-os-mobile .mpv-openlayer-screen {
+  top: 0px;
+  right: 0px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+.skin-catvod.mpv-os-mobile .mpv-openlayer-screen .mpv-screen {
+  height: 100%;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-title-text {
+  max-width: 150px;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-switchsource-layout {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-subtitle-layout {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-rate-layout {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-quality-layout {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-bookmark-menu {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-stop-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-previous-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-next-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-repeat-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-skip-input {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-previous-skip-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-next-skip-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-wide-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-subtitle-display {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-bookmark-add-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-bookmark-menu-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-repmark-add-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-repmark-menu-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-playlist-add-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-playlist-menu-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-thumbnail {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-config-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-exit-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-openlayer-btn {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-view-box {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-bookmark-input-layout {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-repmark-input-layout {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-screen .mpv-playlist-input-layout {
+  display: none;
+}
+.skin-catvod .mpv-openlayer-none-screen .mpv-openlayer-btn {
+  display: none;
+}
+
+.skin-catvod .mpv-openlayer-screen .mpv-control.mpv-hide {
+  display: none;
+}
+
+/* 디바이스 화면 */
+.skin-catvod.mpv-device-youtube.mpv-youtube-osd .mpv-edge-left {
+  top: 55px;
+  width: 30px;
+}
+.skin-catvod.mpv-device-youtube.mpv-youtube-osd .mpv-edge-right {
+  top: 55px;
+  width: 30px;
+}
+.skin-catvod.mpv-device-youtube .mpv-pause-image {
+  display: none;
+}
+.skin-catvod.mpv-device-youtube .mpv-pause-image.mpv-previous-ctime {
+  display: block;
+}
+.skin-catvod.mpv-device-youtube.mpv-state-paused .mpv-pause-image.mpv-used {
+  display: block;
+}
+.skin-catvod.mpv-device-youtube.mpv-state-playing .mpv-pause-image.mpv-used {
+  display: none;
+}
+.skin-catvod.mpv-device-youtube.mpv-state-playing
+  .mpv-pause-image.mpv-used.mpv-previous-ctime {
+  display: block;
+}
+.skin-catvod.mpv-device-youtube .mpv-youtube-frame.mpv-on-size iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* 버전 영역 */
+.skin-catvod .mpv-version-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.skin-catvod .mpv-version-ibox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.skin-catvod .mpv-version-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  display: inline-block;
+  margin: 10px 10px;
+  padding: 20px 20px;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px 5px;
+  text-align: center;
+  line-height: 20px;
+}
+
+/* 확인 창 영역 */
+.skin-catvod .mpv-confirm-layer {
+  position: absolute;
+  display: table;
+  top: 0px;
+  left: 0px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.skin-catvod .mpv-confirm-layer .mpv-confirm-cell {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.skin-catvod .mpv-confirm-layer .mpv-confirm-box {
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  border: solid 1px #fff;
+  border-radius: 5px 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.skin-catvod.mpv-b-ie7 .mpv-confirm-layer .mpv-confirm-box {
+  width: 300px;
+}
+.skin-catvod .mpv-confirm-layer .mpv-confirm-box .mpv-confirm-text {
+  display: table-cell;
+  min-width: 160px;
+  padding: 10px 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+}
+.skin-catvod .mpv-confirm-layer .mpv-confirm-box .mpv-confirm-bottom .button {
+  display: inline-block;
+  margin: 5px 5px;
+  padding: 2px 5px;
+  min-width: 50px;
+  border: solid 1px #fff;
+  border-radius: 5px 5px;
+  cursor: pointer;
+}
+.skin-catvod .mpv-confirm-layer .mpv-confirm-box .mpv-confirm-bottom button {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+.skin-catvod.mpv-b-ie7
+  .mpv-confirm-layer
+  .mpv-confirm-box
+  .mpv-confirm-bottom
+  .button {
+  width: 70px;
+}
+.skin-catvod.mpv-b-ie7
+  .mpv-confirm-layer
+  .mpv-confirm-box
+  .mpv-confirm-bottom
+  button {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+.skin-catvod
+  .mpv-confirm-layer
+  .mpv-confirm-box
+  .mpv-confirm-bottom
+  .button:hover {
+  border: solid 1px #f00;
+  color: #f00;
+}
+
+/* 경고 창 영역 */
+.skin-catvod .mpv-alert-layer {
+  position: absolute;
+  display: table;
+  top: 0px;
+  left: 0px;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.skin-catvod .mpv-alert-layer .mpv-alert-cell {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.skin-catvod .mpv-alert-layer .mpv-alert-box {
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  border: solid 1px #fff;
+  border-radius: 5px 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.skin-catvod.mpv-b-ie7 .mpv-alert-layer .mpv-alert-box {
+  width: 300px;
+}
+.skin-catvod .mpv-alert-layer .mpv-alert-box .mpv-alert-text {
+  display: table-cell;
+  min-width: 160px;
+  padding: 10px 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+}
+.skin-catvod .mpv-alert-layer .mpv-alert-box .mpv-alert-bottom .button {
+  display: inline-block;
+  margin: 5px 5px;
+  padding: 2px 5px;
+  min-width: 50px;
+  border: solid 1px #fff;
+  border-radius: 5px 5px;
+  cursor: pointer;
+}
+.skin-catvod .mpv-alert-layer .mpv-alert-box .mpv-alert-bottom button {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+.skin-catvod.mpv-b-ie7
+  .mpv-alert-layer
+  .mpv-alert-box
+  .mpv-alert-bottom
+  .button {
+  width: 70px;
+}
+.skin-catvod .mpv-alert-layer .mpv-alert-box .mpv-alert-bottom .button:hover {
+  border: solid 1px #f00;
+  color: #f00;
+}
+
+.skin-catvod .mpv-alert-layer.mpv-show-message .mpv-alert-bottom {
+  display: none;
+}
+.skin-catvod .mpv-alert-layer.mpv-show-message .mpv-alert-box .mpv-alert-text {
+  padding: 30px 30px;
+}
+
+/* 플래시 플레이어 다운로드 영역 */
+.skin-catvod.mpv-install-flash-screen .mpv-flash-layer {
+  position: absolute;
+  display: table;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: #000;
+}
+.skin-catvod.mpv-install-flash-screen .mpv-flash-layer .mpv-flash-cell {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+.skin-catvod.mpv-install-flash-screen .mpv-flash-layer .mpv-flash-box {
+  display: inline-block;
+  padding: 30px 60px;
+  text-align: center;
+  font-weight: bold;
+  color: #0000ff;
+  border: solid 1px #fff;
+  border-radius: 5px 5px;
+  background-color: #fff;
+}
+.skin-catvod.mpv-install-flash-screen .mpv-flash-layer a {
+  text-decoration: none;
+}
+.skin-catvod.mpv-install-flash-screen .mpv-flash-layer a:link {
+  color: #0000ff;
+}
+.skin-catvod.mpv-install-flash-screen .mpv-flash-layer a:visited {
+  color: #0000ff;
+}
+.skin-catvod.mpv-install-flash-screen .mpv-flash-layer a:hover {
+  text-decoration: underline;
+}
+.skin-catvod.mpv-install-flash-screen .mpv-flash-layer .mpv-flash-image {
+  width: 390px;
+  height: 240px;
+  margin-top: -40px;
+  background: url(../images/catvod/getnewflash.png) center center no-repeat;
+}
+.skin-catvod.skin-catvod.mpv-b-under-ie8 .mpv-flash-layer {
+  display: none;
+}
+
+/* RADIO 영역 */
+.skin-catvod .mpv-radio-background-image {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+/* RADIO 모드 */
+.skin-catvod.mpv-radio-screen {
+  background-color: #000;
+}
+/* .skin-catvod.mpv-radio-screen .mpv-fullscreen-btn { display: none; } */
+.skin-catvod.mpv-radio-screen .mpv-wide-btn {
+  display: none;
+}
+/* RADIO HIDE 모드 (영상 영역을 감추고자 할 때) */
+.skin-catvod.mpv-radio-hide-screen .mpv-player {
+  background-color: #000;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-device {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-radio-background-image {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-osd {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-poster {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-edge-left {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-edge-right {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-edge-center {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-side-double-tab {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-foreground {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-side-double-tab-helper {
+  display: none;
+}
+.skin-catvod.mpv-radio-hide-screen .mpv-flash-layer {
+  display: none;
+}
+
+/* SLICE 애니메이션 */
+.skin-catvod .mpv-device-slice {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 2002;
+}
+.skin-catvod .mpv-device.animate-left {
+  animation-name: keyframes_left2;
+  animation-duration: 1000ms;
+  animation-timing-function: ease;
+}
+.skin-catvod .mpv-device-slice.animate-left {
+  animation-name: keyframes_left1;
+  animation-duration: 1000ms;
+  animation-timing-function: ease; /* ease-in-out; */
+}
+.skin-catvod .mpv-device.animate-right {
+  animation-name: keyframes_right2;
+  animation-duration: 1000ms;
+  animation-timing-function: ease;
+}
+.skin-catvod .mpv-device-slice.animate-right {
+  animation-name: keyframes_right1;
+  animation-duration: 1000ms;
+  animation-timing-function: ease; /* ease-in-out; */
+}
+@keyframes keyframes_left1 {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+@keyframes keyframes_left2 {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes keyframes_right1 {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes keyframes_right2 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+/* recommend 영역 */
+.skin-catvod .mpv-recommend-layer {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.skin-catvod .mpv-recommend-layer .mpv-recommend-thumb {
+  position: absolute;
+  width: 200px;
+  height: 120px;
+  background-position: center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.skin-catvod .mpv-recommend-layer .mpv-recommend-left {
+  left: 40px;
+}
+.skin-catvod .mpv-recommend-layer .mpv-recommend-right {
+  right: 40px;
+}
+.skin-catvod .mpv-recommend-layer.mpv-show-recommend {
+  display: flex;
+  align-items: center;
+}
+.skin-catvod.mpv-b-ie .mpv-recommend-layer.mpv-show-recommend {
+  display: none;
+}
+
+/* 채팅영역 */
+.skin-catvod.mpv-chat-screen .mpv-player {
+  float: left;
+  width: calc(100% - 400px);
+}
+.skin-catvod.mpv-chat-screen .mpv-chat {
+  float: right;
+  display: block;
+  width: 400px;
+}
+.skin-catvod.mpv-chat-screen.mpv-fullscreen .mpv-chat {
+  position: absolute;
+  float: none;
+  top: 0px;
+  right: 0px;
+  height: calc(100% - 45px);
+  background-color: rgba(43, 103, 163, 0.02);
+  border: solid 1px #9bbad8;
+}
+.skin-catvod.mpv-chat-screen.mpv-fullscreen .mpv-player {
+  width: 100%;
+  float: none;
+}
+.skin-catvod.mpv-chat-screen.mpv-chat-overlay .mpv-chat {
+  position: absolute;
+  float: none;
+  top: 0px;
+  right: 0px;
+  height: calc(100% - 45px);
+  background-color: rgba(43, 103, 163, 0.02);
+  border: solid 1px #9bbad8;
+}
+.skin-catvod.mpv-chat-screen.mpv-chat-overlay .mpv-player {
+  width: 100%;
+  float: none;
+}
+.skin-catvod.mpv-chat-screen.mpv-fullscreen .mpv-chat .mpv-chat-input {
+  background: transparent;
+  border: none;
+}
+.skin-catvod.mpv-chat-screen.mpv-chat-overlay .mpv-chat .mpv-chat-input {
+  background: transparent;
+  border: none;
+}
+.skin-catvod.mpv-chat-screen.mpv-fullscreen .mpv-chat {
+  border: 0px;
+}
+.skin-catvod.mpv-chat-screen.mpv-chat-overlay .mpv-chat {
+  border: 0px;
+}
+
+.skin-catvod .mpv-chat {
+  position: relative;
+  height: 100%;
+  display: none;
+  background-color: #9bbad8;
+}
+.skin-catvod.mpv-openlayer-root-screen.mpv-chat-screen .mpv-chat {
+  display: none;
+}
+.skin-catvod .mpv-chat.mpv-chat-useface .mpv-chat-row .mpv-chat-icon {
+  display: block;
+}
+.skin-catvod .mpv-chat .mpv-chat-top {
+  height: 40px;
+  border-bottom: solid 0.5px #fff;
+}
+.skin-catvod .mpv-chat .mpv-chat-top .mpv-chat-title {
+  float: left;
+  width: calc(100% - 35px);
+  height: 40px;
+  border-right: solid 0.5px #fff;
+}
+.skin-catvod .mpv-chat .mpv-chat-top .mpv-chat-title-text {
+  margin: 10px 0px 0px 10px;
+}
+.skin-catvod .mpv-chat .mpv-chat-top .mpv-chat-menu-icon {
+  float: right;
+  width: 30px;
+  height: 40px;
+  background: url(../images/catvod/more.png) center center no-repeat;
+  cursor: pointer;
+}
+.skin-catvod .mpv-chat .mpv-chat-display {
+  width: 100%;
+  height: calc(100% - 85px);
+  overflow-y: auto;
+  overflow-x: none;
+}
+.skin-catvod .mpv-chat .mpv-chat-display::-webkit-scrollbar {
+  width: 10px;
+}
+.skin-catvod .mpv-chat .mpv-chat-display::-webkit-scrollbar-thumb {
+  background-color: #2f3542;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.skin-catvod .mpv-chat .mpv-chat-display::-webkit-scrollbar-track {
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+.skin-catvod .mpv-chat .mpv-chat-row {
+  width: 100%;
+  display: inline-block;
+  margin: 0px 0px 10px 0px;
+}
+.skin-catvod .mpv-chat .mpv-chat-row .mpv-chat-box {
+  display: block;
+}
+.skin-catvod .mpv-chat .mpv-chat-row .mpv-chat-icon {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin: 5px 5px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.skin-catvod .mpv-chat .mpv-chat-row .mpv-chat-user {
+  font-weight: bold;
+  padding: 3px 5px;
+}
+.skin-catvod .mpv-chat .mpv-chat-row .mpv-chat-time {
+  padding: 3px 0px 3px 0px;
+}
+.skin-catvod.mpv-fullscreen .mpv-chat .mpv-chat-row .mpv-chat-user {
+  background-color: gray;
+  color: #fff;
+}
+.skin-catvod .mpv-chat .mpv-chat-row .mpv-chat-message {
+  display: block;
+  max-width: 80%;
+  margin: 5px 5px 0px 0px;
+  padding: 8px 8px;
+  background-color: #ffec42;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-other .mpv-chat-box {
+  left: 10px;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-other .mpv-chat-icon {
+  float: left;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-other .mpv-chat-line {
+  float: left;
+  margin: 8px 2px 0px 10px;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-other .mpv-chat-user {
+  float: left;
+  margin-right: 10px;
+  margin-left: 0px;
+  font-weight: bold;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-other .mpv-chat-time {
+  float: left;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-other .mpv-chat-message {
+  clear: both;
+  float: left;
+  margin-left: 10px;
+  border-radius: 15px 5px 15px 5px;
+}
+.skin-catvod
+  .mpv-chat.mpv-chat-useface
+  .mpv-chat-row.mpv-chat-other
+  .mpv-chat-message {
+  margin-top: -22px;
+  margin-left: 56px;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-mine .mpv-chat-box {
+  right: 10px;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-mine .mpv-chat-icon {
+  float: right;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-mine .mpv-chat-line {
+  float: right;
+  margin: 8px 10px 0px 2px;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-mine .mpv-chat-user {
+  float: right;
+  margin-right: 0px;
+  margin-left: 10px;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-mine .mpv-chat-time {
+  float: right;
+}
+.skin-catvod .mpv-chat .mpv-chat-row.mpv-chat-mine .mpv-chat-message {
+  clear: both;
+  float: right;
+  margin-right: 10px;
+  border-radius: 15px 5px 5px 5px;
+}
+.skin-catvod
+  .mpv-chat.mpv-chat-useface
+  .mpv-chat-row.mpv-chat-mine
+  .mpv-chat-message {
+  margin-top: -22px;
+  margin-right: 56px;
+}
+.skin-catvod .mpv-chat .mpv-chat-bottom {
+  width: 100%;
+  height: 35px;
+}
+.skin-catvod .mpv-chat .mpv-chat-input {
+  float: left;
+  width: calc(100% - 72px);
+  height: 28px;
+  margin-left: 10px;
+  color: #333;
+  font-size: 12px;
+  padding: 5px;
+  border: solid 1px #000;
+}
+.skin-catvod .mpv-chat input.mpv-chat-input {
+  width: calc(100% - 60px);
+  height: 37px;
+  margin-top: 1px;
+}
+.skin-catvod .mpv-chat .mpv-chat-input:empty:before {
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
+.skin-catvod .mpv-chat .mpv-chat-input-btn {
+  float: right;
+  width: 36px;
+  height: 36px;
+  margin-right: 5px;
+  background: url(../images/catvod/send_msg_2x.png) center center no-repeat;
+  background-size: 70%;
+  cursor: pointer;
+}
+.skin-catvod .mpv-chat .mpv-chat-lv1 {
+  width: 80%;
+  text-align: center;
+  height: 25px;
+  margin: 10px 10px;
+  font-weight: bold;
+}
+.skin-catvod .mpv-chat .mpv-chat-menu-layer {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50%;
+  height: calc(100% - 4px);
+  margin: 1px;
+  border: solid 1px #9bbad8;
+  background-color: #fff;
+}
+.skin-catvod .mpv-chat .mpv-chat-menu-title {
+  height: 25px;
+  margin-bottom: 10px;
+  border-bottom: solid 1px #9bbad8;
+  padding: 5px 5px 0px 5px;
+}
+.skin-catvod .mpv-chat .mpv-chat-menu-close-btn {
+  position: absolute;
+  margin-top: -40px;
+  right: 0px;
+  width: 25px;
+  height: 25px;
+  background: url(../images/catvod/keyboard_arrow_right_black.png) center center
+    no-repeat;
+  background-size: 70%;
+  cursor: pointer;
+}
+.skin-catvod .mpv-chat .mpv-chat-menu-lbtn {
+  height: 20px;
+  margin: 5px 5px;
+  padding: 5px 0px 0px 5px;
+  cursor: pointer;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-nick-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background-color: #bceb7f;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-nick-layer .mpv-chat-update-nick-text {
+  margin: 10px;
+  text-align: center;
+}
+.skin-catvod
+  .mpv-chat
+  .mpv-chat-update-nick-layer
+  .mpv-chat-update-nick-input-layer {
+  text-align: center;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-nick-layer .mpv-chat-update-nick-input {
+  width: 80%;
+  height: 30px;
+  text-align: left;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-nick-layer .mpv-chat-update-nick-btn {
+  margin: 10px;
+  width: 80px;
+  height: 30px;
+}
+.skin-catvod
+  .mpv-chat
+  .mpv-chat-update-nick-layer
+  .mpv-chat-update-nick-cancel-btn {
+  margin: 10px;
+  width: 80px;
+  height: 30px;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-face-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background-color: #bceb7f;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-face-layer .mpv-chat-update-face-text {
+  margin: 10px;
+  text-align: center;
+}
+.skin-catvod
+  .mpv-chat
+  .mpv-chat-update-face-layer
+  .mpv-chat-update-face-input-layer {
+  text-align: center;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-face-layer .mpv-chat-update-face-input {
+  width: 80%;
+  height: 30px;
+  text-align: left;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-face-layer .mpv-chat-update-face-btn {
+  margin: 10px;
+  width: 80px;
+  height: 30px;
+}
+.skin-catvod
+  .mpv-chat
+  .mpv-chat-update-face-layer
+  .mpv-chat-update-face-cancel-btn {
+  margin: 10px;
+  width: 80px;
+  height: 30px;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-face-layer .mpv-chat-update-face-rows {
+  height: calc(100% - 100px);
+  overflow-y: auto;
+  margin: 5px;
+  padding: 5px;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-face-layer .mpv-chat-update-face-row {
+  display: inline-block;
+  margin: 5px;
+  padding: 2px;
+  cursor: pointer;
+  border: solid 1px gray;
+}
+.skin-catvod
+  .mpv-chat
+  .mpv-chat-update-face-layer
+  .mpv-chat-update-face-row:hover {
+  border: solid 1px blue;
+}
+.skin-catvod
+  .mpv-chat
+  .mpv-chat-update-face-layer
+  .mpv-chat-update-face-row.selected {
+  border: solid 1px red;
+}
+.skin-catvod .mpv-chat .mpv-chat-update-face-layer .mpv-chat-update-face-image {
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (min-width: 10px) and (max-width: 760px) {
+  .skin-catvod .mpv-stop-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-previous-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-next-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-skip-input {
+    display: none;
+  }
+  .skin-catvod .mpv-previous-skip-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-next-skip-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-wide-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-openlayer-btn {
+    display: none;
+  }
+
+  .skin-catvod .mpv-repeat-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-bookmark-add-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-bookmark-add-btn.mpv-in-box {
+    display: block;
+  }
+  .skin-catvod .mpv-bookmark-menu-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-repmark-add-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-repmark-add-btn.mpv-in-box {
+    display: block;
+  }
+  .skin-catvod .mpv-repmark-menu-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-playlist-add-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-playlist-add-btn.mpv-in-box {
+    display: block;
+  }
+  .skin-catvod .mpv-playlist-menu-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-subtitle-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-quality-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-rate-btn {
+    display: none;
+  }
+
+  .skin-catvod.mpv-chat-screen .mpv-player {
+    float: none;
+    width: 100%;
+  }
+  .skin-catvod.mpv-chat-screen .mpv-chat {
+    position: fixed;
+    float: none;
+    width: 100%;
+    bottom: 0px;
+    z-index: 1000;
+  }
+}
+
+@media screen and (min-width: 10px) and (max-width: 820px) {
+  .skin-catvod.mpv-ts-screen .mpv-timestamp-box .mpv-timestamp-text {
+    max-width: 120px;
+  }
+}
+@media screen and (min-width: 820px) and (max-width: 900px) {
+  .skin-catvod.mpv-ts-screen .mpv-timestamp-box .mpv-timestamp-text {
+    max-width: 170px;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 960px) {
+  .skin-catvod.mpv-ts-screen .mpv-timestamp-box .mpv-timestamp-text {
+    max-width: 220px;
+  }
+}
+@media screen and (min-width: 960px) and (max-width: 1050px) {
+  .skin-catvod.mpv-ts-screen .mpv-timestamp-box .mpv-timestamp-text {
+    max-width: 320px;
+  }
+}
+@media screen and (min-width: 1050px) and (max-width: 8192px) {
+  .skin-catvod.mpv-ts-screen .mpv-timestamp-box .mpv-timestamp-text {
+    max-width: 400px;
+  }
+}
+@media screen and (min-width: 10px) and (max-width: 760px) {
+  .skin-catvod .mpv-view-box {
+    position: fixed;
+    display: block;
+    width: 100%;
+    max-height: 0%;
+    left: 0px;
+    right: auto;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 0px;
+    z-index: 2010;
+  }
+  .skin-catvod .mpv-view-box.mpv-on {
+    max-height: 100%;
+  }
+  .skin-catvod .mpv-view-box .mpv-view-ibox {
+    width: 100%;
+    bottom: 0px;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 0px;
+  }
+  .skin-catvod .mpv-view-box .mpv-view-item {
+    height: 30px;
+    font-size: 16px;
+  }
+  .skin-catvod .mpv-view-box .mpv-view-name {
+    margin: 10px 0px 0px 0px;
+    padding: 0px 0px 0px 5px;
+    float: left;
+    font-weight: bold;
+  }
+  .skin-catvod .mpv-view-box .mpv-view-value {
+    text-align: left;
+    padding: 0px 0px;
+    margin: 10px 0px 0px 0px;
+    position: relative;
+    float: right;
+    right: 10px;
+  }
+  .skin-catvod .mpv-view-box .mpv-view-bottom {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding-top: 9px;
+    text-align: center;
+    font-weight: bold;
+    border-top: solid 0.5px #fff;
+  }
+  .skin-catvod .mpv-view-box .mpv-view-text {
+    float: left;
+    margin-left: 10px;
+  }
+  .skin-catvod
+    .mpv-view-box
+    .mpv-view-item.mpv-view-submenu
+    .mpv-view-value:after {
+    position: relative;
+    display: block;
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin: -3px 0px 0px 0px;
+    padding: 0px 0px;
+    content: "";
+    background-image: url(../images/catvod/chevron_right.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+  }
+  .skin-catvod .mpv-input-layout {
+    transform: none;
+  }
+}
+@media screen and (min-width: 10px) and (max-width: 760px) {
+  .skin-catvod .mpv-view-box {
+    bottom: 0px;
+  }
+}
+/* END (화면 하단에 메뉴가 나타나길 원하는 경우.)
+------------------------------------------------------------------------- */
+
+/* 수정 */
+.skin-catvod .mpv-currenttime-text,
+.skin-catvod .mpv-duration-text,
+.skin-catvod .mpv-bmenu-btn {
+  font-size: 12px;
+}
+
+.skin-catvod .mpv-previous-skip-btn,
+.skin-catvod .mpv-stop-btn,
+.skin-catvod .mpv-previous-btn,
+.skin-catvod .mpv-next-btn,
+.skin-catvod .mpv-toggle-btn.mpv-pause,
+.skin-catvod .mpv-toggle-btn.mpv-play,
+.skin-catvod .mpv-next-skip-btn {
+  margin: 30px 10px 0;
+}
+
+.skin-catvod .mpv-previous-skip-btn,
+.skin-catvod .mpv-next-skip-btn {
+  margin-top: 35px;
+}
+
+/* .skin-catvod .mpv-bookmark-add-btn, */
+.skin-catvod .mpv-config-btn,
+.skin-catvod .mpv-fullscreen-btn {
+  opacity: 0.5;
+}
+
+.player_wrap {
+  .skin-catvod .mpv-previous-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-toggle-btn.mpv-play {
+    left: 100px;
+  }
+  .skin-catvod .mpv-toggle-btn.mpv-pause {
+    left: 100px;
+  }
+  .skin-catvod .mpv-stop-btn {
+    left: 140px;
+  }
+  .skin-catvod .mpv-next-btn {
+    display: none;
+  }
+  .skin-catvod .mpv-repeat-btn.mpv-repeat-off,
+  .skin-catvod .mpv-repeat-btn.mpv-repeat-on,
+  .skin-catvod .mpv-bookmark-add-btn {
+    display: none;
+  }
+}
+
+.player_wrap2 {
+  .skin-catvod .mpv-previous-btn {
+    left: 100px;
+  }
+  .skin-catvod .mpv-toggle-btn.mpv-play {
+    left: 140px;
+  }
+  .skin-catvod .mpv-toggle-btn.mpv-pause {
+    left: 140px;
+  }
+  .skin-catvod .mpv-stop-btn {
+    left: 180px;
+  }
+  .skin-catvod .mpv-next-btn {
+    left: 220px;
+  }
+  .skin-catvod .mpv-input-layout .mpv-input-tag {
+    width: 160px;
+  }
+  .skin-catvod .mpv-input-layout .mpv-input-time {
+    margin: 0 90px 0 0;
+  }
+}

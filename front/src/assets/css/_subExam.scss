@@ -1,0 +1,366 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _sub.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+
+/* ===== 시험정보 ===== */
+.infoGuideTop {position:relative;height:560px;background:url('../images/bg_infroMockExam.png') no-repeat center bottom;background-size:cover;
+  &:after {content:'';position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,.6)}
+  .frameBack {position:relative;z-index:2;margin:0 auto;padding:250px 0 0;}
+  .tit {float:left;display:inline-block;width:303px;color:$whiteColor;font-weight:100;font-size:$txtSizeP2;letter-spacing:-0.07em;
+    span {display:block;height:59px;}
+    strong {position:absolute;font-size:36px;color:$whiteColor;line-height:0.9;letter-spacing:-0.07em;
+      &:after {content:'';position:absolute;right:-33px;top:-26px;display:inline-block;width:30px;height:30px;background:url('../images/img_examMain01.svg') no-repeat center;}
+    }
+  }
+  .schedule {float:left;display:inline-block;width:420px;height:260px;margin-left:36px;
+    dl {border-radius: 10px; overflow: hidden;}
+    dt {width:100%;height:56px;padding:15px 0 0 22px;font-weight:100;letter-spacing:-0.06em;color:$whiteColor;font-size:$txtSizeP2;background:url('../images/img_examMain02.svg') no-repeat center;
+      strong {color:inherit;font-size:inherit;font-weight:500;}
+    }
+    dd {width:100%;height:204px;padding:0 15px 0 24px;text-align:center;background:$whiteColor;
+      table {width:100%;border-collapse:collapse;
+        th {height:38px;font-weight:600;border-bottom:1px solid $blackColor;}
+        td {height:40px;color:$lightBlackColor;border-bottom:1px solid $grayColor}
+        th:first-child {width:113px;}
+        th:nth-child(2) {width:154px;}
+        th:last-child {width:113px;}
+        tr:last-child td {border:none;}
+      }
+    }
+  }
+  .examNotice {float:right;display:inline-block;width:320px;height:260px;padding:19px 16px 0 15px;background:rgba(0,0,0,.4);border-radius:15px;
+    dl {
+      dt {@extend %clearBh;height:37px;border-bottom:1px solid $brightGrayColor;
+        strong {font-size:$txtSizeP2;line-height:1.2;color:#49B68A;}
+        .btnMore {float:right;margin-top:-3px;}
+        .btnMore::after {border-color:#49B68A;background:url('../images/i_plus_green.png') no-repeat center;}
+      }
+      dd {padding:15px 0 0 0;}
+      dd li {display:block;padding:1px 0 5px;max-width:100%;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+      dd li a {display:block;color:$grayColor;cursor:pointer;font-weight:100;max-width:100%;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+      dd li.new {
+        &::after {content:'N';display:inline-block;margin-left:5px;font-weight:bold;font-size:10px;color:#FF7B52;vertical-align:top;}
+      }
+    }
+  }
+}
+/* 임용시험 안내 */
+.infoGuide {line-height:1.8;
+  * {letter-spacing:-0.04em;}
+  h4 {margin:50px 0 15px;height:35px;font-size:$txtSizeP4;line-height:1.2;border-bottom:2px solid $blackColor;}
+  h4.noLine {height:auto;border-bottom:0;}
+  h4 span {font-size:$txtSize;font-weight:normal;}
+  .info {padding:0 0 15px;color:$lightBlackColor;}
+  .mainDefine {padding:20px;
+    p {padding:5px 0 0 200px;height:143px;background:url('../images/img_exam_guide01.png') no-repeat left center;}
+    strong {display:block;padding-bottom:15px;font-size:$txtSizeP2;color:$greenColor;}
+    em {display:block;padding:15px 0 0 20px;color:$darkGrayColor;text-indent:-19px;}
+    em em {padding:0 0 0 0;text-indent:0;}
+  }
+  .conditionTabWrap {
+    .tabNav { /*border-bottom:2px solid $blackColor;*/
+      li {width:calc(100% / 3); box-sizing: border-box; border: 1px solid #ddd; background-color: #FAFAFA; color: #666;
+        &:not(:first-child) {border-left: none;}
+      }
+      li.on {background:$blackColor; border-color: #333;}
+    }
+    .tabLayout {padding:0;
+      .tabData {padding:25px 40px 0;min-height:280px;background:#EDF8F5;}
+      dl {line-height:1.5;
+        dt {display:block;padding-bottom:10px;font-size:$txtSizeP2;}
+        dd {position:relative;padding:0 0 16px 10px;color:$lightBlackColor;
+          &:before {content:'';position:absolute;top:8px;left:0;display:inline-block;width:5px;height:5px;border-radius:50%;background:$blackColor;}
+          span {display:block;}
+        }
+        dd.noDot {padding:0 0 16px 0;
+          &:before {display:none;}
+        }
+        &.last dd {padding-bottom:0;}
+      }
+      .tabData.case1 {background:#EDF8F5 url('../images/img_exam_guide_bg01.png') no-repeat right bottom;}
+      .tabData.case2 {background:#EDF8F5 url('../images/img_exam_guide_bg02.png') no-repeat right bottom;}
+      .tabData.case3 {background:#EDF8F5 url('../images/img_exam_guide_bg03.png') no-repeat right bottom;}
+    }
+  }
+  .extra.tableList {
+    dl {width:50%;}
+    dl dd {height:171px;padding:34px 28px 0;}
+  }
+  .special.tableList {border-width:1px 0 0 1px;
+    dl {width:50%;}
+    dl dd {height:52px;padding:12px 10px 0;text-align:center;border-bottom:1px solid $grayColor;}
+  }
+  .ageTabwrap {padding-top:80px;
+    .tabNav .blackLineTab li {width:50%}
+    h4 {margin:15px 0 0;padding-bottom:40px;font-size:$txtSizeP2;font-weight:200;color:$lightBlackColor;border-bottom:1px solid $grayColor;}
+    h4 strong {font-size:$txtSizeP2;color:$blackColor;}
+    h5 {padding:25px 0 0;}
+    p {color:$lightBlackColor;
+      span {padding:0 0 0 16px;text-indent:-16px;display:block;color:$darkGrayColor;}
+      em {display:block;color:#D1555F;font-size:$txtSizeM2;}
+    }
+    .term.tableList {margin-top:10px;
+      dl {width:25%;}
+      dl dd {height:52px;padding:12px 10px 0;text-align:center;}
+    }
+    .ageCondition.tableData {
+      .item0 {width:218px}
+      .item1 {width:650px;}
+      .item2 {width:103px}
+      .dupl {
+        strong {width:114px;}
+        strong span {height:110px;}
+        dl {width:calc(100% - 115px);}
+      }
+      dd.item1 {text-align:left;}
+      dd em {display:block;text-indent:-8px;padding:0 0 0 13px;margin-bottom:-20px;font-weight:200;}
+      dl i {font-size:$txtSizeM2;font-weight:200;color:$darkGrayColor;}
+    }
+    .process.tableData {
+      .item0 {width:115px}
+      .item1 {width:272px}
+      .item2 {width:226px}
+      .item3 {width:242px}
+      dl dt em {display:block;font-size:$txtSizeM2;line-height:1.2;}
+      dl i {font-size:$txtSizeM2;font-weight:200;color:$darkGrayColor;}
+      dl dd {padding:20px 20px;}
+      dl dd em {display:block;font-size:$txtSizeM2;}
+      dl dd span {display:block;}
+    }
+  }
+  .smallInfo {font-size:$txtSizeM2;font-weight:200;color:$lightBlackColor;}
+}
+/* 모집인원 및 경쟁률 */
+.infoCompetition {
+  h4 {font-size:$txtSizeP4;padding:50px 0 10px;}
+  .kind + h4 {padding-top:20px;}
+  h4 strong {font-size:$txtSizeP4;color:$greenColor;}
+  h4 .selectSet {margin:-3px 0 0 10px;width:130px;vertical-align:middle;
+    select {height:30px;}
+  }
+  .conditionMainKind {
+    .tabBack .tabNav ul.blackLineTab li {width:50%;}
+    &>.tabLayout {padding-top:15px;}
+    .kind {@extend %clearBh;width:100%;padding:10px 10px;background:$lightGrayColor;
+      .row {display:inline-block;}
+      .row + .row {margin-left:10px;}
+      .selectSet,
+      .baseMultiSelect {width:148px;}
+      .selectSet select {height:40px;}
+      .selectSet ~ * {margin-left:10px;}
+      .baseMultiSelect {display:inline-block;height:38px;width:148px;vertical-align:middle;
+        input:not([type="radio"]):not([type="checkbox"]) {height:38px;}
+        .multiselect__tags {height:40px;}
+        .multiselect__single {height:38px;line-height:2.8;}
+        .multiselect__select {height:40px;top:0;}
+        .multiselect__placeholder {height:38px;line-height:2.5;}
+      }
+    }
+
+  }
+  .conditionTabWrap {
+    .tabNav li {width:25%}
+    .tabNav {margin-bottom: 10px;
+      li {width:25%; background-color: #FAFAFA; border: 1px solid #ddd; border-left: none;}
+      li * {font-size:$txtSize !important;}
+      li.on {background:$blackColor !important;}
+      li:first-child {border-left: 1px solid #ddd;}
+    }
+    .tabLayout {padding:20px 0;border:1px solid $grayColor;}
+  }
+  .fullDataTable {text-align:center;vertical-align:middle;border-top:2px solid $blackColor;
+    table {width:100%;border-collapse:collapse;}
+    * {font-size:$txtSizeM1;}
+    table thead th {padding:9px 5px;line-height:1.3;color:$lightBlackColor;background:$lightGrayColor;}
+    table thead tr:first-child th {padding:16px 5px;font-size:$txtSize;color:$blackColor;font-weight:600;}
+    th {border-bottom:1px solid $grayColor;}
+    td {width:calc((100% - 51px) / 15);padding:16px 0;font-family:'Roboto';color:$lightBlackColor;}
+    tr th:first-child,
+    tr td:first-child {width:51px;border-right:1px solid $grayColor;}
+    tr th:nth-child(6),
+    tr td:nth-child(6),
+    tr th:nth-child(11),
+    tr td:nth-child(11) {border-right:1px solid $grayColor;}
+    tbody tr:hover td {background:#f8fcf9;}
+    tfoot td {font-size:$txtSize;font-weight:600;color:$blackColor;border:1px solid $grayColor;border-width:1px 0;background:$lightGrayColor;}
+  }
+}
+/* 시험공고 */
+.infoNotify {
+  .subTit .selectSet {width:95px;}
+  .resTls {
+    .item0 {width:80px;}
+    .item1 {width:80px;}
+    .item2 {width:80px;}
+    .item3 {width:115px;}
+  }
+  .tbody {
+    .item2,
+    .item3 {font-family:'Roboto';}
+  }
+}
+/* 교육계 소식 */
+.infoNews {
+  .resTls {
+    .item0 {width:140px;padding:16px 0 16px 20px;text-align:left;}
+    .item1 {}
+    .item2 {width:80px;}
+    .item3 {width:115px;}
+  }
+  .tbody {
+    .item2,
+    .item3 {font-family:'Roboto';}
+  }
+}
+/* ===== 임용 자료실 ===== */
+/* 기출문제 */
+.referencePrevious {
+  .resTls {
+    .item0 {width:80px;}
+    .item1 {width:130px;}
+    .item2 {width:50px;}
+    .item3 {width:80px;}
+    .item4 {width:100px;}
+  }
+  .tbody {
+    .item0,
+    .item3,
+    .item4 {font-family:'Roboto';}
+  }
+}
+/* 기출문제 */
+.referencePrevious {
+  .subTit {
+    .right-po {
+      .baseMultiSelect {width:190px;}
+    }
+  }
+  .selectSet{width: 120px;}
+}
+/* 교육과정 자료실 */
+.referenceEdu {
+  .subTit {
+    a {@extend %arrowBtn;margin:0 0 0 10px;font-weight:400;vertical-align: middle;color:$lightBlackColor !important;border-color:$whiteColor;
+      &::after {border-color:$lightBlackColor;}
+    }
+  }
+  .tabBack .tabNav ul.blackLineTab li {width:145px;
+    button {padding:0 15px 5px;font-size:$txtSize;}
+  }
+  .tabLayout {padding-top:0;}
+  .sortSet {display:block;margin-top:15px;padding:15px 20px 10px;background:$lightGrayColor;}
+  .sortSet span {margin:0 5px 5px 0;}
+  .sortSet label {min-width:65px;padding:0 13px;}
+  .sortSet span.long label {min-width: 120px;}
+  .resTls {
+    .item0 {width:80px;padding:16px 10px;}
+    .item1 {width:130px;}
+    .item2 {width:50px;}
+    .item3 {width:80px;}
+    .item4 {width:100px;}
+  }
+  .tbody {
+    .item0,
+    .item3,
+    .item4 {font-family:'Roboto';}
+  }
+}
+/* 수험 자료실 */
+.referenceTaker {
+  .tabBack .tabNav ul.blackLineTab li {width:290px}
+  .tabLayout {padding-top:0;}
+  .selectArea {display:block;margin-top:15px;text-align:right;padding:15px 20px 15px;background:$lightGrayColor;
+    &.type2 {text-align: left;}
+    .selectSet,
+    .baseMultiSelect {margin-right:10px;}
+    .selectSet:last-child,
+    .baseMultiSelect:last-child {margin-right:0;}
+    .selectSet select {height:40px; width: 148px;}
+    .baseMultiSelect {display:inline-block;height:38px;width:148px;vertical-align:middle;
+      input:not([type="radio"]):not([type="checkbox"]) {height:38px;}
+      .multiselect__tags {height:40px;}
+      .multiselect__single {height:38px;line-height:2.8;}
+      .multiselect__select {height:40px;top:0;}
+      .multiselect__placeholder {height:38px;line-height:2.5;}
+    }
+  }
+  .sortSet {display:block;padding-bottom:10px;}
+  .sortSet span {margin:0 5px 5px 0;}
+  .resTls {
+    .lgItem {padding:16px 10px;}
+    .item0 {width:50px;}
+    .item1 {width:110px;padding:16px 5px;}
+    .item2 {width:60px;}
+    .item3 {width:50px;}
+    .item4 {width:80px;}
+    .item5 {width:100px;}
+  }
+  .tbody {
+    .item4,
+    .item5 {font-family:'Roboto';}
+  }
+}
+/* ===== 임용 칼럼 ===== */
+.column {
+  .listControl {@extend %clearBh;width:100%;margin-bottom:20px;padding:23px 20px 23px;background:$lightGrayColor;
+    .left {color:$lightBlackColor;margin-top: 4px;}
+    .right {margin:-1px 0 0 0;}
+    .sortSet {display:inline-block;margin-right:21px;}
+    .sortSet label {min-width:67px;height:30px;line-height:1.9;}
+    .listKind {display:inline-block;vertical-align:middle;font-size:0;line-height:0;
+      span {position:relative;display:inline-block;overflow:hidden;margin-left:8px;}
+      input {display:block;position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;cursor:pointer;}
+      label {display:inline-block;width:24px;height:24px;text-indent:-999px;overflow:hidden;}
+      .blogCase {
+        label {background:url('../images/btn_columnList_blog.svg') no-repeat center;opacity:.2;}
+        input:checked + label {opacity:1;}
+      }
+      .cardCase {
+        label {background:url('../images/btn_columnList_card.svg') no-repeat center;opacity:.2;}
+        input:checked + label {opacity:1;}
+      }
+    }
+  }
+  .columnList {
+    .thumbnail {@extend %imgAlignA;display:inline-block;width:210px;height:144px;}
+    .thumbnail img {display:block;}
+    .txt {display:block;padding-bottom:5px;
+      strong {font-size:$txtSizeP2;line-height:1;margin-bottom:5px;}
+      span {display:-webkit-box;height:64px;color:$lightBlackColor;line-height:1.6;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
+      &:hover {text-decoration:underline;}
+    }
+    .tag {display:block;height:25px;color:#888;font-weight:300;letter-spacing:0;vertical-align:top;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+    .replyBox {@extend %clearBh;display:block;
+      .by {float:right;color:$lightBlackColor;font-weight:400;letter-spacing:-0.01em;}
+      .by em {font-family:'Roboto';color:$lightBlackColor;font-weight:400;}
+    }
+    li {position:relative;padding:0 20px 20px 250px;margin-bottom:20px;height:169px;border-bottom:1px solid $grayColor;
+      .thumbnail {position:absolute;left:20px;top:0;}
+      .txt {
+        strong {display:block;padding:4px 0 8px;vertical-align:top;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+      }
+      &:last-child {margin-bottom:0;}
+      &.noList {display:block;margin:0 !important;padding:10px 15px 30px !important;width:100% !important;height:auto !important;text-align:center;color:#666;border-bottom:1px solid #ddd !important;}
+    }
+    &.cardCase {
+      ul {@extend %clearBh;}
+      li {float:left;width:262px;height:340px;padding:0;margin-right:15px;border-bottom:0;
+        .thumbnail {position:relative;left:auto;top:auto;width:262px;height:180px;}
+        .txt {padding:7px 0 6px;
+          strong {display:-webkit-box;padding-bottom:0;white-space:break-spaces;line-height:1.4;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+          span {display:none;}
+        }
+        .by {display:none;}
+        &:nth-child(4n) {margin-right:0;}
+      }
+    }
+    .paginate {margin-top:-23px;}
+  }
+}
+.btnDownload {width: 20px;}

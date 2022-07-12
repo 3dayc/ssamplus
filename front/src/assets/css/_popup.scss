@@ -1,0 +1,2129 @@
+/* =================================================================================
+* INFORMATION
+* -----------------------------------------------------------------------
+* @File Name: _popup.scss
+* @Description : 레이어팝업 관련 셋팅 및 상세정의
+* @Create Date: 2021-06-23
+* @Update Date: N/A
+* @History: N/A
+* ================================================================================= */
+/* ===== Pop Common ===== */
+.modalDim {position:fixed;z-index:400;top:0;left:0;width:100%;height:100%;display:table;background:rgba(0, 0, 0, 0.5);transition:opacity 0.3s ease;
+  .modalWrapper {display:table-cell;vertical-align:middle;}
+  .modalContainer {padding: 45px 50px;margin:0 auto;width:960px;box-shadow:0 2px 8px rgba(0, 0, 0, 0.33);background:$whiteColor;transition:all 0.3s ease;}
+  .modalClose {position:absolute;top:1.786rem;right:1.786rem;width:2rem;height:2rem;overflow:hidden;font-size:0;vertical-align:middle;background:url('../images/btn_modal_Close.svg') no-repeat center;}
+  .modalheader {position:relative;padding:0 0 13px;border-bottom:2px solid $blackColor;background:$whiteColor;
+    h1 {font-size:$txtSizeP4;}
+    span {display:block;padding-top:5px;font-size:$txtSize;font-weight:normal;color:$lightBlackColor;}
+    .modalClose {top:-1px;right:0;width:28px;height:28px;}
+  }
+  .modalbody {padding:15px 0 20px;max-height:550px;overflow-y:auto;@include setScrollStyle;}
+  .modalBtn {@extend %clearBh;display:inline-block;width:100%;text-align:center;
+    [class*=btn] {margin:0 5px;width:10rem;}
+    &.soloCase [class*=btn] {width:15rem;}
+    &.line {padding-top:20px;border-top:1px solid $grayColor;}
+  }
+  /* Alert popup */
+  &.alertPop {z-index:500;
+    .modalContainer {padding:0;width:300px;}
+    .modalbody {padding:20px 20px;text-align:center;}
+    .modalfooter {padding:0 0 20px;text-align:center;}
+    .modalfooter [class*=btn] {margin:0 5px;width:120px;}
+  }
+  /* Img Large popup */
+  &.imgLayerPop {background:rgba(0,0,0,0.7);
+    .modalContainer {width:auto;background:none;text-align:center;}
+    .modalbody {display:inline-block;position:relative;padding:0;overflow:visible;}
+    .modalClose {top:-45px;right:0;background:url('../images/btn_modal_CloseWhite.svg') no-repeat center;}
+  }
+  /* video Large popup */
+  &.videoLayerPop {background:rgba(0,0,0,0.9);
+    .modalContainer {width:auto;background:none;text-align:center;box-shadow:none}
+    .modalbody {display:inline-block;position:relative;padding:0;overflow:visible;max-height:100% !important;}
+    .mobilePlayer {display:none;}
+    .btnClose {position:absolute;top:-4px;right:0;@include iconBtn(42px, 42px);background:transparent url("../images/btn_player_close.svg") no-repeat center;}
+    .mobilePlayer {display:none;}
+    .player_wrap {width:1000px; height:564px; margin:0 auto;}
+    .player_header {height:30px; background-color:#212630; display:flex; flex-direction:row; justify-content:space-between; align-items:center; padding: 0 15px; border-radius:6px 6px 0 0;}
+    .player_header {font-size: 14px; letter-spacing: -0.84px;}
+    .player_header .tit * {color: #8c8f95;}
+    .player_header .tit .logo {text-indent: -9999px; font-size: 0; overflow: hidden; width:114px; height:15px; background: url(../images/catvod/logo_white.png) no-repeat center center; display: inline-block;}
+    .player_header .tit span {display: inline-block; margin-left: 30px;}
+  }
+  /* Large popup */
+  &.large {
+    .modalContainer {width:1160px;}
+    .modalbody {padding:0;margin-bottom:20px;max-height:600px;min-height:440px;}
+    .btnTop {position:absolute;right:50px;top:0;}
+    .btnTop [class*=btn] {margin-left:10px;}
+  }
+}
+.popSearch {position:relative;padding:0 0 0 80px;
+  label {position:absolute;left:0;top:15px;font-weight:600;}
+}
+table.popTable {width:100%;border-collapse:collapse;border:1px solid $grayColor;background:$whiteColor;
+  tbody {
+    tr:last-child {border-bottom:none;}
+  }
+  th {padding:14px 1.786rem;font-weight:600;background:$lightGrayColor;text-align:center;}
+  td {padding:15px 1.786rem;text-align:center;color:$lightBlackColor;}
+  tr {border-bottom:1px solid $grayColor;
+    * {border-right:1px solid $grayColor;}
+    *:last-child {border-right:none;}
+  }
+}
+/* Popup Close Active Basic  */
+.modal-enter {opacity:0;}
+.modal-leave-active {opacity:0;}
+.modal-enter .modalContainer,
+.modal-leave-active .modalContainer {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.v-toast__item {margin:.5em auto;min-height:auto;min-width:400px;border-radius:5px;}
+.v-toast__item .v-toast__icon {display:none;}
+.v-toast__item .v-toast__text {padding:10px;width:100%;color:$whiteColor;text-align:center;line-height:1;}
+.v-toast__item--default {background:#0c7af7;}
+.v-toast__item--error {background:#ed4754;}
+.v-toast__item--success {background:#00bd50;}
+
+/* ===== LayerPopup Common ===== */
+/* ===== 팝업개별 ===== */
+/* alert 기본 */
+.basicNoty {display:table;width:100%;}
+.basicNoty p {display:table-cell;height:100px;vertical-align:middle;font-size:$txtSizeP2;}
+/* alert 기본 (완쪽 정렬) */
+.leftTxtNoty {display:table;width:100%;}
+.leftTxtNoty p {display:table-cell;height:100px;padding:0 20px;text-align:left;vertical-align:middle;font-size:$txtSize;}
+.leftTxtNoty p strong {display:block;padding-bottom:5px;font-size:$txtSizeP2;}
+/* 간편로그인 필수제공항목 */
+.snsLoginPop {
+  .modalContainer {width:420px !important;}
+  .modalbody {padding-bottom:43px !important;
+    * {text-align:left;}
+    p {padding:10px 0 15px 10px;font-size:$txtSizeP2;border-bottom:1px solid $grayColor;}
+    dl {padding:15px 0 13px 9px;}
+    dl dt {padding-bottom:4px;display:block;font-weight:600;}
+    dl dd {display:block;color:$lightBlackColor;letter-spacing:-0.04em;}
+    span {display:block;padding:0 0 0 14px;letter-spacing:-0.05em;}
+  }
+  .btnM {width:200px !important;}
+}
+/* 약력/저서 Popup */
+.large.ssamHistoryPop {
+  .modalContainer {width:1100px;}
+  .modalbody {max-height:410px;min-height:410px;
+    div {display:table;width:100%;}
+    dl {display:table-cell;width:54%;padding:20px 0 0 0;}
+    dl ~ dl {padding-left:50px;}
+    dl:last-child {width:46%;}
+    dt {height:30px;font-size:$txtSizeP2;}
+    dd {line-height:1.8;font-size:$txtSizeP1;letter-spacing:-0.07em;
+      span {position:relative;display:block;padding:0 0 0 10px;font-size:$txtSizeP1;
+        &:before {content:'';position:absolute;left:0;top:9px;width:5px;height:0;border-top:1px solid $darkGrayColor;}
+      }
+    }
+  }
+}
+/* 강좌관련 팝업 */
+.large.lecturePop {
+  .modalContainer {width:970px;padding:22px 35px 35px;}
+  .modalheader {border-bottom:0;}
+  .modalbody {padding:0;margin-bottom:0;max-height:585px;min-height:585px;overflow-y:hidden;}
+  .tabNav ul.blackLineTab li {width:300px;}
+  .tabLayout {padding:0;height:535px;overflow-y:auto;@include setScrollStyle;}
+  .videoPlay {padding-top:25px;}
+  .videoPlay img {width:100%;display:block;}
+  .lecDetailInfo {padding-top:25px;}
+  .tabLayout.infoCase {border-top:2px solid $blackColor;height:585px;}
+  .lecSchedule {
+    .tbody {background:$whiteColor;
+      ul>li:hover {background:$whiteColor;}
+    }
+  }
+}
+/* 수강혜택 Popup */
+.large.benefitsPop {
+  .modalContainer {width:1100px;}
+  .modalbody {margin:20px 0;max-height:410px;min-height:410px;}
+}
+/* 수강할인 팁 Popup */
+.large.discountTipsPop {
+  .modalContainer {width:1100px;}
+  .modalbody {padding:0;}
+  .ratePriceTit {@extend %clearBh;display:block;padding:15px 20px;background:$lightGrayColor;
+    .left {font-size:$txtSizeP4;}
+    .price {float:right;}
+    &.mallCase {padding:15px 20px 15px;
+      .left em {display:block;font-size:$txtSizeM2;font-weight:200;line-height:1;color:$darkGrayColor;}
+      .price {padding-top:8px;}
+    }
+  }
+  .lecDiscount {padding:0 20px;
+    .ratePrice {display:block;padding:10px 0;}
+  }
+}
+/* 목차 */
+.bookChapterPop {
+  .modalContainer {width:960px;}
+  .bookName {font-size:$txtSizeP4;}
+  .bookInfo {display:block;margin:6px 0 21px;font-size:0;
+    em {display:inline-block;padding:0 8px 0 6px;font-size:12px;height:12px;line-height:1;color:$brightGrayColor;font-weight:100;border-right:1px solid $brightGrayColor;vertical-align:middle;}
+    em:first-child {padding-left:0;}
+    em:last-child {padding-right:0;border-right:none;}
+  }
+  .popTable .first {width:120px;}
+}
+/* 쌤몰 배송비 안내  */
+.deliveryInfoPop {
+  .modalContainer {width:500px;}
+  p {color:$lightBlackColor;font-weight:100;line-height:1.6;letter-spacing:0;}
+}
+/* 입고안내 문자 신청 */
+.bookWearingrPop {
+  .modalContainer {width:460px;}
+  .modalbody {text-align:center;}
+  .txt01 {font-size:$txtSizeP2;}
+  .number {display:block;padding:15px 0;margin:20px 0 10px;font-size:$txtSizeP4;color:$brightGrayColor;font-family:'Roboto';text-align:center;background:#F6F6F6;}
+  .txt02 {display:block;font-size:$txtSizeM2;text-align:left;color:$lightBlackColor;}
+}
+/* 동의팝업 */
+.agreePop {
+  .modalContainer {position:relative;width:1100px;padding:74px 50px 45px;}
+  .modalheader {display:none;}
+  .modalbody {padding:0 !important;overflow:hidden;max-height:initial;}
+  .modalClose {top:22px !important;right:50px !important;z-index:10;}
+  .tabBack .tabNav ul.lineTab li {width:25%;border:1px solid #ddd; margin: 0;
+    &:not(:first-child) {border-left: 0;}
+  }
+  .tabBack .tabNav ul.lineTab li button {color:#ddd;font-size:$txtSizeP2; border: 0; height: 100%;}
+  .tabBack .tabNav ul.lineTab li.on {border-color:$blackColor; background-color: $blackColor;}
+  .tabBack .tabNav ul.lineTab li.on button {color:#fff;}
+  .tabBack .tabNav ul.lineTab.case3 {display: flex;}
+  .tabBack .tabNav ul.lineTab.case3 li {flex: 1;}
+  .tabLayout {padding-top:10px;}
+  .policyDate {@extend %clearBh;width:100%;padding:0 6px 0 19px;margin-bottom:19px;background:$lightGrayColor;
+    em {display:inline-block;margin-top:9px;color:$lightBlackColor;font-weight:600;}
+    .selectSet {float:right;min-width:146px;}
+    .selectSet select {height:40px;border:none;background:none;}
+  }
+  .policyDetail {height:549px;overflow-y:auto;@include setScrollStyle;
+    ol li{list-style-type: disc;}
+    ul li{list-style-type:decimal;}
+    i {font-style:italic;}
+    table {width:100%;border-collapse:collapse;
+      th, td {
+        border:1px solid #ccc;padding:0 10px;
+      }
+      th {background-color: #fafafa;}
+    }
+    input {-webkit-appearance: checkbox;}
+  }
+  .policyDetail .back {padding:0 19px 19px 19px;color:$lightBlackColor;line-height:1.6;font-weight:200;
+    * {color:$lightBlackColor;}
+  }
+  .orderRules {padding:10px 10px;
+    strong {display:block;padding:0 0 5px;font-size:$txtSizeP2;}
+    ul {padding-bottom:10px;}
+    ul li {position:relative;padding:0 0 8px 12px;
+      &:before {content:'';position:absolute;left:0;top:10px;display:inline-block;width:5px;height:1px;border-radius:10px;background:$blackColor;}
+      span {display:block;padding:5px;}
+      div {padding:5px 0 0;
+        span {padding:3px 5px;font-size:$txtSizeM2;color:$lightBlackColor;}
+      }
+      em {font-weight:bold;font-size:$txtSizeP1;}
+    }
+    a {color:$greenColor;
+      &:before {content:'';display:inline-block;width:0;height:0;margin: -4px 5px 0 0;
+    vertical-align: middle;border:2px solid $greenColor;border-left-color:transparent;border-top-color:transparent;transform: rotate(-45deg);}
+    }
+  }
+}
+/* 배송추적 */
+.deliveryTracking {
+  .modalContainer {width:600px;}
+  .modalheader {display:none;}
+  .modalbody {padding:0 0 20px;min-height:486px;}
+  .productInfo {height:45px;
+    span {display:inline-block;width:310px;font-size:$txtSizeP4;font-weight:200;letter-spacing:0;color:$lightBlackColor;}
+    span:last-child {width:auto;}
+    em {display:inline-block;margin-right:15px;font-size:$txtSizeP4;font-weight:600;letter-spacing:-0.04em;color:$blackColor;}
+  }
+  .resTls {border-top:2px solid $blackColor;
+    .item0 {width:195px;}
+    .item1 {width:165px;padding:0 30px 0 40px !important;}
+    .item2 {width:180px;padding:0 32px 0 70px !important;}
+    .tbody {
+      .item0 {letter-spacing:0;font-family:'Roboto';}
+      .item1 {text-align:left;}
+      .item2 {text-align:left;}
+    }
+  }
+}
+/* 배송지정보 */
+.deliveryAddressPop {
+  .modalContainer {width:500px;}
+  .modalClose {top:8px;right:0;width:20px;height:20px;}
+  .modalbody {height:280px;}
+  .boardWrite dt {width:90px;font-weight:600;}
+  .ipBtn [class*="btn"] {font-weight:100;}
+  .modalBtn {padding-left:25px;}
+}
+/* 쿠폰 선택 */
+.couponPop {
+  .modalContainer {width:820px !important;}
+  .modalheader {border-bottom:none;}
+  .modalbody {max-height:none;overflow-y:hidden;padding-top:0;}
+  .couponAppTit {display:block;padding:25px 0 15px;}
+  .couponAppTit em {font-size:$txtSizeP2;}
+  .resTls {border-top:2px solid $blackColor;overflow-y:auto;max-height:360px;
+    .ig1 {width:282px;
+      .item0 {width:100px;}
+      .item1 {width:192px;text-align:left;}
+      .item1 strong {color:$lightBlackColor;font-weight:500;}
+      .item1 span {display:block;}
+    }
+    .item3 {width:210px;}
+    .ig2 {width:288px;
+      .item4 {width:100px;}
+      .item5 {width:188px;}
+    }
+    .tbody {
+      .item4 {text-align:right;padding-right:15px;}
+      .item5 {font-family:'Roboto';}
+    }
+  }
+  .expiry {background:$lightGrayColor;}
+  .expiry * {color:$grayColor !important;}
+  p {padding:10px 0 30px;color:$lightBlackColor;font-size:$txtSizeM2;font-weight:200;}
+}
+/* 사물함신청 내역 */
+.lockerOrderPop {
+  .modalContainer {width:500px !important;}
+  .modalbody {min-height:232px !important;}
+  table.popTable tr * {text-align:left;}
+  table.popTable tr th {width:120px;}
+}
+/* 쿠폰 선택 */
+.couponAddPop {
+  .modalContainer {width:780px !important;}
+  .modalbody {min-height:100px !important;}
+  .popSearch {padding-left:0;}
+  p {padding:10px 0 0;font-size:$txtSizeM2;font-weight:200;}
+}
+/* 비밀번호 변경 */
+.pwChangePop {
+  .modalContainer {width:490px;}
+  .modalbody {
+    input {margin-bottom:5px;}
+    span {display:block;font-size:$txtSizeM2;}
+    div {padding:25px 0 0;margin-top:25px;border-top:1px solid $grayColor;}
+  }
+}
+/* 회원가입 및 내정보 수정 */
+.myInfoPop {
+  .modalContainer {width:500px;}
+  .modalbody {padding:0 0 20px;
+    .erMsg {display:block;padding-bottom:5px;font-size:$txtSizeM2;}
+    .fGray {display:block;padding:5px 0 10px;font-size:$txtSizeM2;}
+    .changeData {padding:20px 0 0;margin-top:15px;border-top:1px solid $grayColor;}
+    .boardWrite {
+      dt {width:90px;font-weight:600;vertical-align:middle;}
+      .ipBtn {margin-bottom:0;}
+      .choiceSet {width:160px;}
+      .choiceSet label {height:$iHeight;line-height:3.4;}
+    }
+    .leaveData p {padding:30px 0 10px;text-align:center;}
+  }
+}
+/* 수강시작일 변경 */
+.courseStartPop {
+  .modalContainer {width:380px;}
+  .modalheader p {padding:0;color:$darkGrayColor;font-weight:normal;}
+  .modalbody {padding:20px 20px 20px;background:$lightGrayColor;}
+  .modalbody .selectSet {margin-top:10px;width:100%;}
+  .modalbody strong {display:inline-block;padding-left:5px;}
+  .modalBtn {padding-top:20px;}
+}
+/* 교재신청 목록 */
+.bookPopup {
+  .modalheader span {display:inline-block;padding-left:10px;}
+  .modalbody {max-height:600px;min-height:462px;}
+
+  .modalDim.alertPop {
+    .modalContainer {padding:0;width: 300px;}
+    .modalbody {padding:20px 20px;max-height:none;min-height:auto;}
+  }
+  .bookChapterPop {
+    .modalContainer {width:960px;}
+    .modalbody {padding:15px 0 0;}
+  }
+  .bookWearingrPop {
+    .modalContainer {width:460px;}
+    .modalbody {padding:15px 0 20px;max-height:550px;min-height:auto;}
+  }
+
+}
+/* 보너스 강의 신청 */
+.bonusPopup {
+  .modalContainer {width:510px;}
+  .modalbody {max-height:600px;}
+  h2 {padding:0 0 10px;}
+  .bonusKind {padding-top:15px;
+    .radioSet label {color:$darkGrayColor;}
+    div {position:relative;padding:14px 0 10px 24px;
+      &:after {content:'';position:absolute;left:0;top:0;right:0;bottom:0;background:rgba(255,255,255,.5);}
+    }
+    div.onlineCase {margin-bottom:15px;border-bottom:1px solid $grayColor;}
+    dl {display:table;width:100%;padding-bottom:5px;}
+    dl dt {display:table-cell;width:75px;}
+    dl dd {display:table-cell;}
+    .selectSet select {height:30px;}
+    p {padding-bottom:5px;font-size:$txtSizeM2;color:$darkGrayColor;color:$lightBlackColor;}
+    .radioSet input:checked + label {color:$blackColor;}
+    div.on {
+      &:after {display:none;}
+    }
+  }
+  .bonusInfo {padding:12px 20px;margin-bottom:20px;background:$lightGrayColor;
+    dt {padding:0 0 12px;}
+    dd {position:relative;padding:0 0 0 10px;font-size:$txtSizeM2;color:$lightBlackColor;}
+    dd:before {content:'';position:absolute;top:9px;left:0;display:inline-block;width:4px;height:0;border-top:1px solid $lightBlackColor;}
+  }
+  .checkSet label {color:#D1555F;}
+  .checkSet input:checked + label {color:#20ab61;}
+}
+/* 보충 강의 신청 */
+.large.additionPopup {
+  .modalContainer {width:510px;}
+  .modalbody {margin:10px 0 20px;}
+  h2 {padding:0 0 10px;}
+  p {padding:5px 0 0;font-size:$txtSizeM2;}
+  .additionInfo {margin:20px 0;padding:12px 20px;background:$lightGrayColor;
+    dt {padding:0 0 12px;color:$lightBlackColor;}
+    dd {position:relative;padding:0 0 0 10px;font-size:$txtSizeM2;color:$lightBlackColor;}
+    dd:before {content:'';position:absolute;top:9px;left:0;display:inline-block;width:4px;height:0;border-top:1px solid $lightBlackColor;}
+    &.payCase {background:#f8fcf9;}
+  }
+  .checkSet label {color:#D1555F;}
+}
+/* 직/인강 전환 */
+.changeLecPopup {
+  .modalContainer {width:510px;}
+  h2 {padding:0 0 10px;}
+  p {padding:5px 0 15px;font-size:$txtSizeM2;}
+  .changeLecInfo {margin:20px 0;padding:3px 20px 15px;background:$lightGrayColor;
+    dt {padding:12px 0 12px;color:$lightBlackColor;}
+    dd {position:relative;padding:0 0 0 10px;font-size:$txtSizeM2;color:$lightBlackColor;}
+    dd:before {content:'';position:absolute;top:9px;left:0;display:inline-block;width:4px;height:0;border-top:1px solid $lightBlackColor;}
+  }
+  .checkSet label {color:#D1555F;}
+}
+/* 목록부터 나오는 게시판 팝업 */
+.large.bbsPopup {
+  .modalheader .selectSet {margin:-8px 0 0 20px;width:350px;display:inline-block;}
+  .modalheader .selectSet select {height:40px;}
+  .modalbody {padding:10px 0 0 !important;margin-bottom:0;min-height:initial;max-height:initial;overflow-y:hidden;
+    .resTls {height:541px;overflow-y:auto;@include setScrollStyle;
+      .thead .lgItem {height:40px;padding:0 10px 10px;}
+      .tbody ul li {height:50px;}
+    }
+    .boardDetail {padding-bottom:10px;height:540px;overflow-y:auto;@include setScrollStyle;}
+    .boardNavi {padding-top:15px;height:67px;
+      .btnList {bottom:7px;}
+    }
+    .paginate {padding:24px 0 10px 66px;
+      .selectSet.pcCase {display:none;}
+      .selectSet.mCase {display:inline-block;}
+    }
+  }
+}
+/* 싱세만 나오는 게시판 팝업 */
+.large.bbsViewPopup {
+  .modalbody {padding:10px 0 0 !important;margin-bottom:0;min-height:initial;max-height:initial;overflow-y:hidden;}
+  .boardDetail {padding-bottom:10px;height:540px;overflow-y:auto;@include setScrollStyle;
+    &.heightAuto {height:auto; padding-bottom: 28px;
+      .boardBtn {padding:28px 0 0;}
+    }
+  }
+  .boardBtn {padding:15px 0;}
+  .boardNavi {padding-top:15px;height:67px;
+    .btnList {bottom:7px;}
+  }
+  .boardView {min-height:auto;}
+  .modalBtn {padding-top:15px;height:67px;}
+}
+/* 홀딩신청 & 연장신청 & 재수강신청 팝업 */
+.large.lecReAddPopup {
+  .modalContainer {width:1010px;}
+  .modalbody {margin-top:10px;padding:0;max-height:670px;min-height:486px;}
+  .modalheader {
+    span {display:inline-block;color:$redColor;}
+    p em {display:block;}
+  }
+  h2 {padding:20px 0 10px;font-size:$txtSizeP4;}
+  .lecBasic {padding:20px 0;background:$lightGrayColor;
+    .info {position:relative;padding: 0 0 0 88px;}
+    .kind {left:0;width:88px;}
+    .lecTt .tt {padding:0 0 7px;}
+    .lecTt .tt+.limitNtime {padding:0;}
+  }
+  .tableList {
+    dl {display:table;width:50%;}
+    dl dt {display:table-cell;width:148px;border:1px solid $grayColor;border-width:0 1px 0 0;}
+    dl dd {display:table-cell;padding:2px 20px;font-size:$txtSizeP2;font-weight:600;color:$blackColor;}
+    dl dd span {font-size:$txtSizeM1;font-weight:normal;color:$lightBlackColor;}
+  }
+  .resTls.holdingCase {
+    .item0 {width:80px;}
+    .item1 {width:150px;}
+    .item2 {width:364px;}
+    .item3 {width:114px;}
+    .item7 {width:264px;text-align:left;padding-left:48px;}
+    .tbody {
+      .item0,
+      .item1,
+      .item2,
+      .item3 {font-family:'Roboto'}
+      .item7 span {display:inline-block;padding-left:12px;}
+      .item7 button {float:right;}
+    }
+  }
+  .resTls.requestCase {
+    .item0 {width:45px;}
+    .item1 {width:90px;}
+    .item2 {width:305px;}
+    .item3 {width:76px;}
+    .itemGroup {
+      .item4 {width:88px;}
+      .item5 {width:88px;}
+      .item6 {width:88px;}
+    }
+    .item7 {width:143px;text-align:left;padding-left:48px;}
+    .tbody {
+      .item0,
+      .item1,
+      .item2,
+      .item3,
+      .item4 span {font-family:'Roboto'}
+      .item7 span {display:inline-block;padding-left:12px;}
+      .item7 button {float:right;}
+    }
+  }
+  .resTls {
+    .thead {border-bottom:2px solid $blackColor;}
+    .thead .lgItem {height:50px;}
+    .thead * {font-size:$txtSize;}
+    .thead .lgItem {padding:25px 5px 10px;}
+    .tbody .lgItem {padding:16px 5px;}
+    .tbody ul li [class*=btn] {margin-top:-2px;}
+  }
+  .resTls + h2 {padding:30px 0 10px;color:$greenColor;}
+  .dateSetting {padding:15px 20px;background:#F8FCF9;
+    &>div {@extend %clearBh;}
+    dl {float:left;display:table;
+      dt {display:table-cell;width:73px;vertical-align:middle;}
+      dd {display:table-cell;vertical-align:middle;}
+      &.term {width:500px;}
+      &.term dd i {display:inline-block;padding:0 18px;}
+      &.term dd strong {font-size:$txtSizeP2;}
+    }
+    .forDay {width:50px;padding:0 10px;margin-right:5px;}
+    .priceSet {@extend %clearBh;float:none;width:100%;margin-top:15px;
+      dd {color:$darkGrayColor;
+        strong {font-size:$txtSizeP6;margin-right:10px;color:$blackColor;}
+        strong i {font-size:$txtSizeP2;color:$blackColor;}
+        em {color:$lightBlackColor;}
+      }
+    }
+    .info {color:$lightBlackColor;font-size:$txtSizeM1;}
+    p.info {padding:20px 0 0;}
+    div.info {padding:0 0 10px;}
+    .holdingCase {
+      dl.term {width:100%;}
+    }
+  }
+  &.retakeCase {
+    .modalbody {min-height:300px;}
+  }
+}
+/* 자율 공부 시간 입력 팝업 */
+.large.studySettongPopup {
+  .modalContainer {width:725px;padding:45px 50px;}
+  .modalbody {padding:0 0 20px;min-height:510px;max-height:510px;}
+  .modalBtn {padding-top:20px;border-top:1px solid $grayColor;}
+  p {padding:10px 0 25px;color:$darkGrayColor;
+    em {display:block;color:$darkGrayColor;}
+  }
+  .calSet {width:270px;}
+  .todayWin {@extend %clearBh;padding-top:23px;
+    .box {float:left;width:300px;
+      strong {display:block;height:32px;color:#000;font-size:$txtSizeP2;}
+      div {padding:14px 14px 20px;background:$lightGrayColor;}
+      dt {height:30px;}
+      dd {@extend %clearBh;width:271px;border:1px solid $grayColor;border-width:1px 0 0 1px;
+        span {position:relative;float:left;display:inline-block;width:45px;height:36px;border:1px solid $grayColor;border-width:0 1px 1px 0;box-sizing:border-box;}
+        span input {position:absolute;opacity:0;left:0;top:0;width:100%;height:100%;border:none;background:transparent;}
+        span label {display:block;height:35px;text-align:center;line-height:2.6;font-family:'Roboto';background:#fff;}
+        span input:checked + label {color:$whiteColor;background:#6BCCA5;}
+      }
+      .minuteCase {padding-top:25px;
+        dd {
+          span input:checked + label {background:#CEC870;}
+        }
+      }
+    }
+    .box ~ .box {margin-left:20px;}
+  }
+}
+/* 스마트강좌 상세보기 */
+.smartLecPop {
+  // .modalContainer {padding:20px 20px !important;}
+  .modalheader {padding:0;border:none;}
+  .modalbody {padding:0 0 0 !important;max-height:720px !important;}
+  .modalClose {top:-85px !important; right: -50px !important; background:url('../images/btn_modal_CloseWhite.svg') no-repeat center;}
+  .gridItem {padding:0 !important;}
+  .viewCase {width:598px;padding:0 30px 0 0 !important;
+    .lecViewContainer .lecViewContents {width:100%;
+      .lecBasicBack {
+        .lecBasic .kind {top:12px;}
+        .ssam {margin:3px 0px -20px;padding:0;width:80px;border:none;}
+        .ssam span {width:80px;height:80px;}
+        .lecBasic {width:350px;}
+        .lecBasic .iSetLine {margin:3px 0 12px;}
+        .lecBasic .lecTt .tt {font-size:16px;}
+        .lecBasic .lecTt .msg {font-size:12px;}
+      }
+      .lecDetail {
+        .article .subTit {padding-bottom:10px;}
+        .article .subTit h3 {padding-bottom:0;font-size:16px;}
+        .article .subTit .txt em {font-size:$txtSizeM2;color:$lightBlackColor;}
+        .article .subTit .more{position:absolute;left:0;bottom:-40px;}
+        .widthData .widthList li {margin-bottom:0;}
+        .widthData .widthList .item.singleLec {padding:13px 0 15px 0;}
+        .widthData .widthList .item .tL {width:70%;}
+        .widthData .widthList.notOnline .lecLimit {float:left;margin:8px 0 0px 30px;text-align:left;}
+        .article.offLineCase {
+          .widthList {
+            .item {@extend %clearBh;display:block;}
+            .item .tL {float:left;display:inline-block;width:60% !important;
+              strong {display:inline-block;}
+            }
+            .item .tR {float:right;display:inline-block;width:29%;}
+          }
+          .lecLimit {margin:0 0 3px;text-align:left;width:140px;font-size:$txtSizeM2;
+            &::before {width:16px;height:16px;}
+          }
+          .lecBtnSet {float:left;margin:-27px 0 0 0;}
+        }
+      }
+    }
+    .smartPrice {@extend %clearBh;display:inline-block;width:100%;padding:0 0 0 100px;box-sizing:border-box;
+      .spSet {@extend %clearBh;display:block;
+        .set {display:inline-block;padding:5px 10px 0;width:200px;height:60px;border-radius:5px;border:1px solid $grayColor;background:$whiteColor;}
+        .set strong.tt {float:left;display:inline-block;margin-top:14px;color:#666;}
+        .set .price {float:right;text-align:right;
+          strong {font-size:$txtSizeP4;}
+          del, em {font-size:$txtSizeM2;}
+        }
+        .set ~ .set {margin-left:10px;}
+      }
+      .spTxt {padding-top:5px;font-size:$txtSizeM2;color:$lightBlackColor;
+        em {font-size:$txtSizeM2;color:$redColor;}
+      }
+    }
+    .lecDiscount {
+      .resTls * {font-size:$txtSizeM2;}
+      .resTls .listGrid .lgItem {height:30px;}
+      .resTls .tbody ul li {height:35px;}
+    }
+  }
+  .summeryCase {width:435px;padding:0 20px 0 0 !important;
+    .tabBack .tabNav ul.blackLineTab {height:40px;}
+    .tabBack .tabNav ul.blackLineTab li {height:38px;}
+    .tabBack .tabNav ul.blackLineTab li button {height:37px;line-height:1;font-size:14px;}
+    .tabBack .tabNav ul.blackLineTab li:before {height:36px;}
+    .tabBack .tabNav ul.blackLineTab.case2 li {width:50% !important;}
+    .videoPlayTit {padding:0 0 10px;font-weight:500;}
+    .videoPlay img {width:100%;border-radius:10px;}
+    .lecDetailInfo .listGrid .lgItem {font-size:$txtSizeM2;}
+    .lecDetailInfo .listGrid .lgItem.th {padding:0 !important;width:80px;font-size:$txtSizeM2;}
+    .lecSchedule {width:430px;/*border-top:2px solid $blackColor;*/
+      * {font-size:$txtSizeM2;}
+      .thead .lgItem {height:33px !important;padding:2px 5px 2px !important;}
+      .tbody ul li {height:50px;}
+      .tbody ul li * {font-weight:100;}
+      .itemGroup.ig1 {width:290px;
+        .item0 {width:47px}
+        .item1 {width:243px;}
+      }
+      .itemGroup.ig2 {width:140px;
+        .item2 {width:60px}
+        .item3 {width:80px}
+      }
+    }
+    .slBooklist {@extend %clearBh;
+      li {position:relative;float:left;width:100%;height:auto;margin:0 0 5px 0;padding:15px 0 15px 0;border-bottom:1px solid $grayColor;
+        .bookBasic {position:relative;@extend %clearBh;padding:0 0 0 0;width:100%;height:auto;box-sizing:border-box;
+          strong.bookname {display:inline-block;padding:0 7px;vertical-align:middle;font-size:$txtSize;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+        }
+        .bookMore {@extend %clearBh;padding:10px 0 0;
+          .imgBox {float:left;@extend %imgAlignA;display:inline-block;width:80px;height:110px;margin:0 15px 0 0;}
+          div {float:left;width:190px;
+            * {font-size:$txtSizeM2;}
+            dl {display:table;padding:2px 0;}
+            dl dt {display:table-cell;width:50px;color:$lightBlackColor;}
+            dl dd {display:table-cell;}
+            dl dd span {width:100%;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+          }
+        }
+        .price {position:absolute;right:15px;top:50%;transform:translateY(-50%);text-align:right;
+          del {margin-right:5px;font-size:$txtSizeM2;}
+          em {margin-right:7px;font-size:$txtSizeM2;}
+          strong {display:block;font-size:$txtSizeP4;}
+        }
+      }
+    }
+
+  }
+}
+/* 합격증 미리보기 */
+.certificatePop {
+  .modalContainer {width:1100px;padding:45px 50px;}
+  .modalbody {text-align:center;padding:20px 0 30px;border-bottom:1px solid $grayColor;margin-bottom:26px;max-height:640px;overflow-y:auto;}
+}
+/* 인증기관 인증 샘플 팝업 */
+.agencyOKPop {
+  .modalWrapper {padding:0;}
+  .modalheader {display:none;}
+  .modalContainer {padding:0;width:auto;border-radius:0;background:none;box-shadow:none;}
+  .modalbody {padding:0;text-align:center;
+    img {width:auto;height:auto;}
+    max-height:initial;
+    overflow-y:visible;
+  }
+}
+/* 음성테스트 */
+.voiceTestPopup {
+  .modalContainer {width:460px;}
+  .modalbody {height:197px;overflow:hidden;
+    div {padding:5px 0 0;font-weight:600;
+      strong {color:#d1555f;}
+    }
+    p {padding:15px 15px 0 0;line-height:1.8;color:$lightBlackColor;}
+  }
+}
+/* 모의고사 접수 */
+.takeMockPopup {
+  .modalContainer {width:650px;}
+  .boardWrite {
+    dl {padding:0 0 15px;}
+    dt {width:120px;vertical-align:middle;}
+    dd {
+      .price strong {font-size:$txtSizeP4;}
+      .selectSet {width:calc((100% - 10px)/2);}
+      .selectSet select {height:40px;}
+      .selectSet ~ .selectSet {margin-left:10px;}
+    }
+  }
+}
+/* 수험표확인 */
+.examTicketPopup {
+  .modalContainer {width:820px;}
+  .modalbody{background:none;
+    .modal_onLine {
+      .resTls.subCase {border:none;border-width:unset;
+        table {width:100%;border-collapse:collapse;border:2px solid #707070;
+          thead {
+            td{text-align:center;font-size:24px;letter-spacing:10px;line-height:20px;padding:20px 0;
+              span {font-size:16px;}
+            }
+          }
+          tbody{border-top:1px solid #000;
+            th{width:100px;padding:10px 0;border-bottom:1px solid #000;border-left:1px solid #000;background-color:#fafafa;}
+            td{width:147px;padding:0 10px; border-bottom:1px solid #000; border-left:1px solid #000;}
+          }
+        }
+        .tfoot{display:flex;justify-content:center;align-items:center;padding:18px 0 17px;border-bottom:1px dotted #000;
+          span{display:inline-block;}
+          .tel{padding-top:15px;}
+        }
+      }
+    }
+    .modal_onSite {
+      .resTls.subCase {border:none;border-width:unset;
+        table {width:100%;border-collapse:collapse;border:2px solid #707070;
+          thead {
+            td{text-align:center;font-size:24px;letter-spacing:10px;line-height:20px;padding:20px 0;
+              span {font-size:16px;}
+            }
+          }
+          tbody{border-top:1px solid #000;
+            th{width:100px;padding:10px 0;border-bottom:1px solid #000;border-left:1px solid #000;background-color:#fafafa;}
+            td{width:147px;padding:0 10px; border-bottom:1px solid #000; border-left:1px solid #000;}
+          }
+        }
+        .tfoot{display:flex;justify-content:center;align-items:center;padding:18px 0 17px;border-bottom:1px dotted #000;
+          span{display:inline-block;}
+          .tel{padding-top:15px;}
+        }
+      }
+    }
+    dl{border:none;padding:0 40px;font-size:14px;
+      dt{padding-bottom:10px;}
+      dd{font-size:12px;color:#666;padding-bottom:10px;
+        span {position:relative;display:block;padding:0 0 0 10px;font-size:$txtSizeM2;color:$lightBlackColor;}
+        span:before {content:'';position:absolute;top:9px;left:0;display:inline-block;width:4px;height:0;border-top:1px solid $lightBlackColor;}
+        .red {font-size:$txtSizeM2;color:#d1555f;}
+        span::before{border-top:none;}
+      }
+      .blue{font-size:$txtSizeM2;color:#00f;}
+    }
+    .required{margin:15px 40px;border:2px solid #eee;padding:15px;}
+
+  }
+}
+  // .modalContainer {width:500px;}
+  // .modalbody {background:url('../images/i_logo_login.svg') no-repeat center 94%;background-size:164px 22px;max-height:none;height:597px;
+  //   .resTls {
+  //     li {height:50px;
+  //       div {width:120px;height:50px;}
+  //       span {height:50px;text-align:left;color:$blackColor;}
+  //     }
+  //   }
+  //   dl {padding:15px;border:1px solid $grayColor;border-top:0;
+  //     dt {font-weight:600;}
+  //     dd {padding-top:10px;
+  //       span {position:relative;display:block;padding:0 0 0 10px;font-size:$txtSizeM2;color:$lightBlackColor;}
+  //       span:before {content:'';position:absolute;top:9px;left:0;display:inline-block;width:4px;height:0;border-top:1px solid $lightBlackColor;}
+  //       em {font-size:$txtSizeM2;color:#d1555f;}
+  //     }
+  //   }
+  // }
+@page {
+  size:auto; margin:0 auto;
+}
+@media print {
+  html, body.scrollHiden {
+    height:100vh;
+    overflow: hidden;
+  }
+  .examTicketPopup .modalContainer {
+    height:100vh; width: 100%;
+    box-shadow:none; padding: 30px 0 0 0; margin:0;
+    border: none;
+  }
+  .examTicketPopup .modalContainer .modalbody {overflow:visible;}
+  .examTicketPopup .modalContainer .modalheader{display:none;}
+  .examTicketPopup .modalContainer .modalBtn{display:none;}
+}
+
+/* 답안지 업로드 */
+.examEndUploadPopup {
+  .modalContainer {width:500px;}
+  .modalbody {height:337px;
+    .boardDetail.write {
+      .box {margin-top:0;border:1px solid $grayColor}
+      .uploadFile {@extend %clearBh;display:block;width:100%;padding:15px 15px 15px;box-sizing:border-box;
+        i {float:left;margin:7px  0 0 0;}
+        span {float:right;}
+      }
+      .uploadFileList {margin-bottom:0;border-bottom:0;
+        li {padding:15px 15px;}
+        .btnBox {top:50%;}
+      }
+    }
+    p {padding:10px 0 0 0;line-height:1.8;color:#d1555f;
+      span {display:block;color:#d1555f;font-size:$txtSizeM2;}
+    }
+  }
+}
+/* 채점 결과 확인 */
+.examEndResultPopup {
+  // &.modalDim .modalheader .modalClose {top: 3px;}
+  .modalContainer {width:500px;}
+  .modalbody {height:197px;
+    .boardDetail.write {
+      .box {margin-top:0;border:1px solid $grayColor}
+      .uploadFileList {margin-bottom:0;border-bottom:0;
+        li {padding:15px 15px;}
+        .btnBox {top:50%;}
+      }
+    }
+    p {padding:10px 0 0 0;line-height:1.8;color:#d1555f;
+      span {display:block;color:#d1555f;font-size:$txtSizeM2;}
+    }
+  }
+}
+/* 시험지/답안지 출력 */
+.examPrintPopup {
+  .modalContainer {width:615px;}
+  .modalbody {height:250px;
+    .boardDetail.write {
+      .box {margin-top:0;}
+      i {font-weight:600;display:inline-block;margin-right:10px;}
+      .uploadFileList {margin-bottom:0;border-bottom:0;
+        li {padding:15px 15px;}
+        .btnBox {top:50%;right:15px;}
+      }
+    }
+    p {padding:10px 0 0 0;line-height:1.8;color:#d1555f;
+      span {display:block;color:#d1555f;font-size:$txtSizeM2;}
+      em {padding-left:27px;display:block;color:#d1555f;font-size:$txtSizeM2;}
+    }
+  }
+}
+/* 자가 채점 입력 확인 */
+.large.examSelfResultPopup {
+  .modalheader {
+    em {font-size:$txtSizeP4;margin-left:10px;}
+  }
+  .modalbody {padding:20px 0;max-height:636px;}
+  .examTimeSet {float:left;width:320px;
+    strong {margin:0 0 15px;display:inline-block;width:100%;height:40px;font-weight:600;line-height:2.1;font-size:16px;box-sizing:border-box;text-align:center;border:1px solid $grayColor;background:$lightGrayColor;}
+    .resTls {
+      ul li {height:40px;}
+      .thead .lgItem {height:40px;}
+      .item0 {width:100px;}
+      .item1 {width:220px;}
+      .tbody {
+        // .listGrid:not(.summery) {display: flex;}
+        .item0 {font-family:'Roboto';}
+        .item1 {font-family:'Roboto';background:$lightGrayColor;
+          input {font-family:'Roboto';width:120px;height:30px;text-align:center;}
+          i {
+            &::before {content: '/';}
+          }
+        }
+        li.summery {background:#fcf8f8;
+          .lgItem {color:#d1555f;}
+          .item1 {font-weight:600;background:#fcf8f8;}
+        }
+      }
+    }
+    & ~ .examTimeSet {margin-left:20px;}
+  }
+}
+/* 모의고사 시험응시 */
+.morkupExamStartPopup {position:fixed;top:0;left:0;bottom:0;width:100%;z-index:120;overflow-x:auto;overflow-y:hidden;background:$whiteColor;
+  .back {min-width:1280px; padding: 25px 20px;}
+  .modalClose {position:absolute;top:30px;right:30px;width:2rem;height:2rem;overflow:hidden;font-size:0;vertical-align:middle;background:url('../images/btn_modal_Close.svg') no-repeat center;}
+  .modalheader {position:relative;padding:0 30px;
+    span {position:absolute;left:30px;top:20px;
+      button {padding:5px 0 5px 45px;width:125px;text-align:left;border:1px solid $grayColor;border-radius:5px;background:url('../images/i_mylec_mockPlay.svg') no-repeat 10px center;}
+      em {display:block;padding-top:2px;font-family:'Roboto';font-size:$txtSizeM2;}
+      button.stop {background:url('../images/i_mylec_mockStop.svg') no-repeat 10px center;}
+    }
+    h1 {height:85px;text-align:center;font-size:28px;line-height:3;border-bottom:2px solid $blackColor;}
+  }
+  .examinee {position:relative;padding:0 30px; transition:all 0.3s;
+    .baseBack {position:relative;overflow:hidden;/*height:166px;*/transition:all 0.3s;}
+    .tableBack {margin-top:20px;/*padding:10px;height:146px;*/transition:all 0.3s;/*background:$grayColor*/}
+    .resTls.subCase {
+      .testGrid { display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow:column;
+        li {display: flex;  font-size: 16px; font-weight: 700; height: 100%;}
+        .ig1,.ig2 { max-height: 60px;
+          dl {flex: 1; display: flex; align-items: center; height: 100%;
+           dt {background-color: #fafafa; box-sizing: border-box; text-align: center; width: 120px; height: 100%; padding: 20px 0; border: 1px solid #ddd; border-width: 0 1px 0 1px;}
+           dd {flex: 1; padding: 0 20px; text-align: left; display: flex; justify-content: space-between; align-items: center; }
+           &:first-child dt {border-left: 0;}
+          }
+        }
+        .ig3 {grid-row: 1 / span 2; height: 100%; border: 1px solid #ddd; border-width: 0 1px 1px; padding: 0 15px 0 20px; align-items: center;
+          dl { flex: 1;
+            dt {padding-left: 22px; background-image: url(../images/i_mylec_mockInfo.svg); background-repeat: no-repeat; background-position: 0 50%; background-size: 16px;}
+            dd {font-size: 14px; font-weight: 400; padding-top: 5px;
+              strong {font-weight: 700; color: #0e935d;}
+            }
+          }
+        }
+        .live{ position: relative; width: 176px; height: 99px; margin-left: 30px;
+          &.on::after {
+            position: absolute;left: -20px; top: 20px; content: "LIVE"; display: inline-block; width: 40px; height: 40px; color: #fff; font-weight: 200; text-align: center; line-height: 3.5; letter-spacing: .05em; font-size: 12px; font-family: Roboto; border-radius: 40px; background: #d1555f;
+          }
+        }
+        .elDisplay {display: block; width: 396px; background-color: #333; padding: 8px 14px 8px 47px; background-image: url(../images/i_megaphone.svg); background-repeat: no-repeat; background-position: 14px 50%; height: 36px; box-sizing: border-box; border-radius: 50px;
+          marquee {color: #fff; }
+        }
+      }
+    }
+    .baseToggle {position:absolute;bottom:-20px;left:50%;margin-left:-30px;display:inline-block;width:60px;height:20px;border-radius:0 0 5px 5px;text-indent:-9999px;overflow:hidden;background:$grayColor url('../images/i_mylec_mockArrow.svg') no-repeat center;}
+  }
+  .examTab {padding:45px 30px 0;height:90px;
+    ul {
+      display: flex;
+      width: 100%;
+      background-color: #fafafa;
+      li {height:45px;text-align:center; flex: 1; box-sizing: border-box; border: 2px solid #333; border-width: 0 0 2px 0; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        span {color: #666; display:block; font-size:$txtSizeP2;/*border-bottom:2px solid $blackColor;*/box-sizing:border-box;
+          strong {font-size:$txtSizeP2; color: #333;}
+        }
+        em {display:inline-block;width:80px;height:20px;margin:-4px 0 0 4px;font-family:'Roboto';line-height:1.8;letter-spacing:0;vertical-align:middle;text-align:center;font-size:$txtSizeM2;color:$lightBlackColor;border-radius:10px;background:$grayColor;}
+        &.on { border-width: 2px 2px 0 2px; background-color: #fff;
+          em {color:$whiteColor;background:#0E935D;}
+        }
+      }
+    }
+  }
+  .examTabData {height:calc(100vh - 321px);overflow-y:auto;transition:all 0.3s;
+    .testSchedule {padding:36px 30px 30px;
+      h2 {height:34px;font-size:$txtSizeP2;}
+      .resTls.subCase {
+        .listGrid, .lgSubGrid {table-layout:fixed;}
+        ul li,
+        .lgItem {height:40px;}
+        .lgItem.itemGroup .lgItem {border-bottom:0;}
+        .lgItem.itemGroup,
+        .lgSubGrid {width:360px;}
+        .item0 {width:150px;}
+        .item1 {width:120px;}
+        .item2 {width:120px;}
+        .item3 {width:120px;}
+        .thead {
+          strong {display:block;width:100%;height:40px;font-weight:600 !important;line-height:2.8;border-right:1px solid #ddd;border-bottom:1px solid #ddd;}
+          .lgItem {font-weight:600 !important;}
+          .lgItem.itemGroup .lgItem {font-weight:200 !important;}
+        }
+        .tbody {
+          .item0 {color:$blackColor;font-weight:600;background:$lightGrayColor;}
+          .item1,
+          .item2,
+          .item3 {font-family:'Roboto';}
+          .item4 {text-align:left;color:#999;}
+          .listGrid.testTime {background:#f8fcf9;
+            .lgItem {color:#0e935d;font-weight:600;}
+            .item0 {background:#f8fcf9;}
+          }
+        }
+      }
+    }
+    // .testPdfviewer {position:relative; height: 900px;
+    //   .left, .right{display:flex;position:absolute;top:0;padding:15px 30px 0;}
+    //   .left{left:0;
+    //     button{width:22px;height:22px; background-position: center; background-size: cover;
+    //       &.prev {background-image: url(../images/catvod/i_feather-arrow-left-circle.svg);}
+    //       &.next {background-image: url(../images/catvod/i_feather-arrow-right-circle.svg);}
+    //       &.disable {opacity: 0.5;}
+    //     }
+    //     select{width:50px;height:22px;line-height:18px;font-weight:500;margin:0 10px;border-radius:20px;padding:0;padding-left:10px;border:2px solid #333;color:#333;cursor:pointer;}
+    //     .selectSet:after{width:6px;height:6px;right:22px;margin-top:-5px;border-color:#333;}
+    //   }
+    //   .right{right:0; gap: 30px;
+    //     button {width: 22px; height: 22px; background-size: contain; background-position: center; background-repeat: no-repeat; position: relative;
+    //       &.full {background-image: url(../images/catvod/i_full-screen.svg);}
+    //       &.width {background-image: url(../images/catvod/i_width.svg);}
+    //       &.expansion {background-image: url(../images/catvod/i_expansion.svg);}
+    //       &.contraction {background-image: url(../images/catvod/i_contraction.svg);}
+    //       &:not(:last-child)::after {width: 1px; height: 12px; background-color: #ddd; content: ''; position: absolute; right: -15px; top: 50%; transform: translateY(-50%);}
+    //     }
+    //   }
+    // }
+  }
+  #morkupExamPaper.on {
+    .examinee {height:0;}
+    .baseBack {height:0;}
+    .baseToggle {@include venderPrefix(transform, rotate(-180deg));border-radius:5px 5px 0 0;}
+    .examTabData {height:calc(100vh - 176px);
+      .testSchedule {padding:36px 30px 30px;
+        h2 {height:34px;font-size:$txtSizeP2;}
+        .resTls.subCase {
+          .listGrid, .lgSubGrid {table-layout:fixed;}
+          ul li,
+          .lgItem {height:40px;}
+          .lgItem.itemGroup .lgItem {border-bottom:0;}
+          .lgItem.itemGroup,
+          .lgSubGrid {width:360px;}
+          .item0 {width:150px;}
+          .item1 {width:120px;}
+          .item2 {width:120px;}
+          .item3 {width:120px;}
+          .thead {
+            strong {display:block;width:100%;height:40px;font-weight:600 !important;line-height:2.8;border-right:1px solid #ddd;border-bottom:1px solid #ddd;}
+            .lgItem {font-weight:600 !important;}
+            .lgItem.itemGroup .lgItem {font-weight:200 !important;}
+          }
+          .tbody {
+            .item0 {color:$blackColor;font-weight:600;background:$lightGrayColor;}
+            .item1,
+            .item2,
+            .item3 {font-family:'Roboto';}
+            .item4 {text-align:left;color:#999;}
+            .listGrid.testTime {background:#f8fcf9;
+              .lgItem {color:#0e935d;font-weight:600;}
+              .item0 {background:#f8fcf9;}
+            }
+          }
+        }
+      }
+      .testPdfviewer {position:relative;
+        img {width:100%;}
+        .left, .right{display:flex;position:absolute;top:0;padding:15px 30px 0;}
+        .left{left:0;}
+        .right{right:0;}
+      }
+    }
+  }
+}
+/* 모의고사 성적표 */
+.morkupExamResultPopup {
+  .modalContainer {width:1160px;padding:45px 50px;height:100%;overflow-y:scroll;}
+  .modalheader {
+    h1 {font-size:$txtSizeP14;}
+    .btnPrint {position:absolute;right:70px;top:10px;width:140px;height:30px;line-height:25px;padding:0 0 0 40px;font-size:14px;font-weight:400;background-position:10px center;border:1px solid #707070;
+      &:after {right:18px;}
+    }
+    .modalClose {top: 10px;}
+  }
+  .modalbody {padding:26px 0 20px;max-height:none !important;overflow-y:visible !important;
+    .subTit h3 {font-size:$txtSizeP4;}
+    .resTls {margin:15px 0 24px;
+      ul li {height:50px;table-layout:fixed;}
+      .lgItem.th {width:150px;}
+      .lgItem.item1 {width:calc((100% - 300px)/2);text-align:left;}
+    }
+    .graphArea {border:1px solid $grayColor;}
+    .gridItem {width:calc((100% - 30px)/2);}
+    .testGraphArea {padding:15px 0 24px;}
+    .testGraphArea.line1 {
+      .graphArea {padding:20px;height:390px;}
+    }
+    .testGraphArea.line2 {
+      .left .graphArea {padding:20px;height:260px;
+        & ~ .graphArea {margin-top:10px;}
+      }
+      .right .graphArea {padding:20px;height:800px;}
+    }
+    .testGraphArea.line3 {
+      .selectSet {margin-bottom:10px;
+        select {height:40px;}
+      }
+      .graphArea {padding:20px;height:260px;}
+    }
+    .testGraphArea.line4 .graphArea {padding:20px;height:300px;}
+  }
+}
+/* 아침기상인증 */
+.goodMorningPop {
+  .modalContainer {width:700px;padding: 45px 50px;}
+  .modalheader {
+    h1 {padding:5px 0 10px;font-size:$txtSizeP10;font-family:'Roboto'}
+    p {color:$lightBlackColor;
+      em {display:block;color:$lightBlackColor;}
+      strong {color:#d1555f;}
+    }
+    .btnMorning {position:absolute;right:70px;top:10px;@include iconBtn(90px, 90px);border-radius:90px;box-shadow:0 6px 15px rgba(0,0,0,.2);background:url('../images/btn_morning.png') no-repeat center;}
+  }
+  .modalbody {height:630px;padding:65px 0 0;max-height:none;overflow-y:hidden;
+    .vc-container {border-radius:0;border:1px solid $grayColor;border-width:0 0 1px 1px;
+      &:before {content:'';position:absolute;top:-50px;left:0;display:inline-block;width:100%;height:45px;box-sizing:border-box;border:1px solid $grayColor;}
+    }
+    .vc-pane {border:1px solid $grayColor;border-width:1px 1px 0 0;}
+    .vc-arrows-container {top:-50px;height:45px;}
+    .vc-header .vc-title {padding:0 40px;font-size:14px;width:240px;height:36px;line-height:2.5;text-align:center;border-radius:38px;background:#f5f5f5;
+      &:after {content:'년'}
+    }
+    .vc-weekday {color:$brightGrayColor;font-weight:normal;}
+    .morningMonth {position:relative;
+      .monthNum {position:absolute;z-index:5;display:inline-block;width:26px;height:26px;text-align:center;line-height:1.5;border-radius:50%;border:2px solid red;box-sizing:border-box;background:$whiteColor;
+        &.case1 {right:50%;margin-right:75px;top:16px;border-color:#0E935D;color:#0E935D;}
+        &.case2 {right:75px;top:16px;border-color:#E87816;color:#E87816;}
+        &.case3 {right:50%;margin-right:75px;top:290px;border-color:#E1C436;color:#E1C436;}
+        &.case4 {right:75px;top:290px;border-color:#1F96C2;color:#1F96C2;}
+      }
+    }
+  }
+}
+/* 즐겨찾기 */
+.favoritesPopup {
+  .modalContainer {width:500px;}
+  .modalheader {
+    em {font-size:$txtSizeP4;}
+  }
+ .modalbody {
+   .favoritesList {
+     .tit {display:block;padding-bottom:10px;font-size:$txtSizeP2;}
+     ul {border-top:1px solid $grayColor;
+       li {position:relative;border-bottom:1px solid $grayColor;}
+       input {position:absolute;opacity:0;left:0;top:0;width:100%;height:100%;border:none;background:transparent;z-index:10;}
+       label {display:table;table-layout:fixed;width:100%;position:relative;padding:0 0 0 31px;text-align:left;}
+       label:before {content:'';position:absolute;left:10px;top:50%;display:inline-block;width:17px;height:17px;margin-top:-8px;box-sizing:border-box;background:url('../images/i_mynavi_off.png') no-repeat center;background-size:17px 17px;}
+       input:checked + label:before {background:url('../images/i_mynavi_on.png') no-repeat center;background-size:17px 17px;}
+       label * {display:table-cell;height:50px;vertical-align:middle;color:$lightBlackColor;}
+       i {width:80px;}
+       em {width:138px;}
+      //  span {width:190px;}
+       span {width:100%;}
+     }
+     p {margin:15px 0;padding:20px;color:$brightGrayColor;text-align:center;background:$lightGrayColor;}
+     .fRed {color:#d25367;}
+   }
+ }
+}
+
+
+// 설문조사 폼
+#wrap .serveyForm{width: 100%;}
+.serveyForm{
+  position: relative;
+  background-color: white;
+  min-height: calc(100vh - 117px);
+  margin:0px auto;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  position:relative;
+
+  .boardBtn{
+    margin-top: 50px;
+    padding:0 0;
+    width:100%;
+    .btnL{
+      height: 44px;
+      line-height: 2.5;
+    }
+  }
+  .serveyHeader{
+    .modalheader{
+      border-bottom: 0px solid transparent;
+      padding: 0 0 23px;
+    }
+    h1{
+      font-size: 20px;
+      padding-bottom: 15px;
+    }
+  }
+  .serveyBody{
+    padding: 0;
+    .serveyItem {
+      dl>dt {
+        background-color: $lightGrayColor;
+        border: 1px solid #e1e1e1;
+        padding:19px 0 16px 16px;
+        box-sizing: border-box;
+        margin:20px 0;
+        font-weight: 700;
+      }
+      dl>dd {
+        padding-left: 20px;
+        ul>li {
+          margin-bottom: 8px;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          .radioSet{
+            label{
+              color: #666;
+            }
+            input:checked+label {
+              color: #333;
+              i:before{
+                background-color: #666;
+              }
+            }
+          }
+          .textSet {
+            flex: 1;
+            margin-right: 45px;
+            input {
+              width: 100%; height: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+/* ====================== */
+/* ===== 모바일 반응형 대응 ===== */
+/* ====================== */
+#wrapBack.mDevice {
+  .modalDim {background:rgba(0,0,0,0.8);
+    .modalWrapper {padding:10px;}
+    .modalContainer {width:100%;border-radius:8px;padding:20px 10px;max-width: 640px;}
+    .modalClose {width:21px;height:21px;background-size:100%;}
+    /* Img Large popup */
+    &.imgLayerPop {background:rgba(0,0,0,0.7);
+      .modalWrapper {padding:0;}
+      .modalContainer {border-radius:0;padding:0 0 0}
+      .modalbody {padding:0 0;
+        img {max-width:100%;max-height:90%;width:auto;height:auto;}
+      }
+      .modalClose {position:fixed;top:10px;right:10px;}
+    }
+    /* Alert popup */
+    &.alertPop {z-index:500;
+      .modalContainer {padding:0;width:300px;}
+      .modalbody {padding:20px 20px;text-align:center;}
+      .modalfooter {padding:0 0 20px;text-align:center;}
+    }
+    /* video Large popup */
+    &.videoLayerPop {background:rgba(0,0,0,0.9);
+      .modalWrapper {padding:0;}
+      .modalContainer {border-radius:0;padding:0;width:auto;background:none;text-align:center;box-shadow:none}
+      .modalbody {display:inline-block;position:relative;padding:0;overflow:visible;max-height:100% !important; width: 100%; margin: 0 auto;}
+      .mobilePlayer {display:block;
+        // img {position:fixed;left:0;top:0;right:0;bottom:0;width:100%;height:100%;display:block;}
+      }
+      .btn {position: absolute; top: 7.5px; right: 15px; display: inline-block; width: 15px; height: 15px; vertical-align: middle; text-indent: -9999px; padding:0; cursor: pointer;}
+      .pcPlayer {display:none;}
+      // @media (orientation:portrait) {
+      // 	.mobilePlayer div {display:block;}
+      //   .mobilePlayer span {display:none;}
+      // }
+      // @media (orientation:landscape) {
+      // 	.mobilePlayer div {display:none;}
+      // 	.mobilePlayer span {display:block;}
+      // }
+      .player_wrap {width:100%; height:100vh; margin:0 auto;}
+      .player_header {
+        background-color: #000;
+        padding: 22px 20px;
+        margin-right: 0;
+        position:relative;
+        z-index: 2001;
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%;
+        .tit {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .btn_prev {
+            width: 12px;
+            height: 21px;
+            img{
+              width: 100%;
+              vertical-align: middle;
+            }
+          }
+          span {
+            font-size: 16px;
+            color: #fff;
+            padding-left: 20px;
+            padding-top:3px;
+            margin-left:0;
+          }
+        }
+      }
+    }
+    /* Large popup */
+    &.large {
+      .modalWrapper {padding:9px;}
+      .modalContainer {padding:20px 10px;}
+      .modalbody {max-height:calc(100vh - 176px);min-height:calc(100vh - 176px);}
+    }
+    .modalBtn {
+      // * {margin:0;min-width:auto;width:200px; /*calc((100% - 20px)/2)*/}
+      // * ~ * {margin-left:10px;}
+      // .btnL {width: 100%;}
+      display: flex; flex-direction: column; gap: 10px; padding: 0;
+      &::after {display: none;}
+      * {flex: 1; margin: 0 !important; width: 100% !important;}
+      .redline {color: #666; border-color: #666;}
+      .red {border-color: #333; background-color: #333;}
+    }
+  }
+  .popSearch {position:relative;padding:0 0 0 0;
+    label {position:relative;left:auto;top:auto;display:block;padding:0 0 15px;}
+  }
+  /* 인증기관 인증 샘플 팝업 */
+  .agencyOKPop {
+    .modalWrapper {padding:0;}
+    .modalheader {display:none;}
+    .modalContainer {padding:0;border-radius:0;background:none;}
+    .modalbody {padding:0;
+      img {width:100%;}
+    }
+  }
+  /* 간편로그인 필수제공항목 */
+  .snsLoginPop .modalContainer {width:100% !important;
+    .modalbody {
+      dt {font-size:$txtSizeP2;}
+    }
+  }
+  /* 동의팝업 */
+  .agreePop {
+    .modalContainer {padding:60px 17px 20px}
+    .modalClose {top:15px !important;right:24px !important;width:18px;height:18px;}
+    // .tabBack {width:calc(100vw - 94px);overflow:hidden;overflow-x:scroll;}
+    .tabBack .tabNav ul.lineTab {height: auto; width: 100%; display: flex; flex-wrap: wrap; border: 1px solid #ddd;
+      li {height:50px;width:50%; border: 0;
+        a, button {display: flex; justify-content: center; align-items: center; line-height: 1.2;}
+        &:nth-child(odd) {border-right: 1px solid #ddd;}
+        &:nth-child(n+3) {border-top: 1px solid #ddd;}
+        &.on {
+          a, button {color: #fff;}
+        }
+      }
+      // &.case3 {width:418px;}
+      &.case3 li {width:auto; border: none;
+        &:not(:first-child) {border-left: 1px solid #ddd;}
+      }
+    }
+    .policyDetail {height:calc(100vh - 210px);}
+    .policyDetail .back {padding:0 18px 18px 14px; box-sizing: border-box;}
+    .policyDate {padding:0 0 0 14px;}
+  }
+  /* 수강할인 팁 Popup */
+  .large.discountTipsPop {
+    .ratePriceTit {padding:15px 10px;}
+    .lecDiscount {padding:0 10px;}
+  }
+  /* 목차 */
+  .bookChapterPop {
+    .modalbody {padding-bottom:0;}
+    .bookName {font-size:$txtSizeP2;font-weight:600;}
+    .bookInfo {display:block;margin:6px 0 16px;font-size:0;
+      em {font-size:14px;height:12px;line-height:0.8;}
+      em:first-child {padding-left:0;}
+      em.last:last-child {border-right:none !important;}
+      em.isbn {display:block;padding:7px 0 0;}
+      em.isbn:last-child {padding-right:0;border-right:none;}
+    }
+    .popTable {border-width:1px 0;
+      thead {display:none;}
+      td {padding:15px 0;border-width:1px 0;}
+      td:first-child {text-align:left;vertical-align:top;
+        &:after {content:'.'}
+      }
+      .first {width:26px;}
+    }
+     .modalBtn {display:none;}
+  }
+  /* 선생님 전체보기 */
+  .ssamChoicePop {
+    .modalWrapper {padding:24px 0 0 0;vertical-align:bottom;}
+    .modalContainer {border-radius:25px 25px 0 0 ;padding:20px 0 0}
+    .modalheader {padding:0 20px 15px;}
+    .modalClose {right:20px;}
+    .modalbody {padding:0;max-height:calc(100vh - 109px);height:calc(100vh - 109px);}
+    .classKind {position:relative;padding:7px 0;
+      &:after {content:'';display:block;position:absolute;left:0;top:0;bottom:0;width:125px;background:$lightGrayColor;}
+      ul {position:relative;z-index:2;}
+      ul > li {display:table;width:100%;padding:7px 0;}
+      ul > li span {display:table-cell;width:125px;padding:0 0 0 20px;font-weight:500;box-sizing:border-box;}
+      ul > li ol {display:table-cell;padding:0 0 0 15px;}
+      ul > li ol li {display:inline-block;margin-right:16px;}
+      ul > li ol li a {position:relative;color:$lightBlackColor;}
+      ul > li ol li:last-child {margin-right:0;}
+      ul > li ol li a.new:after {content:'';position:absolute;right:-13px;top:3px;display:block;width:11px;height:11px;background:$whiteColor url('../images/m/i_ssamChoice_new.png') no-repeat center;}
+    }
+  }
+  /* 배송추적 */
+  .deliveryTracking {
+    .productInfo { height: auto; padding-bottom: 15px;
+      span {float:none;width:auto;font-size:$txtSizeP2; display:block;}
+      em {margin-right:5px;font-size:$txtSizeP2;font-weight:500;letter-spacing:-0.04em;}
+    }
+    .resTls {
+      .tbody {
+         ul li {@extend %clearBh;padding:10px 10px 10px 10px;}
+        .item0 {text-align:left;width:100% !important;color:$blackColor;font-weight:bold;}
+        .item1 {display: block; padding: 0 !important; }
+        .item2 {display: block; padding: 0 !important; }
+        .mTit {color:$blackColor !important;}
+      }
+    }
+  }
+  /* 쿠폰 선택 */
+  .couponPop {
+    .modalContainer {width:100% !important;}
+    .popSearch {
+      label {float:left;width:65px;}
+      em {float:right;width:calc(100% - 65px);color:$darkGrayColor;font-size:$txtSizeM1;}
+      .ipBtn {@extend %clearBh;display:inline-block;width:100%;box-sizing:border-box;margin:10px 0 0 0;height:40px;
+        [class*="btn"] {min-height:40px;}
+      }
+    }
+    .couponAppTit {padding:20px 0 10px;}
+    .resTls {max-height:calc(100vh - 414px);
+      .lgItem {text-align:left;}
+      .ig1 {width:100%;
+        .item0 {width:27px;}
+        .item1 {width:calc(100% - 27px);}
+        .item1 strong {color:$blackColor;}
+        .item1 span {display:inline-block;color:$blackColor;font-weight:500;}
+      }
+      .ig2 {width:100%;position:initial;
+        .item5 {width:100%;padding-left:27px;
+          em {color:$brightGrayColor;font-weight:500;}
+          em:after {content:'';display:inline-block;margin:0 5px 0 10px;width:0;height:10px;border-right:1px solid $brightGrayColor;}
+        }
+      }
+      .tbody {
+        ul li {line-height:1.6;}
+        .item3 {width:100%;padding:0 0 5px 27px;}
+        .item4 {position:absolute;top:14px;right:14px;padding-right:0;}
+      }
+    }
+    .expiry .mTit:after {border-right-color:$grayColor !important;}
+    p {padding:10px 0 0;}
+  }
+  /* 사물함신청 내역 */
+  .lockerOrderPop {
+    .modalContainer {width:100% !important;}
+    .modalbody {min-height: 200px !important;}
+    table.popTable tr th {width:85px;padding:15px 15px;}
+    table.popTable tr td {padding:15px 15px;}
+  }
+  /* 쿠폰 선택 */
+  .couponAddPop {
+    .modalContainer {width:100% !important;}
+  }
+  /* 회원가입 및 내정보 수정 */
+  .myInfoPop {
+    .modalbody {padding:0 0 20px;
+      .boardWrite {
+        dt {display:none;}
+        dd {
+          .choiceSet label {height:40px;line-height:2.8;}
+          input:not([type="radio"]):not([type="checkbox"]) {height:40px;}
+          [class*="btn"] {min-height:40px;}
+          .ipBtn,
+          .ipSecurity {
+            padding:0 80px 0 0;height:40px;
+            [class*="btn"] {width:80px;min-width:80px;}
+          }
+          .ipSecurity {
+            em {right:80px;height:40px;line-height:3.4;font-size:$txtSizeM2;}
+          }
+        }
+      }
+    }
+  }
+  /* 수강시작일 변경 */
+  .courseStartPop {
+    .modalbody {padding:20px 0 10px;background:transparent;}
+  }
+  /* 교재신청 목록 */
+  .bookPopup {
+    // .modalbody {max-height:calc(100vh - 136px) !important;min-height:calc(100vh - 136px) !important;}
+    .productList {
+      li {
+        & > a {padding:0 0 20px 114px;min-height:130px;}
+        .productImg {/*left:10px;*/width:94px;height:130px;}
+
+        // &.new .productImg:before {
+        //   left: -5px; top: -5px;
+        // }
+      }
+    }
+    .modalDim.alertPop {
+      .modalContainer {padding:0;width:300px;}
+      .modalbody {padding:20px 20px;max-height:none !important;;min-height:auto !important;}
+    }
+    .bookWearingrPop {
+      .modalbody {max-height:none !important;;min-height:auto !important;}
+      .modalBtn .btnM {height: 50px; flex: unset;}
+    }
+  }
+  /* 보너스 강의 신청 */
+  .bonusPopup {
+    .modalWrapper {padding:9px;}
+    .modalbody {max-height:calc(100vh - 236px);}
+    .bonusKind {
+      div {padding:10px 0 10px 24px;
+      }
+    }
+    .bonusInfo {padding:12px 3px 12px 15px;margin-bottom:20px;
+    }
+    .checkSet {padding:20px 15px;width:100%;margin:0;box-sizing:border-box;background:#f8fcf9;
+      label {color:$blackColor;}
+      input:checked + label {color:#20ab61;}
+    }
+  }
+  /* 보충 강의 신청 */
+  .large.additionPopup {
+    .modalbody {max-height:calc(100vh - 270px);min-height:30vh; padding: 0 10px;}
+    .checkSet {padding:20px 15px;width:100%;margin:0 -10px;box-sizing:border-box;background:#f8fcf9;
+      label {color:$blackColor;}
+    }
+  }
+  /* 목록부터 나오는 게시판 팝업 */
+  .large.bbsPopup {
+    .modalContainer {padding:20px 20px;}
+    .modalheader {border-bottom: 0; padding: 0;}
+    .modalheader .selectSet {margin:40px 0 0; width:100%;display:inline-block; overflow: unset;
+      &::before {content: ''; width: 100%; height: 2px; background-color: #333; position: absolute; top: -20px;}
+    }
+    .modalheader .selectSet select {height:40px;}
+    .modalbody {padding:0 !important;margin-bottom:0;min-height:initial;max-height:initial;overflow-y:hidden;
+      .resTls {height:calc(100vh - 260px);}
+      .boardDetail {height:calc(100vh - 210px);}
+      .boardNavi {padding-top:15px;height:55px;
+        .btnList {bottom:1px;top:auto;}
+      }
+    }
+  }
+  /* 싱세만 나오는 게시판 팝업 */
+  .large.bbsViewPopup {
+    .modalContainer {padding:20px; /*20px 20px 80px*/}
+    .modalbody {padding:0 !important;margin-bottom:0;min-height:initial;max-height:initial;overflow-y:hidden;}
+    .boardDetail {height:calc(100vh - 290px);}
+    .boardNavi {padding-top:15px;height:55px;
+      .btnList {bottom:1px;top:auto;}
+    }
+    .modalBtn {padding-top:10px;height:auto;}
+  }
+  /* 홀딩신청 & 연장신청 & 재수강신청 팝업 */
+  .large.lecReAddPopup {
+    .modalContainer {padding:20px 17px 20px; max-height: calc(100vh - 20px);}
+    .modalbody {max-height:calc(100vh - 385px);min-height:50vh;}
+    .modalheader { border-bottom : 0;
+      h1 {border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 5px;}
+      p {font-size:$txtSizeM1;word-break:break-all;}
+      p * {font-size:$txtSizeM1;}
+      span {display:block;padding:0}
+    }
+    h2 {padding:20px 0 10px;font-size:$txtSize;}
+    .lecBasic {padding:10px 16px;
+      .info {position:relative;padding:0;}
+      .kind {display:none;}
+      .ssam {position:relative;right:auto;top:auto;display:block;text-align:left;}
+      .lecTt .tt {padding:0;font-size:$txtSizeP2;}
+    }
+    .tableList {
+      dl dt {width:90px;font-weight:400;font-size:$txtSizeM2;border-width:0 1px 0 0;}
+      dl dd {padding:2px 16px;font-size:$txtSizeP2;}
+      dl dd span {font-size:$txtSizeM2;font-weight:normal;color:$lightBlackColor;}
+    }
+    .resTls {
+      .tbody {
+        ul li {margin:10px 0 0;padding:10px 0 50px 12px;width:100%;box-sizing:border-box;line-height:1;overflow:hidden;border:1px solid $grayColor;}
+        ul li * {line-height:1;}
+        .item0 {font-weight:600;
+          em {font-weight:600;color:$blackColor;}
+        }
+        .item1 {position:absolute;left:162px;top:56px;}
+        .item2 {display:block;padding:5px 0 10px !important;text-align:left;box-sizing:border-box;
+          em {font-weight:600;color:$blackColor;}
+        }
+        .itemGroup {display:block;width:100%;padding:4px 0 0 !important;text-align:left;box-sizing:border-box;overflow:hidden;
+          .item4 {width:150px;text-align:left;}
+        }
+        .item6 {margin-left:2px;
+          em {font-weight:100;}
+        }
+        .item7 {position:absolute;left:0;right:0;bottom:0;padding:0 19px;height:40px;line-height:2.9;text-align:right;background:$lightGrayColor;
+          [class*=btn] {height:23px;margin:9px 0 0 10px;vertical-align:middle;background-color:$whiteColor; position: absolute; left: 0;}
+        }
+      }
+    }
+    .resTls + h2 {padding:30px 0 10px;}
+    .dateSetting {padding:13px 13px;
+      dl {@extend %clearBh;display:block;position:relative;width:100%;padding-bottom:10px;border-bottom:1px solid $grayColor;
+        dt {float:left;display:inline-block;width:65px;line-height:2.8;font-weight: 500;vertical-align:middle;}
+        dd {float:none;display:block;
+          input:not([type="radio"]):not([type="checkbox"]):read-only {height:40px;}
+          .selectSet {width:100%;
+            select {height:40px;}
+          }
+          .calDupSet {width:100%;
+            &>em {width:22px;box-sizing:border-box;text-align:center;}
+            .calSet {width:calc((100% - 22px)/2)}
+
+          }
+          &.term i {padding:10px 18px 12px;}
+        }
+        &.term {width:100%;}
+        &.term dd i {padding:10px 18px 0 0;}
+      }
+      dl ~ dl {margin-top:10px;}
+      .forDay {width:50px;padding:0 10px;margin-right:5px;}
+      .priceSet {margin-top:10px;
+        dd {text-align:right;line-height:1.8;color:$darkGrayColor;
+          strong {font-size:$txtSizeP6;margin-right:10px;color:$redColor;}
+          strong i {font-size:$txtSizeP2;color:$redColor;}
+        }
+      }
+      .info {color:$lightBlackColor;font-size:$txtSizeM1;word-break:break-all;}
+      p.info {padding:20px 0 0;}
+      div.info {padding:0 0 10px;}
+    }
+    .holdingCase {
+      dl {border-bottom:0;padding:0;}
+      dd.info {width:100%;margin-top:10px;padding-top:10px;border-top:1px solid $grayColor;}
+    }
+    .modalBtn {
+      * {margin:0;width:calc((100% - 20px)/3);}
+      * ~ * {margin-left:10px;}
+    }
+    &.retakeCase {
+      .modalbody {min-height:calc(100vh - 606px);}
+      .dateSetting dl {border:none;}
+    }
+    @media only screen and (max-width:412px) {
+      .tableList {
+        dl dt {width:85px;}
+        dl dd {padding:2px 2px 2px 10px;}
+      }
+      .resTls {
+        .tbody {
+          .item1 {position:absolute;left:152px;top:56px;}
+          .itemGroup {
+            .item4 {padding-bottom:3px;width:100%;text-align:left;}
+          }
+        }
+      }
+    }
+  }
+  /* 자율 공부 시간 입력 팝업 */
+  .large.studySettongPopup {
+    .modalbody {max-height:calc(100vh - 250px);min-height:30vh;}
+    p {padding:10px 0 15px;
+      em {display:inline;}
+    }
+    .calSet {width:100%;}
+    .todayWin {padding-top:20px;
+      .box {float:none;width:100%;
+        strong {display:block;height:32px;color:#333;font-size:$txtSizeP2;}
+        div {padding:14px 14px 14px;}
+        dt {height:30px;}
+        dd {width:100%;
+          span {width:calc(100% / 8);height:31px;}
+          span label {height:30px;line-height:2.1;}
+        }
+        .minuteCase {padding-top:20px;
+          dd {
+            span {width:calc(100% / 6);}
+          }
+        }
+      }
+      .box ~ .box {margin:20px 0 0;}
+    }
+    .modalBtn {padding-top:0;border-top:0;}
+  }
+  /* 강좌관련 팝업 */
+  .large.lecturePop {
+    .modalWrapper {vertical-align:top;}
+    .modalbody {min-height:auto;max-height:none;margin-bottom:0;}
+    .tabNav ul.blackLineTab li {width:calc(100% / 3);}
+    .tabLayout {padding:0;height:auto;max-height:calc(100vh - 176px);}
+    .videoPlay {padding-top:15px;}
+    .lecDetailInfo {padding-top:0;}
+    .tabLayout.infoCase {border-top:2px solid $blackColor;max-height:calc(100vh - 136px);}
+  }
+  /* 맛보기 팝업 */
+  .tastePop {
+    .modalContainer {height:100%;}
+  }
+  /* 스마트강좌 이벤트 및 추천 강좌 */
+  .smartEventPop {
+    .modalbody {padding:15px 0 0;}
+    .ssamInfo {border:none;padding:0;width:100%;
+      .ssamEvent em {height:35px;}
+      .ssam {padding:0 0 10px;margin-bottom:10px;border-bottom:1px solid $grayColor;
+         span {@extend %imgAlignA;display:inline-block;width:50px;height:50px;border:1px solid $grayColor;box-sizing:border-box;}
+         strong {display:inline-block;padding:0 0 10px 10px;font-size:18px;vertical-align:bottom;white-space:nowrap;}
+      }
+      dl {padding:0;
+        dt {height:34px;font-size:$txtSizeP2;}
+      }
+      .ssamEvent {
+        dd {border:1px solid $grayColor;border-bottom:0;}
+        span {display:table;width:100%;border-bottom:1px solid $grayColor;}
+        em {display:table-cell;padding:0 10px;height:35px;vertical-align:middle;font-size:$txtSizeM2;color:$lightBlackColor;}
+      }
+      .ssamRecommend {padding:15px 0 0;
+        ol li {counter-increment:item;display:inline-block;padding:4px 0;width:100%;font-size:$txtSizeM2;color:$lightBlackColor;box-sizing:border-box;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+        ol li:before {margin:-1px 7px 0 0;display:inline-block;content:counter(item);width:20px;height:20px;font-size:$txtSizeM2;color:$whiteColor;text-align:center;vertical-align:middle;border-radius:10px;background:$greenColor;}
+      }
+    }
+  }
+  /* 스마트강좌 상세보기 */
+  .smartLecPop {
+    .modalClose {top:-1px !important; right: 0 !important; background:url('../images/btn_modal_Close.svg') no-repeat center;}
+    .modalheader {padding:0 0 15px;border-bottom: 2px solid #333;}
+    // .modalContainer {padding:15px 15px !important;}
+    .modalbody {min-height:calc(100vh - 116px) !important;max-height:calc(100vh - 116px) !important;margin-bottom:0;}
+    .viewCase {width:100%;padding:0 !important;
+      .lecViewContainer {margin:0;}
+      .lecViewContainer .lecViewContents {margin:0;width:100%;
+        .lecBasicBack {margin:0;width:100%;padding:20px 8px 22px 15px; border-bottom: 0;
+          .ssam {margin:0;padding:0;width:90px;border:none; display: none;
+            span {width:88px;height:88px;}
+          }
+          .kind {position:absolute;left:0;top:9px;display:inline-block; display: none;}
+          .lecBasic {width:100%;padding:0;}
+        }
+        .lecDetail {
+          .article .subTit {padding-bottom:10px;}
+          .article .subTit h3 {padding-bottom:0;font-size:16px;}
+          .article .subTit .txt em {font-size:$txtSizeM2;color:$lightBlackColor;}
+          .widthList .item .tL {width:100% !important;}
+          .widthData .widthList li {margin-bottom:0;}
+          .widthData .widthList .item.singleLec {padding:13px 0 15px 0;}
+          .widthData .widthList .item .tL {width:100% !important;}
+          .widthData .widthList.notOnline .lecLimit {float:left;margin:8px 0 0px 30px;text-align:left;}
+          .article.offLineCase .lecBtnSet {float:none;margin:0;}
+          .article.offLineCase .widthList .item .tL {width:100% !important;}
+        }
+      }
+      .smartPrice {clear:left;padding:10px 0 0; display: none;
+        .spSet {
+          .set {padding:2px 10px 0;width:calc((100% - 10px) / 2);height:52px;}
+          .set strong.tt {font-weight:200;}
+        }
+      }
+      .lecDiscount {
+        .resTls * {font-size:$txtSizeM2;}
+        .resTls .listGrid .lgItem {height:30px;}
+        .resTls .tbody ul li {height:35px;}
+      }
+    }
+    .lecturePop {
+      .modalheader {border:none;}
+    }
+  }
+  /* 합격증 미리보기 */
+  .certificatePop {
+    .modalbody {
+      img {width:100%;}
+    }
+  }
+  /* 약력/저서 Popup */
+  .large.ssamHistoryPop {
+    .modalbody {
+      div {display:block;width:100%;}
+      dl {display:block;width:100%;}
+      dl ~ dl {padding:20px 0 0 0;}
+      dl:last-child {width:100%;}
+      dt {height:30px;font-size:$txtSizeP2;}
+      dd {line-height:1.8;font-size:$txtSize;letter-spacing:-0.07em;font-weight:200;
+        span {position:relative;display:block;padding:0 0 0 10px;font-size:$txtSize;font-weight:200;
+          &:before {content:'';position:absolute;left:0;top:9px;width:5px;height:0;border-top:1px solid $darkGrayColor;}
+        }
+      }
+    }
+  }
+  /* 모의고사 접수 */
+  .takeMockPopup {
+    .boardWrite {
+      dl {display:block;}
+      dt {display:block;width:100%;padding-bottom:5px;}
+      dd {display:block;}
+    }
+  }
+  /* 수험표확인 */
+  .examTicketPopup {
+    .modalbody {background:none;
+      .resTls {
+        .overflow_x {width:calc(100vw - 80px); overflow-x: auto;}
+        .listGrid {display:table;}
+        ul li {padding:0;height:40px;table-layout:fixed;}
+        .lgItem {display:table-cell;padding-left:10px;text-align:left;vertical-align:middle;}
+        .lgItem.th {padding-left:0;width:100px;text-align:center;}
+      }
+      dl {padding:15px;border:1px solid $grayColor;border-top:0; margin: 0;
+        dt {font-weight:600;}
+        dd {padding-top:10px;
+          span {position:relative;display:block;padding:0 0 0 10px;font-size:$txtSizeM2;color:$lightBlackColor;}
+          span:before {content:'';position:absolute;top:9px;left:0;display:inline-block;width:4px;height:0;border-top:1px solid $lightBlackColor;}
+          em {font-size:$txtSizeM2;color:#d1555f;}
+        }
+      }
+      &:after {content:'';display:block;width:100%;height:22px;margin-top:15px;background:url('../images/i_logo_login.svg') no-repeat center;background-size:164px 22px;}
+    }
+  }
+  /* 답안지 업로드 */
+  .examEndUploadPopup {
+    .modalbody {height:378px;
+      .boardDetail.write {padding-top:0;
+        .box {margin-top:0;}
+        .uploadFile {padding:10px 10px 10px;
+          i {float:left;margin:7px 0 7px 0;display:block;width:100%;}
+          span {float:none;}
+        }
+        .uploadFileList {margin-bottom:0;border-bottom:0;
+          li {padding:10px 10px;}
+        }
+      }
+    }
+  }
+  /* 시험지/답안지 출력 */
+  .examPrintPopup {
+    .modalbody {height:auto;
+      .boardDetail.write {
+        .box {margin-top:15px;}
+        i {font-weight:600;display:inline-block;margin-right:10px;}
+        .uploadFileList {margin-bottom:0;border-bottom:0;
+          li {padding:15px 15px;}
+          .btnBox {top:auto;right:auto;padding:3px 0 0 74px;box-sizing:border-box;}
+          em {float:none;display:block;width:100%;margin:0;padding:0 0 10px;box-sizing:border-box;}
+        }
+      }
+      p {padding:10px 0 0 0;line-height:1.8;color:#d1555f;
+        span {text-indent:-27px;padding-left:28px;}
+        em {display:inline;padding-left:2px;}
+      }
+    }
+  }
+  /* 자가 채점 입력 확인 */
+  .large.examSelfResultPopup {
+    .modalbody {max-height:calc(100vh - 230px);min-height:calc(100vh - 330px);}
+    .examTimeSet {float:none;width:100%;
+      strong {margin:0 0 5px;}
+      .resTls {
+        ul li {height:40px;padding:0;}
+        .thead .lgItem {line-height:2.8;height:40px;}
+        .item0 {width:100px;}
+        .item1 {width:calc(100% - 100px);}
+        .tbody {
+          .lgItem {height:40px;line-height:2.8;}
+          .item1 {padding:0 5px;
+            input {width:90%;height:30px;}
+          }
+        }
+      }
+      & ~ .examTimeSet {margin:20px 0 0;}
+    }
+  }
+  /* 모의고사 시험응시 */
+  .morkupExamStartPopup {position:fixed;top:0;left:0;bottom:0;width:100%;z-index:120;overflow-x:auto;overflow-y:hidden;background:$whiteColor;
+    .back {min-width:100%;}
+    .modalClose {top:0;right:0;width:20px;height:20px;background-size:100%;}
+    .modalheader {position:relative;padding:0 10px;
+      span {position:absolute;left:50%;top:40px;margin:0 0 0 -95px;
+        button {padding:5px 0 5px 45px;width:190px;}
+        em {display:inline;margin-left:10px;padding-top:0;}
+        button.stop {background:url('../images/i_mylec_mockStop.svg') no-repeat 10px center;}
+      }
+      h1 {height:85px;text-align:center;font-size:16px;line-height:3;}
+    }
+    .examinee {position:relative;padding:0 10px;height:auto;
+      .baseBack {height:auto; bottom:0;}
+      .baseToggle {bottom:-19px;}
+      .tableBack {margin-top:0;padding:0 0;height:auto;border-bottom:1px solid $whiteColor;overflow:hidden;transition:all 0.3s;}
+      .resTls.subCase {
+        ul {position:relative;padding:0 0 0 0; display: block;}
+        ul li {display:block;padding:0;height:auto; max-height: unset; }
+        .lgItem {display:table-cell;padding-left:10px;text-align:left;vertical-align:middle;font-size:$txtSizeM1;font-weight:400;}
+        .lgItem.th {padding-left:0;width:80px;text-align:center;}
+        .lgItem.th.th2 {width:60px;}
+        .lgItem.item0 {width:150px;}
+        .lgItem.item1 {width:auto;}
+        .listGrid dl {border-right: 1px solid #ddd; min-height: 44px;
+          dt {border-left: 0;}
+        }
+        .listGrid.ig3 {display:none;}
+        .listGrid.ig2 dl dt {padding:10px 0;}
+        .listGrid.ig2 dl dd {padding:10px 10px;}
+        .listGrid.ig2 dl+dl {border-top: 1px solid #ddd;}
+        .listGrid.ig1 dd{flex-direction: column; padding: 0 10px;
+          .elDisplay {width: auto;}
+        }
+      }
+    }
+    .examTab {padding:25px 10px 0;height:80px;
+      ul {display:flex;width:100%;
+        li {height:55px;text-align:center; flex: 1;
+          span {font-size:$txtSizeM2;box-sizing:border-box;
+            strong {font-size:$txtSizeM2;}
+          }
+          em {display:inline-block;width:80px;height:20px;margin:4px 0 0 0;font-family:'Roboto';line-height:1.8;letter-spacing:0;vertical-align:middle;text-align:center;font-size:$txtSizeM2;color:$lightBlackColor;border-radius:10px;background:$grayColor;}
+          &.on {
+            em {color:$whiteColor;background:#0E935D;}
+          }
+          &.off {
+            span {opacity:0.2}
+          }
+        }
+      }
+    }
+    .examTabData {height:calc(100vh - 420px);overflow-y:auto;transition:all 0.3s;
+      .testSchedule {padding:10px 10px 0;
+        h2 {height:34px;font-size:$txtSizeP2;}
+        .mobileCaseSchedule {
+          .tabBack .tabNav ul.blackLineTab {height:30px;border-bottom:1px solid #ddd;}
+          .tabBack .tabNav ul.blackLineTab li {width:50%;height:28px;}
+          .tabBack .tabNav ul.blackLineTab li button {height:28px;}
+          .tabBack .tabNav ul.blackLineTab li:before {height:30px;}
+          .tabBack .tabNav ul.blackLineTab li.on {border:1px solid #ddd;border-bottom:0;}
+          .tabBack .tabNav ul.blackLineTab li.on button {font-weight:500;}
+          .resTls.subCase {
+            .thead {display:table !important;
+              .lgItem {font-weight:400 !important;}
+            }
+            .listGrid, .lgSubGrid {display:table;table-layout:fixed;width:100%;}
+            .itemGroup {width:100%;}
+            .lgItem {display:table-cell;height:30px;vertical-align:middle;}
+            .item0 {width:130px;}
+            .lgSubGrid .lgItem {width:calc((100% - 130px)/3);}
+            .tbody {
+              ul li {padding:0;border-bottom:1px solid #ddd;}
+              .item0 {font-weight:500;background:transparent}
+              .itemGroup strong {display:block;padding:0 10px;width:100%;height:30px;font-weight:200;font-size:13px;color:#888;line-height:2.1;text-align:left;border:1px solid $grayColor;border-width:1px 1px 0 0;box-sizing:border-box;background:#fafafa}
+            }
+            .listGrid.testTime {
+              .itemGroup strong {background:#f8fcf9;}
+            }
+          }
+        }
+      }
+      .testPdfviewer {position:relative;
+        img {width:100%;}
+        .left, .right{display:flex;position:absolute;top:0;padding:15px 30px 0;cursor:pointer;}
+        .left{left:0;
+          img{margin-right:10px;cursor:pointer;}
+        }
+        .right{right:0;
+          img{margin:0 15px;cursor:pointer;}
+        }
+      }
+    }
+    #morkupExamPaper.on {
+      .examinee {height:0;}
+      .baseBack {height:0;}
+      .examTabData {height:calc(100vh - 210px);}
+    }
+  }
+  /* 모의고사 성적표 */
+  .morkupExamResultPopup {
+    .modalWrapper {padding:5px !important;}
+    .modalheader { border-bottom: 0;
+      h1 {font-size:18px; border-bottom: 2px solid #333; padding-bottom: 5px;}
+      .btnPrint {display:none;}
+      .modalClose {top: 0;}
+    }
+    .modalbody {padding:15px 0 20px;max-height:none !important;overflow-y:visible !important;
+      .subTit h3 {font-size:$txtSize;}
+      .resTls {margin:15px 0;
+        .listGrid {display:flex;width:100%; align-items: center;}
+        ul li {padding:0;height:40px;table-layout:unset;}
+        .lgItem {display:flex; align-items: center; flex: 1; height: 100%; border: 0; border-right: 1px solid #ddd;}
+        .lgItem.th {max-width:20%;font-size:$txtSizeM2; justify-content: center;}
+        .lgItem.item1 {padding-left:5px;text-align:left; justify-content: flex-start; font-size:$txtSizeM2;}
+      }
+      .gridItem {float:none;width:100%;}
+      .testGraphArea.line1 { 
+        .right {margin-top:10px;}
+        // .graphArea {padding:20px;}
+        .graphArea {padding:0;}
+      }
+      .testGraphArea.line2 {
+        .left .graphArea {padding:20px 10px;}
+        .right {margin-top:10px;}
+        .right .graphArea {padding:20px 0;height:500px;}
+      }
+      .testGraphArea.line3 {
+        .graphArea {padding:20px 0;}
+      }
+      .testGraphArea.line4 .graphArea {padding:20px 0;}
+    }
+  }
+  /* 아침기상인증 */
+  .goodMorningPop {
+    .modalheader {
+      h1 {font-size:$txtSizeP6;}
+      span {font-size:12px;}
+      p {padding-right:80px;font-size:12px;
+        em {font-size:12px;}
+        strong {font-size:12px;}
+      }
+      .btnMorning {right:0;top:50px;width:70px;height:70px;background-size:100%}
+    }
+    .modalbody {height:auto;padding:20px 0 0;max-height:none;overflow-y:hidden;
+      .vc-container:before {display:none;}
+      .vc-arrows-container {top:0;}
+      .vc-header {padding:10px 18px 10px 18px;}
+      .vc-pane {height: 277px;}
+      .title-center {
+        .vc-arrow {margin-top:12px;}
+      }
+      .morningMonth {
+        .monthNum {right:0;margin-right:90px;top:16px;}
+      }
+    }
+  }
+  /* 즐겨찾기 */
+  .favoritesPopup {
+   .modalbody {
+     .favoritesList {
+       .tit {display:block;padding-bottom:10px;font-size:$txtSizeP2;}
+       ul {
+         label {display:inline-block;width:100%;position:relative;padding:4px 0 5px 40px;text-align:left;}
+         label * {display:inline-block;height:auto;vertical-align:middle;color:$lightBlackColor;}
+         i {width:80px;height:25px;}
+         em {width:138px;height:25px;}
+         span {padding-top:4px;width:100%;border-top:1px dotted $grayColor;}
+       }
+     }
+   }
+  }
+  /* 합격후기 모바일 버전 */
+  .passAfterPop {
+    .modalbody {
+      strong {display:block;padding-bottom:10px;font-size:$txtSizeP2;font-weight:400;}
+      textarea {height:calc(100vh / 4);}
+      .ssamRecord {
+        div {position:relative;}
+        .selectSet {width:calc((100% - 60px)/2);
+          select {height:40px;}
+        }
+        .selectSet ~ .selectSet {margin-left:10px;}
+        .btnDelete {position:absolute;right:0;top:0;width:40px;height:40px;border:1px solid $grayColor;}
+        div.first {
+          .selectSet {width:calc((100% - 10px)/2);}
+        }
+      }
+      .btnM.line.mt10 {width:100%;}
+    }
+    .modalBtn {
+      * {width:calc((100% - 20px)/3);}
+    }
+  }
+
+  .certificatePop {
+    .modalbody {padding: 15px 0 20px; max-height: 530px; overflow-y: auto;}
+  }
+
+  // 설문조사 모바일 버전
+  .serveyDim{display: block; padding: 0 0; padding: 28px 0  22px 0; box-sizing: border-box;}
+  .modalDim {.serveyWrapper{display: block!important; padding:0 0; height: 100%;}}
+  #wrapBack.mDevice {.modalDim {.serveyForm{padding:19px 12px;}}}
+  .serveyForm{
+    margin:0 0;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 5px;
+    height: calc(100vh - 50px);
+    padding: 19px 12px 45px;
+    .serveyHeader{
+      padding-bottom: 5px;
+    }
+
+    .boardBtn{
+      position:absolute;
+      width:95%;
+      left: 2.5%; bottom:45px;
+      background-color: white;
+      display: flex;
+      flex-direction: column-reverse;
+      .btnL {
+        width: 100%; height: 60px;
+        margin-top: 10px;
+      }
+    }
+    .serveyBody{
+      max-height: calc(100vh - 370px);
+      overflow-y: auto;
+      overflow-x :  hidden;
+      &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera*/
+      }
+    }
+    .serveyItem {
+      dl>dt {
+        padding:19px 0 16px 10px;
+        margin:10px 0;
+      }
+      dl>dd {
+        padding-left: 10px;
+          .textSet {
+            margin-right: 5px;
+          }
+      }
+    }
+  }
+}

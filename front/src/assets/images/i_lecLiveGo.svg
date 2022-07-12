@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="23" viewBox="0 0 20 23">
+  <g id="그룹_2584" data-name="그룹 2584" transform="translate(-1071 -287)">
+    <path id="합치기_20" data-name="합치기 20" d="M0-2192v-7.337A.667.667,0,0,1,.667-2200a.667.667,0,0,1,.667.667v6h6a.667.667,0,0,1,.667.667.667.667,0,0,1-.667.667Z" transform="translate(2630.635 1848.293) rotate(-45)" fill="#666"/>
+    <g id="사각형_883" data-name="사각형 883" transform="translate(1071 310) rotate(-90)" fill="#fff" stroke="#666" stroke-width="1">
+      <rect width="15" height="20" rx="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="14" height="19" rx="1.5" fill="none"/>
+    </g>
+    <path id="Icon_material-live-tv" data-name="Icon material-live-tv" d="M13.5,15v6l5-3Z" transform="translate(1065.5 285)" fill="#666"/>
+  </g>
+</svg>

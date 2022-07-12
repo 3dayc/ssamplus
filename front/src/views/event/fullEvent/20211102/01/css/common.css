@@ -1,0 +1,51 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: common.css
+* @Description : 이벤트 템플릿 스타일 정의
+* @Create Date: 2021-11-01
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ====================== */
+/* fullEventBox 공통 */
+/* ====================== */
+/* ===== 레이아웃 ===== */
+.fullEventBox .eventHead {position:relative;text-align:center;background:no-repeat center top;}
+.fullEventBox .eventHead img {display:block;margin:0 auto;max-width:100%;}
+.fullEventBox .eventContents {position:relative;}
+/* ===== 과목/선생님 선택 ===== */
+.selectForm {border-bottom:2px solid #333;}
+.selectForm .selectArea {padding:30px 0 30px;}
+.selectForm .selectArea:after {content:"";display:block;clear:both;}
+.selectForm .selectArea label {display:inline-block;width:70px;font-weight:600;font-size:20px;}
+.selectForm .selectArea .selectSet {width:260px;}
+.selectForm .kind ~ .kind {margin-left:48px;}
+/* ===== 연간 커리큘럼 ===== */
+.annualPlan {padding:50px 0 50px;}
+.annualPlan > strong {display:block;padding:0 0 15px;font-size:18px;}
+
+/* ====================== */
+/* 개별 화면 대응 */
+/* ====================== */
+/* event2021110101 */
+.event2021110101 .eventHead {background-image:url("../images/bg_head_event2021110101.jpg");}
+
+
+/* ================================================================================= */
+/* ===== 모바일 반응형 대응 ===== */
+/* ================================================================================= */
+/* ====================== */
+/* fullEventBox 공통 */
+/* ====================== */
+/* ===== 레이아웃 ===== */
+.fullEventBox .eventContents {padding:20px 20px 50px;}
+/* ===== 과목/선생님 선택 ===== */
+#wrapBack.mDevice .selectForm .selectArea {padding:20px 0 20px;}
+#wrapBack.mDevice .selectForm .selectArea label {display:none;padding-bottom:10px;width:100;font-weight:600;font-size:16px;}
+#wrapBack.mDevice .selectForm .selectArea .selectSet {width:100%;}
+#wrapBack.mDevice .selectForm .selectArea .selectSet select {height:40px;padding:0 15px 0 15px;}
+#wrapBack.mDevice .selectForm .kind ~ .kind {margin-left:10px;}
+#wrapBack.mDevice .selectForm .kind {display:inline-block;width:calc((100% - 10px)/2);}
+/* ===== 강의리스트 ===== */
+#wrapBack.mDevice .tabBack .tabNav ul.blackLineTab li {width:calc(100%/3);}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="41.358" viewBox="0 0 44 41.358">
+  <g id="그룹_2" data-name="그룹 2" transform="translate(-62.177 -106)">
+    <g id="아이콘_개인화네비">
+      <g id="패스_1265" data-name="패스 1265" transform="translate(77.5 106)" fill="none" stroke="#fff" stroke-width="2">
+        <circle cx="5.5" cy="5.5" r="5.5" stroke="none"/>
+        <circle cx="5.5" cy="5.5" r="4.5" fill="none"/>
+      </g>
+      <path id="패스_1266" data-name="패스 1266" d="M72,128a11,11,0,0,1,22,0" fill="none" stroke="#fff" stroke-width="2"/>
+    </g>
+    <text id="마이페이지" transform="translate(62.177 144.358)" fill="#fff" font-size="10" font-family="NotoSansCJKkr-Regular, Noto Sans CJK KR" letter-spacing="-0.05em"><tspan x="0" y="0">마이페이지</tspan></text>
+  </g>
+</svg>

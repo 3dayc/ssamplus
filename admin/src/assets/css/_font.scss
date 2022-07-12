@@ -1,0 +1,75 @@
+/* =================================================================================
+* INFORMATION
+* -----------------------------------------------------------------------
+* @File Name: _font.scss
+* @Description : 폰트 정의
+* @Create Date: 2021-04-05
+* @Update Date: N/A
+* @History: N/A
+* ================================================================================= */
+
+/* ====================== */
+/* TT UI library */
+/* ====================== */
+/* ===== Webfont ===== */
+@font-face {
+  font-family: 'NotoSansKR';
+  font-weight: normal;
+  src: url('../font/NotoSans-Regular.otf') format('opentype');
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  font-weight: 100;
+  src: url('../font/NotoSans-Thin.otf') format('opentype'),
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  font-weight: 200;
+  src: url('../font/NotoSans-Light.otf') format('opentype'),
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  font-weight: 400;
+  src: url('../font/NotoSans-DemiLight.otf') format('opentype'),
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  font-weight: 400;
+  src: url('../font/NotoSans-Regular.otf') format('opentype'),
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  font-weight: 500;
+  src: url('../font/NotoSans-Medium.otf') format('opentype'),
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  font-weight: 700;
+  src: url('../font/NotoSans-Bold.otf') format('opentype'),
+}
+@font-face {
+  font-family: 'NotoSansKR';
+  font-weight: 900;
+  src: url('../font/NotoSans-Black.otf') format('opentype'),
+}
+/****************/
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 300;
+  src: url('../font/Roboto-Light.ttf') format('truetype'),
+ }
+ @font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: url('../font/Roboto-Regular.ttf') format('truetype'),
+ }
+ @font-face {
+  font-family: 'Roboto';
+  font-weight: 700;
+  src: url('../font/Roboto-Bold.ttf') format('truetype'),
+ }
+ @font-face {
+  font-family: 'BlackHanSans';
+  font-weight: 900;
+  src: url('../font/BlackHanSans-Regular.ttf') format('truetype'),
+ }

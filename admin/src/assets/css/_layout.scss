@@ -1,0 +1,242 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _layout.scss
+* @Description : 본창 & 윈도우 팝업 레이아웃, 에러 화면
+* @Create Date: 2021-04-05
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ====================== */
+/* Main Layout */
+/* ====================== */
+body.scrollHiden {overflow:hidden;}
+
+/* basic */
+#wrap {position:relative;min-width:1280px;clear:left;
+       -webkit-transition: -webkit-transform 0.3s;
+               transition: transform 0.3s;}
+/* header */
+#header {position:fixed;top:0;left:0;right:0;z-index:20;min-width:1280px;height:4.154rem;overflow:hidden;background:$whiteColor;@include venderPrefix(box-shadow, 0 2px 5px rgba(0,0,0,0.15));
+  .snbLogo {float:left;display:inline-block;width:14.31rem;padding:1.231rem 0 0;text-align:center;box-sizing:border-box;}
+  .globalNav {float:left;display:inline-block;}
+  .globalNav ul {@extend %clearBh;}
+  .globalNav ul li {display:inline-block;padding:0 1.538rem;color:#666;font-size:1.154rem;font-weight:500}
+  .globalNav ul li a {display:block;height:4.154rem;color:inherit;font-size:inherit;line-height:3.4;box-sizing:border-box;}
+  .globalNav ul li.on a {color:#111;border-bottom:3px solid #16923e;}
+}
+/* snb */
+#snb {position:fixed;top:4.154rem;left:0;bottom:0;z-index:10;width:14.31rem;background:$whiteColor;transition:all 0.2s;@include venderPrefix(box-shadow, 0 2px 5px rgba(0,0,0,0.15));
+  .btnSnbTobggle {position:absolute;top:50%;right:-1.154rem;width:1.154rem;height:3.615rem;text-indent:-9999px;border:none;overflow:hidden;background:url("../images/btn_snbToggle.png") no-repeat;}
+  .sideNav {@include setScrollStyle2;height:calc(100vh - 10.179rem - 6px);overflow:auto;overflow-x:hidden;text-align:center;
+    ul li {white-space:nowrap;text-align:left;}
+    ul li a {display:inline-block;padding:0 1rem;text-align:left;white-space:nowrap;transition:all 0.2s;}
+    ul li span {display:block;height:55px;padding:1rem 0 0;box-sizing:border-box;}
+    ul li span a {padding-top:3px;height:25px;font-size:1.154rem;font-weight:bold;color:#111;word-spacing:-1px;}
+    ul li span a::before {content:'';display:inline-block;margin:-3px 5px 0 0;width:28px;height:28px;vertical-align:middle;}
+    ul li ol {padding:11px 0;overflow:hidden;background:#f7f8f9;transition:all 0.2s;}
+    ul li ol a {padding:7px 1rem;color:#666;}
+    ul li ol a::before {content:'';display:inline-block;width:0;height:0;margin:0 1rem 0 0;vertical-align:middle;border:1px solid #111}
+    ul li.on span a {color:#16923e;}
+    ul li ol li.on a {color:#16923e;font-weight:bold;font-size:14px;}
+    @for $i from 1 to 10 {
+      ul.nav0#{$i} li span a::before {background-image:url('../images/i_snb0' +  $i + '.png')}
+    }
+    ul.nav010 li span a::before {background-image:url('../images/i_snb10.png')}
+    ul.nav011 li span a::before {background-image:url('../images/i_snb11.png')}
+    ul.tNav {
+      li.on span a {color:#1d74ff;}
+      li ol li.on a {color:#1d74ff;}
+    }
+    @for $j from 1 to 11 {
+      ul li.snv0#{$j} span a::before {background-position-x:left;background-position-y:-(($j - 1)*28) + px;}
+      ul li.snv0#{$j}.on span a::before {background-position-x:right;background-position-y:-(($j - 1)*28) + px;}
+    }
+  }
+  .bottom {@extend %clearBh;position:absolute;bottom:0;left:0;width:100%;padding:1rem 2rem;box-sizing:border-box;border-top:1px solid #ddd;background:$whiteColor;
+    a, .name {display:inline-block;padding:0 0 0 2.308rem;height:1.846rem;color:#666;line-height:1.9;transition:all 0.2s;}
+    strong .name {font-weight:normal;background:url('../images/i_user.png') no-repeat;}
+    strong.on .name {color:#1d74ff;font-weight:bold;background-image:url("../images/i_user_teacher_on.png");}
+    span {display:block;padding-top:10px;}
+    span a {text-decoration:underline;background:url('../images/i_logout.png') no-repeat;}
+  }
+}
+/* container */
+#container {position:relative;padding:4.154rem 2rem 3.077rem 17.5rem;min-height:100vh;transition:all 0.2s;
+  .pageTit {@extend %clearBh;padding:3.077rem 0 0 0;height:6rem;
+      h2 {display:inline-block;margin-right:1.385rem;font-size:20px;line-height:1}
+      span {margin:5px 0 0 0;}
+        a {font-size:1rem;font-weight:normal;color:#999;}
+        a:after {content:"";display:inline-block;margin:0 8px 0 4px;display:inline-block;width:8px;height:8px;box-sizing:border-box;border:1px solid #999;border-bottom:0;border-left:0;border-radius:1px;transform:rotate(45deg);}
+        a:last-child:after {display:none;}
+        a:hover {text-decoration:underline;color:#16923e;}
+      }
+  .subTit {@extend %clearBh;position:relative;padding-top:0;margin-top:10px;height:48px;
+    h3 {display:inline-block;font-size:16px;vertical-align:middle;line-height:48px;
+      a {font-size:inherit;font-weight:bold;}
+    }
+    h3 em {font-size:16px;font-weight:bold;}
+    h3:before {content:"";display:inline-block;margin:-6px 10px 0 -4px;vertical-align:middle;height:0;width:0;border:4px solid $blackColor;border-right-color:transparent;border-bottom-color:transparent;
+        @include venderPrefix(transform, rotate(135deg));
+        pointer-events:none;
+    }
+    .right {line-height:43px;
+      em {font-weight:bold;color:$darkBlueColor;}
+    }
+    &:first-child {padding-top:0;margin-top:0;}
+    a {font-weight:400;}
+  }
+  h4 {padding-top:5px;margin-top:10px;height:48px;line-height: 2.3;
+    strong {font-size:16px;font-weight:600;color:$greenColor;vertical-align:middle;}
+    .right em {font-weight:bold;color:$darkBlueColor;}
+  }
+
+  .content > article > div {
+    .boardTop .right-po [class*=btnM] {min-width:104px;}
+    .subTit:first-of-type .right [class*=btnM] {min-width:104px;}
+  }
+}
+/* snb Toggle */
+#wrap.snbToggle {
+  #snb {width:5rem;
+    .btnSnbTobggle {background-position:right;}
+    .sideNav ul li span a {display:block;margin:0 auto;padding:0;width:28px;overflow:hidden;}
+    .sideNav ul li ol {width:0;height:0;padding:0;display:none;}
+    .bottom {text-align:center;}
+    .bottom a {width:0;margin:0 auto;padding:0 0 0 1.846rem;overflow:hidden;}
+    .bottom span {float:none;padding-top:5px;}
+    .bottom strong button {font-size:0;transition:none;}
+  }
+  #container {padding-left:7.5rem;}
+  .bottom {padding:1rem 1rem;}
+}
+
+/* ====================== */
+/* Loading */
+/* ====================== */
+.pageLoading {position:fixed;z-index:30000;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,.2);}
+@keyframes spinner {
+	to {transform: rotate(360deg);}
+}
+@-webkit-keyframes spinner {
+	to {-webkit-transform: rotate(360deg);}
+}
+.pageLoading {position:fixed;z-index:30000;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,.2);}
+@keyframes spinner {
+	to {transform: rotate(360deg);}
+}
+@-webkit-keyframes spinner {
+	to {-webkit-transform: rotate(360deg);}
+}
+.spinner {position: absolute;width:80px;height:80px;top:50%;left:50%;margin:-40px 0 0 -40px;min-width: 80px;min-height: 80px;
+  &:before {content: 'Loading…';position: absolute;top: 50%;left: 50%;width: 80px;height: 80px;margin-top: -40px;margin-left: -40px;}
+  &:not(:required):before {content: '';border-radius: 50%;border: 3px solid $whiteColor;border-top-color: #ffcc33;animation: spinner .6s linear infinite;-webkit-animation: spinner .6s linear infinite;}
+}
+
+/* ====================== */
+/* Error */
+/* ====================== */
+#errorWrap {position:relative;display:flex;width:100vw;min-height:100vh;text-align:center;align-items:center;flex-direction:column;justify-content:center;
+  h1 {position:absolute;top:50px;left:50px;width:77px;height:20px;
+    img {width:100%;}
+  }
+  .errorContent {display:flex;align-items:center;justify-content:center;width:100%;
+    .errorImage {width:235px;margin-left:-234px;
+      span {font-size:200px;}
+    }
+    .errorMessage {width:400px;
+      h2.errorCode {font-size:130px;}
+      h2.errorCode span {font-size:inherit;}
+      strong {display:inline-block;font-size:18px;width:100%;word-break:inherit;}
+      .btnArea {padding-bottom:0;}
+      .btnArea .btnL {width:159px;}
+    }
+  }
+}
+
+/* ====================== */
+/* window(새창) layout */
+/* ====================== */
+#windowLayout {@extend %pos;bottom:0;padding:32px 35px 35px;width:100%;overflow:auto;background:$whiteColor;
+  h3 {padding-top:5px;height:48px;line-height:2.3;
+    strong {font-size:16px;}
+    strong:before {content:"";display:inline-block;margin:-6px 10px 0 -4px;vertical-align:middle;height:0;width:0;border:4px solid $blackColor;border-right-color:transparent;border-bottom-color:transparent;
+        @include venderPrefix(transform, rotate(135deg));
+        pointer-events:none;
+    }
+    .right em {font-weight:bold;color:$darkBlueColor;}
+    .right .unit em {bottom:0;color:#999;font-weight:400;}
+    &:first-child {padding-top:0;}
+  }
+  .tvs{
+    .selectSet{width:100%;}
+    .setTime {position:relative;display:inline-block;width:7rem;margin-left:5px;}
+    .times{width:7rem;}
+    .setTime2 {position:relative;display:inline-block;width:4rem;margin-left:5px;}
+  }
+  .winContent{
+    h3{position:relative;
+      .userLimit{
+        position: absolute;
+        right: 100px;
+        top: 5px;
+        background-color: #eee;
+        padding: 0 10px;
+        font-size: 12px;
+      }
+    }
+    .btnT.line{
+      margin-left:10px;
+    }
+    .tls{
+      .lectureName{text-align:left}
+    }
+  }
+}
+.winHeader {@extend %clearBh;position:relative;margin-bottom:1.538rem;
+    h1 {font-size:1.538rem;font-weight:900;color:$blackColor;}
+    .supTxt {display:inline-block;margin-top:5px;color:lighten($blackColor, $cPX36);}
+    .btnArea {position:absolute;right:0;top:50%;transform:translateY(-50%);padding:0;width:auto;}
+    .boxGray {margin:-6px 0 0 0;padding:5px 20px;}
+}
+
+/* ====================== */
+/* 강사용 전용 style */
+/* ====================== */
+.teacherWrap {
+  /* 로그인, 아이디 찾기/비밀번호 찾기 */
+  &#joinWrap .findAccount {
+    .infoMsg strong {color:$blueColor;}
+    .tabBack .tabNav ul li.on button {border-color:$blueColor;}
+  }
+  /* Common */
+  .tabBack .tabNav ul li.on {border-color:$blueColor;background:$blueColor;}
+  .tabBack .tabNav ul.sub li.on {border-color:$blueColor;background:#fff;}
+  .tabBack .tabNav ul li.on a,
+  .tabBack .tabNav ul li.on button {background:$blueColor;}
+  .paginate a.on {background:$blueColor;}
+  .listSearch {
+    .lsItem .title {color:$blueColor;}
+    .btnSearch {background-color:$blueColor;}
+    .back >div.bdLine {border-color:$blueColor;}
+    .selectSet::after {border:3px solid $blueColor;border-top-color: transparent;border-left-color: transparent;}
+  }
+  .checkSet input:checked+label i {border-color:$blueColor;background:$blueColor;}
+  .radioSet input:checked+label i {border-color:$blueColor;}
+  .radioSet input:checked+label i:before {background:$blueColor;}
+  .toggleSet input[type="checkbox"]:checked+label, .labelToggleSet input[type="checkbox"]:checked+label {border-color:$blueColor;background:$blueColor;}
+  .multiselectSet .checkArea {border:1px solid $blueColor;}
+  .modalContainer {border-color:$blueColor;}
+  .msgForm .formTitle {background:$blueColor;}
+  .saveBox {border-color:$blueColor;}
+  .rankList {
+    li {
+      &:nth-of-type(1) .rank {background:#1c5ed5;}
+      &:nth-of-type(2) .rank {background:#6e94d7;}
+      &:nth-of-type(3) .rank {background:#bdd4fd;}
+    }
+  }
+
+  #header .globalNav {display:none;}
+  #snb .btnSnbTobggle {background:url("../images/btn_snbToggle02.png") no-repeat;}
+}

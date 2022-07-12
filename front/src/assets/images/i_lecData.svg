@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="19" viewBox="0 0 15 19">
+  <g id="Icon_feather-file-text" data-name="Icon feather-file-text" transform="translate(-6 -3)">
+    <g id="패스_2920" data-name="패스 2920" transform="translate(0 0)" fill="#fff" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 19.125 21.5 L 7.875 21.5 C 7.116819858551025 21.5 6.5 20.87196159362793 6.5 20.10000038146973 L 6.5 4.900001049041748 C 6.5 4.128040790557861 7.116819858551025 3.500000953674316 7.875 3.500000953674316 L 15.1659517288208 3.500000953674316 L 20.5 8.905169486999512 L 20.5 20.10000038146973 C 20.5 20.87196159362793 19.88318061828613 21.5 19.125 21.5 Z" stroke="none"/>
+      <path d="M 7.875 4.000001907348633 C 7.392520904541016 4.000001907348633 7 4.403741836547852 7 4.900001525878906 L 7 20.10000038146973 C 7 20.59626007080078 7.392520904541016 21 7.875 21 L 19.125 21 C 19.60747909545898 21 20 20.59626007080078 20 20.10000038146973 L 20 9.11033821105957 L 14.95690441131592 4.000001907348633 L 7.875 4.000001907348633 M 7.875 3.000001907348633 L 15.375 3.000001907348633 L 21 8.700000762939453 L 21 20.10000038146973 C 21 21.14934158325195 20.16053009033203 22 19.125 22 L 7.875 22 C 6.839469909667969 22 6 21.14934158325195 6 20.10000038146973 L 6 4.900001525878906 C 6 3.85066032409668 6.839469909667969 3.000001907348633 7.875 3.000001907348633 Z" stroke="none" fill="#666"/>
+    </g>
+    <path id="패스_2921" data-name="패스 2921" d="M20.85,4V9h5" transform="translate(-5.35 0.5)" fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="패스_2924" data-name="패스 2924" d="M14,13.5H12" transform="translate(-3 -3)" fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="패스_2925" data-name="패스 2925" d="M21,13.5H12" transform="translate(-3 0)" fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="패스_2926" data-name="패스 2926" d="M21,13.5H12" transform="translate(-3 3)" fill="#fff" stroke="#666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>

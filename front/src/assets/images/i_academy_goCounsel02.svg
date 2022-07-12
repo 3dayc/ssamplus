@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39.876" height="35" viewBox="0 0 39.876 35">
+  <g id="선생님상담" transform="translate(-160.124 -4409)">
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(162 4409)" fill="#0e935d" stroke="#333" stroke-linecap="round" stroke-width="1.5">
+      <rect width="38" height="26" rx="3" stroke="none"/>
+      <rect x="0.75" y="0.75" width="36.5" height="24.5" rx="2.25" fill="none"/>
+    </g>
+    <path id="사각형_622" data-name="사각형 622" d="M185,4432a1,1,0,0,1,1-1h7a1,1,0,0,1,1,1v2h-9Z" fill="#323232"/>
+    <rect id="사각형_679" data-name="사각형 679" width="14" height="2" transform="translate(181 4416)" fill="#333"/>
+    <path id="사각형_680" data-name="사각형 680" d="M186,4426v-2h4v2Zm-5,0v-2h4v2Zm0-4v-2h12v2Z" fill="#333"/>
+    <path id="패스_2989" data-name="패스 2989" d="M160.874,4444a12.567,12.567,0,1,1,25.133,0" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <g id="타원_57" data-name="타원 57" transform="translate(165.87 4418.36)" fill="#fff" stroke="#333" stroke-linecap="round" stroke-width="1.5">
+      <circle cx="7.49" cy="7.49" r="7.49" stroke="none"/>
+      <circle cx="7.49" cy="7.49" r="6.74" fill="none"/>
+    </g>
+  </g>
+</svg>

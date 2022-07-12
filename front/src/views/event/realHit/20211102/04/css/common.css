@@ -1,0 +1,53 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: common.css
+* @Description : 리얼적중 템플릿 스타일 정의
+* @Create Date: 2021-11-02
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ====================== */
+/* realHitBox 공통 */
+/* ====================== */
+.realHitBox {margin:0 auto;max-width:100%;width:753px;}
+.realHitBox .topArea img {display:block;}
+.realHitBox .contentsArea {position:relative;min-height:940px;padding:436px 20px 20px 20px;background:#d7d7d7;}
+.realHitBox .contentsArea .bgBack {position:absolute;left:0;top:0;right:0;bottom:0;}
+.realHitBox .contentsArea .bgBack img {width:100%;display:block;}
+.realHitTab {position:relative;}
+.realHitTab .tabBack .tabNav ul {height:3.929rem;}
+.realHitTab .tabBack .tabNav ul li {width:calc(100%/3);height:100%;vertical-align:middle;border-left:1px solid #fff;background:#2f5425;}
+.realHitTab .tabBack .tabNav ul li a, 
+.realHitTab .tabBack .tabNav ul li button {height:100%;font-size:0;text-indent:-9999px;overflow:hidden;white-space:nowrap;background:url("../images/tabNav01.png") no-repeat center;}
+.realHitTab .tabBack .tabNav ul li:nth-child(2) a,
+.realHitTab .tabBack .tabNav ul li:nth-child(2) button {background-image:url("../images/tabNav02.png");}
+.realHitTab .tabBack .tabNav ul li:nth-child(3) a, 
+.realHitTab .tabBack .tabNav ul li:nth-child(3) button {background-image:url("../images/tabNav03.png");}
+.realHitTab .tabBack .tabNav ul li.on {background:#fff;}
+.realHitTab .tabBack .tabNav ul li.on a, 
+.realHitTab .tabBack .tabNav ul li.on button {background-image:url("../images/tabNav01_on.jpg");}
+.realHitTab .tabBack .tabNav ul li.on:nth-child(2) a, 
+.realHitTab .tabBack .tabNav ul li.on:nth-child(2) button {background-image:url("../images/tabNav02_on.png");}
+.realHitTab .tabLayout {padding:0;background:#fff;}
+.realHitTab .tabLayout .tabData img {display:block;max-width:100%;margin:0 auto;}
+.realHitTab .tabLayout .tabData01 {padding-bottom:40px;}
+.hitThumbnail {text-align:center;padding:0 24px 30px;}
+.hitThumbnail ul {display:flex;align-items:center;justify-content:center;flex-direction:row;flex-wrap:wrap;overflow:hidden;}
+.hitThumbnail ul li {margin:0 0 7px 7px;}
+.hitThumbnail ul li:last-child {margin-right:0;}
+
+/* ================================================================================= */
+/* ===== 모바일 반응형 대응 ===== */
+/* ================================================================================= */
+/* ====================== */
+/* realHitBox 공통 */
+/* ====================== */
+#wrapBack.mDevice .realHitBox .contentsArea {min-height:auto;}
+#wrapBack.mDevice .realHitTab .tabBack .tabNav ul {height:3.429rem;}
+#wrapBack.mDevice .realHitTab .tabBack .tabNav ul li a, 
+#wrapBack.mDevice .realHitTab .tabBack .tabNav ul li button {background-size:auto 14px;}
+#wrapBack.mDevice .hitThumbnail {padding-bottom:0;}
+#wrapBack.mDevice .hitThumbnail ul li {margin:0 0 10px;width:calc((100% - 10px)/2);}
+#wrapBack.mDevice .hitThumbnail ul li:nth-child(2n) {margin-left:10px;}
+#wrapBack.mDevice .btnHitDownload {display:block;margin:0 24px;}

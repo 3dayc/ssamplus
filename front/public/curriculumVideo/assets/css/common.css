@@ -1,0 +1,42 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: common.css
+* @Description : 무이자 할부 안내 스타일 정의
+* @Create Date: 2022-02-21
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ====================== */
+/* UI Reset */
+/* ====================== */
+/* ===== Default ===== */
+hr, caption {display:none;}
+dl,ul,ol,menu,li {list-style:none;}
+body,div,span,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,label,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0;box-sizing:border-box;}
+body, * {font-family:'NotoSans';letter-spacing:-0.04em;word-spacing:-0.02em;font-size:14px;color:#333;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;/*word-break:keep-all;*/-webkit-appearance:none;-webkit-border-radius:0;}
+html, body {min-height:100vh;-webkit-margin-start:0;-webkit-padding-start:0px;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;scroll-behavior:smooth;}
+body {word-break:keep-all;background:#f6f6f6;}
+blockquote, q {quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";content:none;}
+a {outline:none;text-decoration:none;-webkit-tap-highlight-color:rgba(0,0,0,0.0);}
+button {outline:none;background:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+a img {border:none;}
+address, caption, cite, code, dfn, em, th, var, i {font-style:normal;font-weight:normal;}
+a, button, input, textarea, select {-webkit-tap-highlight-color:transparent;}
+a, button, input:focus, select:focus, textarea:focus {outline:0 none;}
+
+/* ====================== */
+/* Style */
+/* ====================== */
+/* 영상 커리큘럼 */
+.scrollBack {width:100%;height:270px;overflow-x:hidden;overflow-y:auto;}
+.scrollBack::-webkit-scrollbar {width:5px;}
+.scrollBack::-webkit-scrollbar-thumb {background-color:#7d7d7d;}
+.scrollBack::-webkit-scrollbar-track {background-color:#a9a9a9;}
+.scrollBack div {padding:0 10px 50px 0;line-height:1.5;}
+dl {padding-bottom:24px;}
+dt {padding:0 0 12px;font-weight:600;font-size:18px;}
+dd {padding:0 0 15px 30px;}
+dd strong {display:block;}
+dd span {color:#666;}

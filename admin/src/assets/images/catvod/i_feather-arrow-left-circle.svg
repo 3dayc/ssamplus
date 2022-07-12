@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g id="Icon_feather-arrow-left-circle" data-name="Icon feather-arrow-left-circle" transform="translate(-200 -205)">
+    <g id="패스_2953" data-name="패스 2953" transform="translate(200 205)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2">
+      <circle cx="11" cy="11" r="11" stroke="none"/>
+      <circle cx="11" cy="11" r="10" fill="none"/>
+    </g>
+    <path id="패스_2954" data-name="패스 2954" d="M211,211.6l-4.4,4.4,4.4,4.4" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"/>
+    <line id="패스_2955" data-name="패스 2955" x1="8.8" transform="translate(206.6 216)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>

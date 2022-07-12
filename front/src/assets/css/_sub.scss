@@ -1,0 +1,5439 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _sub.scss
+* @Description : 서브 공통 영역
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* -----------------------------------------------------------------------
+* Side Area  : 정렬이나, 상단배너 등 영역에 대한 정의
+* Sub Area Detail   : 목록, 상세, 등록 등 CRUD 기본 셋팅
+* ====================================================================*/
+
+/* ====================== */
+/* Side Area */
+/* ====================== */
+/* 안내 - 수강신청 */
+.guideBox {
+  position: relative;
+  display: block;
+  padding: 15px 10px;
+  min-height: 23px;
+  letter-spacing: -0.04em;
+  color: $redColor;
+  font-size: $txtSizeM2;
+  box-sizing: border-box;
+  vertical-align: top;
+  line-height: 2;
+  &.info {
+    padding: 0 10px 0 45px;
+    &:before {
+      content: "안내";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+      font-size: $txtSizeM2;
+      color: $whiteColor;
+      line-height: 1.6;
+      text-align: center;
+      border-radius: 3px;
+      box-sizing: border-box;
+      background: #c2000f;
+    }
+  }
+}
+/* 버튼영역 정렬 */
+.btnArea {
+  @extend %clearBh;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  [class*="btn"] {
+    margin: 0 5px;
+  }
+  &.soloCase [class*="btn"] {
+    width: 15rem;
+  }
+}
+/* 이미지 상단 */
+.topVisual {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  img {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+  &.realHitCase {
+    background: #eca52b;
+    &:before {
+      content: "";
+      display: block;
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 180px;
+      background: #fa7790;
+    }
+  }
+  .topSwiper {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* 스와이퍼 배너 */
+.topBannerSwiper {
+  text-align: center;
+  height: 418px;
+  img {
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .swiper-pagination {
+    bottom: 2.357rem;
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      &.swiper-pagination-bullet-active {
+        background: $whiteColor;
+      }
+    }
+  }
+}
+/* 이미지 배너 */
+.topBannerSingle {
+  text-align: center;
+  height: 180px;
+  overflow: hidden;
+  img {
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+/* 이미지 배너 */
+.bandBanner {
+  text-align: center;
+  height: 180px;
+  overflow: hidden;
+  img {
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+/* 검색 */
+.topSearchArea {
+  .frameBack {
+    position: relative;
+    input:not([type="radio"]):not([type="checkbox"]),
+    textarea {
+      padding-right: 8.571rem;
+      height: 4.286rem;
+      font-size: $txtSizeP2;
+    }
+    button,
+    a {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 150px;
+      text-align: center;
+      line-height: 3.4;
+      font-size: $txtSizeP4;
+      color: $whiteColor;
+      background: $blackColor;
+    }
+  }
+}
+.topArea .topSearchArea {
+  padding: 50px 0 0;
+}
+/* 왼쪽 배너광고 영역 */
+.leftAdArea {
+  position: absolute;
+  left: 0;
+  top: 69px;
+  width: 100px;
+  z-index: 6;
+  line-height: 0;
+  @media all and (max-width: 1316px) {
+    display: none;
+  }
+
+  $baseWidth: 100px;
+  .adItem {
+    display: block;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    &.type1x1 {
+      width: $baseWidth;
+      height: $baseWidth;
+    }
+    &.type1x2 {
+      width: $baseWidth;
+      height: $baseWidth * 2;
+    }
+    &.type1x3 {
+      width: $baseWidth;
+      height: $baseWidth * 3;
+    }
+  }
+  .adGroup {
+    display: block;
+    margin: 10px 0;
+  }
+  &.ssammallCase {
+    top: 467px;
+  }
+}
+/* ====================== */
+/* Sub Area Detail */
+/* ====================== */
+.hashTag {
+  display: block;
+  em {
+    display: inline-block;
+    margin-right: 5px;
+    color: $darkGrayColor;
+  }
+}
+.new {
+  .tit::after {
+    content: "N";
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 10px;
+    color: #ff7b52;
+    vertical-align: super;
+    font-weight: 600;
+  }
+}
+/* ========= List (사이트 공통사용) ========= */
+/* 게시판 검색 */
+.listSearch {
+  display: inline-block;
+  position: relative;
+  input:not([type="radio"]):not([type="checkbox"]) {
+    padding: 0 40px 0 15px;
+    width: 320px;
+    height: 40px;
+  }
+  .btnSearch {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: url("../images/i_search.svg") no-repeat 6px center;
+    overflow: hidden;
+    font-size: 0;
+    text-indent: -9999px;
+  }
+  &.wFull {
+    input:not([type="radio"]):not([type="checkbox"]) {
+      width: 100%;
+    }
+  }
+}
+.playerSearch {
+  width: 665px;
+  padding-left: 10px;
+}
+.wfullBtn {
+  .listSearch {
+    width: calc(100% - 100px);
+  }
+  .QnA {
+    width: calc(100% - 110px);
+    padding-left: 10px;
+  }
+  .listSearch input:not([type="radio"]):not([type="checkbox"]) {
+    width: 100%;
+  }
+  .btnM {
+    width: 90px;
+  }
+}
+/* 게시판 목록 (반응형) */
+.resTls {
+  &.thinLine {
+    border-top: 1px solid $blackColor;
+  }
+  .listGrid {
+    display: table; /*display:flex; align-items:center;*/
+    width: 100%;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    .lgItem {
+      position: relative;
+      display: table-cell;
+      vertical-align: middle;
+      box-sizing: border-box;
+      padding: 3px 10px;
+      color: $lightBlackColor;
+      font-weight: 200;
+      word-break: keep-all;
+      text-align: center;
+      &.itemNum {
+        width: 70px;
+        text-align: center !important;
+      }
+      &.itemGroup {
+        padding: 0 !important;
+      }
+      [class*="mT"] {
+        display: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a,
+      span {
+        color: $lightBlackColor;
+      }
+      .hashTag {
+        padding: 1px 0 0;
+        * {
+          font-size: $txtSizeM2;
+          font-weight: 200;
+          color: $darkGrayColor;
+        }
+      }
+      .tit {
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+        cursor: pointer; /*width: 338px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;*/
+      }
+      &:hover .tit {
+        text-decoration: underline;
+      }
+      &.tit:hover {
+        text-decoration: underline;
+      }
+    }
+    .lgSubGrid {
+      display: table;
+      border-collapse: collapse;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .lgRow {
+      @extend %clearBh;
+      width: 100%;
+      min-height: 59px;
+      box-sizing: border-box;
+    }
+    .lgRow .lgSubGrid {
+      float: left;
+      min-height: 59px;
+    }
+    &.noList {
+      .lgItem {
+        height: 6rem;
+      }
+      &:hover {
+        background: none;
+      }
+    }
+  }
+  .stateCase {
+    padding-left: 65px !important;
+    font-weight: 600;
+    .iBbsSet {
+      position: absolute;
+      left: 14px;
+      top: 20px;
+    }
+    .tit .iBbsSet {
+      left: -50px;
+      top: 50%;
+      margin-top: -10px;
+    }
+  }
+  .thead {
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .thead * {
+    font-size: $txtSizeP2;
+    color: #111 !important;
+    font-weight: 500 !important;
+  }
+  .thead .lgItem {
+    height: 59px;
+    padding: 1px 10px 5px;
+  }
+  .tbody {
+    ul li {
+      height: 60px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    ul > li:hover {
+      background: #f8fcf9;
+    }
+    ul li .listGrid {
+      display: block;
+    }
+    ul li [class*="btn"] {
+      position: relative;
+      z-index: 2;
+    }
+    ul li.notice {
+      background: #f8fcf9;
+      .tit {
+        font-weight: 500;
+      }
+    }
+    ul li.expiry {
+      background: $lightGrayColor;
+    }
+    .lgRow {
+      height: 60px;
+    }
+    .lgRow .lgSubGrid {
+      height: 60px;
+      box-sizing: border-box;
+      border-bottom: 1px solid $grayColor;
+    }
+    .lgRow:last-child .lgSubGrid {
+      border-bottom: 0;
+    }
+    .searchTxt {
+      color: #0e935d;
+      font-weight: 600;
+      font-size: inherit;
+      font-family: inherit;
+    }
+  }
+  &.subCase {
+    border: 1px solid $grayColor;
+    border-width: 1px 0 0 1px;
+    .thead {
+      background: $lightGrayColor;
+    }
+    .thead * {
+      font-size: $txtSize !important;
+    }
+    .tbody {
+      background: $whiteColor;
+      ul > li:hover {
+        background: $whiteColor;
+      }
+    }
+    .lgItem {
+      border-right: 1px solid $grayColor;
+      border-bottom: 1px solid $grayColor;
+    }
+    .lgItem.itemGroup {
+      border: 0;
+    }
+    .lgItem.th {
+      font-size: $txtSize;
+      color: $blackColor;
+      font-weight: 600;
+      background: $lightGrayColor;
+    }
+    ul li:nth-of-type(odd) {
+      background: $whiteColor;
+    }
+  }
+  &.lineCase {
+    .thead {
+      border-bottom: 1px solid $grayColor;
+    }
+    ul li:nth-of-type(odd) {
+      background: none;
+    }
+    ul li {
+      border-bottom: 1px solid $grayColor;
+    }
+  }
+  &.lineCase.bottomLine li:last-child {
+    border-bottom: 0;
+  }
+  &.listM2 {
+    .iBbsSet {
+      margin-right: 10px;
+    }
+  }
+}
+/* 이벤트 목록 */
+.thumbnailList {
+  font-size: 0;
+  margin: 0 -15px -44px;
+  li {
+    display: inline-block;
+    position: relative;
+    padding: 0 15px;
+    width: 50%;
+    height: 345px;
+    vertical-align: top;
+    a {
+      display: block;
+      .imgBox {
+        @extend %imgAlignCenter;
+        display: block;
+        height: 230px;
+        overflow: hidden;
+        .txt {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 10px 20px;
+          color: $whiteColor;
+          background: $blackColor;
+          z-index: 1;
+        }
+      }
+      .txtBox {
+        display: block;
+        padding-top: 15px;
+        strong {
+          display: inline-block;
+          width: 100%;
+          font-size: $txtSizeP6;
+          letter-spacing: -0.08em;
+          font-weight: 400;
+          display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+        em {
+          display: block;
+          padding-top: 3px;
+          font-size: $txtSizeP2;
+          color: $lightBlackColor;
+          font-weight: 200;
+          letter-spacing: -0.03em;
+          font-family: "Roboto";
+        }
+        span {
+          display: block;
+          font-weight: 400;
+          font-size: $txtSize;
+        }
+        .searchTxt {
+          display: inline-block;
+          padding-top: 0;
+          color: #0e935d;
+          font-weight: inherit;
+          font-size: inherit;
+          font-family: inherit;
+        }
+      }
+    }
+    &.noList {
+      display: block;
+      margin: 0 !important;
+      padding: 10px 15px 69px !important;
+      width: 100% !important;
+      height: auto !important;
+      text-align: center;
+      color: #666;
+    }
+  }
+  &.case3 {
+    margin: 0 0 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 25px;
+    li {
+      width: 350px;
+      padding: 0;
+      height: auto !important;
+    }
+    li .imgBox {
+      height: 204px;
+    }
+    li .txtBox {
+      height: 77px;
+    }
+    &.noList {
+      padding: 10px 15px 25px !important;
+    }
+  }
+}
+/* 상품 목록 (쌤몰검색결과)  */
+.productList {
+  li {
+    position: relative;
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid $grayColor;
+    &:hover {
+      background: #f8fcf9;
+    }
+    & > a {
+      position: relative;
+      display: table-cell;
+      padding: 10px 135px 10px 263px;
+      height: 220px;
+      vertical-align: middle;
+      box-sizing: border-box;
+    }
+    .productImg {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      @include venderPrefix(transform, translateY(-50%));
+      @extend %imgAlignA;
+      float: left;
+      width: 180px;
+      height: 180px;
+      padding: 0 20px;
+    }
+    .productDetail {
+      display: block;
+      box-sizing: border-box;
+      & > span {
+        display: block;
+      }
+      & > strong {
+        display: block;
+        font-size: $txtSizeP4;
+        letter-spacing: -0.9px;
+      }
+      & > strong span {
+        font-size: inherit;
+      }
+      & > strong em {
+        margin-left: 5px;
+        color: $lightBlackColor;
+      }
+      & > strong + .price {
+        margin-top: 13px;
+      }
+      .corp {
+        padding-bottom: 3px;
+      }
+      .labelInfo {
+        padding: 0 0 10px;
+      }
+      .moreInfo {
+        margin: 3px 0 13px;
+      }
+      .moreInfo span {
+        color: $brightGrayColor;
+        vertical-align: middle;
+        font-weight: 100;
+        letter-spacing: -0.02em;
+      }
+      .moreInfo span:not(:last-child):after {
+        content: "";
+        display: inline-block;
+        margin: -4px 6px 0 7px;
+        vertical-align: middle;
+        width: 1px;
+        height: 12px;
+        background: $brightGrayColor;
+      }
+    }
+    .productBtn {
+      position: absolute;
+      display: table;
+      top: 0;
+      right: 20px;
+      bottom: 0;
+      width: 120px;
+      height: 100%;
+      text-align: center;
+      & > span {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      [class*="btn"] {
+        display: block;
+        margin: 0 0 8px;
+      }
+      [class*="btn"]:last-child {
+        margin-bottom: 0;
+      }
+    }
+    // &.soldOut {
+    //   .productImg:after {content:"일시품절";position:absolute;display:inline-block;top:50%;left:50%;transform:translate(-50%, -50%);width:5.357rem;font-size:12px;line-height:2.5;color:$whiteColor;text-align:center;border-radius:18px;z-index:2;background:rgba(0, 0, 0, 0.7);}
+    //   .productImg img {-webkit-filter:grayscale(100%);filter:grayscale(100%);}
+    // }
+    // &.soldYet {
+    //   .productImg:after {content:"발간예정";position:absolute;display:inline-block;top:50%;left:50%;transform:translate(-50%, -50%);width:5.357rem;font-size:12px;line-height:2.5;color:$whiteColor;text-align:center;border-radius:18px;z-index:2;background:rgba(0, 0, 0, 0.7);}
+    //   .productImg img {-webkit-filter:grayscale(100%);filter:opacity(50%);}
+    // }
+    // &.soldEnd {
+    //   .productImg:after {content:"판매종료";position:absolute;display:inline-block;top:50%;left:50%;transform:translate(-50%, -50%);width:5.357rem;font-size:12px;line-height:2.5;color:$whiteColor;text-align:center;border-radius:18px;z-index:2;background:rgba(0, 0, 0, 0.7);}
+    //   .productImg img {-webkit-filter:grayscale(100%);filter:grayscale(100%);}
+    // }
+    &.soldOut {
+      .productImg:before {
+        content: "일시\A품절";
+        position: absolute;
+        left: 19px;
+        top: 0;
+        z-index: 1;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        line-height: 1.2;
+        font-size: $txtSizeM1;
+        letter-spacing: -0.01em;
+        text-align: center;
+        font-family: "AppleSDGothicNeoL";
+        box-sizing: border-box;
+        border-radius: 50%;
+        background: #333;
+        white-space: pre;
+        padding-top: 11px;
+      }
+      .productImg img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+    }
+    &.soldYet {
+      .productImg:before {
+        content: "발간\A예정";
+        position: absolute;
+        left: 19px;
+        top: 0;
+        z-index: 1;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        line-height: 1.2;
+        font-size: $txtSizeM1;
+        letter-spacing: -0.01em;
+        text-align: center;
+        font-family: "AppleSDGothicNeoL";
+        box-sizing: border-box;
+        border-radius: 50%;
+        background: #333;
+        white-space: pre;
+        padding-top: 11px;
+      }
+      .productImg img {
+        -webkit-filter: grayscale(100%);
+        filter: opacity(50%);
+      }
+    }
+    &.soldEnd {
+      .productImg:before {
+        content: "판매\A종료";
+        position: absolute;
+        left: 19px;
+        top: 0;
+        z-index: 1;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        line-height: 1.2;
+        font-size: $txtSizeM1;
+        letter-spacing: -0.01em;
+        text-align: center;
+        font-family: "AppleSDGothicNeoL";
+        box-sizing: border-box;
+        border-radius: 50%;
+        background: #333;
+        white-space: pre;
+        padding-top: 11px;
+      }
+      .productImg img {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+    }
+    &.new {
+      .productImg:before {
+        content: "new";
+        position: absolute;
+        left: 19px;
+        top: 0;
+        z-index: 1;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        line-height: 2.8;
+        font-size: $txtSizeP4;
+        letter-spacing: -0.01em;
+        text-align: center;
+        font-family: "AppleSDGothicNeoL";
+        box-sizing: border-box;
+        border-radius: 50%;
+        background: $greenColor;
+      }
+    }
+  }
+}
+.ssammallDeviceList {
+  .productList {
+    li {
+      .productImg {
+        background: #fafafa;
+      }
+      &.soldOut,
+      &.soldYet,
+      &.soldEnd,
+      &.new {
+        .productImg:before {
+          left: 0;
+        }
+      }
+    }
+  }
+}
+/* 교재 목록 (4단) */
+.bookList {
+  font-size: 0;
+  li {
+    display: inline-block;
+    position: relative;
+    width: 180px;
+    height: 415px;
+    vertical-align: top;
+    & ~ li {
+      margin-left: 50px;
+    }
+    &:nth-child(5n + 1) {
+      margin-left: 0;
+    }
+    a {
+      display: block;
+      .bookGoods {
+        width: 100%;
+        .goodsImg {
+          @extend %imgAlignCenter;
+          position: relative;
+        }
+        .goodsDetail {
+          .iSbjSetMini,
+          .iLocSet,
+          .iPro,
+          .iSet,
+          .inComeDed {
+            vertical-align: top;
+          }
+          .price {
+            display: block;
+            white-space: nowrap;
+            strong {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* 수강 후기 목록 */
+.reviewList {
+  dl {
+    border-bottom: 1px solid $grayColor;
+    position: relative;
+    padding: 20px 26px 40px;
+    dt {
+      display: flex;
+      width: 100%;
+      cursor: pointer;
+      &::after {
+        position: absolute;
+        content: "더보기";
+        display: inline-block;
+        width: 72px;
+        height: 23px;
+        padding: 0 0 0 12px;
+        line-height: 1.7;
+        text-align: left;
+        font-size: 13px;
+        color: #888;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        left: 138px;
+        bottom: 20px;
+        background: url(../images/more_arrow.png) no-repeat 88% center;
+        box-sizing: border-box;
+      }
+      .imgBox {
+        @extend %imgAlignA;
+        display: block;
+        flex: none;
+        width: 78px;
+        height: 78px;
+        overflow: hidden;
+        border-radius: 5px;
+        border: 1px solid $grayColor;
+      }
+      .txtBox {
+        display: block;
+        flex: auto;
+        padding: 15px 34px;
+        vertical-align: middle;
+        .name {
+          display: block;
+          margin-bottom: 1px;
+          color: #111;
+          font-size: $txtSizeP2;
+        }
+        .tit {
+          display: inline-block;
+          padding: 0 0 2px 0;
+          font-size: $txtSizeP2;
+          color: #111;
+          font-weight: 600;
+          em {
+            display: inline-block;
+            margin-right: 5px;
+            color: $lightBlackColor;
+            font-weight: 200;
+          }
+        }
+      }
+    }
+    dd {
+      padding: 0 255px 0 113px;
+      margin: 0;
+      color: $lightBlackColor;
+      font-weight: 400;
+      line-height: 1.5;
+      font-size: $txtSizeP2;
+      min-height: 48px;
+      .popImgList {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 16px;
+        img {
+          max-height: 153px;
+          cursor: pointer;
+          max-width: 232px;
+        }
+        img ~ img {
+          margin-left: 6px;
+        }
+      }
+    }
+    &.on {
+      padding: 20px 26px 54px;
+      dt {
+        padding-bottom: 0;
+      }
+      dt::after {
+        content: "접기";
+        background: url(../images/more_arrow_r.png) no-repeat 88% center;
+      }
+    }
+  }
+  &.noImgCase {
+    dl {
+      padding: 20px 26px 54px;
+      dt {
+        padding: 0 255px 0 0;
+        .txtBox {
+          padding: 0 0 10px;
+        }
+        &::after {
+          left: 25px;
+        }
+      }
+      dd {
+        padding: 0 255px 0 0;
+      }
+    }
+  }
+}
+/* 데이터형식 */
+.tableList {
+  @extend %clearBh;
+  border: 1px solid $grayColor;
+  border-width: 1px 0 1px 1px;
+  dl {
+    float: left;
+    display: inline-block;
+    border-right: 1px solid $grayColor;
+  }
+  dl dt {
+    padding: 12px 0;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: 1px solid $grayColor;
+    background: $lightGrayColor;
+  }
+  dl dd {
+    padding: 15px 20px 0;
+    color: $lightBlackColor;
+    font-weight: 200;
+  }
+}
+.tableData {
+  margin: 10px 0 5px;
+  border: 1px solid $grayColor;
+  .gridSet {
+    border-bottom: 1px solid $grayColor;
+    background: $lightGrayColor;
+  }
+  .gridSet .gridItem {
+    padding: 12px 0;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 600;
+    border-left: 1px solid $grayColor;
+  }
+  .gridSet .gridItem:first-child {
+    border-left: 0;
+  }
+  dl {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid $grayColor;
+  }
+  dl * {
+    color: $lightBlackColor;
+  }
+  dl dt {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 200;
+    color: $lightBlackColor;
+  }
+  dl dd {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    padding: 16px 20px;
+    height: 52px;
+    line-height: 1.6;
+    color: $lightBlackColor;
+    font-weight: 200;
+    border-left: 1px solid $grayColor;
+  }
+  dl:last-child {
+    border-bottom: 0;
+  }
+  .dupl {
+    strong {
+      float: left;
+      display: table;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 200;
+      color: $lightBlackColor;
+      border-right: 1px solid $grayColor;
+    }
+    strong span {
+      display: table-cell;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 200;
+      color: $lightBlackColor;
+    }
+  }
+}
+/* paginate */
+.paginate {
+  @extend %clearBh;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 33px 0 1rem 66px;
+  width: 100%;
+  text-align: center;
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 21px;
+  }
+  a {
+    display: inline-block;
+    position: relative;
+    margin: 0 4px;
+    width: 27px;
+    cursor: pointer;
+    line-height: 1.6;
+    letter-spacing: 0;
+    color: $darkGrayColor;
+    box-sizing: border-box;
+    vertical-align: middle;
+  }
+  a.on {
+    color: $greenColor;
+    font-weight: bold;
+  }
+  a.on::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background: $greenColor;
+  }
+  span a:last-child::after {
+    left: 7px;
+    right: 7px;
+  }
+  .first,
+  .prev,
+  .next,
+  .last {
+    display: inline-block;
+    margin: 0 1px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    line-height: 2.2;
+    border: none;
+    box-sizing: border-box;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: url("../images/btn_paginate.png") no-repeat;
+    background-color: transparent;
+    vertical-align: middle;
+  }
+  .first {
+    background-position: top left;
+  }
+  .prev {
+    background-position: top right;
+  }
+  .next {
+    background-position: bottom left;
+  }
+  .last {
+    background-position: bottom right;
+  }
+  .selectSet {
+    float: right;
+    margin: -8px 0 0 0;
+    height: 40px;
+    width: 70px;
+    overflow: hidden;
+    &:after {
+      right: 14px;
+      border-color: $grayColor;
+    }
+    select {
+      height: 100%;
+      padding: 0 20px 0 14px;
+      font-family: "Roboto";
+      color: $lightBlackColor;
+    }
+  }
+  .selectSet.mCase {
+    display: none;
+  }
+}
+.moreBtnWrap {
+  display: flex;
+  padding-top: 30px;
+  .mobileMore {
+    flex: 1;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #666;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  &.adPD {
+    padding: 30px 20px 0;
+  }
+}
+
+/* ========= View (사이트 공통사용) ========= */
+/* 게시판 상세 */
+.boardDetail {
+  .boardHead {
+    position: relative;
+    padding: 20px 25px;
+    border-bottom: 1px solid $grayColor;
+    strong {
+      display: block;
+      padding: 0 0 6px;
+      font-size: $txtSizeP4;
+      letter-spacing: -0.05em;
+      word-break: break-word;
+      em.iBbsSet {
+        display: block;
+        width: 55px;
+        &.notice {
+          width: 40px;
+        }
+      }
+    }
+    strong [class*="mj"],
+    strong .round {
+      display: inline-block;
+      height: 20px;
+      margin: -5px 10px 0 0;
+      padding: 0 8px;
+      color: $whiteColor;
+      font-size: $txtSizeM2;
+      vertical-align: middle;
+      border-radius: 3px;
+    }
+    strong .round {
+      background: $lightBlackColor;
+    }
+    strong .iBbsSet.notice {
+      margin: -4px 6px 0 0;
+      vertical-align: middle;
+    }
+    strong span {
+      font-size: inherit;
+      font-weight: 400;
+    }
+    .boardInfo {
+      * {
+        font-weight: 200;
+        color: $brightGrayColor;
+        letter-spacing: -0.02em;
+      }
+      em {
+        position: relative;
+        display: inline-block; /*padding:0 16px 0 16px;*/
+        padding: 0 11px 0 8px;
+        vertical-align: top;
+      }
+      em::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-45%);
+        width: 1px;
+        height: 10px;
+        background: #888;
+      }
+      em:first-child {
+        padding-left: 0;
+      }
+      em:last-child {
+        padding-right: 0;
+      }
+      em:last-child::after {
+        display: none;
+      }
+      em i {
+        margin: -2px 0 0 0;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: "Roboto";
+      }
+    }
+    .btnTcHomeName {
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .iSbjSetMini {
+      margin-top: -3px;
+    }
+    &.stateCase {
+      padding-left: 88px;
+      .iBbsSet {
+        position: absolute;
+        left: 25px;
+        top: 19px;
+      }
+    }
+    &.ssamCase {
+      padding-left: 130px;
+      .imgBox {
+        position: absolute;
+        left: 25px;
+        top: 19px;
+        @extend %imgAlignA;
+        display: inline-block;
+        margin: 0;
+        width: 80px;
+        height: 80px;
+        vertical-align: middle;
+        overflow: hidden;
+      }
+      .imgBox.sbjCase {
+        border: 1px solid $grayColor;
+        background: $whiteColor;
+      }
+    }
+    & + .boardFile {
+      position: relative;
+      z-index: 2;
+      margin-top: -1px;
+      padding: 0 25px;
+      background: $whiteColor;
+    }
+    .hashTag {
+      padding-bottom: 5px;
+    }
+    .hashTag span {
+      font-size: $txtSizeP2;
+    }
+    .lecKind {
+      padding-bottom: 6px;
+      font-size: $txtSizeP2;
+      line-height: 1.3;
+    }
+    .detailType {
+      padding-bottom: 6px;
+      color: $lightBlackColor;
+    }
+    .right-po {
+      top: 20px;
+      right: 25px;
+    }
+    .shareBox {
+      display: inline-block;
+      top: 20px;
+      right: 20px;
+      text-align: right;
+      .likeNum {
+        margin-right: 10px;
+      }
+      .likeNum label {
+        width: auto;
+      }
+      .shareSet {
+        position: relative;
+        display: inline-block;
+        .btnShare {
+          @include iconBtn(26px, 26px);
+          background: url("../images/btn_share.svg") no-repeat center;
+        }
+        div {
+          position: absolute;
+          display: none;
+          bottom: -56px;
+          right: -15px;
+          padding: 10px;
+          width: 160px;
+          border-radius: 5px;
+          border: 1px solid $grayColor;
+          background: #fff;
+          * {
+            display: inline-block;
+            margin-left: 5px;
+            width: 30px;
+            height: 30px;
+            text-indent: -9999px;
+            overflow: hidden;
+          }
+          .cacao {
+            margin-left: 0;
+            background: url("../images/btn_share_cacao.svg") no-repeat center;
+            background-size: 100% auto;
+          }
+          .line {
+            background: url("../images/btn_share_line.svg") no-repeat center;
+            background-size: 100% auto;
+          }
+          .facebook {
+            background: url("../images/btn_share_facebook.svg") no-repeat center;
+            background-size: 100% auto;
+          }
+          .url {
+            background: url("../images/btn_share_url.svg") no-repeat center;
+            background-size: 100% auto;
+          }
+        }
+        &.on {
+          .btnShare {
+            background: url("../images/btn_share_on.svg") no-repeat center;
+          }
+          div {
+            display: inline-block;
+          }
+        }
+      }
+    }
+    &.past {
+      position: relative;
+      &:after {
+        content: "종료";
+        position: absolute;
+        display: inline-block;
+        top: 13px;
+        right: 13px;
+        width: 67px;
+        height: 67px;
+        font-size: $txtSizeP4;
+        line-height: 3.8;
+        color: $whiteColor;
+        text-align: center;
+        border-radius: 67px;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.7);
+      }
+    }
+    &.mockCase {
+      padding-left: 88px;
+      .iMockSet {
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        margin-top: -25px;
+        padding: 17px 0;
+      }
+      .boardInfo {
+        em i {
+          color: $blackColor;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .boardSource {
+    position: relative;
+    margin-top: -1px;
+    padding: 1.286rem 2.357rem;
+    background: $lightGrayColor;
+    em {
+      display: inline-block;
+      width: 60px;
+      height: 23px;
+      font-size: $txtSizeM2;
+      color: $darkGrayColor;
+      line-height: 1.8;
+      text-align: center;
+      border-radius: 3px;
+      border: 1px solid $darkGrayColor;
+    }
+    a {
+      display: inline-block;
+      padding: 0 30px 0 14px;
+      color: $darkGrayColor;
+      background: url("../images/i_sourceLink.png") no-repeat right center;
+    }
+  }
+  .boardView {
+    padding: 20px 25px;
+    min-height: 300px;
+    line-height: 1.7;
+    letter-spacing: -0.04em;
+    white-space: normal;
+    word-break: break-all;
+    img {
+      max-width: 100%;
+    }
+    pre {
+      white-space: normal;
+    }
+    // editor 세팅
+    * {
+      color: inherit;
+    }
+    i {
+      font-style: italic;
+    }
+    ul {
+      list-style-type: disc;
+      padding-inline-start: 20px;
+    }
+    ul > li {
+      list-style: inherit;
+    }
+    ul {
+      list-style-type: decimal;
+      padding-inline-start: 16px;
+    }
+    ul > li {
+      list-style: inherit;
+    }
+    ul.todo-list {
+      list-style: none;
+    }
+    sup {
+      display: inline;
+      width: auto;
+      height: auto;
+      text-indent: 0;
+      overflow: auto;
+      font-size: smaller;
+      vertical-align: super;
+      background: 0;
+    }
+  }
+  .boardViewReply {
+    position: relative;
+    padding: 20px 25px 20px 88px;
+    background: $lightGrayColor;
+    .iBbsSet {
+      position: absolute;
+      left: 25px;
+      top: 19px;
+    }
+    .replyDate {
+      padding-bottom: 12px;
+      color: $lightBlackColor;
+    }
+    .replyDate em {
+      margin-right: 30px;
+      color: $lightBlackColor;
+    }
+    .replyDate em i {
+      margin: -4px 0 0 0;
+      display: inline-block;
+      vertical-align: middle;
+      font-family: "Roboto";
+      color: $lightBlackColor;
+    }
+    .replyDate i {
+      font-family: "Roboto";
+      color: $lightBlackColor;
+    }
+    .replyFull {
+      color: $lightBlackColor;
+    }
+    .boardFile {
+      margin: 25px 0 -14px -53px;
+      li {
+        margin: 0;
+        padding: 14px 2.357rem;
+        border-top: 1px solid $grayColor;
+      }
+    }
+    // editor style (start)
+    ol {
+      padding-left: 1.5rem;
+      li {
+        list-style-type: decimal;
+        height: auto;
+        border: none;
+      }
+    }
+    ul {
+      padding-left: 1.5rem;
+      li {
+        list-style-type: disc;
+        height: auto;
+        border: none;
+      }
+      &.todo-list > li {
+        list-style: none;
+      }
+    }
+    i {
+      font-style: italic;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 0 10px;
+      }
+      th {
+        background-color: #fafafa;
+      }
+    }
+    input {
+      -webkit-appearance: checkbox;
+    }
+    figure.table {
+      margin: 0;
+    }
+    // editor style (end)
+  }
+  //이벤트 합격자 및 불법 명단
+  .boardOnList {
+    position: relative;
+    padding: 0 25px 20px 25px;
+    div.back {
+      padding: 20px 25px 20px;
+      background: $lightGrayColor;
+    }
+    strong {
+      display: block;
+      height: 39px;
+      font-size: $txtSizeP2;
+    }
+    .listNum {
+      table {
+        border-collapse: collapse;
+        th,
+        td {
+          padding: 5px 5px;
+          height: 28px;
+          text-align: center;
+          border: 1px solid $lightBlackColor;
+          background: $whiteColor;
+        }
+        th {
+          font-weight: 600;
+          background: $grayColor;
+        }
+        td {
+          color: $lightBlackColor;
+        }
+        .item0 {
+          width: 80px;
+        }
+        .item1 {
+          width: 119px;
+        }
+        .item2 {
+          width: 138px;
+        }
+        .item3 {
+          width: 280px;
+        }
+      }
+    }
+  }
+  .tagNlike {
+    height: 70px;
+    .hashTag {
+      padding-bottom: 10px;
+    }
+  }
+  //합격수기 설문조사 상세내용
+  .boardPassingView {
+    padding: 20px 20px;
+    .tableList {
+      dl {
+        width: 18%;
+      }
+      dl dd {
+        height: 52px;
+        text-align: center;
+      }
+      dl.last {
+        width: 28%;
+      }
+    }
+    .monthData {
+      padding: 0 0 10px;
+      * {
+        color: $lightBlackColor;
+      }
+      strong {
+        display: block;
+        padding: 35px 0 20px;
+      }
+      dl {
+        padding: 0 0 15px;
+      }
+    }
+  }
+  &.reviewCase {
+    .boardHead {
+      padding: 47px 35px 0 234px;
+      height: 235px;
+      border: 1px solid $grayColor;
+      .imgBox {
+        @extend %imgAlignA;
+        position: absolute;
+        top: 25px;
+        left: 15px;
+        display: inline-block;
+        width: 180px;
+        height: 180px;
+        vertical-align: top;
+        overflow: hidden;
+        text-align: center;
+      }
+      strong {
+        font-size: $txtSizeP6;
+        padding: 0 0 1px;
+      }
+      .boardInfo {
+        padding: 3px 0 15px;
+        * {
+          font-size: $txtSizeM2;
+        }
+      }
+      [class*="btn"] {
+        width: 160px;
+      }
+      .hashTag {
+        padding-bottom: 10px;
+        * {
+          color: $blackColor;
+        }
+      }
+    }
+    .boardView {
+      padding: 23px 0;
+      line-height: 1.7;
+      letter-spacing: -0.04em;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+  //입력
+  &.write {
+    padding-top: 5px;
+    .sortSet.rndCase label {
+      min-width: 120px;
+      height: 30px;
+      line-height: 1.9;
+    }
+    .box {
+      display: block;
+      margin-top: 10px;
+      .selectSet {
+        min-width: 240px;
+      }
+      .baseMultiSelect {
+        width: 240px;
+      }
+      .selectSet ~ .selectSet,
+      .selectSet ~ .baseMultiSelect,
+      .baseMultiSelect ~ .selectSet {
+        margin-left: 10px;
+      }
+      textarea {
+        height: 290px;
+      }
+      &.sortSet label {
+        width: 90px;
+      }
+      &.checkSetArea {
+        padding-top: 0px;
+        .checkSet {
+          display: block;
+          margin-right: 0;
+          label {
+            padding: 14px 20px 14px 54px;
+            border: 0;
+            color: $lightBlackColor;
+            background: #f8fcf9;
+          }
+          label i {
+            left: 30px;
+          }
+          input:checked + label {
+            color: #20ab61;
+            font-weight: 500;
+          }
+          input:checked + label i:before {
+            border-color: $greenColor;
+          }
+        }
+        &.col2 {
+          margin-top: 20px;
+          @extend %clearBh;
+          height: 112px;
+          background: #f8fcf9;
+          p {
+            padding: 12px 20px 0 19px;
+            font-size: $txtSizeM2;
+            font-weight: 200;
+          }
+          p span {
+            margin-left: 20px;
+            font-size: $txtSizeM2;
+            font-weight: 200;
+            color: #d1555f;
+          }
+          .checkSet {
+            float: left;
+            display: inline-block;
+            label {
+              padding: 13px 20px 14px 47px;
+              border: 0;
+            }
+            label i {
+              left: 20px;
+            }
+          }
+        }
+      }
+      &.columMulty {
+        .selectSet,
+        .baseMultiSelect,
+        input {
+          width: 290px;
+        }
+        input {
+          margin-right: 10px;
+        }
+      }
+    }
+    .tt {
+      display: block;
+      padding-bottom: 10px;
+      font-size: $txtSizeP4;
+    }
+    .writeLecKind {
+      @extend %clearBh;
+      padding: 5px 20px 5px 0;
+      text-align: right;
+      margin-bottom: 10px;
+      em {
+        display: inline-block;
+        color: $lightBlackColor;
+      }
+      em:after {
+        content: "";
+        display: inline-block;
+        margin: -2px 15px 0;
+        width: 0;
+        height: 12px;
+        vertical-align: middle;
+        border-right: 1px solid $lightBlackColor;
+      }
+      span {
+        float: left;
+        font-weight: 600;
+        color: $lightBlackColor;
+      }
+    }
+    .boardBtn {
+      border: none;
+    }
+    .erMsg {
+      margin-top: 10px;
+      padding: 0;
+      font-size: $txtSize;
+    }
+
+    /* 파일 업로드 리스트 */
+    .uploadFile {
+      padding-top: 0;
+    }
+    .uploadFileList {
+      margin-bottom: 25px;
+      border-bottom: 1px solid $grayColor;
+      .btnBox {
+        .btnDelete {
+          margin-left: 28px;
+          background: url("../images/i_deletX.svg") no-repeat center;
+          &::before,
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+.boardView.onlyData {
+  padding: 0 0;
+  img {
+    max-width: 100%;
+  }
+}
+.boardBtn {
+  padding: 25px 0;
+  border-top: 1px solid $grayColor;
+  text-align: center;
+  [class*="btn"] {
+    margin: 0 5px;
+    width: 140px;
+  }
+  &.noLine {
+    border: none;
+  }
+}
+.comment {
+  padding: 25px 0;
+  border-top: 1px solid $grayColor;
+  .writeBox {
+    position: relative;
+    strong {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+    }
+    .regist {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 85px;
+      height: 50px;
+      z-index: 2;
+      color: $darkGrayColor;
+    }
+    textarea {
+      padding: 40px 15px;
+      width: 100%;
+      height: 130px;
+      border-color: $grayColor;
+    }
+    textarea:focus {
+      border-color: $blackColor;
+    }
+  }
+  .commentBox {
+    li {
+      padding: 15px 0 0;
+      border-bottom: 1px solid $grayColor;
+      cursor: pointer;
+      &:hover {
+        background: #fafafa;
+      }
+    }
+    li:last-child {
+      border-bottom: 0;
+    }
+    div {
+      position: relative;
+      padding: 8px 19px 20px 100px;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        border: 1px solid $grayColor;
+        background: $grayColor url("../images/i_comment_female.svg") no-repeat
+          center;
+        background-size: 105%;
+      }
+      strong {
+        display: block;
+        padding: 1px 0 0;
+        font-size: $txtSizeP2;
+      }
+      .btnDelete {
+        position: absolute;
+        top: 0;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        &::before,
+        &::after {
+          width: 1px;
+          height: 20px;
+        }
+      }
+      p {
+        padding: 10px 0 11px;
+        line-height: 1.5;
+        font-weight: 200;
+        color: #666;
+        width: 920px;
+      }
+      span {
+        display: block;
+        text-align: right;
+        color: #888;
+        letter-spacing: 0;
+        font-weight: 100;
+        font-family: "Roboto";
+      }
+      &.male:before {
+        background: $grayColor url("../images/i_comment_male.svg") no-repeat
+          center;
+        background-size: 105%;
+      }
+    }
+    ol li {
+      padding: 15px 0 15px 52px;
+      background: $lightGrayColor;
+      div:before {
+        background: $whiteColor url("../images/i_comment_admin.png") no-repeat
+          center;
+        background-size: 100%;
+      }
+    }
+  }
+  &.noList {
+    border: none !important;
+    background: $lightGrayColor;
+    .commentBox li {
+      border: none !important;
+    }
+    .commentBox div {
+      padding: 18px 19px 37px 100px !important;
+    }
+    .commentBox div:before {
+      top: 3px;
+      left: 25px;
+      background: $grayColor url("../images/i_comment_no.svg") no-repeat center;
+      background-size: 105%;
+    }
+    .commentBox div em {
+      font-weight: 200;
+      color: #666;
+    }
+  }
+}
+/* 게시판 상세 네비게이션 */
+.boardNavi {
+  @extend %clearBh;
+  display: block;
+  position: relative;
+  padding: 24px 0 0;
+  min-height: 66px;
+  width: 100%;
+  border-top: 2px solid $blackColor;
+  .prev,
+  .next {
+    position: relative;
+    float: left;
+    padding-left: 69px;
+    margin-left: 0;
+    height: 40px;
+    line-height: 100%;
+    & strong {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-left: 23px;
+    }
+    & strong::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 13px;
+      height: 24px;
+      background: url(../images/i_arrow.svg) no-repeat center;
+      background-size: 100%;
+    }
+    em {
+      display: -webkit-box;
+      max-width: 200px;
+      color: #888;
+      letter-spacing: -0.03em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-align: left;
+      word-break: break-all;
+    }
+    &:hover em {
+      text-decoration: underline;
+    }
+  }
+  .next {
+    float: right;
+    padding: 0 66px 0 0;
+    margin: 0 0 0 0;
+    strong {
+      left: auto;
+      right: 0;
+      top: 50%;
+      padding: 0 21px 0 0;
+    }
+    strong::before {
+      left: auto;
+      right: 0;
+      background-size: contain;
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+  .btnList {
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+/* 컨튼츠 별 입력 (마이페이지 같은 타이틀이 있는 경우) */
+.boardWrite {
+  @extend %clearBh;
+  display: block;
+  dl {
+    display: table;
+    width: 100%;
+    padding-bottom: 5px;
+  }
+  dl dt {
+    display: table-cell;
+    width: 80px;
+  }
+  dl dd {
+    display: table-cell;
+    .ipBtn {
+      margin-bottom: 5px;
+    }
+  }
+}
+/*  ========= 강과관련 (수강신청, 내강의실 등) ========= */
+/* 강좌 타이틀 기본  */
+.lecTt {
+  display: inline-block;
+  a {
+    display: block;
+  }
+  .tt {
+    padding: 6px 0;
+    display: block;
+    font-size: $txtSizeP4;
+    color: #000;
+    letter-spacing: -0.04em;
+  }
+  .tt .iLocSet {
+    margin: -4px 4px 0 0;
+    & + .iPro.bonus {
+      margin-top: -4px;
+    }
+  }
+  .iSet {
+    width: 50px;
+  }
+  .iSet.gray {
+    width: auto;
+  }
+  .division {
+    padding: 0 0 0 5px;
+    margin-top: -5px;
+  }
+  .ssam {
+    display: block;
+    padding-bottom: 5px;
+    span {
+      font-size: $txtSizeP2;
+      font-weight: 600;
+    }
+    i {
+      display: none;
+    }
+  }
+  .ingRate {
+    display: inline-block;
+    .rateBar {
+      vertical-align: middle;
+      width: 314px;
+      background: $grayColor;
+    }
+    em {
+      display: inline-block;
+      margin: -2px 0 0 10px;
+      color: $lightBlackColor;
+      vertical-align: middle;
+    }
+    strong {
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+  .msg {
+    display: block;
+    color: #888;
+    font-weight: 100;
+  }
+  .msg em,
+  .msg button {
+    margin: -3px 0 0 5px;
+    vertical-align: middle;
+  }
+  .msg button {
+    position: relative;
+  }
+  .msg + .limitNtime {
+    padding-top: 10px;
+  }
+  .tt + .limitNtime {
+    padding-bottom: 5px;
+  }
+  .tt + .lecLimit {
+    display: inline-block;
+    margin: 10px 0 9px;
+  }
+  .liveState {
+    padding: 7px 0 0 0;
+  }
+  .lecUnit {
+    .iStartSet,
+    .iApplySet,
+    .iMaking {
+      display: none;
+    }
+  }
+}
+.lecBasic {
+  position: relative;
+  width: 100%;
+  padding: 18px 300px 21px 0;
+  .kind {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -95px;
+    display: table;
+    width: 95px;
+    height: 100%;
+    text-align: center;
+    span {
+      display: table-cell;
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+    }
+    em {
+      margin-bottom: 5px;
+      text-align: center;
+    }
+  }
+  .choice {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 268px;
+    /* 수강신청 가격체크 */
+    .priceCheck {
+      float: right;
+      margin: 3px 0 4px;
+      @include setRadioCheck;
+      margin-right: 0;
+      input + label > i:before {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        display: inline-block;
+        width: 10px;
+        height: 6px;
+        box-sizing: border-box;
+        border: 2px solid $whiteColor;
+        border-top: 0;
+        border-right: 0;
+        @include venderPrefix(transform, rotate(-45deg));
+      }
+      label {
+        padding: 0 20px 0 46px;
+        width: 255px;
+        display: flex;
+        align-items: center;
+        height: 55px;
+        border: 1px solid $brightGrayColor;
+        border-radius: 5px;
+        background: $lightGrayColor;
+      }
+      label > i {
+        left: 20px;
+      }
+      label em {
+        line-height: 1.2;
+        color: $brightGrayColor;
+        flex: auto;
+      }
+      input:checked + label {
+        border: 1px solid $greenColor;
+        box-shadow: inset 0 0 0 1px $greenColor;
+        background: $whiteColor;
+      }
+      input:checked + label > i:before {
+        border-color: $greenColor;
+      }
+      input:checked + label em {
+        color: $blackColor;
+      }
+      input:disabled + label {
+        border-color: $grayColor;
+        color: #aaa;
+      }
+      input:disabled + label em {
+        color: #aaa;
+      }
+      input:disabled + label > i {
+        border-color: $grayColor;
+        background: $lightGrayColor;
+      }
+      input:checked:disabled + label {
+        border: 1px solid $greenColor;
+        box-shadow: inset 0 0 0 1px $greenColor;
+        background: $whiteColor;
+      }
+      .price {
+        text-align: right;
+        line-height: 1.3;
+        strong {
+          font-size: $txtSizeP6;
+        }
+        del {
+          display: block;
+          margin-right: 0;
+          font-size: $txtSizeM2;
+        }
+      }
+      .notOnline {
+        float: right;
+        text-align: right;
+        line-height: 3.7;
+        color: $redColor;
+        letter-spacing: -0.02em;
+        font-size: $txtSizeM1;
+      }
+    }
+    &.waiting {
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+.lecBtnSet {
+  @extend %clearBh;
+  padding-top: 9px;
+  * {
+    @extend %arrowBtn;
+    float: left;
+    width: 89px;
+    height: 28px;
+    margin-right: -1px;
+    text-align: left;
+    white-space: nowrap;
+    color: $lightBlackColor;
+    border-color: $brightGrayColor;
+    border-radius: 0;
+    &::after {
+      border-color: $brightGrayColor;
+    }
+    &.btnPgOpner {
+      width: 121px;
+      overflow: hidden;
+      &::after {
+        @include venderPrefix(transform, translateY(-70%) rotate(45deg));
+        transition: all 0.3s;
+      }
+      &.on {
+        color: $whiteColor;
+        background: $brightGrayColor;
+        font-weight: 200;
+        &::after {
+          border-color: $whiteColor;
+          @include venderPrefix(transform, translateY(-30%) rotate(-135deg));
+        }
+      }
+    }
+  }
+  .lecSale {
+    color: #666666; /*animation:lecSaleColor 2s infinite;*/
+  }
+  @keyframes lecSaleColor {
+    0% {
+      color: $brightGrayColor;
+      background: #fff;
+    }
+    25% {
+      color: #fff;
+      background: #d1555f;
+    }
+    50% {
+      color: #fff;
+      background: #4288bf;
+    }
+    75% {
+      color: #fff;
+      background: #d1555f;
+    }
+    100% {
+      color: $brightGrayColor;
+      background: #fff;
+    }
+  }
+  .lecSale::after {
+    border-color: $brightGrayColor; /*animation:lecSaleColor2 2s infinite;*/
+  }
+  @keyframes lecSaleColor2 {
+    0% {
+      border-color: $brightGrayColor;
+    }
+    25% {
+      border-color: #fff;
+    }
+    50% {
+      border-color: #fff;
+    }
+    75% {
+      border-color: #fff;
+    }
+    100% {
+      border-color: $brightGrayColor;
+    }
+  }
+}
+.lecBasic + .lecBtnSet {
+  margin: -25px 0 15px;
+}
+/* 강좌 목록  */
+.ssamLecList {
+  padding: 0 0 40px;
+  ul {
+    border-top: 1px solid $grayColor;
+  }
+  ul > li {
+    padding: 0 0 0 95px;
+    border-bottom: 1px solid $grayColor;
+  }
+  ul > li:hover {
+    background: #f8fcf9;
+  }
+  ul > li.unOpen {
+    background: $lightGrayColor;
+    opacity: 0.5;
+    .lecUnit * {
+      background: $grayColor;
+    }
+    .division {
+      color: $grayColor;
+    }
+    .iPro {
+      background: $grayColor;
+    }
+    .iPro.bonus {
+      background: $grayColor;
+    }
+    .lecLimit.red {
+      color: $lightBlackColor;
+    }
+    .lecLimit.red::before {
+      background: $lightBlackColor;
+    }
+  }
+  .inPackage {
+    height: 0;
+    overflow: hidden;
+    .openerLine {
+      padding: 13px 0;
+      text-align: center;
+      button {
+        padding: 0 18px;
+        margin-left: -6px;
+        font-size: $txtSizeM2;
+        color: $lightBlackColor;
+      }
+      button:after {
+        content: "";
+        display: inline-block;
+        margin: 2px 0 0 13px;
+        height: 6px;
+        width: 6px;
+        vertical-align: middle;
+        background: 0;
+        border: 1px solid $darkGrayColor;
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+        @include venderPrefix(transform, rotate(45deg));
+        pointer-events: none;
+      }
+    }
+    .widthList {
+      padding: 5px 20px 4px 19px;
+      background: $lightGrayColor;
+    }
+    &.on {
+      padding: 1px 20px 20px 0;
+      height: auto;
+    }
+    // .singleLec {position:relative;
+    //   .lecLimit {top: -22px;}
+    // }
+  }
+  .inbLecture {
+    padding: 0 20px 0 0;
+    .widthList {
+      padding: 14px 0 10px;
+      border-top: 1px solid #e3e3e3;
+      ol li {
+        padding: 0;
+        border-bottom: 0;
+      }
+      .lecBtnSet {
+        button {
+          background: #fafafa;
+        }
+      }
+    }
+  }
+  ul.myCase {
+    & > li {
+      padding: 0 0 0 100px;
+    }
+    .lecBasic {
+      padding: 22px 300px 21px 0;
+      .kind span {
+        vertical-align: top;
+        padding-top: 12px;
+      }
+      .lecTt .tt {
+        padding: 3px 0 6px 0;
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+    .choice {
+      text-align: right;
+    }
+  }
+  ul > li.holding {
+    background: $lightGrayColor;
+    .kind span *,
+    .iLocSet {
+      color: $whiteColor !important;
+      background: $grayColor;
+    }
+    .kind span .iSbjSet {
+      border-color: $grayColor;
+    }
+    .kind .iStartSet {
+      font-weight: 400;
+    }
+    .lecTt * {
+      color: $grayColor;
+    }
+    .lecTt .tt {
+      color: #888;
+    }
+    .iMaking,
+    .lecTimes {
+      border-color: $grayColor;
+    }
+    .rateBar {
+      background: $whiteColor;
+    }
+    .rateBar span {
+      background: $grayColor;
+    }
+    .lecBbsSet {
+      opacity: 0.4;
+    }
+    .lecBbsSet * {
+      cursor: default;
+    }
+    .lecBasic {
+      position: relative;
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 300px;
+        bottom: 0;
+        z-index: 2;
+        background: transparent;
+      }
+    }
+  }
+  ul > li.closing {
+    background: $lightGrayColor;
+    .kind span .iSbjSet {
+      border-color: #ddd;
+    }
+    .lecTimes {
+      color: $lightBlackColor;
+      border-color: $lightBlackColor;
+    }
+    .lecLiveGo {
+      opacity: 0.4;
+      cursor: default;
+    }
+    .lecBasic {
+      position: relative;
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 300px;
+        bottom: 0;
+        z-index: 2;
+        background: transparent;
+      }
+    }
+  }
+}
+/* (패키지 포함) 강좌 및 교재 목록  */
+.widthList {
+  li {
+    padding: 9px 0 9px 2px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid #e3e3e3;
+  }
+  .item {
+    display: table;
+    padding: 6px 0 9px;
+    width: 100%;
+    .tL {
+      display: table-cell;
+      position: relative;
+      padding: 0 0 0 56px;
+      width: 60%;
+      vertical-align: top;
+      em,
+      button,
+      i {
+        vertical-align: inherit;
+      }
+      i {
+        margin: 0 6px 0 6px;
+      }
+      [class*="iSet"],
+      [class*="iPro"] {
+        position: absolute;
+        left: 0;
+        top: 2px;
+      }
+      strong {
+        display: block;
+        font-weight: 500;
+        color: $lightBlackColor;
+        letter-spacing: -0.1em;
+      }
+    }
+    .tR {
+      display: table-cell;
+      width: 40%;
+      vertical-align: top;
+      .price {
+        display: inline-block;
+        margin: -5px 0 0 0;
+        strong {
+          font-size: $txtSizeP6;
+        }
+        del {
+          font-size: $txtSizeM2;
+        }
+      }
+      .checkSet {
+        margin: -4px 0 0 22px;
+      }
+      .notOnline {
+        margin: -3px 0 0 41px;
+        color: #888;
+        font-weight: 100;
+        letter-spacing: -0.02em;
+      }
+    }
+  }
+  &.noLine li {
+    border: 0;
+  }
+  .lecBtnSet {
+    display: inline-block;
+    padding: 0 0 0 56px;
+    * {
+      border-color: $grayColor;
+      &::after {
+        border-color: #999;
+      }
+    }
+  }
+}
+.widthListB {
+  .list {
+    position: relative;
+    .tRB {
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+    }
+  }
+}
+/* 결제 가격정보 */
+.viewPrice {
+  float: right;
+  position: sticky;
+  right: 0;
+  top: 50px;
+  width: 290px;
+  padding: 9px 17px 20px 17px;
+  border: 1px solid $grayColor;
+  overflow: hidden;
+  h2 {
+    padding: 4px 0 12px;
+    font-size: $txtSizeP6;
+    border-bottom: 1px dotted $grayColor;
+  }
+  .priceOrderSet {
+    padding: 0 3px 18px 3px;
+    dl {
+      display: table;
+      width: 100%;
+      padding: 8px 0 2px;
+      dt {
+        display: table-cell;
+        padding-top: 21px;
+        text-align: left;
+        vertical-align: middle;
+        font-size: $txtSizeP2;
+      }
+      dd {
+        display: table-cell;
+        text-align: right;
+        vertical-align: middle;
+        .price {
+          del {
+            display: block;
+            margin: 0;
+            letter-spacing: 0;
+          }
+          strong {
+            font-size: $txtSizeP6;
+          }
+        }
+      }
+      &.delivery {
+        dt {
+          padding-top: 0;
+        }
+      }
+      &.last {
+        margin-top: 22px;
+        padding-top: 4px;
+        border-top: 1px dashed $grayColor;
+        dt {
+          display: block;
+          padding-bottom: 5px;
+          font-size: $txtSizeP2;
+          text-align: right;
+          color: #000;
+          font-weight: 600;
+        }
+        dd {
+          display: block;
+          .price {
+            color: $redColor;
+            strong {
+              font-size: 30px;
+              margin-top: -6px;
+              color: inherit;
+            }
+            i {
+              font-size: $txtSizeP4;
+              color: inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+  .agree {
+    padding: 25px 8px;
+    border-top: 1px dashed $grayColor;
+    button {
+      position: relative;
+      display: block;
+      margin: 2px 0;
+      width: 100%;
+      height: 35px;
+      color: $lightBlackColor;
+      text-align: left;
+      border: none;
+      &::after {
+        content: "";
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+        width: 6px;
+        height: 6px;
+        border: 1px solid $blackColor;
+        border-width: 0 1px 1px 0;
+      }
+    }
+    .checkSet {
+      margin: 25px 0 0;
+    }
+    .checkSet label {
+      color: $lightBlackColor;
+    }
+  }
+  .btn {
+    [class*="btn"] {
+      width: 100%;
+    }
+    [class*="btn"] ~ [class*="btn"] {
+      margin-top: 5px;
+    }
+  }
+  p {
+    padding-top: 20px;
+    word-break: initial !important;
+    line-height: 1.6;
+    color: $lightBlackColor;
+    strong {
+      color: $redColor;
+      font-weight: bold;
+      font-size: inherit;
+    }
+  }
+}
+/* 공통사용 쌤팩 및 이벤트 용 선생님 셋트 */
+.subjectSet {
+  margin-bottom: -1px;
+  .ssamSet {
+    border-top: 1px solid #ddd;
+  }
+  .ssamBasic {
+    background: $lightGrayColor;
+    .gridItem {
+      height: 140px;
+    }
+    .name {
+      padding: 23px 20px 27px;
+      .ssamImg {
+        @extend %imgAlignA;
+        margin-right: 5px;
+        display: inline-block;
+        width: 86px;
+        height: 86px;
+        border-radius: 5px;
+        vertical-align: middle;
+        overflow: hidden;
+        border: 1px solid $grayColor;
+        box-sizing: border-box;
+        background: $whiteColor;
+      }
+      div {
+        display: inline-block;
+        padding: 0 0 5px 25px;
+        vertical-align: middle;
+      }
+      strong {
+        font-size: $txtSizeP4;
+        vertical-align: middle;
+      }
+      .msg {
+        display: block;
+        padding-top: 5px;
+        color: $lightBlackColor;
+        font-weight: 400;
+      }
+    }
+    .goBtn {
+      padding: 25px 9px 20px;
+      text-align: right;
+      span {
+        @extend %clearBh;
+        display: inline-block;
+      }
+      span * {
+        float: left;
+        display: inline-block;
+        padding: 24px 0 0 0;
+        width: 98px;
+        height: 42px;
+        text-align: center;
+        font-size: $txtSizeM2;
+        color: $lightBlackColor;
+        border-right: 1px solid $grayColor;
+        box-sizing: border-box;
+        background-color: transparent;
+      }
+      .ssamHome {
+        width: 90px;
+        background: url("../images/i_home_black.svg") no-repeat center top;
+      }
+      .curriculum {
+        background: url("../images/i_open_curriculum.svg") no-repeat center top;
+      }
+      .ssamNotice {
+        background: url("../images/i_open_ssamNotic.svg") no-repeat center top;
+      }
+      span *:last-child {
+        border-right: none;
+      }
+    }
+  }
+  .ssamLecList {
+    padding-bottom: 50px;
+    ul {
+      border-top: 0;
+    }
+    li {
+      padding-left: 0;
+    }
+    .lecBasic {
+      display: table;
+      padding: 0;
+      .lecTt {
+        display: table-cell;
+        padding: 25px 300px 24px 20px;
+        height: 157px;
+        vertical-align: middle;
+        .tt {
+          padding: 0;
+        }
+        .msg {
+          padding-top: 5px;
+        }
+        .tL {
+          display: block;
+          padding: 13px 0 0;
+        }
+      }
+    }
+    .inbLecture {
+      padding: 0 20px;
+      .widthList {
+        padding: 22px 0 18px;
+      }
+    }
+    .inPackage.on {
+      padding: 1px 20px 20px 20px;
+    }
+  }
+}
+/* 공통사용 이용안내 및 유의사항 */
+.appyNotice {
+  .tit {
+    display: block;
+    padding: 0 0 15px;
+    font-size: $txtSizeP10;
+  }
+  div {
+    padding: 20px 30px;
+    border: 1px solid #afafaf;
+    box-sizing: border-box;
+    strong {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: $txtSizeP2;
+      line-height: 22px;
+      color: #1f1f1f;
+      letter-spacing: -0.05em;
+    }
+    ul {
+      margin-bottom: 45px;
+    }
+    ul li {
+      position: relative;
+      padding-left: 15px;
+      font-size: 14px;
+      line-height: 22px;
+      color: #666;
+      letter-spacing: -0.05em;
+      word-break: keep-all;
+    }
+    ul li:before {
+      display: block;
+      position: absolute;
+      top: 11px;
+      left: 2px;
+      width: 5px;
+      height: 1px;
+      background-color: #666;
+      content: "";
+    }
+    dl {
+      margin-bottom: 10px;
+    }
+    dl dt {
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #666;
+    }
+    dl dd {
+      position: relative;
+      padding-left: 15px;
+      font-size: 14px;
+      line-height: 22px;
+      color: #666;
+      letter-spacing: -0.05em;
+      word-break: keep-all;
+    }
+    dl dd:before {
+      display: block;
+      position: absolute;
+      top: 11px;
+      left: 2px;
+      width: 5px;
+      height: 1px;
+      background-color: #666;
+      content: "";
+    }
+    dl + strong {
+      margin-top: 35px;
+    }
+    a,
+    a:visited,
+    a:link {
+      font-weight: bold;
+      color: #4e2683;
+    }
+  }
+}
+/* ====================== */
+/* Swiper */
+/* ====================== */
+/* 프로세스 페이징 버튼 디자인 */
+.bothArrows {
+  position: relative;
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background: $whiteColor;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 20px;
+      background: url(../images/i_arrow.svg) no-repeat center;
+      background-size: 100% 100%;
+    }
+    &::after {
+      font-size: 0;
+    }
+  }
+  .swiper-button-prev {
+    left: -50px;
+  }
+  .swiper-button-next {
+    right: -50px;
+    &::before {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
+  &.page {
+    position: relative;
+    width: 166px;
+    margin: 0 auto;
+    height: 38px;
+    text-align: center;
+    .swiper-button-prev {
+      left: 0;
+    }
+    .swiper-button-next {
+      right: 0;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 38px;
+      height: 38px;
+      background: none;
+      box-shadow: none;
+      border: 1px solid #ccc;
+      background: $whiteColor;
+    }
+    .swiper-button-prev::before,
+    .swiper-button-next::before {
+      height: 12px;
+    }
+    .swiper-pagination {
+      position: relative;
+      line-height: 3.6;
+    }
+    .swiper-pagination-current {
+      font-weight: 600;
+    }
+  }
+}
+/* 프로세스 페이징 버튼 디자인 */
+.swiperProgressSet {
+  position: relative;
+  margin: 45px auto 0;
+  padding: 0;
+  width: 526px;
+  height: 42px;
+  .swiper-pagination-progressbar {
+    top: 50%;
+    width: 420px;
+    height: 2px;
+    background: #aaa;
+    .swiper-pagination-progressbar-fill {
+      background: #666;
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: $whiteColor;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 12px;
+      background: url(../images/i_arrow.svg) no-repeat center;
+      background-size: 100% 100%;
+    }
+    &::after {
+      font-size: 0;
+    }
+  }
+  .swiper-button-prev {
+    left: auto;
+    right: 47px;
+  }
+  .swiper-button-next {
+    right: 0;
+    &::before {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
+}
+/* 작은 프로세스 페이징 버튼 디자인 */
+.swiperSmallProgressSet {
+  position: relative;
+  height: 40px;
+  text-align: center;
+  .back {
+    position: relative;
+    width: 225px;
+    margin: 0 auto;
+  }
+  .back div {
+    padding: 5px 0 0 0;
+    width: 125px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 45px;
+    background: #fff;
+    em {
+      font-family: "Roboto";
+      letter-spacing: 0.02em;
+      strong {
+        font-size: 16px;
+      }
+    }
+    .miniProgress {
+      display: inline-block;
+      margin: -3px 0 0 9px;
+      width: 62px;
+      height: 3px;
+      vertical-align: middle;
+      background: #ddd;
+      i {
+        float: left;
+        display: inline-block;
+        height: 3px;
+        background: #888;
+      }
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background: $whiteColor;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      opacity: 0.5;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 20px;
+      background: url(../images/i_arrow.svg) no-repeat center;
+      background-size: 60% 60%;
+    }
+    &::after {
+      font-size: 0;
+    }
+  }
+  .swiper-button-prev {
+    left: auto;
+    right: 45px;
+  }
+  .swiper-button-next {
+    right: 0;
+    &::before {
+      transform: translate(-50%, -50%) rotate(180deg);
+    }
+  }
+}
+/* 백퍼 수강후기 swiper (메인, 선생님스페셜 서브메인) */
+.reviewSwiper {
+  .swiper-slide {
+    width: 270px;
+  }
+  a {
+    display: block;
+    width: 270px;
+    height: 400px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    overflow: hidden;
+    & * {
+      color: $whiteColor;
+    }
+    & > em {
+      display: block;
+      font-size: $txtSize;
+      font-weight: 200;
+    }
+    .txt {
+      width: 200px;
+      display: -webkit-box;
+      margin-top: 15px;
+      font-size: $txtSizeP10;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+    .name {
+      display: inline-block;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    .over {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -1px;
+      padding: 35px 20px;
+      width: 272px;
+      display: none;
+      border-radius: 5px;
+      box-sizing: border-box;
+      background: $whiteColor;
+    }
+    &:hover {
+      * {
+        color: $lightBlackColor;
+      }
+      .over {
+        display: block;
+        border: 1px solid $grayColor;
+        strong {
+          display: block;
+          font-size: $txtSizeP2;
+        }
+        .longtxt {
+          padding-top: 20px;
+          width: 228px;
+          letter-spacing: -1px;
+          font-size: $txtSizeP1;
+          line-height: 1.6;
+          display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 8;
+          -webkit-box-orient: vertical;
+        }
+        .nameWithDate {
+          display: block;
+          position: absolute;
+          left: 20px;
+          bottom: 20px;
+          letter-spacing: 0;
+          font-family: "Roboto";
+        }
+        .nameWithDate em {
+          margin-right: 15px;
+          font-family: "Roboto";
+        }
+        &.imgCase {
+          padding: 0;
+          .img {
+            @extend %imgAlignCenter;
+            display: block;
+            height: 146px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+          }
+          strong {
+            padding: 14px 20px 0;
+          }
+          .longtxt {
+            padding: 9px 20px 0;
+            -webkit-line-clamp: 5;
+          }
+        }
+      }
+    }
+    @each $style, $value in $map-subjBgStyle {
+      &.#{$style} .over strong span {
+        font-size: $txtSizeP2;
+        color: map-get($value, solo-color);
+      }
+    }
+  }
+}
+/* 선생님 스와이퍼 리스트 (스페셜, 합격수기) */
+.ssamSwiperlist {
+  position: relative;
+  padding: 25px 0 55px;
+  margin: 0;
+  overflow: visible;
+  background: $lightGrayColor;
+  .subTit {
+    width: 1100px;
+    margin: 0 auto;
+  }
+  .bothArrowsBacK {
+    height: 230px;
+    width: 100%;
+  }
+  .interviewSwiper {
+    padding: 25px 0;
+    width: 1120px;
+    height: 230px;
+    overflow: hidden;
+    .swiper-slide {
+      position: relative;
+      float: left;
+      padding: 0 12px 0 12px;
+      width: 224px;
+      height: 180px;
+      box-sizing: border-box;
+      div {
+        position: relative;
+        display: block;
+        padding: 25px 15px 0;
+        width: 200px;
+        height: 180px;
+        border: 1px solid $grayColor;
+        border-radius: 5px;
+        box-sizing: border-box;
+        overflow: hidden;
+        background: $whiteColor;
+      }
+      strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: $txtSizeP2;
+        letter-spacing: -1px;
+      }
+      b {
+        font-weight: 400;
+        color: $lightBlackColor;
+      }
+      .txt {
+        display: block;
+        width: 90px;
+      }
+      .txt em {
+        line-height: 1.5;
+        color: $lightBlackColor;
+        font-size: $txtSizeM2;
+        font-weight: 100;
+      }
+      img {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 80%;
+        z-index: 1;
+      }
+      div.active {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 3;
+          display: block;
+          width: 198px;
+          height: 178px;
+          box-shadow: inset 0 0 0 2px $greenColor;
+          box-sizing: border-box;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 50%;
+    margin-top: -25px;
+    box-shadow: none;
+    background: none;
+  }
+  .swiper-button-prev::before,
+  .swiper-button-next::before {
+    height: 30px;
+  }
+  .swiper-button-prev {
+    left: -59px;
+  }
+  .swiper-button-next {
+    right: -59px;
+  }
+  .swiper-pagination {
+    display: none;
+  }
+  .opner {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    z-index: 5;
+    margin: 0 0 0 -70px;
+    * {
+      width: 140px;
+      height: 30px;
+      border: 1px solid $grayColor;
+      border-radius: 50px;
+      background: $whiteColor;
+    }
+    .opne {
+      display: inline-block;
+    }
+    .close {
+      display: none;
+    }
+  }
+  &.off {
+    position: inherit;
+    .opner {
+      bottom: 15px;
+    }
+    .opne {
+      display: none;
+    }
+    .close {
+      display: inline-block;
+    }
+    .bothArrowsBacK {
+      background: $lightGrayColor;
+      overflow: hidden;
+      box-shadow: 0 7px 5px rgba(0, 0, 0, 0.05);
+    }
+    .bothArrows {
+      position: relative;
+      width: 1138px;
+      overflow-x: visible;
+      transform: translatex(19px);
+    }
+    .interviewSwiper {
+      margin: 0 auto 0 0;
+      width: 1120px;
+      height: auto;
+      .swiper-wrapper {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+      }
+      .swiper-slide {
+        float: left;
+        display: inline-block;
+        margin: 0 0 30px;
+      }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+  }
+  &.off.off2 {
+    position: relative;
+    .bothArrowsBacK {
+      position: absolute;
+      top: 25px;
+      z-index: 5;
+      height: 894px;
+      transition: 1s ease-in;
+    }
+    .bothArrows {
+      height: 836px;
+      overflow-y: auto;
+      @include setScrollStyle;
+    }
+  }
+
+  .swiperProgressSet {
+    margin-top: 0;
+  }
+}
+
+.swiper-pagination.dotCase {
+  position: relative;
+  display: block;
+  padding-top: 15px;
+  .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    margin: 0 4px;
+  }
+  .swiper-pagination-bullet-active {
+    background: #49b68a;
+  }
+}
+.successfulSwiper {
+  .swiper-slide {
+    opacity: 0.4;
+  }
+  .swiper-slide.swiper-slide-prev {
+    opacity: 1;
+  }
+  .swiper-slide.swiper-slide-active {
+    opacity: 1;
+  }
+  .swiper-slide.swiper-slide-next {
+    opacity: 1;
+  }
+  .swiper-slide.swiper-slide-next + .swiper-slide {
+    opacity: 1;
+  }
+  .swiper-slide.swiper-slide-next + .swiper-slide + .swiper-slide {
+    opacity: 1;
+  }
+  .swiper-slide.swiper-slide-next
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide {
+    opacity: 0.9;
+  }
+  .swiper-slide.swiper-slide-next
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide {
+    opacity: 0.8;
+  }
+  .swiper-slide.swiper-slide-next
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide {
+    opacity: 0.7;
+  }
+  .swiper-slide.swiper-slide-next
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide {
+    opacity: 0.6;
+  }
+  .swiper-slide.swiper-slide-next
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide {
+    opacity: 0.5;
+  }
+  .swiper-slide.swiper-slide-next
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide
+    + .swiper-slide {
+    opacity: 0.4;
+  }
+  .swiper-slide span {
+    display: inline-block;
+    width: 245px;
+    text-align: left;
+  }
+  .swiper-slide span:last-child {
+    width: 200px;
+  }
+}
+
+/* ====================== */
+/* ===== 모바일 반응형 대응 ===== */
+/* ====================== */
+#wrapBack.mDevice {
+  /* 이미지 배너 */
+  .topBannerSingle {
+    position: relative;
+    text-align: center;
+    height: auto;
+    overflow: hidden;
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+  /* 이미지 배너 */
+  .bandBanner {
+    position: relative;
+    text-align: center;
+    height: auto;
+    overflow: hidden;
+    img {
+      position: relative;
+      left: auto;
+      top: auto;
+      height: auto;
+      width: 100%;
+      transform: translateX(0);
+    }
+  }
+  /* 이미지 상단 */
+  .topVisual {
+    height: auto;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    &.realHitCase {
+      height: auto;
+      background: #eca52b;
+      &:before {
+        display: none;
+      }
+    }
+    .topSwiper {
+      width: 100%;
+    }
+  }
+  /* 왼쪽 배너광고 영역 */
+  .leftAdArea {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    overflow: hidden;
+    line-height: normal; /*display: none;*/
+    img {
+      width: auto;
+      height: 100px;
+    }
+    span {
+      display: inline-block;
+      float: left;
+      margin: 0 0;
+    }
+    a {
+      display: inline-block;
+      float: left;
+      margin: 0 0;
+    }
+    &.ssammallCase {
+      a {
+        width: calc(100% / 3);
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+  /* 슬라이딩 배너 영역 */
+  .slidingBanner {
+    position: relative;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+    line-height: 0;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    a {
+      display: block;
+      margin: 0 0;
+    }
+    .swiper-pagination {
+      text-align: left;
+      padding-left: 20px;
+      bottom: 15px;
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        margin: 0 10px 0 0;
+        opacity: 1;
+        background: $whiteColor;
+      }
+      .swiper-pagination-bullet-active {
+        background: $greenColor;
+      }
+    }
+  }
+  /* 슬라이딩 배너 영역2 */
+  .slidingBannerCase2 {
+    position: relative;
+    width: 100%;
+    top: 0;
+    padding: 0 0 20px 20px;
+    overflow: hidden;
+    line-height: 0;
+    strong {
+      display: block;
+      line-height: 1;
+      padding: 30px 0 15px;
+      font-size: $txtSizeP4;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    a {
+      display: block;
+      margin: 0 0;
+    }
+    .swiper-container {
+      padding-right: 20px;
+    }
+    .swiper-slide {
+      width: 85%;
+    }
+  }
+  /* 검색 */
+  .topSearchArea {
+    background: #fff;
+    .listSearch {
+      width: 100%;
+    }
+    .frameBack {
+      input:not([type="radio"]):not([type="checkbox"]),
+      textarea {
+        padding-right: 100px;
+        height: 40px;
+        font-size: $txtSizeM2;
+      }
+      button,
+      a {
+        width: 100px;
+        line-height: 2.4;
+        font-size: $txtSizeP2;
+      }
+    }
+  }
+  .topArea .topSearchArea {
+    padding: 20px 20px 0;
+  }
+  /* 게시판 검색 */
+  .listSearch input:not([type="radio"]):not([type="checkbox"]) {
+    padding: 0 40px 0 15px;
+    width: 100%;
+    height: 40px;
+  }
+  .wfullBtn {
+    .listSearch {
+      width: calc(100% - 100px);
+    }
+    .btnM {
+      width: 90px;
+    }
+  }
+  /* 게시판 목록 */
+  .resTls {
+    .listGrid {
+      display: inline-block;
+      .lgItem {
+        display: inline-block;
+        padding: 0;
+        height: auto;
+        width: auto;
+        min-height: auto;
+        vertical-align: top;
+        .mTxt {
+          display: inline-block;
+        }
+        .mTit {
+          display: inline-block;
+          margin: -3px 5px 0 0;
+          font-size: $txtSize;
+          color: #666;
+          font-weight: 200;
+          vertical-align: middle;
+          &.line {
+            margin: -3px 5px 0 16px;
+            &::before {
+              content: "";
+              position: absolute;
+              left: 9px;
+              top: 7px;
+              width: 1px;
+              height: 10px;
+              background: #888;
+            }
+          }
+        }
+        &.itemNum {
+          display: none;
+        }
+        &.tL {
+          display: block;
+        }
+        .tit {
+          display: block;
+          font-weight: 400;
+          color: $blackColor;
+          word-break: break-word;
+          white-space: break-spaces;
+        }
+      }
+      .lgSubGrid {
+        display: inline-block;
+      }
+    }
+    .iBbsSet {
+      margin: -4px 10px 0 0;
+    }
+    .stateCase {
+      padding-left: 0 !important;
+      .iBbsSet {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: -2px 10px 0 0 !important;
+      }
+      .tit .iBbsSet {
+        left: 0;
+        top: 0;
+      }
+    }
+    .itemGroup {
+      width: auto;
+    }
+    .thead {
+      display: none !important;
+    }
+    .tbody {
+      ul li {
+        position: relative;
+        height: auto;
+        padding: 10px 35px 9px 15px;
+        line-height: 1.7;
+        border-bottom: 1px solid #bbb;
+      }
+      ul li.notice {
+        .tit em {
+          display: block;
+          width: 40px;
+        }
+        &.rightNotice {
+          padding: 10px 35px 9px 55px;
+          .tit em {
+            position: absolute;
+            left: -46px;
+            top: 4px;
+          }
+        }
+      }
+      ul li .tit {
+        font-weight: 400;
+        color: $blackColor;
+      }
+      ul.pdPlus {
+        li {
+          padding: 10px 35px 50px 15px;
+        }
+      }
+    }
+    &.pdListM {
+      .tbody ul li {
+        // display: flex; flex-direction: column; align-items: flex-start; padding: 10px 10px 10px 75px;
+        // .iBbsSet {position: absolute; left: -65px; top: 3px; margin: 0;}
+        .item1 {
+          display: none;
+        }
+        .item2 {
+          position: unset;
+          order: 5;
+        }
+      }
+    }
+    &.listM2 {
+      // .tbody ul li.notice {padding-left: 70px;}
+      // .iBbsSet {position: absolute; left: -60px; top: 3px; margin: 0;}
+    }
+    &.listM3 {
+      // .listGrid {padding-left: 80px;}
+      .iBbsSet {
+        position: absolute;
+        left: 0px;
+        margin: 0;
+      }
+      .lgItem.tL {
+        text-indent: 0 !important;
+      }
+    }
+  }
+  /* 이벤트 목록 */
+  .thumbnailList {
+    margin: 0 0 0;
+    li {
+      padding: 10px;
+      width: 100%;
+      height: auto;
+      a {
+        display: block;
+        .imgBox {
+          height: auto;
+          padding-bottom: 52.857%; /*padding-bottom:60%;*/
+        }
+        .txtBox {
+          padding-top: 10px;
+          strong {
+            font-size: $txtSizeP2;
+          }
+          em {
+            font-size: $txtSize;
+          }
+          span {
+            font-size: $txtSize;
+          }
+        }
+      }
+    }
+    &.case3 {
+      margin: 0 0 0;
+      li {
+        width: 100%;
+        padding: 0 0 25px;
+        margin-right: 0;
+        .imgBox {
+          padding-bottom: 60%;
+        }
+      }
+    }
+  }
+  /* 상품 목록 (쌤몰검색결과)  */
+  .productList {
+    li {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 20px 0;
+      & > a {
+        padding: 0 10px 20px 143px;
+        height: auto;
+        display: block;
+        width: 100%;
+        min-height: 123px;
+      }
+      .productImg {
+        left: 0;
+        width: 123px;
+        height: 123px;
+        top: 0;
+        margin-top: 0;
+        transform: translateY(0);
+        background: none;
+        padding: 0;
+      }
+      .productDetail {
+        display: block;
+        box-sizing: border-box;
+        & > strong {
+          font-size: $txtSizeP2;
+          padding-bottom: 2px;
+        }
+        .corp {
+          padding-bottom: 3px;
+        }
+        .labelInfo {
+          padding: 0 0 5px;
+          margin-top: 0;
+          line-height: 0;
+          * {
+            margin-bottom: 5px;
+          }
+        }
+        .moreInfo {
+          margin: 3px 0 8px;
+        }
+        .moreInfo span.isbn {
+          display: block;
+        }
+        .moreInfo span.last:after {
+          display: none !important;
+        }
+      }
+      .productBtn {
+        position: relative;
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        & > span {
+          display: block;
+          display: flex;
+          justify-content: flex-start;
+        }
+        [class*="btn"] {
+          display: block;
+          margin: 0;
+          width: calc(100% / 4);
+          text-align: center;
+          border-radius: 0;
+          padding: 0;
+          background-color: #fafafa;
+          border-color: #ddd;
+          color: #888;
+        }
+        [class*="btn"] ~ [class*="btn"] {
+          border-left: 0;
+        }
+        .btnInBook {
+          color: #fff;
+          background-color: #888;
+        }
+      }
+      &.new {
+        a:before {
+          left: 0;
+          top: 0;
+          width: 40px;
+          height: 40px;
+          line-height: 2.3;
+          font-size: $txtSizeP2;
+        }
+      }
+    }
+  }
+  /* 교재 목록 (4단) */
+  .bookList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px 15px;
+    li {
+      position: relative;
+      height: 315px;
+      border-bottom: 1px solid #ddd;
+      width: calc((100% - 15px) / 2);
+      & ~ li {
+        margin: 0;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 1px;
+        background-color: #ddd;
+        bottom: -1px;
+        left: -15px;
+      }
+      &:nth-child(2n + 1)::after {
+        display: none;
+      }
+      a {
+        display: block;
+        .bookGoods {
+          width: 100%;
+          .goodsImg {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            background: #f7f7f7;
+            img {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: auto;
+              height: auto;
+              max-width: calc(100% - 12px);
+              max-height: calc(100% - 12px);
+              display: block;
+              min-width: 0;
+              min-height: 0;
+            }
+          }
+          .price strong {
+            display: block;
+          }
+          .price del {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+  /* 수강 후기 목록 */
+  .reviewList {
+    dl {
+      border-bottom: 1px solid $grayColor;
+      padding: 15px 0 60px;
+      dt {
+        display: table;
+        padding: 0;
+        width: 100%;
+        cursor: pointer;
+        &::after {
+          left: 0;
+        }
+        .imgBox {
+          display: none;
+        }
+        .txtBox {
+          padding: 0 0 0 0;
+          .name {
+            font-size: $txtSizeM1;
+          }
+          .tit {
+            padding: 0 0 2px 0;
+            font-size: $txtSize;
+            em {
+              display: block;
+              margin-right: 0;
+              padding: 5px 0;
+              font-size: $txtSizeM1;
+            }
+          }
+        }
+      }
+      dd {
+        padding: 10px 0 0 0;
+        margin: 0;
+        color: $lightBlackColor;
+        font-weight: 400;
+        line-height: 1.5;
+        font-size: 14px;
+        .popImgList {
+          display: block;
+          margin-top: 15px;
+          position: relative;
+          top: 0;
+          transform: none;
+          right: 0;
+          img {
+            max-width: calc((100% - 6px) / 2);
+            max-height: 100px;
+            cursor: pointer;
+            vertical-align: top;
+          }
+          img ~ img {
+            margin-left: 6px;
+          }
+        }
+      }
+      &.on {
+        background: $whiteColor;
+        &.on dt::after {
+        }
+      }
+      &:hover {
+        background: $whiteColor;
+      }
+    }
+    &.noImgCase {
+      dl {
+        padding: 15px 0 60px;
+        dt {
+          padding: 0;
+          .txtBox {
+            padding: 0 56px 0 0;
+          }
+        }
+        dd {
+          padding: 10px 0 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+  /* paginate */
+  .paginate {
+    padding: 25px 0 0 0;
+    text-align: left;
+    & > span {
+      margin: 0 5px;
+      text-align: center;
+      & > a:nth-child(n + 6):nth-child(-n + 10) {
+        display: none;
+      }
+    }
+    .selectSet {
+      margin: -8px 0 0 0;
+    }
+    .selectSet.mCase {
+      display: inline-block;
+    }
+    .selectSet.pcCase {
+      display: none;
+    }
+    @media only screen and (max-width: 400px) {
+      & > span {
+        margin: 0;
+        & > a {
+          margin: 0 2px;
+        }
+      }
+      .selectSet {
+        margin: -5px 0 0 0;
+        width: 58px;
+        height: 35px;
+        select {
+          padding: 0 18px 0 8px;
+        }
+        &:after {
+          right: 11px;
+          margin-top: -6px;
+          height: 6px;
+          width: 6px;
+        }
+      }
+    }
+  }
+  /* 게시판 상세 */
+  .boardDetail {
+    .boardHead {
+      position: relative;
+      padding: 20px 0 20px;
+      border-bottom: 1px solid $grayColor;
+      strong {
+        font-size: $txtSizeP2;
+        span {
+          display: block;
+          font-weight: 500;
+        }
+        .iSbjSetMini,
+        .iLocSet,
+        .iPro,
+        .iSet,
+        .inComeDed {
+          display: block;
+        }
+        .round {
+          width: 50px;
+          padding: 0 5px;
+          display: block;
+        }
+      }
+      .iBbsSet {
+        &.notice {
+          display: block;
+          width: 40px;
+        }
+      }
+      .btnTcHomeName {
+        right: 0;
+        top: auto;
+        bottom: 21px;
+        transform: translateY(0);
+      }
+      &.stateCase {
+        padding-left: 0;
+        .iBbsSet {
+          position: relative;
+          left: 0;
+          top: 0;
+          padding: 0 5px;
+          height: 20px;
+          line-height: 1.5;
+        }
+        strong {
+          display: inline;
+        }
+        .lecKind + strong {
+          display: block;
+          padding-top: 6px;
+        }
+      }
+      &.ssamCase {
+        padding-left: 100px;
+        .imgBox {
+          position: absolute;
+          left: 0;
+          top: 19px;
+        }
+      }
+      & + .boardFile {
+        padding: 0 0;
+      }
+      .hashTag {
+        padding-bottom: 2px;
+      }
+      .hashTag span {
+        font-size: $txtSize;
+        color: $lightBlackColor;
+      }
+      .lecKind {
+        display: inline-block;
+        padding: 0;
+        font-size: $txtSize;
+      }
+      .iBbsSet + .lecKind {
+        padding-left: 5px;
+        color: $brightGrayColor;
+      }
+      .shareBox {
+        top: auto;
+        bottom: 18px;
+        right: 0;
+      }
+      &.mockCase {
+        padding-left: 0;
+        strong {
+          padding: 4px 0 6px;
+        }
+        .iMockSet {
+          position: relative;
+          left: 0;
+          top: 0;
+          padding: 0;
+          margin: -4px 7px 0 0;
+          height: 20px;
+          line-height: 1.5;
+          border-radius: 3px;
+        }
+        .boardInfo {
+          em:nth-child(3):after {
+            display: none;
+          }
+          em:last-child {
+            display: block;
+            padding-left: 0;
+          }
+          em i {
+            font-style: unset;
+          }
+        }
+      }
+    }
+    .boardSource {
+      padding: 10px;
+    }
+    .boardView {
+      padding: 30px 0;
+      min-height: 300px;
+      line-height: 1.7;
+      letter-spacing: -0.04em;
+      img {
+        max-width: 100%;
+      }
+    }
+    .boardViewReply {
+      position: relative;
+      padding: 20px 14px 14px 14px;
+      background: $lightGrayColor;
+      .iBbsSet {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin-right: 5px;
+      }
+      .replyDate {
+        display: inline-block;
+        padding-bottom: 0;
+      }
+      .replyFull {
+        padding: 15px 0 0 0;
+        color: $lightBlackColor;
+      }
+      .boardFile {
+        margin: 14px 0 0 0;
+        li {
+          margin: 0;
+          padding: 14px 2.357rem;
+          border-top: 1px solid $grayColor;
+        }
+      }
+      ol {
+        padding-left: 10px;
+        li {
+          list-style-type: decimal;
+          height: auto;
+          border: none;
+        }
+      }
+      ul {
+        padding-left: 10px;
+        li {
+          list-style-type: disc;
+          height: auto;
+          border: none;
+        }
+        &.todo-list > li {
+          list-style: none;
+        }
+      }
+      i {
+        font-style: italic;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ccc;
+        th,
+        td {
+          border: 1px solid #ccc;
+          padding: 0 10px;
+        }
+        th {
+          background-color: #fafafa;
+        }
+      }
+      input {
+        -webkit-appearance: checkbox;
+      }
+    }
+    .boardViewReply + .boardBtn {
+      border: none;
+    }
+    //이벤트 합격자 및 불법 명단
+    .boardOnList {
+      padding: 0 0 20px 0;
+    }
+    //합격수기 설문조사 상세내용
+    .boardPassingView {
+      padding: 20px 0;
+      .tableList {
+        dl {
+          width: 50%;
+        }
+        dl dt {
+          padding: 5px 0;
+        }
+        dl dd {
+          height: 42px;
+          padding: 10px 10px 0;
+        }
+      }
+    }
+    &.reviewCase {
+      .boardHead {
+        padding: 0 0 20px 114px;
+        height: auto;
+        border: none;
+        border-bottom: 2px solid $blackColor;
+        .imgBox {
+          top: 0;
+          left: 0;
+          display: inline-block;
+          width: 94px;
+          height: 130px;
+        }
+        strong {
+          font-size: $txtSizeP4;
+        }
+        .boardInfo {
+          padding: 3px 0 12px;
+          * {
+            font-size: $txtSizeM2;
+          }
+          em:first-child {
+            display: block;
+            &:after {
+              display: none;
+            }
+          }
+          em:nth-child(2) {
+            padding-left: 0;
+          }
+        }
+        [class*="btn"] {
+          width: auto;
+          min-width: 120px;
+          max-width: 140px;
+          height: 30px;
+          line-height: 1.9;
+        }
+        .hashTag {
+          padding-bottom: 2px;
+          * {
+            font-size: $txtSizeM2;
+          }
+        }
+      }
+    }
+    //입력
+    &.write {
+      padding-top: 10px;
+      .sortSet.rndCase label {
+        min-width: 120px;
+        height: 40px;
+        line-height: 2.5;
+      }
+      .box {
+        display: block;
+        margin-top: 10px;
+        .selectSet {
+          min-width: 100%;
+        }
+        .baseMultiSelect {
+          width: 100%;
+        }
+        .selectSet ~ .selectSet,
+        .selectSet ~ .baseMultiSelect,
+        .baseMultiSelect ~ .selectSet {
+          margin-left: 0;
+        }
+        textarea {
+          height: calc(100vh * 0.51);
+        }
+        &.sortSet label {
+          width: 90px;
+        }
+        &.checkSetArea {
+          .checkSet {
+            label {
+              padding: 14px 20px 14px 44px;
+              i {
+                left: 17px;
+              }
+            }
+          }
+          &.col2 {
+            padding: 10px 0 15px;
+            height: auto;
+            p {
+              display: block;
+              padding: 12px 20px 15px 19px;
+              font-size: $txtSizeM1;
+            }
+            p span {
+              display: block;
+              margin: 5px 0 0;
+              font-size: $txtSizeM1;
+            }
+            .checkSet {
+              float: none;
+              display: block;
+              label {
+                padding: 5px 20px 5px 47px;
+              }
+            }
+          }
+        }
+        &.columMulty {
+          .selectSet,
+          .baseMultiSelect,
+          input {
+            width: 100% !important;
+          }
+          .selectSet ~ .selectSet,
+          .baseMultiSelect ~ .selectSet,
+          input ~ input {
+            margin: 10px 0 0;
+          }
+        }
+      }
+      .writeLecKind {
+        padding: 5px 0;
+        text-align: left;
+        span {
+          display: none;
+        }
+        em {
+          display: block;
+          padding-bottom: 5px;
+          &::after {
+            display: none;
+          }
+        }
+      }
+      .writeWrap {
+        padding-top: 25px;
+        > div.box:first-child {
+          margin-top: 0;
+        }
+      }
+      .verM {
+        width: 100%;
+        em {
+          display: block;
+        }
+        span {
+          display: block;
+          text-align: center;
+          padding-top: 10px;
+          label {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  /* 데이터형식 */
+  .tableList {
+    border-width: 1px 0 0 1px;
+    dl {
+      float: none;
+      width: 100%;
+      border-bottom: 1px solid $grayColor;
+    }
+  }
+  .boardBtn {
+    // [class*=btn] {margin:0 0;width:calc((100% - 10px)/2);}
+    [class*="btn"] {
+      width: 100%;
+      margin: 0;
+      height: 60px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+    [class*="btn"] ~ [class*="btn"] {
+      margin-top: 10px;
+    }
+  }
+  .comment {
+    padding: 25px 0;
+    .writeBox {
+      textarea {
+        font-size: $txtSizeM1;
+      }
+    }
+    .commentBox {
+      div {
+        padding: 8px 10px 20px 52px;
+        &:before {
+          left: 0;
+          top: 3px;
+          width: 34px;
+          height: 34px;
+        }
+        strong {
+          padding: 0 0 0;
+          font-size: $txtSize;
+        }
+        p {
+          padding: 8px 0 14px;
+          line-height: 1.4;
+          width: 100%;
+        }
+        span {
+          text-align: left;
+        }
+      }
+      ol li {
+        padding: 10px 0 10px 22px;
+      }
+    }
+    &.noList {
+      .commentBox div:before {
+        top: 3px;
+        left: 25px;
+      }
+    }
+  }
+  /* 게시판 상세 네비게이션 */
+  .boardNavi {
+    padding: 30px 0 0;
+    min-height: auto;
+    .prev,
+    .next {
+      height: 36px;
+      strong {
+        &::before {
+          height: 14px;
+          background-size: contain;
+        }
+      }
+      em {
+        display: none;
+      }
+    }
+    .btnList {
+      bottom: auto;
+      top: 30px;
+    }
+  }
+  /*  ========= 강과관련 (수강신청, 내강의실 등) ========= */
+  /* 강좌 타이틀 기본  */
+  .lecTt {
+    display: block;
+    .tt {
+      padding: 8px 60px 6px 0;
+      display: block;
+      line-height: 1.4;
+      .iMaking {
+        display: none;
+      }
+    }
+    .ssam {
+      position: absolute;
+      right: 20px;
+      top: 21px;
+      text-align: right;
+      color: $lightBlackColor;
+      white-space: nowrap;
+      * {
+        color: #333;
+        font-size: 14px;
+      }
+      .iSbjSetMini {
+        color: #fff;
+        font-size: 12px;
+      }
+      i {
+        display: inline-block;
+        margin-right: 4px;
+      }
+    }
+    .ingRate {
+      display: block;
+      padding-top: 5px;
+      white-space: nowrap;
+      .rateBar {
+        width: calc((100% / 3) * 2);
+      }
+    }
+    .msg {
+      font-weight: 400;
+    }
+    .tt + .lecLimit {
+      margin: 6px 0 7px;
+    }
+    .lecLimit + .iSetLine {
+      margin-bottom: 4px;
+    }
+    .lecLimit.multy {
+      display: block;
+      margin: 0 0 10px;
+    }
+    .liveState {
+      padding: 0 0 0 0;
+    }
+    .limitNtime {
+      padding: 6px 0 7px;
+    }
+    .lecUnit {
+      em {
+        padding: 0 2px;
+      }
+      .iStartSet,
+      .iApplySet,
+      .iMaking {
+        display: inline-block;
+        width: 50px;
+        height: 20px;
+        line-height: 1.5;
+        border-radius: 3px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .lecBasic {
+    position: initial;
+    width: 100%;
+    padding: 18px 0 0 0;
+    .kind {
+      position: absolute;
+      top: 34px;
+      bottom: auto;
+      left: auto;
+      right: 20px;
+      width: 50px;
+      height: auto;
+    }
+    .choice {
+      @extend %clearBh;
+      top: auto;
+      right: 20px;
+      left: 20px;
+      bottom: 20px;
+      transform: translateY(0);
+      width: calc(100% - 40px);
+      /* 수강신청 가격체크 */
+      .priceCheck {
+        float: left;
+        margin: 0;
+        width: 100%;
+        & ~ .priceCheck {
+          margin-top: 10px;
+        }
+        label {
+          padding: 0 20px 0 33px;
+          width: 100%;
+          height: 56px;
+          align-items: normal;
+        }
+        label > i {
+          left: 10px;
+          top: 10px;
+          margin-top: 0;
+        }
+        label em {
+          line-height: 2.6;
+        }
+        .price {
+          margin-top: 0;
+          position: absolute;
+          right: 10px;
+          top: 9px;
+          strong {
+            margin-top: 2px;
+          }
+        }
+        .notOnline {
+          position: absolute;
+          right: 12px;
+          bottom: 11px;
+          line-height: 1;
+        }
+      }
+      .lecBbsSet {
+        height: auto;
+        padding-bottom: 0;
+        span {
+          float: left;
+          * {
+            margin-right: 10px;
+            width: 70px;
+            height: 70px;
+            line-height: 4;
+            font-size: $txtSizeM2;
+            border: none;
+            border-radius: 50%;
+            background-color: $lightGrayColor;
+            background-position: center 14px;
+          }
+        }
+      }
+      .lecReAddSet {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        * {
+          max-width: calc(100% / 3);
+          width: auto;
+          flex: 1;
+          height: 30px;
+          padding-left: 10px;
+          font-size: 14px;
+          color: #666;
+          border-radius: 3px;
+          border: 1px solid #666;
+          text-align: left;
+          position: relative;
+          @extend %arrowBtn;
+          &::after {
+            border-color: $blackColor;
+          }
+          &:disabled {
+            padding: 0 0 2px;
+            text-align: center;
+            background-color: #fafafa;
+            border-color: #ddd;
+            color: #ddd;
+            &::after {
+              display: none;
+            }
+          }
+          &.red {
+            padding: 0 0 2px;
+            text-align: center;
+            border-color: #d1555f;
+            color: #d1555f;
+            &::after {
+              display: none;
+            }
+          }
+        }
+        // .btnApply { width: 110px; height: 40px;}
+        &::after {
+          display: none;
+        }
+      }
+      .lecBbsSet + .lecReAddSet {
+        padding-top: 15px;
+      }
+    }
+    .lecBtnSet {
+      * {
+        width: calc(30% + 1px);
+        &.btnPgOpner {
+          width: 40%;
+        }
+      }
+    }
+  }
+  .lecBtnSet {
+    * {
+      height: 40px;
+    }
+  }
+  /* 강좌 목록  */
+  .ssamLecList {
+    padding: 0 0 40px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    ul > li {
+      position: relative;
+      padding: 0 20px 162px;
+      border-bottom: 1px solid $grayColor;
+    }
+    ul > li:hover {
+      background: none;
+    }
+    .lecLimit.red {
+      width: 40%;
+    }
+    .inPackage {
+      margin-top: -5px;
+      .widthList {
+        padding: 0;
+        border: 1px solid $grayColor;
+        ol li .item:first-child {
+          border-top: 0;
+        }
+      }
+      &.on {
+        padding: 0;
+        margin: 0;
+      }
+    }
+    .inbLecture {
+      padding: 0;
+      .widthList {
+        padding: 0 0 10px;
+        border-top: 0;
+        ol {
+          padding: 0 0 0;
+          border-bottom: 1px solid $grayColor;
+        }
+        ol li {
+          padding: 0;
+          border-bottom: 0;
+          margin-bottom: 0;
+          background: $whiteColor;
+        }
+      }
+    }
+    ul > li.unOpen {
+      .inbLecture {
+        .widthList {
+          background: $lightGrayColor;
+          ol {
+            background: $lightGrayColor;
+          }
+          ol li {
+            background: $lightGrayColor;
+          }
+        }
+      }
+    }
+    ul.myCase {
+      & > li {
+        padding: 0 20px;
+      }
+      .kind {
+        display: none;
+      }
+      .lecBasic {
+        padding: 20px 0;
+        .lecTt .tt {
+          display: block;
+          padding: 9px 0 4px 0;
+          font-size: $txtSizeP2;
+        }
+        .choice {
+          position: relative;
+          right: auto;
+          left: auto;
+          bottom: auto;
+          padding-top: 15px;
+          width: 100%;
+        }
+      }
+    }
+    ul > li.holding {
+      .ssam {
+        color: $grayColor;
+        * {
+          color: $grayColor;
+        }
+      }
+      .lecBasic {
+        &:before {
+          right: 0;
+          bottom: 140px;
+        }
+        .lecTt .tt {
+          color: #888;
+        }
+      }
+    }
+    ul > li.closing {
+      .lecBasic {
+        &:before {
+          right: 0;
+          bottom: 140px;
+        }
+      }
+      .lecBbsSet {
+        span {
+          * {
+            background-color: $whiteColor;
+          }
+        }
+      }
+    }
+    &.topNoline ul {
+      border-top: 0;
+    }
+    .paginate {
+      padding: 25px 20px 0;
+    }
+  }
+  /* (패키지 포함) 강좌 및 교재 목록  */
+  .widthList {
+    background: $whiteColor;
+    margin-top: 15px;
+    ol {
+      background: $lightGrayColor;
+    }
+    li {
+      padding: 0 20px 0 21px;
+      margin-bottom: 2px;
+      border-bottom: 1px solid #e3e3e3;
+    }
+    .item {
+      display: block;
+      padding: 13px 0 16px;
+      width: 100%;
+      border-top: 1px solid #e3e3e3;
+      .tL {
+        display: block;
+        position: relative;
+        padding: 0 0 0 56px;
+        width: 100%;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+      .tR {
+        display: block;
+        width: 100%;
+        padding-top: 10px;
+        vertical-align: top;
+        text-align: left !important;
+        .price {
+          float: right;
+          display: inline-block;
+          margin: -2px 0 0 0;
+        }
+        .checkSet {
+          margin: 0 0 0 0;
+        }
+        .notOnline {
+          margin: 0 0 0 0;
+          color: #888;
+          font-weight: 100;
+          letter-spacing: -0.02em;
+          font-size: $txtSizeM1;
+        }
+      }
+    }
+    .singleLec {
+      padding: 0;
+      .item {
+        padding: 13px 0 10px;
+      }
+    }
+    .lecBtnSet {
+      padding: 0 0 11px;
+      margin-top: 0;
+    }
+  }
+  @media only screen and (max-width: 376px) {
+    .ssamLecList {
+      .lecTt .ingRate .rateBar {
+        width: 225px;
+      }
+      .limitNtime em {
+        padding-left: 5px;
+      }
+    }
+  }
+  /* 쌤팩 및 이벤트 용 선생님 */
+  .subjectSet {
+    position: relative;
+    margin-bottom: 0;
+    .ssamBasic {
+      border-top: 1px solid $grayColor;
+      background: $lightGrayColor;
+      .gridItem {
+        height: auto;
+      }
+      .name {
+        padding: 15px 15px 15px;
+      }
+      .goBtn {
+        padding: 15px 0 15px;
+        background: #f2f2f2;
+        span {
+          width: 100%;
+        }
+        span * {
+          float: left;
+          display: inline-block;
+          padding: 24px 0 0 0;
+          width: calc(100% / 3);
+          height: 42px;
+          font-size: $txtSize;
+          border-right: none;
+        }
+        .ssamHome {
+          width: calc(100% / 3);
+        }
+      }
+    }
+    .ssamLecList {
+      padding-bottom: 0;
+      width: 100%;
+      margin-left: 0;
+      li {
+        padding: 0 0 28px;
+        margin: 0;
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+      .lecBasic {
+        display: block;
+        padding: 0;
+        .lecTt {
+          display: block;
+          padding: 22px 0 12px 0;
+          height: auto;
+          .tL {
+            padding: 8px 0 0;
+          }
+        }
+        .lecBtnSet {
+          padding: 9px 0 0;
+        }
+      }
+      .choice {
+        position: relative;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+      }
+      .inbLecture {
+        margin-top: 11px;
+        padding: 0;
+        .widthList {
+          padding: 0;
+        }
+        .widthList ol li {
+          padding: 0;
+        }
+      }
+      .inPackage.on {
+        padding: 10px 0 0 0;
+      }
+      .widthList ol {
+        padding: 0;
+        li {
+          padding: 0 20px;
+          margin: 0;
+        }
+      }
+    }
+  }
+  /* 공통사용 이용안내 및 유의사항 */
+  .appyNotice {
+    .tit {
+      font-size: $txtSizeP6;
+    }
+    div {
+      padding: 12px 15px;
+      strong {
+        font-size: $txtSizeP1;
+      }
+      ul * {
+        font-size: $txtSizeM1;
+      }
+      dl * {
+        font-size: $txtSizeM1;
+      }
+      ul {
+        margin-bottom: 20px;
+      }
+      dl + strong {
+        margin-top: 10px;
+      }
+    }
+  }
+  /* 선생님 스와이퍼 리스트 (스페셜, 합격수기) */
+  .ssamSwiperlist {
+    position: relative;
+    padding: 0 0 20px;
+    margin: 0;
+    overflow: visible;
+    background: $lightGrayColor;
+    .subTit {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .bothArrowsBacK {
+      height: 230px;
+      width: 100%;
+      padding: 0;
+    }
+    .interviewSwiper {
+      padding: 30px 0;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      .swiper-slide {
+        padding: 0 5px;
+        width: 140px;
+        height: 117px;
+        div {
+          position: relative;
+          display: block;
+          padding: 15px 11px 0;
+          width: 130px;
+          height: 117px;
+        }
+        b {
+          font-size: $txtSizeM2;
+        }
+        .txt strong {
+          font-size: $txtSize;
+        }
+        .txt em {
+          display: none;
+        }
+        div.active {
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+          &:before {
+            width: 128px;
+            height: 115px;
+          }
+        }
+      }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: auto;
+      bottom: -15px;
+      width: 30px;
+      height: 30px;
+      box-shadow: none;
+      border: 1px solid #ccc;
+      background: $whiteColor;
+    }
+    .swiper-button-prev {
+      left: 50%;
+      margin: 0 0 0 -70px;
+    }
+    .swiper-button-next {
+      right: 50%;
+      margin: 0 -70px 0 0;
+    }
+    .swiper-button-prev::before,
+    .swiper-button-next::before {
+      height: 14px;
+    }
+    .swiper-pagination {
+      display: block;
+      bottom: -9px;
+      z-index: 1;
+      width: 100%;
+    }
+    .swiperProgressSet {
+      margin-top: 0;
+    }
+    .opner {
+      bottom: 14px;
+    }
+    &.off {
+      position: inherit;
+      .bothArrows {
+        transform: translatex(0);
+      }
+      .interviewSwiper {
+        margin: 0 auto 0 0;
+        width: 100%;
+        height: auto;
+        .swiper-wrapper {
+          display: inline-block;
+          width: 100%;
+          height: auto;
+          padding-left: 7px;
+        }
+        .swiper-slide {
+          float: left;
+          display: inline-block;
+          padding: 0;
+          width: calc((100% - 20px) / 3);
+          margin: 0 5px 10px 0;
+        }
+      }
+      .swiper-button-prev,
+      .swiper-button-next,
+      .swiper-pagination {
+        display: none;
+      }
+    }
+    &.off.off2 {
+      position: inherit;
+      .bothArrowsBacK {
+        top: 0;
+        height: calc(100vh * 0.7);
+        animation: ssam_slide 1s 1;
+      }
+      .bothArrows {
+        height: calc((100vh * 0.7) - 60px);
+      }
+    }
+    @keyframes ssam_slide {
+      0% {
+        height: 230px;
+      }
+      100% {
+        height: calc(100vh * 0.7);
+      }
+    }
+  }
+
+  /* 백퍼 수강후기 swiper (메인, 선생님스페셜 서브메인) */
+  .reviewSwiper {
+    a {
+      * {
+        color: $lightBlackColor;
+      }
+      .over {
+        display: block;
+        border: 1px solid $grayColor;
+        strong {
+          display: block;
+          font-size: $txtSizeP2;
+        }
+        .longtxt {
+          padding-top: 20px;
+          width: 228px;
+          letter-spacing: -1px;
+          font-size: $txtSizeP1;
+          line-height: 1.6;
+          display: -webkit-box;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 8;
+          -webkit-box-orient: vertical;
+        }
+        .nameWithDate {
+          display: block;
+          position: absolute;
+          left: 20px;
+          bottom: 20px;
+          letter-spacing: 0;
+          font-family: "Roboto";
+        }
+        .nameWithDate em {
+          margin-right: 15px;
+          font-family: "Roboto";
+        }
+        &.imgCase {
+          padding: 0;
+          .img {
+            display: block;
+            height: 146px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+          }
+          strong {
+            padding: 14px 20px 0;
+          }
+          .longtxt {
+            padding: 9px 20px 0;
+            -webkit-line-clamp: 5;
+          }
+        }
+      }
+      @each $style, $value in $map-subjBgStyle {
+        &.#{$style} .over strong span {
+          font-size: $txtSizeP2;
+          color: map-get($value, solo-color);
+        }
+      }
+    }
+  }
+}
+
+.editorArea {
+  // editor style (start)
+  ol {
+    padding-left: 1.5rem;
+    li {
+      list-style-type: decimal !important;
+      height: auto !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+  }
+  ul {
+    padding-left: 1.5rem;
+    li {
+      list-style-type: disc !important;
+      height: auto !important;
+      border: none !important;
+      padding: 0 !important;
+    }
+    &.todo-list > li {
+      list-style: none !important;
+    }
+  }
+  i {
+    font-style: italic !important;
+  }
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #ccc !important;
+    th,
+    td {
+      border: 1px solid #ccc !important;
+      padding: 0 10px !important;
+    }
+    th {
+      background-color: #fafafa;
+    }
+  }
+  input {
+    -webkit-appearance: checkbox;
+  }
+  figure.table {
+    margin: 0 !important;
+  }
+  // editor style (end)
+}

@@ -1,0 +1,820 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _join.scss
+* @Description : 로그인, 회원가입 등
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+#joinWrap {
+  display: table;
+  width: 100%;
+  min-height: 100vh;
+  background: $lightGrayColor;
+  .formBack {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    padding: 80px 0 60px;
+    vertical-align: top;
+    text-align: center;
+  }
+  .whiteBox {
+    display: inline-block;
+    min-height: 700px;
+    width: 550px;
+    padding: 50px 75px 45px;
+    box-sizing: border-box;
+    background: $whiteColor;
+  }
+  .formBack.loginCase {
+    vertical-align: middle;
+    padding: 38px 0 35px;
+    .whiteBox {
+      width: 1100px;
+      padding: 0;
+      background: $whiteColor;
+    }
+  }
+  // h1 {height:78px;}
+  h1 {
+    padding-bottom: 70px;
+  }
+  h1 img {
+    width: 213px;
+    margin: 0 auto;
+  }
+  .joinFooter {
+    padding: 25px 0 0;
+    line-height: 1.5;
+    height: 20px;
+    box-sizing: content-box;
+    * {
+      color: $lightBlackColor;
+    }
+    button:before {
+      content: "";
+      display: inline-block;
+      height: 12px;
+      width: 0;
+      margin: 0 10px;
+      vertical-align: middle;
+      border-right: 1px solid $grayColor;
+    }
+    button:first-child:before {
+      display: none;
+    }
+    button:last-child {
+      color: $greenColor;
+    }
+  }
+  .subTit {
+    @extend %clearBh;
+    position: relative;
+    padding-bottom: 15px;
+    text-align: left;
+    box-sizing: border-box;
+    border-bottom: 0;
+    h2 {
+      display: block;
+      font-size: $txtSizeP6;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      border-bottom: 2px solid $blackColor;
+    }
+    em {
+      display: block;
+      padding: 5px 0 0;
+      color: $lightBlackColor;
+      font-size: $txtSizeM2;
+    }
+    h2 em {
+      padding: 8px 0 17px;
+    }
+    &.noLine {
+      padding-bottom: 5px;
+    }
+    &.noLine h2 {
+      border-bottom: 0;
+    }
+    &.snsCase {
+      padding-bottom: 7px;
+      h2 {
+        border-bottom: 0;
+        font-size: $txtSizeP2;
+      }
+      em {
+        padding: 7px 0 15px;
+      }
+    }
+  }
+  input:not([type="radio"]):not([type="checkbox"]) {
+    margin-bottom: 10px;
+  }
+  input:not([type="radio"]):not([type="checkbox"]):read-only,
+  textarea:read-only,
+  input:not([type="radio"]):not([type="checkbox"]):disabled,
+  textarea:disabled {
+    color: $lightBlackColor;
+    background: $lightGrayColor;
+  }
+  [class*="btnL"] {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    font-size: $txtSizeP2;
+    line-height: 3;
+    border-radius: 3px;
+  }
+}
+/* 로그인 */
+.loginWrap {
+  float: left;
+  width: 550px;
+  padding: 58px 75px 0;
+  .basicIp {
+    position: relative;
+    height: 196px;
+    .tL {
+      padding: 6px 0 10px 1px;
+    }
+    .checkSet {
+      i {
+        border-color: $grayColor;
+      }
+      label {
+        font-weight: 200;
+      }
+      input:checked + label i {
+        border-color: $lightBlackColor;
+        background: $lightBlackColor;
+      }
+      input:checked + label i:before {
+        border-color: $whiteColor;
+      }
+    }
+  }
+  .snsArea {
+    padding-top: 110px;
+  }
+  input:not([type="radio"]):not([type="checkbox"]) {
+    margin-bottom: 10px;
+  }
+  [class*="btnL"] {
+    margin: 0 0 15px !important;
+  }
+  [class*="btnL"].off {
+    color: $whiteColor;
+    border-color: $grayColor;
+    background: $grayColor;
+  }
+  .goJoin a {
+    font-weight: 200;
+  }
+  .goJoin a:before {
+    content: "";
+    display: inline-block;
+    height: 10px;
+    width: 0;
+    margin: 0 11px;
+    vertical-align: middle;
+    border-right: 2px solid #eee;
+  }
+  .goJoin a:first-child:before {
+    display: none;
+  }
+  .goJoin a:last-child {
+    color: #000;
+    font-weight: 500;
+  }
+}
+.loginBanner {
+  float: left;
+  width: 550px;
+  height: 700px;
+  img {
+    display: block;
+  }
+}
+/* 간편로그인 인증 */
+.snsLoginSetting {
+  .soloUsing {
+    p {
+      height: 175px;
+      strong {
+        display: block;
+        height: 40px;
+        font-size: $txtSizeP2;
+        color: $blackColor;
+      }
+      span {
+        display: block;
+        padding: 19px 0;
+        line-height: 1.7;
+        color: $lightBlackColor;
+        border-top: 1px solid $grayColor;
+        border-bottom: 1px solid $grayColor;
+      }
+      span em {
+        color: $lightBlackColor;
+        font-weight: 600;
+      }
+    }
+    .basicIp {
+      height: 195px;
+    }
+  }
+  .otherUsing {
+    padding: 5px 0 0 0;
+    p {
+      padding-bottom: 9px;
+      letter-spacing: -0.04em;
+      word-spacing: -0.1em;
+      strong {
+        color: $blackColor;
+      }
+      span {
+        margin: 20px 0 0;
+        display: block;
+        height: 58px;
+        line-height: 4;
+        letter-spacing: 0;
+        border: 1px solid $grayColor;
+      }
+      span em {
+        display: inline-block;
+        padding: 0 10px;
+        color: $greenColor;
+      }
+    }
+    div {
+      padding: 148px 0 41px;
+      color: #888;
+      font-size: $txtSizeM2;
+      .btnSns {
+        margin-bottom: 14px;
+      }
+    }
+  }
+}
+.endTxt {
+  display: block;
+  height: 60px;
+  line-height: 4.3;
+  border: 1px solid $grayColor;
+}
+.endTxt strong {
+  display: inline-block;
+  padding: 0 10px;
+  color: #20ab61;
+}
+.endTxt2 {
+  padding: 22px 30px 10px;
+  height: 156px;
+  display: block;
+  text-align: center;
+  border: 1px solid $grayColor;
+  div {
+    margin-top: 17px; /*padding:0 6px 0 0;*/
+    padding: 0 10px;
+    .radioSet {
+      color: #0e935d;
+      display: block;
+    }
+  }
+  ul li {
+    display: block;
+    margin: 5px auto;
+    text-align: left;
+    color: #20ab61;
+  }
+}
+/* 아이디찾기 & 비밀번호 재설정 */
+.findAccount {
+  .tabBack .tabNav ul.lineTab {
+    height: 42px;
+    display: flex;
+    border-bottom: 0;
+  }
+  .tabBack .tabNav ul.lineTab li {
+    flex: 1;
+    background-color: #fafafa;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #333;
+    box-sizing: border-box;
+  }
+  .tabBack .tabNav ul.lineTab li.on {
+    background-color: #fff;
+    border: 1px solid #333;
+    border-bottom: none;
+  }
+  .tabBack .tabNav ul.lineTab li button {
+    line-height: 0;
+    color: $grayColor;
+    height: 100%;
+  }
+  .tabBack .tabNav ul.lineTab li.on button {
+    font-weight: 600;
+    color: $blackColor;
+  }
+  .findkindChoice {
+    display: table;
+    width: 100%;
+    div {
+      display: table-cell;
+      vertical-align: middle;
+      height: 234px;
+      padding-bottom: 0;
+    }
+    //.btnSnsKind {margin:0 20px;}
+    .btnSnsKind ~ .btnSnsKind {
+      margin-left: 40px;
+    }
+    em {
+      display: block;
+      padding: 18px 0 15px;
+    }
+  }
+  .noti {
+    padding: 15px 0 0 0;
+    width: 380px;
+    margin: 0 auto;
+    text-align: left;
+    border-top: 1px solid $grayColor;
+    * {
+      font-size: $txtSizeM2;
+      letter-spacing: -0.04em;
+      line-height: 1.6;
+    }
+    ol {
+      padding: 0 0 0 10px;
+    }
+    li {
+      list-style: decimal;
+      letter-spacing: -0.07em;
+      word-spacing: -0.1em;
+      white-space: nowrap;
+    }
+    p {
+      padding-top: 13px;
+    }
+  }
+  .findEnd {
+    .back {
+      height: 233px;
+      padding: 25px 0 0;
+    }
+    &.findEnd.notFind .back {
+      height: 313px;
+      padding: 36px 0 0 0;
+    }
+  }
+  .tabData.idCase {
+    em {
+      font-size: $txtSizeP2;
+      display: block;
+      padding: 0 0 55px;
+    }
+    .noti {
+      padding-bottom: 50px;
+    }
+  }
+  .tabData.pwCase {
+    .pwInput {
+      padding-top: 30px;
+      text-align: left;
+      em {
+        display: block;
+        text-align: left;
+        color: $lightBlackColor;
+        font-size: $txtSizeM2;
+      }
+    }
+    .findkindChoice {
+      div {
+        height: 181px;
+        padding-bottom: 0;
+      }
+      .btnFindKind {
+        margin: 10px 20px 0;
+      }
+    }
+    .info {
+      text-align: left;
+      word-spacing: 0;
+      font-size: $txtSizeM2;
+      color: $lightBlackColor;
+    }
+    .noti {
+      padding: 19px 0 26px;
+      p {
+        padding-top: 11px;
+      }
+    }
+    .basicIp {
+      padding: 10px 0 0 0;
+      height: 313px;
+      input:not([type="radio"]):not([type="checkbox"]) {
+        margin-bottom: 7px !important;
+      }
+    }
+    .findEnd .back {
+      height: 225px;
+    }
+  }
+}
+/* 회원가입 */
+.joinStep1 {
+  .checkSet {
+    margin: 0;
+    display: block;
+    label {
+      padding: 13px 35px 0 54px;
+      height: 50px;
+      font-size: 17px;
+      line-height: 1.2;
+      font-weight: 600;
+      border: 1px solid $lightBlackColor;
+    }
+    label i {
+      width: 24px;
+      height: 24px;
+      margin: -12px 0 0 15px;
+      border-radius: 100%;
+      border-color: $grayColor;
+    }
+    label i:before {
+      border: none;
+      width: 24px;
+      height: 24px;
+      background-image: url(../images/i_check.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    input:checked + label {
+      border-color: $greenColor;
+    }
+    input:checked + label i {
+      border-color: $greenColor;
+      background: $greenColor;
+      border: 2px;
+    }
+    input:checked + label i:before {
+      background-image: url(../images/i_checked.svg);
+    }
+  }
+  .agreeCheck {
+    padding: 5px 0 48px;
+    .info {
+      padding: 10px 0 14px 0;
+      text-align: left;
+    }
+    .info p {
+      position: relative;
+      padding: 0 0 8px 10px;
+      letter-spacing: -0.04em;
+      font-size: 0.88rem;
+      color: $darkGrayColor;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 5px;
+        height: 0;
+        border-top: 1px solid $darkGrayColor;
+      }
+    }
+    ul {
+      li {
+        position: relative;
+        margin-bottom: 5px;
+      }
+      li .checkSet {
+        label {
+          height: 50px;
+          line-height: 1.4;
+          color: $lightBlackColor;
+          font-size: $txtSize;
+          border-color: $grayColor;
+        }
+        label em {
+          color: $lightBlackColor;
+        }
+        input:checked + label {
+          border-color: $greenColor;
+        }
+      }
+      li button {
+        @include iconBtn(40px, 100%);
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          display: inline-block;
+          margin: -4px 0 0 -8px;
+          height: 8px;
+          width: 8px;
+          vertical-align: middle;
+          background: 0;
+          border: 1px solid $darkGrayColor;
+          border-bottom-color: transparent;
+          border-right-color: transparent;
+          @include venderPrefix(transform, rotate(135deg));
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  .findkindChoice {
+    margin: 0 -8px;
+    width: calc(100% + 15px);
+    padding: 0 0 84px;
+    .btnSnsKind {
+      font-weight: 200 !important;
+    }
+    .btnSnsKind:before {
+      width: 67px;
+      height: 67px;
+      margin-bottom: 11px;
+    }
+    .btnSnsKind ~ .btnSnsKind {
+      margin-left: 20px;
+    }
+  }
+}
+.joinBefore {
+  .back {
+    height: 312px;
+  }
+  p {
+    line-height: 1.7;
+    em {
+      font-size: $txtSizeM2;
+      color: $lightBlackColor;
+    }
+  }
+  .endTxt {
+    margin: 17px 0 0;
+  }
+  .endTxt2 {
+    margin: 17px 0 0;
+  }
+}
+.joinForm {
+  padding: 5px 0 49px;
+  input:not([type="radio"]):not([type="checkbox"]) {
+    margin-bottom: 5px !important;
+  }
+  .infoMsg {
+    padding: 5px 0 15px;
+    font-size: $txtSizeM2;
+    color: $lightBlackColor;
+  }
+  .infoMsg.red {
+    color: $redColor;
+  }
+  h3 {
+    padding: 21px 0 10px;
+    text-align: left;
+    font-weight: 500;
+  }
+  .selectSet {
+    width: 100%;
+  }
+  .selectSet select {
+    height: 50px;
+  }
+  .choiceSet {
+    label {
+      line-height: 3.4;
+      background: $lightGrayColor;
+    }
+    input:checked + label {
+      font-weight: 500;
+    }
+  }
+  .disabledData {
+    padding: 6px 0 0;
+  }
+  .disabledData input:not([type="radio"]):not([type="checkbox"]),
+  .disabledData input:not([type="radio"]):not([type="checkbox"]):disabled,
+  .disabledData input:disabled {
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    color: $blackColor !important;
+    border-color: $lightGrayColor;
+    background: $lightGrayColor url("../images/i_join_disabled.png") no-repeat
+      96% center !important;
+    opacity: 1;
+    -webkit-text-fill-color: inherit;
+  }
+}
+.joinStep3 {
+  .selectSet {
+    margin-bottom: 5px;
+  }
+  .choiceSet {
+    margin-bottom: 5px;
+  }
+  h3 {
+    padding: 26px 0 15px;
+    font-weight: 500;
+  }
+  .joinForm {
+    padding: 5px 0 45px;
+  }
+  .autoComplete ~ .autoComplete {
+    margin-top: 5px;
+  }
+}
+.joinStep4 {
+  padding: 77px 0 0;
+  p {
+    position: relative;
+    padding: 133px 0 130px;
+    font-size: $txtSizeP14;
+    line-height: 1.48;
+    font-weight: 200;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 45px;
+      height: 66px;
+      background: url("../images/img_end.svg") no-repeat center center;
+    }
+    strong {
+      font-size: $txtSizeP14;
+    }
+    span {
+      display: block;
+      padding: 11px 0 0;
+      color: $lightBlackColor;
+    }
+  }
+}
+/*===================================================================
+* 반응형 (모바일) 대응
+* 본 CSS는 responsive 파일이 아닌 별도 기술
+* ====================================================================*/
+#wrapBack.mDevice {
+  #joinWrap {
+    padding: 50px 20px;
+    background: $whiteColor;
+    .formBack {
+      padding: 0 0 0;
+    }
+    .whiteBox {
+      min-height: calc(100vh - 141px);
+      width: 100%;
+      padding: 0 0 0;
+      background: none;
+    }
+    .formBack.loginCase {
+      padding: 0 0 0;
+      .whiteBox {
+        width: 100%;
+      }
+    }
+    // h1 {height:78px;}
+    h1 img {
+      width: 200px;
+    }
+    .joinFooter {
+      padding: 20px 0 0;
+      line-height: 1.5;
+      height: 20px;
+      border-top: 1px solid $grayColor;
+    }
+    .subTit {
+      border-bottom: 0 !important;
+    }
+  }
+  /* 로그인 */
+  .loginWrap {
+    float: none;
+    padding: 0 0 12px;
+    width: 100%;
+    .basicIp {
+      height: 180px;
+      .tL {
+        padding: 16px 0 10px 1px;
+      }
+      .checkSet {
+        margin-right: 50px;
+      }
+    }
+    .mHeight {
+      min-height: calc(100vh - 402px);
+    }
+    .snsArea {
+      padding-top: 30px;
+    }
+    [class*="btnL"] {
+      margin: 0 0 31px !important;
+    }
+  }
+  .loginBanner {
+    display: none;
+  }
+  /* 간편로그인 인증 */
+  .snsLoginSetting {
+    .soloUsing {
+      padding-bottom: 50px;
+    }
+    .otherUsing {
+      padding: 0 0 50px 0;
+      p {
+        padding-bottom: 9px;
+        font-size: $txtSizeP2;
+        * {
+          font-size: $txtSizeP2;
+        }
+        i {
+          display: block;
+        }
+        span {
+          line-height: 3.6;
+        }
+      }
+      div {
+        font-size: $txtSize;
+        font-weight: 100;
+        .btnSns {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  /* 아이디찾기 & 비밀번호 재설정 */
+  .findAccount {
+    .noti {
+      width: 100%;
+      li {
+        white-space: normal;
+      }
+    }
+    .tabLayout {
+      padding-bottom: 50px;
+    }
+    .tabBack .tabNav ul.lineTab li {
+      border-width: 1px;
+      &.on button {
+        color: #333;
+      }
+    }
+    // .tabData {
+    //   &.idCase  {
+    //     em {font-size:$txtSizeP2;display:block;padding:0 0 45px;}
+    //     .noti {padding-bottom: 50px;}
+    //   }
+    //   &.pwCase .pwInput {
+    //     padding-top: 15px;
+    //   }
+    // }
+  }
+  /* 회원가입 */
+  .joinStep1 {
+    padding-bottom: 50px;
+    .findkindChoice {
+      margin: 0 -8px;
+      width: calc(100% + 15px);
+      padding: 0 0 84px;
+      .btnSnsKind ~ .btnSnsKind {
+        margin-left: calc((100% - 335px) / 4);
+      }
+    }
+  }
+  .joinStep2 {
+    padding-bottom: 50px;
+  }
+  .joinStep3 {
+    padding-bottom: 50px;
+  }
+  .joinStep4 {
+    p {
+      font-size: $txtSizeP10;
+      strong {
+        font-size: $txtSizeP10;
+      }
+    }
+  }
+}

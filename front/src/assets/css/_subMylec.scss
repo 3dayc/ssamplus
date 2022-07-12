@@ -1,0 +1,921 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _sub.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+
+/* ===== 내강의실 강좌 목록 (공통) ===== */
+.myLecSorting {padding:50px 0 15px;
+  .labelToggleSet {
+    label {width:150px;padding:0 0 0 18px;text-align:center;line-height:1.7;color:$whiteColor;border-color:$blackColor;background:$blackColor;}
+    label:after {right:127px;}
+    input[type="checkbox"]:checked + label {padding:0 18px 0 0;}
+    label span {padding:0;}
+  }
+}
+/* ===== 강의상세 화면 (플레이어 - 공통) ===== */
+.mylecView {
+  /* 공통 */
+  .rateBar {position:relative;display:inline-block;width:260px;height:18px;background:#ccc;
+    span {position:absolute;top:0;left:0;z-index:1;display:block;width:100%;height:18px;background:$blackColor;}
+    em {position:relative;z-index:3;display:block;color:$whiteColor;font-size:$txtSizeM2;text-align:center;}
+  }
+  /* 상단 강좌정보 */
+  .nowLec {position:relative;z-index:2;@extend %clearBh;width:100%;height:210px;padding-top:20px;box-shadow:0 8px 8px rgba(0,0,0,.08);background:$whiteColor;
+    .btnListGo {float:left;}
+    .ssam {float:left;display:inline-block;padding-left:20px;
+      .kind {float:left;width:70px;
+        * {margin-bottom:5px;}
+      }
+      .name {float:left;display:inline-block;width:140px;text-align:center;
+        span {@extend %imgAlignA;display:inline-block;width:140px;height:110px;border-radius:5px;}
+        .btnTcHomeName {margin:15px auto 0;font-size:$txtSizeP6;
+          i {display:none;}
+        }
+      }
+    }
+    .lecInfo {float:right;display:inline-block;width:800px;
+      .selectSet {width:100%;background:#f9f9f9;
+        select {height:50px;padding-left:20px;font-size:$txtSizeP8;color:$blackColor;border:none;background:#f9f9f9;}
+      }
+      .allDate {padding:20px 15px 0 20px;height:60px;border-bottom:1px solid #e7e7e7; display: flex; justify-content: space-between;
+        .limitNtime {display:inline-block;width:346px;padding-top:0;vertical-align:middle;}
+        .rate {vertical-align:middle;}
+        .rate strong {margin-right:10px;}
+        .iMaking {margin:-3px 0 0 5px;vertical-align:middle;}
+        .iLocSet {width:42px;height:21px;margin-right:5px;padding:0 4px;vertical-align:middle;line-height:1.8;border-radius:3px;}
+        &.liveCase {padding:18px 0 0;border-bottom:none; justify-content: flex-start;
+          .iMaking {margin-top:0;}
+          .btnGuide {float:right;margin-top:-7px;}
+          .liveT1 {
+            .limitNtime {padding: 0;}
+          }
+          .liveT2 {  position: relative; flex: 1;
+           .btnGuide {width: auto; position: absolute; right: 0;}
+          }
+        }
+      }
+      .btn {width:100%;padding-top:20px; text-align:right; display: flex; justify-content: flex-end; gap: 10px;
+        [class*=btnS] {margin-right:10px;width:120px;}
+        .btnGuide {margin-left:40px; text-align: right; width: 60px;}
+      }
+    }
+  }
+  .modalDim.imgLayerPop {
+    background: rgba(0,0,0,1);
+    .modalClose {
+      top: 86px;
+      right: 192px;
+    }
+    .checkSet {
+      position: absolute;
+      right: 254px;
+      top: 90px;
+      label {color: #fff;}
+        i {
+          left: 140px;
+        }
+    }
+  }
+  /* 강좌 플레이어 및 상세 */
+  .mylecViewDetail {position:relative;width:1100px;margin:0 auto;padding:32px 0 100px;
+    .lecInfoArea {@extend %clearBh;position:relative;display:block;width:1100px;margin:0 auto;}
+    .lecArea {float:left;display:inline-block;padding:507px 0 0 0;width:690px;vertical-align:top;
+      /* 강좌 관련 정보 */
+      .tabNav li {width:25%; border-right: 1px solid #e1e1e1;}
+      .tabNav li:last-child {border-right: none;}
+      .notice {
+        .resTls {
+          .item0 {padding-left:10px;}
+          .item1 {width:70px;}
+          .item2 {width:85px;}
+          .item3 {width:130px;padding-right:10px;}
+        }
+      }
+      .paginate {
+        .selectSet.pcCase {display:none;}
+        .selectSet.mCase {display:inline-block;}
+      }
+      .listSearch {padding-left: 0;}
+    }
+    .playerListArea {float:right;display:inline-block;width:380px;padding-top:35px;vertical-align:top;
+      /* 강의리스트 구분  */
+      .playTab {position:relative;height:50px;border-bottom:2px solid $blackColor;background:$lightGrayColor;
+        span {float:left;display:inline-block;width:50%;height:100%;box-sizing:border-box;}
+        span button {display:block;width:100%;height:100%;text-align:center;font-size:$txtSizeP2;color:$lightBlackColor;background:transparent;}
+        span button em {margin:0 0 0 5px;}
+        span.bookmarkTab button:after {margin:-2px 0 0 10px;content:'';display:inline-block;width:12px;height:16px;vertical-align:middle;background:url('../images/btn_bookmark.svg') no-repeat center;background-size:100%;opacity:0.6;}
+        span.on {position:relative;z-index:2;border:2px solid $blackColor;background:$whiteColor;}
+        span.on:after {content:'';position:absolute;bottom:-4px;left:0;display:inline-block;width:100%;height:4px;background:$whiteColor;}
+        span.on button {color:$blackColor;}
+        span.on.bookmarkTab button:after {opacity:1;}
+      }
+      .tit {@extend %clearBh;width:100%;height:38px;
+        h2 {display:inline-block;font-size:$txtSizeP4;}
+        .btnBookmark {float:right;}
+      }
+    }
+    .liveChatArea {float:right;display:inline-block;width:380px;vertical-align:top;}
+    &.full {
+      .playerArea {position:relative;width:100%;height:auto;}
+      .lecArea {padding-top:0;}
+      .playerListArea {padding-top:0;}
+    }
+    .boardDetail{
+      ol {padding-left:10px;
+        li {list-style-type:decimal;height:auto;border:none;}
+      }
+      ul {padding-left:10px;
+        li {list-style-type:disc;height:auto;border:none;}
+        &.todo-list > li{
+          list-style:none;
+        }
+      }
+      // i {font-style:italic;}
+      table {width:100%;border-collapse:collapse;border:1px solid #ccc;
+        th, td {
+          border:1px solid #ccc;padding:0 10px;
+        }
+        th {background-color: #fafafa;}
+      }
+      input {-webkit-appearance: checkbox;}
+      .uploadFileList li{list-style-type: none;}
+    }
+  }
+}
+/* 동영상 */
+.playerArea {position:absolute;width:690px;height:507px;z-index:2;
+  .mode {@extend %clearBh;width:100%;height:35px;
+    .labelToggleSet {
+      label {width:80px;height:24px;border:1px solid $darkGrayColor;background:$darkGrayColor;
+        &:after {right:58px;}
+        span {font-size:$txtSizeM2;line-height:1.8;
+          &:first-child {padding-left:18px;}
+          &:last-child {padding-right:18px;}
+        }
+      }
+      input[type="checkbox"] {
+        &:checked + label {border-color:$greenColor;background:$greenColor;}
+        &:checked + label:after {right:3px;}
+      }
+    }
+    .labelToggleSet_off {display:inline-block;position:relative;vertical-align:middle;
+      input[type="checkbox"] {display:block;position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;}
+      label {
+        position:relative;display:block;width:84px;height:26px;border-radius:$iHeight;border:1px solid darken($grayColor, $cPX16);background:darken($grayColor, $cPX16);
+        width:80px;height:24px;border:1px solid $darkGrayColor;background:$darkGrayColor;
+        &:after {
+          position:absolute;right:61px;top:50%;content:"";display:block;width:16px;height:16px;margin-top:-8px;box-sizing:border-box;border-radius:50%;background:$whiteColor;transition:all .3s ease;
+          right:58px;
+        }
+        span {
+          display:block;padding:0 0;line-height:1.6;color:$whiteColor;text-align:center;
+          font-size:$txtSizeM2;line-height:1.8;
+          &:first-child {display:block; padding-left:18px;}
+          &:last-child {display:none; padding-right:18px;}
+        }
+      }
+    }
+    .labelToggleSet_on {display:inline-block;position:relative;vertical-align:middle;
+      input[type="checkbox"] {display:block;position:absolute;left:0;top:0;width:100%;height:100%;opacity:0;}
+      label {
+        position:relative;display:block;width:84px;height:26px;border-radius:$iHeight;border:1px solid darken($grayColor, $cPX16);background:darken($grayColor, $cPX16);
+        width:80px;height:24px;border:1px solid $greenColor;background:$greenColor;
+        &:after {
+          position:absolute;right:61px;top:50%;content:"";display:block;width:16px;height:16px;margin-top:-8px;box-sizing:border-box;border-radius:50%;background:$whiteColor;transition:all .3s ease;
+          right:3px;
+        }
+        span {
+          display:block;padding:0 0;line-height:1.6;color:$whiteColor;text-align:center;
+          font-size:$txtSizeM2;line-height:1.8;
+          &:first-child {display:none; padding-left:18px;}
+          &:last-child {display:block; padding-right:18px;}
+        }
+      }
+    }
+    .right {font-family:'Roboto';color:$redColor;font-size:$txtSizeM2;white-space:nowrap;}
+    .right strong {display:inline-block;margin-right:7px;font-size:inherit;color:$redColor;}
+  }
+  .player {
+    .skin-catvod .mpv-view-box {right:5px}
+    img {display:block;width:100%;height:auto;}
+    .player_wrap2 {
+      width:690px; height:388px; margin:0 auto;
+      &.full {
+        width:1100px; height:620px; margin:0 auto;
+      }
+    }
+    .player_wrap3 {
+      width:960px; height:540px; margin:0 auto;
+      &.full {
+        width:1280px; height:720px; margin:0 auto;
+      }
+    }
+  }
+  .tit {position:relative;height:85px;padding:15px 118px 0 0;
+    h2 {font-size:$txtSizeP6;letter-spacing:-0.06em;}
+    .playPrevNext {position:absolute;right:0;top:20px;}
+  }
+}
+/* 강의리스트  */
+.playerList {padding:20px 0 0 0;
+  dl {
+    dt {position:relative;padding:0 20px;height:40px;cursor:pointer;line-height:1;line-height:2.5;color:$whiteColor;font-size:$txtSizeP2;background:$lightBlackColor;}
+    dt:after {content:'';position:absolute;right:21px;top:16px;display:inline-block;width:8px;height:8px;box-sizing:border-box;border:2px solid $whiteColor;border-bottom:0;border-left:0;
+      @include venderPrefix(transform, rotate(135deg));
+    }
+    dd {display:none;}
+    &.on {
+      dt {background:$greenColor;}
+      dt:after {@include venderPrefix(transform, rotate(315deg));}
+      dd {display:block;}
+    }
+  }
+  .courseList {
+    li {position:relative;display:table;width:100%;cursor:pointer;overflow:hidden;border-bottom:1px solid $grayColor;
+      .basic {display:table-cell;width:100%;height:55px;vertical-align:middle;padding:10px 105px 10px 20px;}
+      .basic span {line-height:1.6;}
+      .basic span i {display:inline-block;padding:2px 5px;border-radius:30px;border:1px solid $redColor; color: #f00; margin-left: 5px;}
+      .basic em {position:absolute;right:13px;top:50%;transform:translateY(-50%);display:inline-block;width:67px;height:24px;line-height:1.8;font-family:'Roboto';background:url('../images/i_videoTime.svg') no-repeat right center;background-size:auto 100%;}
+      .over {position:absolute;top:0;right:-100%;bottom:0;width:380px;padding:18px 18px 0;box-sizing:border-box;background:rgba(51,51,51,.9);transition:all 0.8s;
+        & * {color:$whiteColor;}
+        .time {display:block;padding-bottom:6px;}
+        .time em {margin-right:12px;}
+        .time em i {color:#e75a5a;font-weight:bold;}
+        .rateBar {height:5px;width:120px;}
+        .rateBar span {height:5px;background:$greenColor;}
+        .rateBar em {position:absolute;right:-40px;top:50%;transform:translateY(-56%);display:inline-block;width:25px;text-align:left;}
+      }
+      &:hover {
+        .over {right:0;}
+      }
+      &.end {cursor:default;opacity:.5;}
+      &.on {background:$lightGrayColor;}
+      &.on .basic em {background:url('../images/i_videoTime_on.svg') no-repeat right center;background-size:auto 100%;}
+      &:last-child {border-bottom:0;}
+    }
+  }
+  &.bookmarkCase {
+    .courseList {
+      .basic em.bookmarkTime {background:url('../images/btn_bookmark_on.svg') no-repeat 50px center;background-size:11px 14px;}
+    }
+  }
+  dl:last-child {
+    .courseList li:last-child {border-bottom:1px solid $grayColor;}
+  }
+}
+.myPlayerFocusMode {position:fixed;top:0;bottom:0;left:0;right:0;z-index:20;display:table;width:100%;background:rgba(0,0,0,.9);
+  .playerAreaBack {position:relative;display:table-cell;height:100vh;}
+  .playerArea {position:absolute;left:50%;top:50%;width:960px;height:auto;@include venderPrefix(transform, translateX(-50%) translateY(-50%));
+    h2 {color:$whiteColor;}
+  }
+  /* 집중모드 */
+  .foucsModeList {position:relative;display:table-cell;width:400px;background:$blackColor;
+    .playTabLeft {position:absolute;left:-40px;top:100px;width:40px;height:80px;
+      span {clear:left;float:none;display:inline-block;width:40px;height:40px;background:$lightBlackColor}
+      span.on {background:$blackColor;}
+      button {width:40px;height:40px;text-indent:-9999px;overflow:hidden;}
+      span:first-child button {background:url('../images/btn_playList_white.svg') no-repeat center;background-size:19px 16px;}
+      span:last-child button {background:url('../images/btn_playList_bookmark_white.svg') no-repeat center;background-size:15px 19px;}
+      span.on:first-child button {background:url('../images/btn_playList_green.svg') no-repeat center;background-size:19px 16px;}
+      span.on:last-child button {background:url('../images/btn_playList_bookmark_green.svg') no-repeat center;background-size:15px 19px;}
+    }
+    &.off {width:0;
+      .scroll_back {padding:0;width:0;overflow:hidden;}
+    }
+    .scroll_back {padding:12px;width:400px;background:$blackColor;}
+    .scroll_back p {padding-bottom:12px;height:55px;font-size:$txtSizeP2;line-height:4;box-sizing:border-box;color:$whiteColor;}
+    .scroll {height:calc(100vh - 77px);overflow-y:auto;@include setScrollStyle;}
+    .playerList {padding-top:0;
+      .courseList {
+        li {border-bottom:1px solid $blackColor;background:#000;
+          .basic * {color:rgba(255,255,255,.7);}
+          .basic span i {border:1px solid $grayColor;}
+          .over {width:370px;box-sizing:border-box;background:rgba(255,255,255,.95);
+            & * {color:$blackColor;}
+            .time em i {color:#e75a5a;}
+            .rateBar span {background:$greenColor;}
+          }
+          &.on {background:$blackColor;}
+          &.on .basic em {background:url('../images/i_videoTime_on.svg') no-repeat right center;background-size:auto 100%;}
+        }
+      }
+      &.bookmarkCase {
+        .courseList {
+          .basic em.bookmarkTime {background:url('../images/btn_bookmark_on.svg') no-repeat 50px center;background-size:11px 14px;}
+        }
+      }
+      dl:last-child {
+        .courseList li:last-child {border-bottom:1px solid $blackColor;}
+      }
+    }
+  }
+  /* end 집중모드 */
+}
+/* ===== 온라인 수강생 ZONE ===== */
+/* 업데이트 일정 */
+.onlineUpdate {
+  .selectSet.wFull {width: 1067px; margin:25px 0; padding: 11px 16px 9px; background-color: #fafafa;}
+  .resTls {/*border-top:1px solid $blackColor;*/
+    .item0 {width:150px;}
+    .item1 {width:320px;}
+    .item2 {width:380px;padding-left:70px;}
+    .tbody {
+      .listGrid {table-layout:fixed;}
+      .item0 {font-family:'Roboto';}
+      .item1 {text-align:left;
+        span {display:block;}
+        strong {display:block;width:100%;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+      }
+      .item2 {text-align:left;}
+    }
+  }
+}
+
+/* ===== 학원 수강생 ZONE ===== */
+/* 학원 보충 강의실 */
+.additionKind {padding-top:15px;
+  dl {margin-bottom:6px;border:1px solid $grayColor;
+    dt {position:relative;padding:0 20px;height:50px;line-height:3.5;
+      &:after {content:"";position:absolute;left:auto;right:16px;top:50%;display:block;margin-top:-6px;height:10px;width:10px;border:2px solid $lightBlackColor;border-width:2px 2px 0 0 ;
+          @include venderPrefix(transform, rotate(135deg));
+          pointer-events:none;transition:all .3s ease;
+      }
+    }
+    dd {padding:15px 20px;background:$lightGrayColor;
+      span {position:relative;display:block;padding:0 0 0 10px;color:$lightBlackColor;}
+      span:before {content:'';position:absolute;top:9px;left:0;display:inline-block;width:4px;height:0;border-top:1px solid $lightBlackColor;}
+    }
+    &.on {
+      dt:after {@include venderPrefix(transform, rotate(-45deg));}
+    }
+  }
+}
+.directAddition {
+  .btnArea {padding:25px 0 5px;}
+  .btnArea .left {line-height:2.8;}
+}
+/* 라이브 강의 챗팅 */
+.liveChatArea {
+  h3 {@extend %clearBh;width:100%;height:35px;font-size:$txtSizeP2;line-height:1;border-bottom:2px solid $blackColor;}
+  .liveState {float:right;}
+  p {padding:10px 0;text-align:right;}
+  .chatList {padding:15px;height:520px;overflow-y:scroll;@include setScrollStyle;border:1px solid $grayColor;
+    &::-webkit-scrollbar {width:10px;}
+    &::-webkit-scrollbar-track {background-color:$lightGrayColor;}
+    dl {padding:0 0 30px;
+      dt {padding-bottom:7px;font-family:'Roboto';color:$lightBlackColor;
+        strong {display:inline-block;padding-right:10px;color:$blackColor;}
+      }
+      dd {padding:10px;background:$lightGrayColor;}
+      &:last-child {padding-bottom:0;}
+    }
+    &.noChat {overflow:hidden;
+      div {line-height:35;text-align:center;color:$darkGrayColor;}
+    }
+  }
+  .chatWrite {position:relative;padding:10px 100px 10px 10px;border:1px solid $grayColor;background:#fafafa;border-bottom:none;
+    textarea {padding:0 10px;/*height:130px;*/line-height:1.6;border:none;background:#fafafa;}
+    button {position:absolute;bottom:10px;right:10px;width:80px;height:44px;border:1px solid $grayColor;background:$whiteColor;
+      &:disabled {opacity:0.5;}
+    }
+  }
+}
+.mylecViewDetail.liveCase {
+  // .tabNav {border-bottom:1px solid $grayColor;}
+  .liveChatArea {padding-top:11px;}
+}
+.mylecViewDetail.mockCase {
+  .tabNav {border-bottom:1px solid $grayColor;}
+}
+
+/* ===== 학습관리 ZONE ===== */
+/* 나의 학습현황 */
+.scSet {display:inline-block;color:$lightBlackColor;
+  i {display:inline-block;margin:-3px 5px 0 0;width:14px;height:14px;font-size:11px;color:$whiteColor;text-indent:-1px;vertical-align:middle;line-height:1.2;text-align:center;overflow:hidden;background:$lightBlackColor;}
+  &.num i {background:#ff7575;}
+  &.time i {
+    background: #0E935D;
+  }
+  &.majors i {
+    background: #88C23D;
+  }
+  &.edu i {
+    background: #E5CD48;
+  }
+  &.none {color:$grayColor;}
+  &.none i {color:$grayColor;background:$lightGrayColor;}
+}
+.studyMyStatus {
+  .grayBox {padding:15px 20px;background:$lightGrayColor;
+    .selectSet {width:400px;
+      select {height:50px;font-size:$txtSizeP2;font-weight:600;color:$lightBlackColor;}
+    }
+  }
+  .graphArea {position:relative;margin-top:20px;z-index:5;height:355px;
+    & > div {z-index:5;}
+    .label {position:absolute;top:0;left:20px;bottom:30px;z-index:0;width:calc(100% - 20px);padding:13px 0 0 5px;border-left:1px solid $grayColor;
+      span {display:inline-block;width:100%;height:20px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+      span ~ span {margin:39px 0 0 0;}
+    }
+    .defaultName {position:absolute;top:50%;left:50%;z-index:0;margin:-67px 0 0 -55px;padding:45px 0 0 0;line-height:1.2;width:110px;text-align:center;font-weight:600;font-size:$txtSizeP2;
+      strong {display:inline-block;width:100%;height:20px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:$txtSizeP2;}
+    }
+  }
+  .lecTime {
+    .graphArea > div {z-index:1}
+  }
+  .studyBook {display:table;width:100%;
+    div {display:table-cell;height:344px;padding:10px 46px 0;vertical-align:middle;text-align:center;}
+    em {display:inline-block;margin:0 4px;width:20px;height:16px;text-indent:-999px;overflow:hidden;background: url('../images/i_mylec_book.svg') no-repeat center;}
+    span:nth-child(even) {display:inline-block;margin-left:24px;}
+    p {padding:10px 0 0;color:#11a17f;font-family:'Roboto';font-size:$txtSizeP6;}
+
+    &.noData {
+      em {background: url('../images/i_mylec_book_nodata.svg') no-repeat center;}
+      p {color: #c1c1c1}
+    }
+  }
+  .statusGraph {@extend %clearBh;padding-bottom:50px;
+    .item {float:left;display:inline-block;width:340px;}
+    .item ~ .item {margin-left:40px;}
+    .numberData {padding:0 10px;height:170px;border-radius:10px;box-shadow:0px 6px 16px rgba(0, 0, 0, 0.16);background:$whiteColor;
+      dt {height:76px;padding:25px 3px 0 48px;font-size:$txtSizeP2;font-weight:600;
+        button {position:relative;float:right;@extend %arrowBtn;height:23px;line-height:0.1;color:$lightBlackColor;border-color:$lightBlackColor;
+          &::after {border-color:$lightBlackColor;}
+        }
+      }
+      dd {@extend %clearBh;
+        span {float:left;display:inline-block;padding:6px 0 0;width:90px;height:80px;line-height:2;font-size:$txtSizeM1;color:$lightBlackColor;letter-spacing:-0.04em;font-weight:200;word-spacing:-0.1em;text-align:center;box-sizing:border-box;border-radius:5px;background:#F8FCF9;}
+        span.wide {width:120px;}
+        span ~ span {margin-left:10px;}
+        strong {display:block;font-size:$txtSizeP8;line-height:1.8;}
+        em {display:block;font-size:$txtSizeP2;line-height:1.6;font-weight:600;
+          strong {display:inline-block;}
+        }
+      }
+      @for $i from 1 to 4 {
+        &.nD0#{$i} dt {background:url('../images/i_mylec_MyStatus0'+$i+'.svg') no-repeat 10px center;}
+      }
+      &.nD03 {
+        dt button:before {content:'';position:absolute;left:-33px;top:-1px;display:inline-block;width:23px;height:23px;border-radius:50px;background:url('../images/i_mylec_time1.svg') no-repeat;}
+      }
+    }
+  }
+  .statusTabwrap {
+    .tabNav {text-align:center;
+      ul.blockTab li {
+        /*width:200px;*/
+        height:50px;
+        margin: 0;
+        /*border-radius:20px 0 0 20px;border:1px solid $blackColor;*/
+        // &:last-child {border-radius:0 20px 20px 0;}
+      }
+    }
+    .tabLayout {padding-top:45px;}
+  }
+  .calTop {@extend %clearBh;padding:0 0 12px;
+    .btnStuyTime {position:relative;@extend %arrowBtn;width:180px;height:36px;padding:0 23px 0 37px;text-align:left;line-height:0.1;font-weight:600;color:$blackColor;border-color:$lightBlackColor;border-radius:50px;
+      &::before {content:'';position:absolute;left:4px;top:4px;display:inline-block;width:26px;height:26px;border-radius:50px;background:url('../images/i_mylec_time2.svg') no-repeat;}
+      &::after {right:16px;border-color:$blackColor;}
+    }
+    .left span {display:inline-block;margin-left:10px;color:$redColor;font-size:$txtSizeM2;}
+    .right em {margin-left:23px;font-size:$txtSizeM2;}
+  }
+  .studyCalender {
+    table {width:100%;border-collapse:collapse;}
+    th,td {width:calc(100% / 7);border:1px solid $grayColor}
+    thead th {height:50px;text-align:center;background:$lightGrayColor;}
+    tbody td {height:119px;padding:0 16px;vertical-align:top;cursor:pointer;
+      strong {display:block;height:30px;text-align:center;font-weight:normal;line-height:2.2;}
+      em {display:block;}
+      .scSet {letter-spacing:-0.01em;font-weight:300;}
+    }
+    .notMonth {cursor: auto;}
+    .notMonth strong {color:$grayColor;}
+  }
+}
+/* 나의 학습현황 > 학습비교 */
+.myLecStudyGraphPop {position:fixed;top:0;bottom:0;left:0;right:0;z-index:120;overflow-y:auto;overflow-x:hidden;background:#fff;
+  //* {color:$whiteColor;}
+  .frameBack {position:relative;width:1100px;margin:0 auto;padding:35px 0 35px;}
+  .btnDelete {position:absolute;z-index:21;right:0;top:44px;width:28px;height:28px;
+    &::before, &::after {height:28px;background:#333}
+  }
+  .grapTop {@extend %clearBh;height:75px;border-bottom:2px solid $lightBlackColor;
+    * {color:#fff; background-color: #ddd;}
+    .choiceSet {float:left;width:160px;}
+    .choiceSet label {color:#666;line-height:3.4;/*border:1px solid $lightBlackColor;*/background:transparent;}
+    .choiceSet input:checked+label {color:#fff;background:#333;}
+    .selectSet.kindCase {float:left;margin-left:10px;width:266px;
+      select {color:#666;border:1px solid #ddd;background:#fff;}
+      &:after {border-color:#888;}
+    }
+    .selectSet.dateCase {float:right;width:298px;margin-right:50px;
+      select {color:#666;font-size:$txtSizeP6;border:none;background:rgba(255, 255, 255, 0.95);}
+      &:after {margin-top:-10px;width:26px;height:26px;border:none;transform:rotate(0);background: url('../images/i_myLecStudyGraph.png') no-repeat center;}
+    }
+  }
+  .graphData {height:450px}
+  .unitTxt {padding:0 0 5px;color:$darkGrayColor;font-size:$txtSizeM2;}
+  .listData {position:relative;padding:0 100px 0 260px;
+    * {color:$darkGrayColor;}
+    table {border-collapse:collapse;
+      th {font-weight:500;}
+      th, td {position:relative;text-align:center;height:45px;padding:0 30.8px;border:1px solid $lightBlackColor;}
+      td span {display:block;}
+      tfoot * {color:#fafafa;background:#fafafa;}
+      .backslash {padding:0 5px;text-align:center;position: relative; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%" stroke="gray" /></svg>');
+        div {text-align:left; padding-top: 12px;}
+        i {position: absolute; right: 5px; top: 3px;}
+      }
+    }
+    .pix {position:absolute;width:260px;left:0;top:0;}
+    .pix.kind tbody td {padding:0 0 0 5px;text-align:left;font-weight:100;
+      &.dot {padding:0 0 0 25px;
+        &:before {content:'';position:absolute;left:8px;top:50%;@include venderPrefix(transform, translateY(-50%));display:inline-block;width:0;height:0;border:5px solid #86CF7E;}
+        &.puplue:before {border-color:#7583FF;}
+        &.yellow:before {border-color:#FFE74E;}
+        &.blue:before {border-color:#428FBB;}
+        &.pink:before {border-color:#AA9BF6;}
+        &.darkpink:before {border-color:#CB4EFF;}
+      }
+    }
+    .pix.total {width:100px;left:auto;right:0;
+      thead th, tfoot * {font-weight:500;color:$darkGrayColor;}
+      tbody * {font-family:'Roboto'}
+    }
+    .scroll {padding-bottom:16px;overflow-x:scroll;
+      &::-webkit-scrollbar {height:10px;}
+      &::-webkit-scrollbar-thumb {background-color:$darkGrayColor;}
+      &::-webkit-scrollbar-track {background-color:$lightBlackColor;}
+      table {border-collapse:collapse;
+        th:first-child, td:first-child {border-left:0;}
+        th:last-child, td:last-child {border-right:0;}
+        tbody * {font-family:'Roboto';font-weight:lighter;}
+        thead td {font-family:'Roboto';font-weight:lighter;}
+        tfoot td {font-family:'Roboto';font-weight:lighter;}
+      }
+    }
+    &.yearTime .scroll {
+      table {width:100%;}
+      &::-webkit-scrollbar-track {background-color:transparent;}
+    }
+  }
+}
+/* 학습 Q&A */
+.studyQna {
+  .resTls {
+    .lgSubGrid {table-layout:fixed;}
+    .ig1 {width:456px;
+      .item0 {width:109px;}
+      .item1 {width:120px;}
+      .item2 {width:226px;}
+    }
+    .ig2 {width:524px;
+      .item3 {width:434px;}
+      .item4 {width:90px;}
+    }
+    .item5 {width:120px;}
+    .tbody {
+      .item2 {text-align:left;}
+      .item2 span {display:block;width:100%;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+      .item3 {text-align:left;}
+      .item3 .tit {display:block;width:100%;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+      .item5 {font-family:'Roboto';}
+    }
+  }
+}
+
+/* ===== 프리미엄 ZONE  ===== */
+/* 프리미엄 쌤팩 */
+.premiumSsampack {padding:30px 0 0;
+  .mainSlogan {background:#2b2927 url('../images/bg_mylec_premium.jpg') no-repeat center bottom;background-size:cover;}
+  .ssampackNotYet {padding:0 0 100px;text-align:center;
+    .mainSloganBack {position:relative;
+      .mainSlogan {padding:58px 45px;height:240px;text-align:left;
+        p {color:$whiteColor;font-size:$txtSizeP2;
+          span {display:block;color:$whiteColor;font-size:$txtSizeP10;}
+          strong {color:#55cf96;font-size:$txtSizeP10;}
+          em {color: #fff; font-weight: 700; font-size: 16px;}
+          &.minExp {font-size: 14px; font-weight: 200; padding-top: 11px; color: #ddd;}
+          &.midExp {font-size: 16px; font-weight: 200; padding-top: 14px;}
+        }
+      }
+      ul {margin-top:-80px;@extend %clearBh;
+        li {display:inline-block;padding:115px 0 0 0;width:330px;height:200px;border:1px solid #707070;border-radius:10px;box-sizing:border-box;
+          @for $i from 1 to 4 {
+            &.item0#{$i} {background:$whiteColor url('../images/i_mylec_ssampack_slogan0'+$i+'.svg') no-repeat center 26px;}
+          }
+        }
+        li ~ li {margin-left:10px;}
+        span {display:block;font-size:$txtSizeP2;color:$lightBlackColor;}
+        strong {font-size:$txtSizeP10;}
+      }
+      ol {padding:50px 0 40px;text-align:left;
+        li {position:relative;padding:0 0 5px 30px;counter-increment:item;font-size:$txtSizeP6}
+        li strong {font-size:$txtSizeP6;color:#0E935D;}
+        li:before {content:counter(item);position:absolute;left:0;top:6px;display:inline-block;width:20px;height:20px;line-height:1.4;font-size:$txtSize;color:$whiteColor;text-align:center;vertical-align:middle;border-radius:10px;background:$blackColor;}
+      }
+    }
+    .btnL {padding-bottom:3px;width:310px;
+      strong {color:$greenColor;font-size:$txtSizeP2;}
+    }
+    .benefits {@extend %clearBh;padding-top:37px;margin-bottom:30px;text-align:left;display:flex;flex-wrap:wrap;border:2px solid $blackColor;border-width:2px 0;
+      dl {position:relative;padding:62px 38px 37px 38px;width:379px;box-sizing:border-box;
+        dt {padding:0 0 10px;font-weight:600;font-size:$txtSizeP6;
+          strong {font-size:$txtSizeP6;color:#0E935D;}
+        }
+        dd {padding-bottom:5px;
+          strong {font-size:$txtSizeP2;color:$blackColor;font-weight:400;letter-spacing:-0.052em;
+            strong {display:block;}
+          }
+          span {display:block;padding-bottom:5px;font-size:$txtSize;color:$lightBlackColor;}
+          em {display:block;color:$brightGrayColor;font-size:$txtSize;}
+        }
+        &:before {content:'';position:absolute;left:0;top:0;bottom:30px;display:inline-block;width:0;border-left:1px solid $grayColor;}
+        &:nth-child(3n+1) {padding:62px 25px 37px 20px;width:360px;
+          &:before {display:none;}
+        }
+        &:nth-child(3n) {padding:62px 0 37px 38px;width:360px;}
+
+        @for $i from 1 to 16 {
+          &.item#{$i} {background:$whiteColor url('../images/i_mylec_ssampack_benefits'+$i+'.svg') no-repeat 38px 9px;}
+        }
+        &:nth-child(3n+1) {background-position:20px 9px;}
+        &:nth-child(5) {background-position:38px 0;}
+        &:nth-child(7) {background-position:20px 6px;}
+      }
+    }
+  }
+  .ssampackOk {
+    .mainSlogan {display:table;width:100%;
+      * {color:$whiteColor;}
+      p {display:table-cell;padding:0 0 0 45px;height:240px;font-size:$txtSizeP2;vertical-align:middle;}
+      span {display:block;padding:10px 0 15px;font-size:$txtSize;}
+      strong {display:block;font-size:$txtSizeP10;}
+      strong i {font-size:inherit;color:$greenColor;}
+      em {font-size:inherit;}
+    }
+    .btnSpecial {@extend %clearBh;padding:25px 0 50px;
+      .set {position:relative;float:left;display:inline-block;padding:13px 0 0 78px;width:355px;height:70px;text-align:left;border:1px solid $grayColor;box-sizing:border-box;}
+      .set:after {content:"";position:absolute;right:25px;top:50%;margin-top:-6px;display:block;width:7px;height:12px;background: url('../images/i_arrow_right.svg') no-repeat center;
+          pointer-events:none;
+      }
+      @for $i from 1 to 4 {
+        .special0#{$i} {background:transparent url('../images/i_mylec_pSpecial0'+$i+'.svg') no-repeat 20px center;}
+      }
+      .set.special02 {margin-left:17px;}
+      .set.special03 {float:right;margin:0;}
+      button.set {padding-bottom:12px;}
+      span {color:$lightBlackColor;font-weight:100;letter-spacing:-0.07em;}
+      strong {display:block;font-size:$txtSizeP2;}
+    }
+    .premiumTabwrap {
+      .tabBack {margin:0 auto;width:1100px;
+        ul.blackLineTab {height:65px;background:$whiteColor;
+          li {width:26.4%;height:63px;border-bottom:2px solid $blackColor;background:$lightGrayColor;}
+          li span {display:block;padding:10px 0 0 0;height:63px;text-align:center;box-sizing:border-box;cursor:pointer;}
+          li span em {@extend %imgAlignA;display:inline-block;width:48px;height:48px;margin:-3px 0 0 0;vertical-align:middle;overflow:hidden;border-radius:48px;background:$grayColor}
+          li span strong {display:inline-block;padding:0 0 0 15px;font-size:$txtSizeP2;}
+          li.on {background:$whiteColor;}
+        }
+      }
+      h4 {padding:0 0 15px;font-size:$txtSizeP4;
+        span {display:block;font-weight:100;color:$lightBlackColor;}
+      }
+      .tabLayout {padding-top:32px;}
+    }
+    .selectPack {display:table;margin:0 auto 30px;width:1100px;background:$lightGrayColor;
+      div {display:table-cell;padding:0 0 0 20px;height:80px;vertical-align:middle;}
+      em {margin-right:5px;}
+      .iLocSet {@extend %circleIcon;padding:16px 5px 0 4px;}
+      strong {display:inline-block;margin-left:15px;font-size:$txtSizeP8;vertical-align:middle;}
+    }
+    .applyList {@extend %clearBh;padding:0 0 37px;
+      li {float:left;margin-bottom:13px;}
+      li ~ li {margin-left:13px;}
+      li:nth-child(4n+1) {margin-left:0}
+      .packItem {display:inline-block;padding:11px 10px 0 14px;width:265px;height:120px;border:1px solid $grayColor;border-radius:5px;box-sizing:border-box;background:$whiteColor;
+        &.ing {border-color:$greenColor;}
+        * {font-size:$txtSizeM2;}
+        strong {display:block;padding:0 0 5px;font-size:$txtSizeP2;letter-spacing:-0.03em;word-spacing:-0.03em;}
+        em + strong {padding-top:7px;}
+        i {position:relative;padding-top:2px;display:block;color:$lightBlackColor;letter-spacing:0;
+          .go {position:absolute;right:9px;top:-1px;}
+          &.change {color:#45C6A8;}
+        }
+        i.red {color:$redColor;}
+        .iLockSet, .iApplySet, .iStartSet, .iCoupon, .iChange {width:60px;height:19px;padding:0;line-height:1.5;border-radius:3px;}
+        .iCoupon,
+        .iChange {display:inline-block;margin:-4px 5px 0 0;color:$whiteColor;text-align:center;vertical-align:middle;background:#45C6A8}
+        .lockerNum {display:block;margin:-2px 0 0;font-weight:500;color:$lightBlackColor;}
+        .info {display:block;color:$lightBlackColor;text-align:left;letter-spacing:-0.03em;
+          em {position:relative;padding-left:6px;display:block;color:$lightBlackColor;letter-spacing:-0.04em;
+            &:before {content:'';position:absolute;left:0;top:8px;display:inline-block;width:3px;border-top:1px solid $lightBlackColor;}
+          }
+        }
+        .iLockSet {color:$whiteColor;text-align:center;
+          &.end {background:#666666;}
+          &.ing {background:#0E935D;font-weight:400;}
+          &.waiting {background:#C16C6C;font-weight:400;}
+        }
+        .go {@extend %arrowBtn;padding:0 20px 0 10px;height:23px;width:75px;line-height:1.8;color:$greenColor;border-color:$greenColor;box-sizing:border-box;
+          &::after {border-color:$greenColor;}
+          &.red {color:$redColor;border-color:$redColor;
+            &::after {border-color:$redColor;}
+          }
+          &.gray {margin-top:10px;width:90px;color:$lightBlackColor;border-color:$lightBlackColor;
+            &::after {border-color:$lightBlackColor;}
+          }
+        }
+        .btnS {margin:-3px auto 8px;width:140px;height:30px;}
+        &.applyCase {position:relative;padding:20px 10px 0 10px;border-color:$lightGrayColor;background:$lightGrayColor;
+          .info {line-height:1.4;}
+          .btnApply {position:absolute;bottom:14px;left:50%;width:124px;height:26px;margin-left:-62px;font-size:$txtSize;color:$lightBlackColor;border:1px solid $lightBlackColor;border-radius:15px;background:$whiteColor;}
+          .applyKind {position:absolute;top:-10px;left:14px;display:inline-block;padding:0 8px;min-width:60px;height:17px;font-size:11px;font-weight:300;letter-spacing:0;color:$whiteColor;line-height:1.4;box-sizing:border-box;border-radius:3px;background:#4a64b8;
+            &:after {content:"";position:absolute;left:8px;bottom:-3px;display:block;height:0;width:0;border:3px solid #4a64b8;transform:rotate(135deg);pointer-events: none;}
+          }
+        }
+      }
+      &.couponCase .packItem {height:150px;}
+    }
+    .etcApply {padding:50px 0;background:$lightGrayColor;
+      .packItem {margin-bottom:2px;}
+      .packItem.applyCase {border-color:$grayColor;background:$whiteColor;}
+    }
+  }
+  .LinkTab {
+    padding-top: 25px;
+    ul {display: flex; gap: 18px;
+      li {flex: 1; border: 1px solid #ddd;
+        a, button {display: block; height: 70px; width: 100%; box-sizing: border-box; padding: 13px 0 13px 78px; background-position: 20px 50%; background-repeat: no-repeat; position: relative;
+          &::before {content: ''; position: absolute; width: 7px; height: 12px; background-image: url(../images/i_link_arrow.svg); background-size: cover; top: 50%; right: 25px; transform: translateY(-50%);}
+        }
+        &.t_01 a, &.t_01 button {background-image: url(../images/i_tab_clock.svg);}
+        &.t_02 a, &.t_02 button {background-image: url(../images/i_tab_kakaoch.svg);}
+        &.t_03 a, &.t_03 button {background-image: url(../images/i_tab_paper.svg);}
+        p, span {text-align: left; font-size: 16px; font-weight: 700; display: block;
+          small {font-size: 14px; display: block; font-weight: 200; letter-spacing: -0.3px;}
+        }
+      }
+    }
+
+  }
+  .ssampackTabWrap {
+    padding-top: 50px;
+    .headTab { position: relative;
+      .profileIcon {display: block; width: 48px; height: 48px; border-radius: 50%; background-color: #DBDBDB; overflow: hidden; margin-right: 15px;
+        img { width: 100%; height: 100%; object-fit: cover;}
+      }
+      .selectSsam {display: flex; align-items: center; padding: 10px; border: 2px solid #888; position: relative;
+        &::after {content: ''; position: absolute; top: 50%; right: 18px; transform: translateY(-50%); width: 12px; height: 12px; background-image: url('../images/m/i_smart_arrow.svg'); background-size: contain; background-repeat: no-repeat; background-position: center;}
+      }
+
+      ul{display: flex; border-bottom: 2px solid #333;
+        li {box-sizing: border-box; width: 290px; height: 65px; display: flex; align-items: center; justify-content: center; border-bottom: 2px solid #333; background-color:#FAFAFA; margin-bottom: -2px ; cursor: pointer;
+          &.on {background-color: #fff; border: 2px solid #333; position: relative;
+            &::after {content: ''; width: 100%; height: 3px; background-color: #fff; position: absolute; bottom: -2px;}
+          }
+        }
+      }
+      &.typeSelect {
+        ul {display: block; border: 0; position: absolute; width: 100%; height: 0; overflow: hidden;
+          li {margin: 0; border: 0; width: 100%; justify-content: flex-start; padding: 10px;
+            &:not(:first-child) {border-top: 1px solid #ddd;}
+            &.on {background-color: #fafafa;}
+            &.on::after {display: none;}
+          }
+          &.active {height: auto;}
+        }
+      }
+    }
+    .packageMonthly { background-color: #fafafa; border: 1px solid #ddd; padding: 15px 20px; display: flex; align-items: center; margin-top: 50px;
+      .iconWrap {em + em {margin-left: 5px;}}
+      p {font-size: 22px; font-weight: 700;}
+      .iconWrap + p {padding-left: 20px;}
+    }
+  }
+  .ssamBenefits { padding-top: 90px;
+    .benefitList {display: flex; flex-wrap: wrap; gap:20px 60px;
+      >li {width: calc(50% - 30px); height: 165px; text-align: left; padding-left: 83px; border-bottom: 1px solid #ddd; background-repeat: no-repeat; background-position: 10px 6px;
+        dt {font-weight: 700; font-size: 16px;}
+        dd {padding-top: 4px;
+          p {font-size: 14px; color: #666; font-weight: 200;}
+        }
+        .btnApply {width: 140px; height: 30px; background-color: #333; border-radius: 3px; color: #fff; font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: 15px; }
+        @for $i from 1 to 14 {
+          &.item#{$i} {background-image: url(../images/i_mylec_ssampack_bnflist_#{$i}.svg);}
+        }
+        &:last-child{border-bottom: 0;}
+      }
+    }
+
+    .dotList {
+      li {padding-left: 6px; position: relative; font-size: 12px; font-weight: 200; color: #aaa;
+        &::before {position: absolute; content: ''; width: 3px; height: 3px; background-color: #aaa; border-radius: 50%; left: 0; top:8px;}
+      }
+    }
+
+  }
+
+}
+
+/* ===== 모의고사 ZONE ===== */
+.mockStare {
+  .voiceTest {padding:15px 0;text-align:right;
+    a, button {display:inline-block;width:180px;height:44px;padding:0 0 2px 46px;font-size:$txtSizeP2;text-align:left;line-height:2.6;color:$whiteColor;vertical-align:middle;border-radius:5px;box-sizing:border-box;
+      background:$blackColor url('../images/i_mylec_mockTestPlay.png') no-repeat 18px center;
+    }
+    button {margin-left:10px;background:$blackColor url('../images/i_mylec_mockTestVoice.png') no-repeat 18px center;}
+    span {float:left;display:inline-block;
+      button {padding:0 10px 2px;width:auto;color:$blackColor;border:1px solid $blackColor;background:$whiteColor;}
+    }
+  }
+  .resTls {border-top:1px solid $grayColor;
+    .lgSubGrid {table-layout:fixed;}
+    .item0 {width:100px;}
+    .item1 {width:260px;}
+    .item2 {width:338px;}
+    .item3 {width:402px;}
+    .tbody {
+      .item1 {font-family:'Roboto';}
+      .item2 strong {font-weight:500;}
+      .item3 {
+        span {display:inline-block;padding-right:10px;color:$blackColor;font-weight:400;}
+        span em {margin-right:5px;font-size:$txtSizeM2;color:$lightBlackColor;}
+      }
+    }
+  }
+}
+.mockStareView {
+  .mockInfo {padding-bottom:30px;
+    dl {margin-bottom:6px;border:1px solid $grayColor;border-top:0;
+      dt {position:relative;padding:0 20px;height:50px;line-height:3.5;font-weight:600;color:$blackColor;
+        &:after {content:"";position:absolute;left:auto;right:16px;top:50%;display:block;margin-top:-8px;height:16px;width:16px;background:url('../images/i_mylec_mockArrow.svg') no-repeat center;
+            pointer-events:none;transition:all .3s ease;
+        }
+      }
+      dd {padding:15px 20px;background:$lightGrayColor;
+        span {position:relative;display:block;padding:0 0 0 10px;color:$lightBlackColor;}
+        span:before {content:'';position:absolute;top:9px;left:0;display:inline-block;width:4px;height:0;border-top:1px solid $lightBlackColor;}
+      }
+      &.on {
+        dt:after {@include venderPrefix(transform, rotate(-180deg));}
+      }
+    }
+  }
+  .tabBack .tabNav {
+    ul li {width:50%;}
+    ul li button {border:1px solid $grayColor}
+    ul li.on button {border:1px solid $blackColor;background:$blackColor;}
+  }
+  .resTls.mockTestSchedule {border-top:2px solid $blackColor;}
+}
+.resTls.mockTestSchedule {margin-bottom:50px;
+  ul li {counter-increment:item;}
+  .lgItem {text-align:left;}
+  .item0 {width:280px;padding-left:80px;font-size:$txtSizeP2;font-weight:400;
+    &::before {display:inline-block;content:counter(item);width:20px;height:20px;margin:-4px 6px 0 0;line-height:1.4;font-size:$txtSize;color:$whiteColor;text-align:center;vertical-align:middle;border-radius:10px;background:$brightGrayColor;}
+  }
+  .item1 {width:540px;font-size:$txtSizeP2;font-weight:400;font-family:'Roboto';
+    em {font-size:$txtSize;color:#aaa;}
+  }
+  .item2 {width:280px;font-size:$txtSizeP2;
+    em {display:block;font-size:$txtSize;color:#aaa;}
+    [class*=btnS] {width:140px;height:30px;line-height:1.9;color:$whiteColor;}
+    .btnPrint {margin:0;width:auto;height:30px;font-size:$txtSize;font-weight:400;line-height:1.8; border: 1px solid #888; color:#666}
+    .examReviewPlay {display:block;
+      [class*=btnS] {min-width:auto;width:80px;margin-right:5px;}
+    }
+  }
+  li.ing {background:#fef4f4 url('../images/i_mylec_mockIng.svg') no-repeat 33px center;
+    .item0 {color:#d1555f;font-weight:600;font-size:$txtSizeP4;
+      &::before {font-weight:400;background:#d1555f;}
+    }
+    .item1 {color:#d1555f;font-weight:600;font-size:$txtSizeP4;}
+  }
+  .tbody ul li:hover {background:$whiteColor;}
+  .tbody ul li.ing:hover {background:#fef4f4 url('../images/i_mylec_mockIng.svg') no-repeat 20px center;}
+}
+.mockExplain {
+  .resTls {border-top:1px solid $grayColor;
+    .lgSubGrid {table-layout:fixed;}
+    .item0 {width:100px;}
+    .item1 {width:270px;}
+    .item2 {width:348px;
+      .lecEnd {color:#aaa;}
+    }
+    .item3 {width:382px;}
+    .tbody {
+      .item1 {font-family:'Roboto';}
+      .item3 {font-family:'Roboto';
+        em {font-size:$txtSize;color:#aaa;}
+      }
+    }
+  }
+}

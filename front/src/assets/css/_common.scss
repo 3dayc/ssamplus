@@ -1,0 +1,283 @@
+/* =================================================================================
+* INFORMATION
+* -----------------------------------------------------------------------
+* @File Name: _common.scss
+* @Description : 초기화 및 변수선언
+* @Create Date: 2021-06-23
+* @Update Date: N/A
+* @History: N/A
+* ================================================================================= */
+
+/* ====================== */
+/* 공통 전역 변수 및 @media query 셋팅 */
+/* ====================== */
+$blackColor:#333;
+$lightBlackColor:#666;
+$darkGrayColor:#999;
+$brightGrayColor:#888;
+$grayColor:#ddd;
+$lightGrayColor:#fafafa;
+$greenColor:#0e935d;
+$blueColor:#3079ff;
+$whiteColor:#fff;
+$redColor:#d1555F;
+$tableBGColor:#7B7B7B;
+$txtSize:14px;
+$txtSizeM1:$txtSize - 1px;
+$txtSizeM2:$txtSize - 2px;
+$txtSizeM4:$txtSize - 4px;
+$txtSizeP1:$txtSize + 1px;
+$txtSizeP2:$txtSize + 2px;
+$txtSizeP4:$txtSize + 4px;
+$txtSizeP5:$txtSize + 5px;
+$txtSizeP6:$txtSize + 6px;
+$txtSizeP8:$txtSize + 8px;
+$txtSizeP10:$txtSize + 10px;
+$txtSizeP11:$txtSize + 11px;
+$txtSizeP12:$txtSize + 12px;
+$txtSizeP14:$txtSize + 14px;
+$txtSizeP18:$txtSize + 18px;
+$cPX10:10%; //color $colorPercent X 10배수
+$cPX16:16%; //16배수
+$cPX20:20%; //20배수
+$cPX36:36%; //36배수
+$iHeight:50px; //입력 폼 높이기준
+$iHeightM:40px; //입력 폼 높이기준
+$frameSize:1100px; // PC버전 최소넓이
+$frameSizeMobile:100%; // Mobile 버전 최소넓이
+$bodyColor:$whiteColor;// 배경색
+%movingSpeed {
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -ms-transition: all 0.75s;
+  -o-transition: all;
+}
+$vendors: webkit, moz, ms, o;
+@mixin venderPrefix($name, $value) {
+  @each $vendor in $vendors {
+    -#{$vendor}-#{$name}: $value;
+  }
+  #{$name}: $value;
+}
+@mixin mq($point) {
+  @if $point == pc {
+    @media (min-width: 1025px) { @content; }
+  }
+  @else if $point == tablet {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $point == onlytablet {
+    @media (min-width: 768px) and(max-width: 1024px) { @content; }
+  }
+  @else if $point == mobile  {
+    @media (max-width: 767px)  { @content; }
+  }
+  @else if $point == mobilesmall  {
+    @media (max-width: 320px)  { @content; }
+  }
+  @else if $point == portrait  {
+    @media screen and (orientation:portrait) { @content; }
+  }
+  @else if $point == landscape  {
+    @media screen and (orientation:landscape) { @content; }
+  }
+  @else if $point == landscapeSmall {
+    @media (orientation:landscape) and(max-width: 767px) { @content; }
+  }
+}
+/* ====================== */
+/* UI Reset */
+/* ====================== */
+/* ===== Default ===== */
+hr, caption {display:none;}
+dl,ul,ol,menu,li {list-style:none;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,label,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0;box-sizing:border-box;}
+body, * {font-family:'NotoSans';letter-spacing:-0.04em;word-spacing:-0.02em;font-size:$txtSize;color:$blackColor;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;-webkit-appearance:none;-webkit-border-radius:0;}
+// body, * {font-family:-apple-system, BlinkMacSystemFont,'Malgun Gothic','맑은 고딕', helvetica,'Apple SD Gothic Neo', sans-serif;font-size:13px;letter-spacing:-0.025em;color:$blackColor;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;/*word-break:keep-all;*/-webkit-appearance:none;-webkit-border-radius:0;}
+body, * {color:$blackColor;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;-webkit-appearance:none;-webkit-border-radius:0;}
+html, body {min-height:100vh;-webkit-margin-start:0;-webkit-padding-start:0px;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;scroll-behavior:smooth;}
+body {word-break:keep-all;background:$bodyColor;}
+blockquote, q {quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";content:none;}
+a {outline:none;text-decoration:none;-webkit-tap-highlight-color:rgba(0,0,0,0.0);}
+button {outline:none;background:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+a img {border:none;}
+address, caption, cite, code, dfn, em, th, var, i {font-style:normal;font-weight:normal;}
+a, button, input, textarea, select {-webkit-tap-highlight-color:transparent;}
+a, button, input:focus, select:focus, textarea:focus {outline:0 none;}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {margin:0;
+  @include venderPrefix(appearance, none);
+}
+.swiper-button-prev,
+.swiper-button-next {outline:none;-webkit-tap-highlight-color:transparent;}
+.skip-navigation a {display:block;height:0;width:0;padding:0;font-size:0;line-height:0;overflow:hidden;}
+.skip-navigation a:hover,.skip-navigation a:active,.skip-navigation a:focus {position:fixed;top:0;left:0;width:100%;height:auto;padding:8px 0 12px;font-size:14px;color:$whiteColor;line-height:1;text-align:center;background:black;}
+/* ===== Interval ===== */
+@for $i from 1 to 9 {
+  h#{$i} {font-family:'NotoSans';}
+}
+/* align */
+.tL {text-align:left !important;}
+.tR {text-align:right !important;}
+.tC {text-align:center !important;}
+%pos {position:absolute;top:0;}
+.left {
+  float:left;
+  &-po {@extend %pos;
+    left:0;
+  }
+}
+.right {
+  float:right;
+  &-po {@extend %pos;
+    right:0;
+  }
+}
+%clearBh {
+  &:after {content:"";display:block;clear:both;}
+}
+%imgAlignA {position:relative;
+  img {position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);width:auto;height:auto;max-width:100%;max-height:100%;display:block;}
+}
+%imgAlignR {width:auto;height:auto;max-width:100%;max-height:100%;}
+%imgAlignCenter {position:relative;
+  img {display:block;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);width:auto;height:auto;/*min-width:100%;min-height:100%;*/max-width:100%;max-height:100%;object-fit:cover;}
+}
+.hiden {display:none;}
+.ellipsis01 {display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;}
+.ellipsis02 {display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-align:left;}
+sup {position:relative;display:inline-block;width:10px;height:10px;text-indent:-999px;overflow:hidden;
+  &:before {content:'*';display:inline-block;position:absolute;left:0;top:0;font-size:16px;text-indent:0;line-height:1;text-indent:0;color:$redColor;}
+}
+/* space */
+.pd0 {padding:0 !important;}
+.pd5 {padding:5px !important;}
+.pd10 {padding:10px !important;}
+.pt0 {padding-top:0 !important;}
+.pt5 {padding-top:5px !important;}
+.pt10 {padding-top:10px;}
+.pt15 {padding-top:15px !important;}
+.pt20 {padding-top:20px;}
+.ptb10 {padding:10px 0;}
+.pb10 {padding-bottom:10px;}
+.pb20 {padding-bottom:20px !important;}
+.pb25 {padding-bottom:25px !important;}
+.pl26 {padding-left:26px;}
+.pr10 {padding-right:10px;}
+.pr30 {padding-right:30px;}
+.mg0 {margin:0 !important;}
+.mt5 {margin-top:5px;}
+.mt10 {margin-top:10px;}
+.mt16 {margin-top:16px;}
+.mt20 {margin-top:20px;}
+.mt30 {margin-top:30px;}
+.mt40 {margin-top:40px;}
+.mt60 {margin-top:60px;}
+.mb0 {margin-bottom:0px !important;}
+.mb10 {margin-bottom:10px;}
+.mb15 {margin-bottom:15px !important;}
+.mb20 {margin-bottom:20px;}
+.mb25 {margin-bottom:25px;}
+.mr5 {margin-right:5px;}
+.mr10 {margin-right:10px;}
+.mr20 {margin-right:20px;}
+.ml5 {margin-left:5px;}
+.ml10 {margin-left:10px;}
+.ml20 {margin-left:20px;}
+.m0auto {margin:0 auto;}
+/* width */
+.wHalf {width:50% !important;}
+// .wFull {width:100% !important;}
+.wFull {width:100%;}
+.wAuto {width:auto !important;}
+.w100 {width:100px !important;}
+.w120 {width:120px !important;}
+.w230 {width:230px !important;}
+.w300 {width:300px !important;}
+.w350 {width:350px !important;}
+.w450 {width:450px !important;}
+.w600 {width:600px !important;}
+.w610 {width:610px !important;}
+.w800 {width:800px !important;}
+.w900 {width:900px !important;}
+.w1060 {width:1060px !important;}
+/* height */
+.h8 {height:8rem !important;}
+.h10 {height:10rem !important;}
+.h200 {height:200px !important;}
+.h250 {height:250px !important;}
+.h300 {height:300px !important;}
+.h400 {height:400px !important;}
+/* display */
+.inBlock {display:inline-block;}
+.block {display:block;}
+/* font */
+.infoMsg {text-align:left;}
+.fRed {color:$redColor !important;}
+.fBlue {color:#1c5ed5;}
+.fGreen {color:$greenColor;}
+.fGray {color:#666;}
+.fLightGray {color:#999  !important;}
+/* Background */
+.backBeige {background:#ece1ce !important;}
+/* 과목별 배경 색상(그라디언트, 단색, 단색 반투명, 파일명에 이용) sbj(subject) + 과목 */
+$map-subjBgStyle: (
+  sbjMath: (start-color:#c6ea8d, end-color:#fe90af, solo-color:#B5E15E, rgba-color:rgba(181, 225, 94, .3), bg-imgUrl:sbjMath),          //수학 ok
+  sbjSc: (start-color:#FFD320, end-color:#15CFAB, solo-color:#5DD081, rgba-color:rgba(93, 208, 129, .3), bg-imgUrl:sbjSc),            //과학교육 ok
+  sbjEdu: (start-color:#45C6A8, end-color:#4287BF, solo-color:#428FBB, rgba-color:rgba(66, 143, 187, .3), bg-imgUrl:sbjEdu),           //교육학 ok rgb(66 143 187)
+  sbjInterview: (start-color:#3389C6, end-color:#9F78B7, solo-color:#887BBA, rgba-color:rgba(136, 123, 186, .3), bg-imgUrl:sbjInterview),     //면접 ok rgb(136 123 186)
+  sbjKhistory: (start-color:#00B7FF, end-color:#7DD15A, solo-color:#22BED3, rgba-color:rgba(34, 190, 211, .3), bg-imgUrl:sbjKhistory),      //한국사 ok rgb(34 190 211)
+  sbjChild: (start-color:#FFB78C, end-color:#E6698F, solo-color:#F5968D, rgba-color:rgba(245, 150, 141, .3), bg-imgUrl:sbjChild),         //유아 ok rgb(245 150 141)
+  sbjKo: (start-color:#3EDFD9, end-color:#6E4FE1, solo-color:#1DDDDF, rgba-color:rgba(29, 221, 223, .3), bg-imgUrl:sbjKo),            //국어 ok rgb(29 221 223)
+  sbjEn: (start-color:#F2E19C, end-color:#892BFD, solo-color:#F6D684, rgba-color:rgba(246, 214, 132, .3), bg-imgUrl:sbjEn),            //영어 ok rgb(246 214 132)
+  sbjMusic: (start-color:#58D1FF, end-color:#C32DE1, solo-color:#8B82F0, rgba-color:rgba(139, 130, 240, .3), bg-imgUrl:sbjMusic),         //음악 ok rgb(139 130 240)
+  sbjArt: (start-color:#FF8888, end-color:#8968FF, solo-color:#F8728A, rgba-color:rgba(248, 114, 138, .3), bg-imgUrl:sbjArt),           //미술 ok rgb(248 114 138)
+  sbjPys: (start-color:#D8B5FF, end-color:#1EAE98, solo-color:#CFB5FA, rgba-color:rgba(207, 181, 250, .3), bg-imgUrl:sbjPys),           //체육 ok rgb(207 181 250)
+  sbjZh: (start-color:#FCE960, end-color:#EF2958, solo-color:#F14159, rgba-color:rgba(241, 65, 89, .3), bg-imgUrl:sbjZh),            //중국어 ok rgb(241 65 89)
+  sbjJa: (start-color:#FF61D2, end-color:#FE9090, solo-color:#FE889B, rgba-color:rgba(254, 136, 155, .3), bg-imgUrl:sbjJa),            //일본어 ok rgb(254 136 155)
+  sbjZhWr: (start-color:#BFF098, end-color:#6FD6FF, solo-color:#7DDBEE, rgba-color:rgba(125, 219, 238, .3), bg-imgUrl:sbjZhWr),          //한문 ok rgb(125 219 238)
+  sbjHome: (start-color:#FEEFB4, end-color:#F6446D, solo-color:#FCC8A4, rgba-color:rgba(252, 200, 164, .3), bg-imgUrl:sbjHome),          //가정 ok rgb(252 200 164)
+  sbjMor: (start-color:#FEA9AA, end-color:#E8E81E, solo-color:#FDADA1, rgba-color:rgba(253, 173, 161, .3), bg-imgUrl:sbjMor),           //도덕윤리 ok rgb(253 173 161)
+  sbjBeauty: (start-color:#8EF378, end-color:#1CBBB4, solo-color:#1FB49B, rgba-color:rgba(31, 180, 155, .3), bg-imgUrl:sbjBeauty),        //미용 ok rgb(31 180 155)
+  sbjHistory: (start-color:#FEE140, end-color:#FA709A, solo-color:#F14159, rgba-color:rgba(241, 65, 89, .3), bg-imgUrl:sbjHistory),       //역사 ok rgb(241 65 89)
+  sbjGeo: (start-color:#FA7596, end-color:#FD9F08, solo-color:#FED34C, rgba-color:rgba(254, 211, 76, .3), bg-imgUrl:sbjGeo),           //지리 ok rgb(254 211 76)
+  sbjPhy: (start-color:#FEA308, end-color:#F04718, solo-color:#F24F17, rgba-color:rgba(242, 79, 23, .3), bg-imgUrl:sbjPhy),           //물리 ok rgb(242 79 23)
+  sbjChemi: (start-color:#C0392B, end-color:#8E44AD, solo-color:#B93B3E, rgba-color:rgba(158, 59, 62, .3), bg-imgUrl:sbjChemi),         //화학 ok rgb(218 240 174)
+  sbjBio: (start-color:#52ACFF, end-color:#FFE32C, solo-color:#5CAFF4, rgba-color:rgba(92, 175, 244, .3), bg-imgUrl:sbjBio),           //생물 ok rgb(92 175 244)
+  sbjLib: (start-color:#40D884, end-color:#1068CC, solo-color:#116EA8, rgba-color:rgba(17, 110, 168, .3), bg-imgUrl:sbjLib),           //사서직 (공무원) ok rgb(194 80 193)
+  sbjCounsel: (start-color:#885DE3, end-color:#CC7991, solo-color:#C074A0, rgba-color:rgba(192, 116, 160, .3), bg-imgUrl:sbjCounsel),       //전문상담 ok rgb(192 116 160)
+  sbjHealth: (start-color:#4E65FF, end-color:#92EFFD, solo-color:#587AFF, rgba-color:rgba(88, 122, 255, .3), bg-imgUrl:sbjHealth),        //보건 ok rgb(88 122 255)
+  sbjSpeChild: (start-color:#A9C9FF, end-color:#FFBBEC, solo-color:#FBBBEC, rgba-color:rgba(251, 187, 236, .3), bg-imgUrl:sbjSpeChild),      //유아특수 ok rgb(251 187 236)
+  sbjSpeElement: (start-color:#FD6AAC, end-color:#6D6EFE, solo-color:#F76BB0, rgba-color:rgba(247, 107, 176, .3), bg-imgUrl:sbjSpeElement),    //초등특수 ok rgb(247 107 176)
+  sbjSpeMiddle: (start-color:#2E49D6, end-color:#C850C0, solo-color:#C250C1, rgba-color:rgba(194, 80, 193, .3), bg-imgUrl:sbjSpeMiddle),     //중등특수 ok rgb(194 80 193)
+);
+* {
+  @each $style, $value in $map-subjBgStyle {
+    &.#{$style} {background: linear-gradient(140deg, map-get($value, start-color) 0%, map-get($value, end-color) 100%);}
+    &.solo.#{$style} {background:map-get($value, solo-color);}
+    &.opacity.#{$style} {background:map-get($value, rgba-color);}
+  }
+}
+
+/* 전공별 배경 색상(단색) mj(Major) + 과목 */
+$map-mjBgStyle: (
+  mjEdu: (solo-color:#428FBB),          //교육학
+  mjChild: (solo-color:#F5968D),        //유아·초등·특수
+  mjMiddle: (solo-color:#F14159),       //중등
+  mjHealth: (solo-color:#587AFF),       //보건
+  mjSpeMiddle: (solo-color:#C250C1),    //중등특수
+  mjCounsel: (solo-color:#C074A0),      //전문상담
+  mjInterview: (solo-color:#887BBA),    //논술·면접·실기
+  mjTransfer: (solo-color:red)         //교대편입
+);
+* {
+  @each $style, $value in $map-subjBgStyle {
+    &.#{$style} {background: linear-gradient(140deg, map-get($value, start-color) 0%, map-get($value, end-color) 100%);}
+    &.solo.#{$style} {background:map-get($value, solo-color);}
+    &.opacity.#{$style} {background:map-get($value, rgba-color);}
+  }
+  @each $style, $value in $map-mjBgStyle {
+    &.#{$style} {background:map-get($value, solo-color);}
+  }
+}

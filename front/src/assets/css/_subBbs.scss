@@ -1,0 +1,115 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _sub.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* 공지사항 */
+.notice {
+  .resTls {
+    .item0 {padding-left:20px;}
+    .item1 {width:80px;}
+    .item2 {width:130px;}
+    .item3 {width:120px;}
+    .tbody {
+      .item2,
+      .item3 {font-family:'Roboto';}
+    }
+  }
+}
+/* 첨삭게시판 */
+.testBbs {
+  .resTls {
+    .item0 {width:85px;}
+    .item1 {width:70px;}
+    .item2 {width:120px;}
+    .item3 {width:180px;}
+    .tbody {
+      .item3 {font-family:'Roboto';}
+    }
+  }
+}
+/* 강의자료 */
+.lecDataBbs{
+  .resTls {
+    .item0 {width:115px;}
+    .item1 {width:70px;}
+    .item2 {width:122px;}
+    .item3 {width:118px;}
+    .item4 {width:85px;}
+    .tbody {
+      .item0,
+      .item2,
+      .item3,
+      .item4 {font-family:'Roboto';}
+    }
+  }
+}
+/* 학습 Q&A */
+.counselBbs {
+  .resTls {
+    .item0 {width:92px;}
+    .item1 {width:70px;}
+    .item2 {width:130px;}
+    .tbody {
+      .item2 {font-family:'Roboto';}
+    }
+  }
+}
+/* 이벤트 - 당첨자 발표 */
+.eventTabwrap {
+  .tabLayout {padding: 25px 0 20px;}
+  .thumbnailList {padding-top:25px;}
+  .thumbnailList_fl {display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 47px; border-bottom: 1px solid #ddd; padding-bottom: 25px;
+    li {flex: 1; max-width: 333px;
+      .imgBox {height: 204px; width: 333px; display: block; 
+        img {width: 100%; height: 100%; object-fit: cover;}
+      }
+      .txtBox {display: block; padding-top: 15px;
+        strong {font-size: 20px; letter-spacing: -.08em; font-weight: 400; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+        em {display: block; padding-top: 3px; font-size: 16px; color: #666; font-weight: 200; letter-spacing: -.03em; }
+      }
+      &.new {
+        .txtBox strong::after {content: 'N';display: inline-block;margin-left: 5px;font-weight: bold;font-size: 10px;color: #FF7B52;vertical-align: super;}
+      }
+    }
+  }
+}
+.eventPast {
+  li {
+    a {position:relative;
+      &:after {content:"종료";position:absolute;display:inline-block;top:12px;left:13px;width:67px;height:67px;font-size:$txtSizeP4;line-height:3.8;color:$whiteColor;text-align:center;border-radius:67px;z-index:2;background:rgba(0, 0, 0, 0.7);}
+      img {mix-blend-mode:luminosity;opacity:.5;}
+    }
+  }
+}
+.eventWinner {margin-top:19px;
+  .resTls {
+    .item0 {width:140px;padding-right:25px;}
+    .item1 {width:90px;}
+    .item2 {width:235px;padding-right:15px;}
+    .tbody {
+      .item0,
+      .item2 {font-family:'Roboto';}
+      .item2 em {color:#666;font-weight:200;}
+    }
+  }
+}
+
+#wrapBack.mDevice {
+  .eventTabwrap {
+    .thumbnailList_fl {flex-direction: column; gap: 20px; padding-top: 13px;
+      li {width:100%; max-width: unset;
+        .imgBox {height: auto; width: 100%;}
+      }
+    
+      @include mq(onlytablet) {
+        flex-direction: row; flex-wrap: wrap;
+        li {width: calc((100% / 3) - 14px); flex: none;}
+      }
+    }
+  }
+}

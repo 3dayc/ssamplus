@@ -1,0 +1,123 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: common.css
+* @Description : 무이자 할부 안내 스타일 정의
+* @Create Date: 2022-02-21
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ====================== */
+/* UI Reset */
+/* ====================== */
+/* ===== Default ===== */
+hr, caption {display:none;}
+dl,ul,ol,menu,li {list-style:none;}
+body,div,span,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,label,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0;box-sizing:border-box;}
+body, * {font-family:'NotoSans';letter-spacing:-0.04em;word-spacing:-0.02em;font-size:14px;color:#333;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;/*word-break:keep-all;*/-webkit-appearance:none;-webkit-border-radius:0;}
+html, body {min-height:100vh;-webkit-margin-start:0;-webkit-padding-start:0px;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none;scroll-behavior:smooth;}
+body {word-break:keep-all;background:#fff;}
+blockquote, q {quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";content:none;}
+a {outline:none;text-decoration:none;-webkit-tap-highlight-color:rgba(0,0,0,0.0);}
+button {outline:none;background:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+a img {border:none;}
+address, caption, cite, code, dfn, em, th, var, i {font-style:normal;font-weight:normal;}
+a, button, input, textarea, select {-webkit-tap-highlight-color:transparent;}
+a, button, input:focus, select:focus, textarea:focus {outline:0 none;}
+
+/* ====================== */
+/* Style */
+/* ====================== */
+.payCardKind ul:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.payCardKind ul {
+  position: relative;
+  width: 100%;
+}
+.payCardKind ul li {
+  position: relative;
+  float: left;
+  width: 50%;
+  display: table;
+  padding: 12px 12px 12px 100px;
+  height: 100px;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: 12px center;
+}
+.payCardKind ul li:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.payCardKind ul li:nth-child(even) {
+  left: 10px;
+  right: 0;
+  background-position: 22px center;
+}
+.payCardKind ul li.sh {
+  background-image: url('../images/i_card_sh.png');
+}
+.payCardKind ul li.kb {
+  background-image: url('../images/i_card_kb.png');
+}
+.payCardKind ul li.bc {
+  background-image: url('../images/i_card_bc.png');
+}
+.payCardKind ul li.wr {
+  background-image: url('../images/i_card_wr.png');
+}
+.payCardKind ul li.hd {
+  background-image: url('../images/i_card_hd.png');
+}
+.payCardKind ul li.ss {
+  background-image: url('../images/i_card_ss.png');
+}
+.payCardKind ul li.hn {
+  background-image: url('../images/i_card_hn.png');
+}
+.payCardKind ul li.hnetc {
+  background-image: url('../images/i_card_hnetc.png');
+}
+.payCardKind ul li.lt {
+  background-image: url('../images/i_card_lt.png');
+}
+.payCardKind ul li.ct {
+  background-image: url('../images/i_card_ct.png');
+}
+.payCardKind ul li.nh {
+  background-image: url('../images/i_card_nh.png');
+}
+.payCardKind ul li.sc {
+  background-image: url('../images/i_card_sc.png');
+}
+.payCardKind ul li strong {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+.payCardKind ul li span {
+  display: block;
+  padding: 1px 0;
+  font-size: 12px;
+  font-weight: normal;
+}
+.payCardKind ul li span em {
+  font-size: inherit;
+  color: #888;
+}
+.payCardKind dl dt {
+  padding-top: 30px;
+  font-weight: bold;
+}
+.payCardKind dl dd {
+  color: #666;
+}

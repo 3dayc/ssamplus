@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52.34" height="43" viewBox="0 0 52.34 43">
+  <g id="그룹_1141" data-name="그룹 1141" transform="translate(-154 -832)">
+    <rect id="사각형_634" data-name="사각형 634" width="50.76" height="6.91" transform="translate(154.79 861.35)" fill="#0e935d"/>
+    <g id="사각형_143" data-name="사각형 143" transform="translate(154 832)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2">
+      <rect width="52.34" height="36.66" rx="1.94" stroke="none"/>
+      <rect x="1" y="1" width="50.34" height="34.66" rx="0.94" fill="none"/>
+    </g>
+    <rect id="사각형_144" data-name="사각형 144" width="8.89" height="5.64" transform="translate(175.73 867.95)" fill="#333"/>
+    <path id="사각형_633" data-name="사각형 633" d="M165.714,874.232a1.549,1.549,0,0,1,1.562-1.535h26.566a1.549,1.549,0,0,1,1.562,1.535V875h-29.69Z" fill="#333"/>
+    <g id="Icon_feather-mouse-pointer" data-name="Icon feather-mouse-pointer">
+      <path id="패스_1339" data-name="패스 1339" d="M177.442,843.568l6.511,15.628,2.312-6.805,6.805-2.312Z" fill="#0e935d" stroke="#333" stroke-linecap="round" stroke-width="2"/>
+      <line id="패스_1340" data-name="패스 1340" x2="4.09" y2="4.1" transform="translate(186.75 852.87)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

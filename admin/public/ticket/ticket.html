@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script><!-- 2022-02-24 -->
+  <title>Document</title>
+</head>
+<body style="margin:0;"><!-- 2022-02-24 -->
+  <table width="640" border="0" cellpadding="0" cellspacing="0"><!-- 2022-02-24 height:213-->
+    <tbody>
+      <tr>
+        <td width="320">
+          <table width="320" height="180" border="0" cellpadding="0" cellspacing="0" style="font-size:13px;"><!-- 2022-02-24 -->
+            <tbody>
+              <tr>
+                <td height="50"></td><!-- height:60-->
+              </tr>
+              <tr>
+                <td><strong style="font-size:13px;display:block;width: 260px;">[체육 오희진] 오희진 문제풀이 [22.1~3월] 오희진 문제풀이 [22.1~3월]</strong><!-- 2022-02-22 --></td>
+              </tr>
+              <tr>
+                <td>
+                  <table width="320" cellpadding="0" cellspacing="0" style="font-size:13px;"><!-- 2022-02-22 -->
+                    <colgroup>
+                      <col width="70"><!-- 2022-02-22 -->
+                      <col width="10">
+                      <col width="*">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <td>이름/ID</td>
+                        <td>:</td>
+                        <td style="white-space:nowrap;">오유진/ou0223</td><!-- 2022-02-22 -->
+                      </tr>
+                      <tr>
+                        <td>수강기간</td>
+                        <td>:</td>
+                        <td style="white-space:nowrap;">2021/01/07 ~ 2021/03/06</td><!-- 2022-02-22 -->
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="barCode" style="width:180px;overflow:hidden;">
+                    <img src="images/img_barCode.png" alt="barCode sample" style="display:block;"/><!-- 2022-02-24 -->
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td width="320">
+          <table width="320" cellpadding="0" cellspacing="0" style="font-size:11px;">
+            <tbody>
+              <tr>
+                <td height="30"></td> <!-- height:67 -->
+              </tr>
+              <tr>
+                <td style="vertical-align:top;">
+                  <table width="320" cellpadding="0" cellspacing="0" style="padding-left:10px;font-size:11px;"><!-- 2022-02-24 -->
+                    <tbody>
+                      <tr>
+                        <td height="22">거래일시 : 2020-12-31 오전 10:36:57</td>
+                      </tr>
+                      <tr>
+                        <td height="22">결제방식 : 학원현금</td>
+                      </tr>
+                      <tr>
+                        <td height="22">결제금액 : \ 0</td>
+                      </tr>
+                      <tr>
+                        <td height="22">주문번호 : 202012310138197460</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 2022-02-24 print -->
+  <script language="javascript">
+    function Installed() {
+      if (typeof(document.all("IEPageSetupX"))!="undefined" && document.all("IEPageSetupX")!=null) 
+        return true;
+      else 
+        return false;
+    }
+    function printMe() {
+      if (Installed()) {
+        // IEPageSetupX.Printer = 'Star TSP800II'; //장치
+        IEPageSetupX.PaperSize = 'Atnrkdwmd';     //인쇄 용지 설정
+        IEPageSetupX.Orientation=0;               //인쇄방향 설정(0:가로, 1:세로)
+        IEPageSetupX.header = "";                 //머리글 설정
+        IEPageSetupX.footer = "";                 //바닥글 설정
+        IEPageSetupX.leftMargin = 0;              //왼쪽 여백(단위: mm)
+        IEPageSetupX.rightMargin = 0;             //오른쪽 여백(단위: mm)
+        IEPageSetupX.topMargin = 0;               //위쪽 여백(단위: mm) 
+        IEPageSetupX.bottomMargin = 0;            //아래쪽 여백(단위: mm)
+
+        //IEPageSetupX.Clear();
+        //IEPageSetupX.Preview();
+      }
+      else
+        alert("컨트롤을 설치하지 않았네요.. 정상적으로 인쇄되지 않을 수 있습니다.");
+    }
+  </script>
+  <style>
+    @media print {
+      .new_window { display:none; }
+    }
+    @media screen {
+      .new_window {  display:inline; }
+    }
+  </style>
+  <body onload="printMe(); IEPageSetupX.Print(); window.close();">
+
+  <object id="IEPageSetupX" classid="clsid:41C5BC45-1BE8-42C5-AD9F-495D6C8D7586" codebase="/Dazimzigy/Settle/cab/IEPageSetupX.cab#version=1,4,0,3" width='0' height='0'>
+  <param name="copyright" value="http://isulnara.com">
+  <!-- //2022-02-24 print -->
+</body>
+</html>

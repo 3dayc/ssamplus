@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42.397" height="44.944" viewBox="0 0 42.397 44.944">
+  <g id="그룹_2987" data-name="그룹 2987" transform="translate(-1029.049 -1199.25)">
+    <text id="OMR" transform="translate(1041 1227)" fill="#333" font-size="12" font-family="Roboto-Bold, Roboto" font-weight="700" letter-spacing="-0.06em"><tspan x="0" y="0">OMR</tspan></text>
+    <g id="그룹_2976" data-name="그룹 2976" transform="translate(541.423 537.213)">
+      <g id="그룹_2263" data-name="그룹 2263" transform="translate(489.378 658.787)">
+        <path id="패스_3174" data-name="패스 3174" d="M0,2.631,4.5,4.5A1.3,1.3,0,0,1,5.8,5.8V35.243H1.3a1.3,1.3,0,0,1-1.3-1.3V5.8C0,5.079-.719,2.631,0,2.631Z" transform="translate(0 8.279)" fill="#0e935d"/>
+        <path id="패스_2964" data-name="패스 2964" d="M495.108,658.787c-3.205,0-5.8,2.061-5.8,4.6s1.712,4.6,5.8,4.6H529.2" transform="translate(-489.305 -654.787)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+        <path id="패스_2965" data-name="패스 2965" d="M529.2,671.991v28.88a2.141,2.141,0,0,1-2.16,2.12H494.055a4.706,4.706,0,0,1-4.75-4.661V666.986a4.239,4.239,0,0,1,4.279-4.2H526.1a.321.321,0,0,1,.158.6c-1.468.863-1.318,2.631-1.318,3.578a4.911,4.911,0,0,0,4.257,4.959" transform="translate(-489.305 -658.787)" fill="none" stroke="#333" stroke-width="1.5"/>
+        <line id="선_145" data-name="선 145" y2="29.63" transform="translate(5.803 13.744)" fill="#fff" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+      </g>
+      <line id="선_146" data-name="선 146" x2="26.094" transform="translate(495.983 667.192)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="선_147" data-name="선 147" x1="1.602" y2="4.733" transform="translate(488.577 701.298)" fill="#fff" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

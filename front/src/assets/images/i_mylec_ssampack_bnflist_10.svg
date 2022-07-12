@@ -1,0 +1,15 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="57.746" height="29.933" viewBox="0 0 57.746 29.933">
+  <g id="그룹_2977" data-name="그룹 2977" transform="translate(-541.388 -658.565)">
+    <path id="패스_2966" data-name="패스 2966" d="M598.963,667.951h-6.046v5.858h11.7" transform="translate(-6.652 -1.462)" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="패스_2967" data-name="패스 2967" d="M606.43,673.419v10.238H588.942V664.188h8.744Z" transform="translate(-8.046 -0.825)" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <g id="그룹_2265" data-name="그룹 2265" transform="translate(542.138 659.315)">
+      <rect id="사각형_924" data-name="사각형 924" width="36.254" height="6.147" rx="2.353" transform="translate(0 17.25)" fill="#0e935d"/>
+      <rect id="사각형_925" data-name="사각형 925" width="36.254" height="23.987" rx="3.205" fill="none" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="선_148" data-name="선 148" x2="36.254" transform="translate(0 17.25)" fill="none" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+    <circle id="타원_127" data-name="타원 127" cx="4.446" cy="4.446" r="4.446" transform="translate(583.89 678.857)" fill="#fff" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+    <circle id="타원_128" data-name="타원 128" cx="4.446" cy="4.446" r="4.446" transform="translate(548.491 678.857)" fill="#fff" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+    <text id="FREE" transform="translate(546.765 672.315)" fill="#333" font-size="11" font-family="S-CoreDream-8Heavy, 'S-Core Dream \38 '" font-weight="800"><tspan x="0" y="0">FREE</tspan></text>
+  </g>
+</svg>

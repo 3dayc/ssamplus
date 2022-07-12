@@ -1,0 +1,958 @@
+<template>
+    <div class="ssampackWrap">
+      <div class="teaser">
+        <div id="float_quick" class="float_quickconsulting">
+          <a href="#">
+            <img src="./images/scroll_banner_150215.png" />
+          </a>
+        </div>
+        <div class="cnt_1">
+          <div class="centerBox">
+            <!-- menutab -->
+            <ul id="menutab" class="menutab">
+              <li class="tab1" :class="{active:tabToggle===0}"><a href="#tab1" @click="tabToggle = 0">2023 쌤팩</a></li>
+              <li class="tab2" :class="{active:tabToggle===1}"><a href="#tab2" @click="tabToggle = 1">쌤팩 프리미엄</a></li>
+            </ul>
+            <!-- //menutab -->
+            <img src="./images/img_cnt_01.jpg" alt="희소/쌤플러스" />
+          </div>
+        </div>
+        <div id="tab1" class="menucnt" :class="{active:tabToggle === 0}">
+          <div class="cnt_0101">
+            <div class="centerBox">
+              <div class="countwrap">
+                <div class="img_rest">
+                  <img src="./images/img_rest.jpg" alt="쉼표" />
+                </div>
+                <span class="count" data-target="1500">0</span>
+              </div>
+              <img src="./images/cnt_0101.jpg" alt="" />
+            </div>
+          </div>
+          <div class="cnt_0102">
+            <div class="centerBox">
+              <!-- 합격선배의 이유있는 선택 -->
+              <div class="ElderCheck_wrap">
+                <!-- 슬라이드 -->
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩을 듣고 1년 동안 참 행복했습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- dal***** -</h6>
+                    </div>
+                    <div class="swiper-slide swiper-slide-duplicate-next">
+                      <p class="ElderCheck-content">
+                        썜팩은 전체 내용을 이해하는 데 가장 좋았습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- alw***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩을 듣고 1년 동안 참 행복했습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- dal***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩으로 중요한 부분을 잘 알려주셔서 끝까지 따라갈 수
+                        있었습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- jcl***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩을 통해 기본이론부터 천천히 시작할 수 있었습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- dae***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩이 있어 1년 안에 초수합격을 할 수 있었습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- jis***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩을 들으니 강의를 놓치지 않고 따라가려는 습관이
+                        생겼습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- min***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩으로 꼼꼼하게 학습해 높은 점수로 합격했습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- sae***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        공부한 지 오래되어 막막했지만 쌤팩으로 명확한 학습이
+                        가능했습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- dan***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩을 통해 출제자가 원하는 키워드가 무엇인지를
+                        깨달았습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- hjo***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩 선택은 최고의 선택이었다고 생각합니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- jmk***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩을 통해 단순 암기가 아닌 이해하는 습관을 들였습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- hyn***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩은 체계적인 학습을 가능하게 만들어줍니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- kim***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        쌤팩을 듣고 1년 동안 참 행복했습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- dal***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content">
+                        썜팩은 전체 내용을 이해하는 데 가장 좋았습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id">- alw***** -</h6>
+                    </div>
+                  </div>
+                  <span
+                    class="swiper-notification"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                  ></span>
+                </div>
+                <!-- 슬라이드 //-->
+              </div>
+              <!-- 합격선배의 이유있는 선택 //-->
+              <img src="./images/cnt_0102.jpg" alt="" />
+            </div>
+          </div>
+          <div class="cnt_0103">
+            <div class="rollinTeacher">
+              <!-- Slider main container -->
+              <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_01.png" alt="유아" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_02.png" alt="교육학" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_03.png" alt="국어" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_04.png" alt="수학" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_05.png" alt="음악" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_06.png" alt="미술" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_07.png" alt="쳬육" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./images/rollin_Teacher_08.png"
+                      alt="중국어/일본어"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./images/rollin_Teacher_09.png"
+                      alt="한문/가정/미용"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./images/rollin_Teacher_10.png"
+                      alt="전문상담/보건"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_11.png" alt="역사/지리" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_12.png" alt="화학/생물" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_13.png" alt="특수" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/rollin_Teacher_14.png" alt="한국사" />
+                  </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination">
+                  <span>유아</span>
+                  <span>교육학</span>
+                  <span>국어</span>
+                  <span>수학</span>
+                  <span>음악</span>
+                  <span>미술</span>
+                  <span>체육</span>
+                  <span>중국어 / 일본어</span>
+                  <span>한문 / 가정 / 미용</span>
+                  <span>전문상담 / 보건</span>
+                  <span>역사 / 지리</span>
+                  <span>화학 / 생물</span>
+                  <span>특수</span>
+                  <span>한국사</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cnt_0104">
+            <div class="centerBox">
+              <img src="./images/cnt_0104.jpg" alt="" />
+            </div>
+          </div>
+          <div class="cnt_0105">
+            <div class="centerBox">
+              <img src="./images/cnt_0105_v2.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div id="tab2" class="menucnt" :class="{active:tabToggle === 1}">
+          <div class="cnt_0201">
+            <div class="centerBox">
+              <!-- 합격에 필요한 모든것 -->
+              <div class="PassSubjectWrap">
+                <!-- 슬라이드 -->
+                <div class="swiper-container" >
+                  <swiper class="swiper-wrapper" :options="swiperOption01">
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_01.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_02.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_03.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_04.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_05.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_06.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_07.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_08.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_09.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_10.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_11.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_12.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_13.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_14.jpg" alt="" />
+                    </swiper-slide>
+                    <swiper-slide class="swiper-slide">
+                      <img src="./images/img_PassSubjec_15.jpg" alt="" />
+                    </swiper-slide>
+                  </swiper>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-pagination">
+                    <span class="swiper-pagination-current">15</span> /
+                    <span class="swiper-pagination-total">-2</span>
+                  </div>
+                  <span class="swiper-notification"></span>
+                </div>
+
+                <!-- 슬라이드 //-->
+              </div>
+              <!-- 합격에 필요한 모든것 //-->
+              <img src="./images/cnt_0201.jpg" alt="" />
+            </div>
+          </div>
+          <div class="cnt_0202">
+            <div class="centerBox">
+              <!-- 합격선배의 이유있는 선택 -->
+              <div class="ElderCheck_wrap1">
+                <!-- 슬라이드 -->
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        교재 무배 쿠폰이 3개나 제공되어<br />유용하게 쓸 수
+                        있었습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- wja***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        프리미엄 회원들만을 위한 소통 채널이 따로 있어서<br />챙김
+                        받는 기분이 듭니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- pok***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        빨리 마감되는 희소 모의고사를<br />무료로 응시할 수 있게
+                        해주셔서 감사합니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- hyn***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        전담 매니저가 있어서 가까이에서<br />소통이 원활하게
+                        이루어지는 점이 좋습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- yuj***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        상반기 이론 복습용 강의를<br />전부 무료로 제공한 점이
+                        만족스럽습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- ysr***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        필요할 때 직, 인강 전환이 자유로운 점이<br />학습에
+                        유용했습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- plu***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        관리 받는 기분이 들어 신기합니다.<br />세심한 부분에 늘
+                        감사드립니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- alw***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        유료 결제가 필요한 기간 연장 서비스를<br />무료로
+                        제공받을 수 있는 점이 최고입니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- dnf***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        희소와 프리미엄 회원들 만의 상호작용이 좋았습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- hbk***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        프리미엄 회원만 들어갈 수 있는 전용 라운지가 있어<br />특별한
+                        느낌을 받았습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- nov***** -</h6>
+                    </div>
+                    <div class="swiper-slide">
+                      <p class="ElderCheck-content1">
+                        교재 무배 쿠폰이 3개나 제공되어<br />유용하게 쓸 수
+                        있었습니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- wja***** -</h6>
+                    </div>
+                    <div
+                      class="swiper-slide swiper-slide-duplicate"
+                      data-swiper-slide-index="0"
+                    >
+                      <p class="ElderCheck-content1">
+                        프리미엄 회원들만을 위한 소통 채널이 따로 있어서<br />챙김
+                        받는 기분이 듭니다.
+                      </p>
+                      <h6 class="ElderCheck-Id1">- pok***** -</h6>
+                    </div>
+                  </div>
+                  <span class="swiper-notification"></span>
+                </div>
+                <!-- 슬라이드 //-->
+              </div>
+              <!-- 합격선배의 이유있는 선택 //-->
+              <img src="./images/cnt_0202.jpg" alt="" />
+            </div>
+          </div>
+          <div class="cnt_0203">
+            <div class="centerBox">
+              <img src="./images/cnt_0203.jpg" alt="" />
+            </div>
+          </div>
+          <div class="cnt_0204">
+            <div class="centerBox">
+              <img src="./images/cnt_0204.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- 상품선택영역 -->
+          <div class="product-list-wrap">
+            <div class="centerBox">
+              <img src="./images/product-list-title.png" alt="" />
+              <!-- 상품선택 -->
+              <div class="product-wrap">
+                <!-- 2023연간쌤팩+프리미엄 -->
+                <div class="productYsp">
+                  <h6><img src="./images/img_productYsp_title.png" alt="" /></h6>
+                  <div id="" class="tab_container">
+                    <ul class="product_tabs">
+                      <li :class="{on:toggleBtn1 === 0}"><a href="#" @click.prevent="toggleBtn1 = 0" >서울학원 강의</a></li>
+                      <li :class="{on:toggleBtn1 === 1}"><a href="#" @click.prevent="toggleBtn1 = 1" >동영상 강의</a></li>
+                    </ul>
+                    <div id="tab11">
+                      <div class="courseSelectWrap">
+                        <dl>
+                          <dt>과목</dt>
+                          <dd>
+                            <select name="div_cd" id="left_div_cd">
+                              <option value="0101">교육학</option>
+                              <option value="0201">유아</option>
+                              <option value="0301">전공국어</option>
+                              <option value="0305">전공음악</option>
+                              <option value="0310">전공미술</option>
+                              <option value="0309">전공체육</option>
+                              <option value="0307">전공중국어</option>
+                              <option value="0308">전공일본어</option>
+                              <option value="0318">전공한문</option>
+                              <option value="0304">전공가정</option>
+                              <option value="0331">전문상담</option>
+                              <option value="0405">전공역사</option>
+                              <option value="0403">전공생물</option>
+                              <option value="0402">전공화학</option>
+                              <option value="0501">보건</option>
+                              <option value="0502">특수</option>
+                            </select>
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dt>선생님</dt>
+                          <dd>
+                            <select name="left_prof_seq" id="left_prof_seq">
+                              <option value="">선생님을 선택해주세요.</option>
+                              <option value="1">김현(연간)</option>
+                              <option value="60">김현(3~11월)</option>
+                              <option value="2">권구현(연간)</option>
+                              <option value="61">권구현(3~11월)</option>
+                              <option value="3">윤중샘(연간)</option>
+                              <option value="62">윤중샘(3~10월)</option>
+                            </select>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="#" class="btn_Add">선택</a>
+                </div>
+                <!-- 2023연간쌤팩+프리미엄 //-->
+                <!-- 2023연간쌤팩 -->
+                <div class="productYs">
+                  <h6><img src="./images/img_productYs_title.png" alt="" /></h6>
+                  <div id="" class="tab_container">
+                    <ul class="product_tabs">
+                      <li :class="{on:toggleBtn2 === 0}"><a href="#" @click.prevent="toggleBtn2 = 0">서울학원 강의</a></li>
+                      <li :class="{on:toggleBtn2 === 1}"><a href="#" @click.prevent="toggleBtn2 = 1">동영상 강의</a></li>
+                    </ul>
+                    <div id="tab21">
+                      <div class="courseSelectWrap">
+                        <dl>
+                          <dt>과목</dt>
+                          <dd>
+                            <select name="div_cd" id="right_div_cd">
+                              <option value="0101">교육학</option>
+                              <option value="0201">유아</option>
+                              <option value="0301">전공국어</option>
+                              <option value="0305">전공음악</option>
+                              <option value="0310">전공미술</option>
+                              <option value="0309">전공체육</option>
+                              <option value="0307">전공중국어</option>
+                              <option value="0308">전공일본어</option>
+                              <option value="0318">전공한문</option>
+                              <option value="0304">전공가정</option>
+                              <option value="0331">전문상담</option>
+                              <option value="0405">전공역사</option>
+                              <option value="0403">전공생물</option>
+                              <option value="0402">전공화학</option>
+                              <option value="0501">보건</option>
+                              <option value="0502">특수</option>
+                            </select>
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dt>선생님</dt>
+                          <dd>
+                            <select name="right_prof_seq" id="right_prof_seq">
+                              <option value="">선생님을 선택해주세요.</option>
+                              <option value="1">김현(연간)</option>
+                              <option value="60">김현(3~11월)</option>
+                              <option value="2">권구현(연간)</option>
+                              <option value="61">권구현(3~11월)</option>
+                              <option value="3">윤중샘(연간)</option>
+                              <option value="62">윤중샘(3~10월)</option>
+                            </select>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="#" class="btn_Add">선택</a>
+                </div>
+                <!-- 2023연간쌤팩 //-->
+              </div>
+              <div class="product-list-notice">
+                <img src="./images/product-list-notice.png" alt="" />
+              </div>
+              <!-- 주문내역&금액 시작// -->
+              <div id="orderArea">
+                <div class="wrap_order">
+                  <form id="frmCart" name="frmCart" method="post">
+                    <input
+                      type="hidden"
+                      id="intGoodsSeq"
+                      name="intGoodsSeq"
+                      value="2|1742|"
+                    />
+                    <input
+                      type="hidden"
+                      id="intGoodsSeq"
+                      name="intGoodsSeq"
+                      value="1|10329|"
+                    />
+                  </form>
+                  <button type="button" class="btn_folder">
+                    <span class="icon"></span>
+                  </button>
+                  <div class="left">
+                    <div class="inner scrollbar-inner">
+                      <dl class="order_list">
+                        <dt>서울학원강의</dt>
+                        <dd>
+                          <strong class="tit_study"
+                            >[교육학 김현] [직영상반]연간쌤팩(h)</strong
+                          ><a href="#none" class="btn_del">삭제</a>
+                        </dd>
+                        <dd>
+                          <strong class="tit_study"
+                            >[교육학 김현] 쌤팩 프리미엄(h)</strong
+                          ><a href="#none" class="btn_del">삭제</a>
+                        </dd>
+                      </dl>
+                    </div>
+                    <ul class="order_guide">
+                      <!-- <li><span class="point">★교육학 5% 추가할인★ 기간한정 이벤트(~1/31 까지)<br>전공 연간쌤팩+교육학 연간쌤팩 동시 신청 시, 교육학 연간쌤팩 수강료 추가 5%할인</span></li> -->
+                      <li>
+                        결제 단계에서 보유하신 쿠폰 적용 시 금액이 상이 할 수
+                        있습니다.
+                      </li>
+                      <li>교재 배송비는 결제 단계에서 표기 됩니다.</li>
+                    </ul>
+                  </div>
+                  <div class="right">
+                    <dl class="order_price">
+                      <dt>강좌</dt>
+                      <dd>1,723,000원</dd>
+                    </dl>
+                    <dl class="order_price">
+                      <dt>할인</dt>
+                      <dd class="sale">0원</dd>
+                    </dl>
+                    <div class="total_price">
+                      총 금액 <strong>1,723,000</strong> 원
+                    </div>
+                    <a href="#none" class="btn_submit">장바구니 담기</a>
+                  </div>
+                </div>
+              </div>
+              <!-- //주문내역&금액 끝 -->
+            </div>
+          </div>
+          <!-- 상품선택영역 //-->
+          <!-- 약관 영역 -->
+          <div class="terms-wrap">
+            <div class="centerBox">
+              <img src="./images/terms-title.jpg" alt="" />
+              <ul>
+                <li class="collapsible">
+                  <p class="terms-title">쌤팩 이용안내</p>
+                  <div class="content">
+                    <p class="ptitle">쌤팩 이용안내</p>
+                    <ul>
+                      <li>
+                        쌤팩은 단과강의를 묶어 할인 판매하는 상품으로, 포함된
+                        강의는 각 단과 강의 수강 규정(수강기간, 수강시간, 연장,
+                        홀딩 등) 기준으로 제공됩니다.
+                      </li>
+                      <li>
+                        포함된 강의는 각 단과강의 단위로 인강/직강 변경할 수
+                        있습니다. 다만, 인강/직강 변경은 학원 운영정책에 따라
+                        적용되며 일부 강의는 변경이 불가할 수 있습니다. 상세한
+                        변경방법은 FAQ에서 내용을 확인할 수 있습니다.
+                      </li>
+                      <li>학원 사정으로 일부 강의 구성이 변경될 수 있습니다.</li>
+                      <li>
+                        과목에 따라 포함강의가 상이할 수 있습니다. 상세 구성을 꼭
+                        확인하시기 바랍니다.
+                      </li>
+                      <li>
+                        학원 강의는 수강증 발급이 되어 있지 않아도, 학원 강의 개강
+                        후에는 수강한 것으로 간주되어 수강료가 공제됩니다.
+                      </li>
+                      <li>
+                        동영상 강의 시작일은 결제일 기준 7일 이내에 강의를
+                        수강하지 않은 경우 최대 10일까지 변경이 가능하며, 포함된
+                        각 강의 별로 설정이 가능합니다.(개강하지 않은 강의는
+                        개강일 기준으로 시작일을 설정할 수 있습니다)
+                      </li>
+                      <li>
+                        동영상 강의는 시작일 기준으로 자동 시작되며, 환불 시
+                        시작된 강의는 실제 수강여부와 관계 없이 수강한 것으로
+                        간주되어 수강료가 공제됩니다.
+                      </li>
+                      <li>
+                        추가적으로 동영상 강의 수강 일정 변경을 원하시면 강의 시작
+                        후 홀딩서비스를 통해 변경할 수 있습니다. 사용 가능한
+                        홀딩기간은 각 강의 별로 표기되어 있습니다.
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="collapsible">
+                  <p class="terms-title">쌤팩 프리미엄 이용안내</p>
+                  <div class="content">
+                    <ul>
+                      <li>쌤팩 프리미엄은 2022년 11월 30일까지 제공됩니다.</li>
+                      <li>
+                        결제한 쌤팩 프리미엄 과목에 대한 프리미엄 서비스만
+                        제공됩니다.
+                      </li>
+                      <li>
+                        연간 쌤팩/3~11월 쌤팩 결제없이 쌤팩 프리미엄만 단독 결제는
+                        불가합니다.
+                      </li>
+                      <li>
+                        쌤팩 프리미엄 구성은 진행 과목별 상이할 수 있습니다.
+                      </li>
+                      <li>
+                        제공 되는 사항은 각 항목별 제공 시기 및 방법이 상이할 수
+                        있으며, 해당 내용은 쌤팩 프리미엄 라운지에서 확인하실 수
+                        있습니다.
+                      </li>
+                    </ul>
+                    <div class="style1">[쌤팩 프리미엄 구성별 상세 안내]</div>
+                    <ul>
+                      <li>
+                        2023 쌤팩: 각 과목/선생님별 1~10(11)월 또는 3~10(11)월
+                        강좌가 포함되어 있습니다.
+                      </li>
+                    </ul>
+                    <table class="terms-tb">
+                      <colgroup>
+                        <col width="30%"/>
+                        <col width="*">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th>프리미엄 전용 1:1 고객센터</th>
+                          <td>
+                            프리미엄 라운지 내 1:1 고객센터에 문의 글을 남겨주시면
+                            가장 빠르고 친절하게 해결해드리겠습니다.
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="style1">[프리미엄 학습/수강 지원]</div>
+                    <table class="terms-tb">
+                      <colgroup>
+                        <col width="30%"/>
+                        <col width="*">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th>직/인강 무한 전환</th>
+                          <td>
+                            매 과정별 원하는 방식으로 수강할 수 있으며, 직강
+                            연간쌤팩 / 동영상 연간쌤팩 신청과 상관없이 원하시는
+                            과정으로 전환이 가능합니다. 필요한 경우 프리미엄 전용
+                            1:1 상담 게시판에 수강 원하는 과정을 남겨주시면 전환해
+                            드립니다. 단, 직강 수강인원이 마감되었을 경우는
+                            직강으로의 전환이 어렵습니다.<br />예시) 1~2월
+                            직강/3~4월 인강/5~6월 직강 등 원하는 방식으로 전환
+                            가능
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>학원 보충강의</th>
+                          <td>
+                            수강하는 과정이 학원 강의일 경우에 제공되며, 프리미엄
+                            라운지에서 직접 신청 가능합니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>동영상 기간연장</th>
+                          <td>
+                            수강하는 과정이 동영상 강의일 경우 제공되며, 프리미엄
+                            라운지에서 직접 신청 가능합니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>이론 복습용 강의</th>
+                          <td>
+                            상반기 이론 강의에만 한정되며, 1~2/3~4/5~6월 과정마다
+                            별도 신청할 수 있습니다. 각 과정의 1/2 이상이 지난 후
+                            프리미엄 라운지에서 직접 신청 가능하며, 결제한 강좌에
+                            한해서만 제공됩니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>제17회 희소모의고사<br />무료 응시권</th>
+                          <td>
+                            2022년 시행될 희소 현장+온라인 모의고사 중 한 가지를
+                            선택하시면 무료 응시 기회를 제공해드립니다. 단 희소
+                            모의고사를 진행하지 않는 과목/선생님의 경우, 해당 혜택
+                            제공이 어렵습니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>제16회 희소 온라인<br />모의고사 무료 제공</th>
+                          <td>
+                            2021년 시행된 희소 온라인 모의고사를 무료로
+                            제공해드립니다. 단 희소 모의고사가 진행되지 않았던
+                            과목/선생님의 경우, 해당 혜택 제공이 어렵습니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>9~11월 모의고사반<br />학원 응시 자격</th>
+                          <td>
+                            해당 과정을 온라인으로 수강하더라도 학원에 출석하여
+                            시험 응시할 기회를 드립니다. (2회)
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="style1">[프리미엄 학습 관리/부가 서비스]</div>
+                    <table class="terms-tb">
+                      <colgroup>
+                        <col width="30%"/>
+                        <col width="*">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <th>아침 기상 일일 인증</th>
+                          <td>
+                            매일 아침 규칙적인 공부 습관을 기를 수 있도록 기상
+                            인증 서비스를 제공해드립니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>월 별 학습시작 응원선물</th>
+                          <td>
+                            매 월 초, 학습 시작을 응원하기 위해 스타벅스 카페
+                            아메리카노 기프티콘 1종을 제공해드립니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>미리 보는 2023 임용합격증</th>
+                          <td>
+                            이름이 자동으로 찍히는 2023학년도 임용시험 합격증서를
+                            미리 다운로드 받아, 책상 앞에 붙여 두고 늘 힘을
+                            내세요.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>교재 배송비 3회 무료</th>
+                          <td>
+                            배송비 무료 쿠폰 3장을 내 쿠폰함에 제공해드립니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>사물함 11개월 무료</th>
+                          <td>
+                            직/인강 프리미엄 회원 누구나 원하시는 관을 지정하시면
+                            사물함 1개를 2022년 11월까지 무료로 제공해 드립니다.
+                            학원 방문 후 데스크에서 신청 가능합니다. 각 관 별
+                            사물함 이용현황에 따라 원하시는 위치를 지정할 수
+                            있습니다.
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>학습지원 필수템 배송</th>
+                          <td>
+                            학습에 꼭 필요한 아이템(희소 드림 플래너, OMR 노트,
+                            독서대, 텀블러, 모나미 Fx 제타 펜, 스톱워치, 귀마개,
+                            KFC 1만원 권)만 골라 프리미엄 회원 전원에게
+                            배송해드립니다.
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </li>
+                <li class="collapsible">
+                  <p class="terms-title">쌤팩 환불규정</p>
+                  <div class="content">
+                    <ul>
+                      <li>
+                        쌤팩 환불 시에는 이미 수강한 상품의 정가(단과 기준)를
+                        기준으로 공제하고 환불함을 원칙으로 합니다.
+                      </li>
+                      <li>
+                        보너스 강의가 포함된 경우 보너스강의의 원 수강료가
+                        차감됩니다.
+                      </li>
+                    </ul>
+                    <div class="style1">[학원]</div>
+                    <ul>
+                      <li>[전액환불] 교습개시 이전</li>
+                      <li>
+                        [부분환불] 교습개시 후 교습시간의 1/2 경과하지 않은 경우
+                        부분환불 적용
+                        <a
+                          href="http://www.ssamplus.com/helpdesk_New/helpdesk_faq_view.asp?intFaqBoardSeq=416&amp;retUrl=%2E%2Fhelpdesk%5Ffaq%5Flist%2Easp%3Fpage%3D%26strFaqClassCode%3D17%26strFaqCode%3D%26strSchClass%3D%26strSchString%3D"
+                          target="_blank"
+                          style="text-decoration: underline"
+                          >[1](학원 환불규정 보기)</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="style1">[동영상]</div>
+                    <ul>
+                      <li>
+                        [전액환불] 결제일로부터 7일 이내 샘플강의 제외 1강 이하로
+                        수강했을 경우
+                      </li>
+                      <li>
+                        [부분환불] 결제일로부터 7일이 경과하거나 샘플강의 제외
+                        1강을 초과하여 수강했을 경우 동영상강의 환불규정에 따라
+                        부분환불 적용
+                        <a
+                          href="http://www.ssamplus.com/helpdesk_New/helpdesk_faq_view.asp?intFaqBoardSeq=416&amp;retUrl=%2E%2Fhelpdesk%5Ffaq%5Flist%2Easp%3Fpage%3D%26strFaqClassCode%3D17%26strFaqCode%3D%26strSchClass%3D%26strSchString%3D"
+                          target="_blank"
+                          style="text-decoration: underline"
+                          >[2](동영상 환불규정 보기)</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="collapsible">
+                  <p class="terms-title">쌤팩 프리미엄 환불규정</p>
+                  <div class="content">
+                    <ul>
+                      <li>
+                        강의에 대한 환불 규정은 위 [쌤팩 환불규정]에 따릅니다.
+                      </li>
+                      <li>
+                        쌤팩 프리미엄 구성에 대한 환불규정은 아래와 같습니다.<br />
+                        <div style="text-indent: 0">
+                          [전액환불] 서비스 개시 이전<br />
+                          [부분환불]<br />
+                          ·구성상품 금액: 제공받은 모든 실물 상품 및 부가서비스에
+                          대한 비용(할인 전 정가) 차감<br />
+                          ·왕복 배송비 공제: 수령 받은 실물 상품의 왕복 배송비
+                          차감<br />
+                          ·부분환불 및 위약금에서 공제하는 금액은 할인 전 정가
+                          기준으로 적용됩니다.
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- 약관 영역 //-->
+        </div>
+      </div>
+    </div>
+</template>
+<script>
+  import Mixin from '@/plugins/mixins/Mixins.js';
+
+  export default {
+    mixins: [Mixin],
+    
+    name: 'EventIng',
+    data() {
+      return {
+        tabToggle : 0,
+        toggleBtn1 : 0,
+        toggleBtn2 : 0,
+        
+        swiperOption01 : {
+          slidesPerView : 1,
+          loop:true,
+          spaceBetween : 0,
+          speed: 2000,
+          autoplay : {
+            delay: 2500,
+          },
+          pagenation : {
+            el : '.swiper-pagination',
+          },
+          navigation: { 
+            nextEl: '.swiper-button-next', 
+            prevEl: '.swiper-button-prev' 
+            },
+
+        }
+
+      }
+    },
+    methods: {
+
+    },
+    incCounter() {
+        const counters = document.querySelectorAll('.counter')
+        counters.innerText = '0'
+
+        const updateCounter = () => {
+          const target = +counters.getAttribute('data-target')
+          const c = +counters.innerText
+
+          const increment = target / 500
+
+          if(c < target) {
+            counters.innerText = `${Math.ceil(c + increment)}`
+            setTimeout(updateCounter, 1) 
+          }
+        }
+      },
+
+  }
+
+</script>
+<style>
+  @import './css/index.min.css';
+  @import './css/swiper.min.css';
+</style>
+

@@ -1,0 +1,71 @@
+html, body {min-height:auto;}
+.ssamPack {display:block;}
+@import url(new.css);
+/*.ssamWrapNew{text-align:center;}
+.ssamWrapNew .quickmenu{right:50% !important; margin-right:-610px; left:auto !important;}
+.ssamWrapNew #mainMenu{left:50%; margin-left:-485px;}
+.ssamWrapNew #header,
+.ssamWrapNew #footer{margin:0 auto;}
+.ssamWrapNew #divBody,
+.ssamWrapNew #divBodyMap,
+.ssamWrapNew .footerSite,
+.ssamWrapNew .bContainer
+{margin:0 auto; width:970px;}*/
+
+
+li{list-style:none;margin:0;padding:0;line-height:1.7em;}
+
+a:link{
+	color: #6d6d6d; text-decoration: none;
+}
+a:visited{
+	color: #6d6d6d; text-decoration: none;
+}
+a:active{
+	color: #6d6d6d; text-decoration: none;
+}
+a:hover{
+	color: #000000; text-decoration: underline;
+}
+td{
+	font-family: "돋움","vernada", "arial"; 
+	font-size: 9pt; 
+	color: #6d6d6d; 		
+}
+input{	
+	border-right: #D2D2D2 1px solid; 
+	border-top: #D2D2D2 1px solid; 
+	border-left: #D2D2D2 1px solid; 
+	border-bottom: #D2D2D2 1px solid; 
+	background-color: #ffffff;
+	font-family: "돋움","vernada", "arial"; 	 	
+	font-size: 9pt; 
+	color: #6d6d6d; 	
+}
+select{	
+	border-right: #ccd9ee 1px solid; 
+	border-top: #ccd9ee 1px solid; 
+	border-left: #ccd9ee 1px solid; 	
+	border-bottom: #ccd9ee 1px solid; 	
+	background-color: #ffffff;
+	font-family: "돋움","vernada", "arial"; 	 
+	font-size: 11px; 
+	color: #6d6d6d; 
+}
+textarea{
+	border-right: #D2D2D2 1px solid; 
+	border-top: #D2D2D2 1px solid; 
+	border-bottom: #D2D2D2 1px solid; 
+	border-left: #D2D2D2 1px solid; 
+	background-color: #ffffff;
+	padding-right: 5px; 		
+	padding-left: 5px; 
+	padding-bottom: 5px; 
+	padding-top: 5px; 
+	font-family: "돋움","vernada", "arial"; 	 
+	font-size: 9pt; 
+	color: #6d6d6d; 	
+}
+img{
+	border: 0px;
+}

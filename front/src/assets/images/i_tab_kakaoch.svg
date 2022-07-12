@@ -1,0 +1,8 @@
+<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="40px" height="35px">
+<path fill-rule="evenodd"  fill="rgb(0, 1, 2)"
+ d="M9.514,27.866 C3.805,25.215 0.0,20.466 0.0,15.48 C0.0,6.738 8.954,0.1 20.0,0.1 C31.45,0.1 39.999,6.738 39.999,15.48 C39.999,23.359 31.45,30.99 20.0,30.99 C18.403,30.99 16.850,29.957 15.361,29.692 C12.507,31.683 7.702,34.998 7.323,34.998 C6.986,34.998 8.398,30.938 9.514,27.866 Z"/>
+<text kerning="auto" font-family="Noto Sans CJK KR" fill="rgb(0, 0, 0)" font-size="16px" x="10px" y="20px"><tspan font-size="16px" font-family="Malgun Gothic" fill="#FBE102">Ch</tspan></text>
+</svg>

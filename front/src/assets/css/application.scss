@@ -1,0 +1,45 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name:application.scss
+* @Description : css 랜더링용
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* -------------------------------------------------------------------
+* font	      : 폰트 정의
+* common	    : 초기화 및 변수선언
+* component	  : input, input form, 버튼, 전체 세부 항목 디자인 적용
+* layout	    : 본창 & 윈도우 팝업 레이아웃, 에러 화면
+* join	      : 로그인, 회원가입 등
+* popup	      : 레이어팝업 관련 된것만
+* sub	        : 서브 공통 영역
+* sub~	      : 각 화면별 정의
+* application	: css 랜더링용
+* ====================================================================*/
+@import "font";
+@import "common";
+@import "component"; // 반응형 포함
+@import "layout"; // 반응형 포함
+@import "popup"; //팝업 (반응형 포함)
+@import "join"; //가입, 로그인 등 (반응형 포함)
+@import "main"; //진입(메인 / 반응형 포함)
+@import "sub"; //서브공통 (반응형 포함)
+@import "subSsampack"; //쌤팩
+@import "subLecture"; //수강신청
+@import "subSsammall"; //쌤몰
+@import "subSpecial"; //선생님 스페셜
+@import "subOpenlec"; //무료강의
+@import "subExam"; //시험정보
+@import "subPass"; //합격수기
+@import "subInside"; //인사이드희소
+@import "subAcademy"; //희소고시학원
+@import "subMylec"; //내 강의실
+@import "subMypage"; //마이페이지
+@import "subBbs"; //공지사항, 이벤트
+@import "subCounsel"; //상담센터
+@import "subSmart"; //스마트 수강신청
+@import "catvod"; //미디어 플레이어
+@import "subSetting"; //모바일 설정
+@import "responsive"; //모바일 버전 대응 (총 합)
+@import "responsiveEtc"; //모바일 예외사항 대응 (타블렛, 아이폰 & 안드로이드 분기 등 모든 SCSS 전체)

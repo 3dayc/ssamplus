@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="41.084" viewBox="0 0 38 41.084">
+  <g id="그룹_2978" data-name="그룹 2978" transform="translate(-879.677 -465.629)">
+    <g id="그룹_2481" data-name="그룹 2481" transform="translate(564.191 143.207)">
+      <rect id="사각형_921" data-name="사각형 921" width="27.122" height="35.756" rx="2.017" transform="translate(316.236 323.172)" fill="none" stroke="#333" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.5"/>
+      <circle id="타원_124" data-name="타원 124" cx="2.012" cy="2.012" r="2.012" transform="translate(327.814 338.905)" fill="#fff" stroke="#333" stroke-width="1.5"/>
+      <path id="패스_2961" data-name="패스 2961" d="M343.359,327.192a6.6,6.6,0,0,1-6.524,5.481H322.611a6.451,6.451,0,0,1-6.367-5.435" fill="none" stroke="#333" stroke-width="1.5"/>
+      <circle id="타원_125" data-name="타원 125" cx="2.012" cy="2.012" r="2.012" transform="translate(327.814 330.317)" fill="#fff" stroke="#333" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="선_142" data-name="선 142" y2="7.09" transform="translate(327.814 332.863)" fill="none" stroke="#333" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="선_143" data-name="선 143" y2="6.617" transform="translate(331.838 333.513)" fill="none" stroke="#333" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="선_130" data-name="선 130" x2="5.094" transform="translate(321.439 354.333)" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="선_131" data-name="선 131" x2="1.224" transform="translate(320.591 354.333)" fill="none" stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+    <path id="타원_132" data-name="타원 132" d="M8.861,0A8.861,8.861,0,1,1,0,8.861,8.861,8.861,0,0,1,8.861,0Z" transform="translate(899.205 488.241)" fill="#0e935d" stroke="#333" stroke-linecap="round" stroke-width="1.5"/>
+    <path id="패스_3010" data-name="패스 3010" d="M343.049,354.5l2.846,3.245,5.407-6.659" transform="translate(560.892 142.688)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+  </g>
+</svg>

@@ -1,0 +1,326 @@
+/* =================================================================================
+* INFORMATION
+* -----------------------------------------------------------------------
+* @File Name: _popup.scss
+* @Description : 레이어팝업 / 윈도우팝업 관련 셋팅 및 상세 정의
+* @Create Date: 2021-04-05
+* @Update Date: N/A
+* @History: N/A
+* ================================================================================= */
+/* ===== Pop Common ===== */
+.modalDim {position:fixed;z-index:400;top:0;left:0;width:100%;height:100%;display:table;background:rgba(0, 0, 0, 0.5);transition:opacity 0.3s ease;
+    &.alertPop {z-index:500;}
+}
+.modalWrapper {display:table-cell;vertical-align:middle;}
+.modalContainer {width:470px;max-height:90vh;margin:0 auto;overflow:auto;padding:0;border-top:2px solid $greenColor;box-shadow:0 2px 8px rgba(0, 0, 0, 0.33);background:#fff;transition:all 0.3s ease;}
+.modalClose {@include iconBtn(23px, 23px);position:absolute;z-index:5;top:20px;right:20px;background:url("../images/btn_modal_Close.png") no-repeat center;}
+.modalheader {position:relative;padding:0 20px 0;border-bottom:1px solid $grayColor;
+  h1 {padding-top:10px;font-size:22px;font-weight:normal;
+    &.tC {padding-top:15px;height:60px;}
+  }
+  span {color:darken($grayColor, $cPX16);}
+  .tL {height:72px;}
+}
+.modalbody {padding:1.538rem;}
+.modalfooter {text-align:center;padding:1.538rem;
+    [class*=btn] {margin:0 5px;width:100px;}
+}
+/* 싱세만 나오는 게시판 팝업 */
+.large.bbsViewPopup {
+  .modalbody {padding:10px 0 0 !important;margin-bottom:0;min-height:initial;max-height:initial;overflow-y:hidden;
+    .boardNavi {padding-top:15px;height:67px;
+      .btnList {bottom:7px; position:absolute;left:50%;transform:translateX(-50%);}
+    }
+  }
+  .boardDetail {padding-bottom:10px;height:540px;overflow-y:auto;@include setScrollStyle;
+    &.heightAuto {height:auto; padding-bottom: 28px;
+      .boardBtn {padding:28px 0 0;}
+    }
+  }
+  .boardBtn {padding:15px 0;}
+  .boardNavi {padding-top:15px;height:67px;
+    .btnList {bottom:7px;}
+  }
+  .boardView {min-height:auto;}
+  .modalBtn {padding-top:15px;height:67px;}
+}
+/* 게시판 상세 네비게이션 */
+.boardNavi {@extend %clearBh;display:block;position:relative;padding:24px 0 0;min-height:66px;width:100%;border-top:2px solid $blackColor;
+  .prev, .next {position:relative;float:left;padding-left:69px;margin-left:0;height:40px;
+    & strong {position:absolute;left:0;top:50%;transform:translateY(-50%);padding-left:23px;}
+    & strong::before {content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:13px;height:24px;background:url(../images/i_arrow.svg) no-repeat center;background-size:100%;}
+    em {display:-webkit-box;max-width:200px;color:#888;letter-spacing:-0.03em;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-align:left;word-break:break-all;}
+    &:hover em {text-decoration:underline;}
+  }
+  .next {float:right;padding:0 66px 0 0;margin:0 0 0 0;
+    strong {left:auto;right:0;top:50%;padding:0 21px 0 0;}
+    strong::before {left:auto;right:0;transform:translateY(-50%) rotate(180deg);}
+  }
+  .btnList {position:absolute;bottom:1px;left:50%;transform:translateX(-50%);}
+}
+/* Alert popup */
+.alertPop {
+  .modalContainer {width:240px;height:auto;overflow:visible;}
+  .modalbody {padding:2.308rem 0.769rem;text-align:center;
+    .notice {padding-top:20px;
+      .red{color:#f00;font-size:10px;}
+    }
+  }
+  .modalfooter {padding:0;}
+  .modalfooter [class*=btn] {margin:0;width:50%;}
+  .modalfooter [class*=btn].solo {width:100%;}
+}
+
+.ohInher.alertPop {
+  .modalContainer {overflow:inherit;}
+}
+/* Popup Close Active Basic  */
+.modal-enter {opacity:0;}
+.modal-leave-active {opacity:0;}
+.modal-enter .modalContainer,
+.modal-leave-active .modalContainer {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.v-toast__item {margin:.5em auto;min-height:auto;min-width:400px;border-radius:5px;}
+.v-toast__item .v-toast__icon {display:none;}
+.v-toast__item .v-toast__text {padding:10px;width:100%;font-size:13px;font-weight:500;color:#fff;text-align:center;line-height:1;}
+.v-toast__item--default {background:#0c7af7;}
+.v-toast__item--error {background:#ed4754;}
+.v-toast__item--success {background:#00bd50;}
+
+/* ===== 팝업개별 ===== */
+/* 다운로드 마스터 */
+.downloadPop {width:424px;
+  .downloadForm {position:relative;
+    .btnDownload {position:absolute;right:0;top:-10px;}
+    dl {padding:20px 0 0;
+      &:first-child {padding-top:5px;}
+      dt {height:24px;font-weight:600;border-bottom:1px solid darken($grayColor, $cPX16);}
+      dd {padding:6px 0}
+      dd .selectSet {width:9.2rem;margin-right:5px;}
+      dd .calSet {width:9.2rem;}
+    }
+  }
+}
+/* 상담수단 저장 */
+.alertPop .teacherCounselPop {width:350px;}
+/* 영상URL 입력 */
+.vodUrlPop {width:460px;}
+/* 개인정보 보안관리 확인 */
+.securityPop {width:800px;}
+/* 교재 사진 미리보기 */
+.textBookPop {width:350px;
+  .modalbody {text-align:center;}
+  .bookTxt {display:block;margin-top:20px;font-size:20px;}
+}
+/* 쿠폰 매출 현황 상세 */
+.couponSalesTermPop {width:1000px;
+  .modalbody {height:600px;overflow:auto;}
+}
+/* 쿠폰정보 */
+.couponInfoPop {width:640px;
+  .modalbody {height:600px;overflow:auto;}
+}
+/* 이미지 미리보기 */
+.imgPreviewPop {position:relative;width:calc(100% - 40px);height:calc(100% - 40px);border:0;box-shadow:none;background:transparent;
+  .modalheader {padding:0;border:0;}
+  .modalClose {position:fixed;top:20px;right:20px;background:url("../images/btn_modal_Close_white.png") no-repeat center;}
+  img {position:absolute;left:50%;top:50%;max-width:100%;max-height:100%;transform:translate(-50%, -50%);}
+}
+/* 사이트관리 내 공통사용 팝업 */
+.siteMgtPop {width:770px;
+  .modalbody dl {padding:0 0 20px;}
+  .modalbody dl:last-child {padding-bottom:0;}
+  .modalbody dl dt {padding-bottom:5px;font-weight:700;border-bottom:1px solid darken($grayColor, $cPX16);}
+  .modalbody dl dd {padding-top:5px;}
+  .modalbody dl dd .colorCase {position:relative;display:inline-block;width:100%;padding-left:18px;box-sizing:border-box;}
+  .modalbody dl dd .colorCase em {position:absolute;top:8px;left:0;}
+  .modalbody dl dd .halfCase {@extend %clearBh;}
+  .modalbody dl dd .halfCase .selectSet {width:calc((100% - 10px)/2);}
+  .modalbody dl dd .halfCase .selectSet:last-child {float:right;}
+  .modalbody dl dd .threeCase {@extend %clearBh;}
+  .modalbody dl dd .threeCase .selectSet {float:left;margin-right:10px;width:calc((100% - 20px)/3);}
+  .modalbody dl dd .threeCase .selectSet:last-child {float:right;margin-right:0;}
+  .modalbody dl dd .price .unit {width:160px;}
+  .modalbody dl dd .price .unit.w100 {width:100px;}
+  .modalbody dl dd .price i {display:inline-block;margin:0 5px;}
+  .modalbody dl dd p {padding-top:10px;color:$redColor;}
+  &.fullCase {
+    .gridSet .gridItem {width:70%;padding-left:43px;vertical-align:top;}
+    .gridSet .gridItem:first-child {width:30%;padding-left:0;}
+    .previewArea {padding:50px 50px;border:1px solid darken($grayColor, $cPX16)}
+  }
+}
+
+.chatLayout {width:100%;height:100%;overflow:hidden;
+  .chatTop {height:3rem;text-align:center;border-top:2px solid #bbb;box-shadow:0 2px 2px 4px rgba(#111111, 0.2);
+    strong {line-height:2.5;font-size:1.143rem;}
+  }
+  .chatContents {padding:1rem 1rem 1rem 1rem;height:570px;background:#e2e2e2;overflow:auto;
+    dl {display:inline-block;margin-bottom:14px;max-width:74%;
+      dt {position:relative;padding-right:30px;
+        span {font-size:12px;}
+        .btnDelete {position:absolute;right:0;top:0;border:0;border-radius:4px;background:0;transition:0.2s;}
+        .btnDelete:hover {background:#d2d2d2;transition:0.2s;}
+      }
+      dd {display:inline-block;margin-top:5px;padding:5px 10px;text-align:left;word-break:break-all;border-radius:10px;background:#fff;color:#1d1d1d;}
+    }
+    dl.my {float:right;text-align:right;
+      dd {background:#00a46c;color:#fff;}
+    }
+  }
+  .chatInc {height:510px;}
+  .chatInput {position:relative;margin-top:1rem;padding-right:52px;height:45px;
+    textarea {width:100%;height:100%;border-radius:30px;background:#efefef;border:0;}
+    textarea::placeholder {color:#aaa;}
+    .chatSend {position:absolute;right:0;top:0;bottom:0;width:45px;height:100%;border:2px solid $greenColor;border-radius:100%;font-size:0;background:#fff url("../images/btn_send.svg") no-repeat center;background-size:28px auto;transition:0.3s;
+      &:hover {background-color:$greenColor;background-image:url("../images/btn_send_white.svg");transition:0.3s;}
+    }
+  }
+}
+/* 패키지 포함강좌 권한보기 팝업 */
+.packageIncludeCourseAuthPop {
+  .modalheader .tL {height:88px;}
+}
+/* 관리자 그룹 설정 팝업 */
+.managerGroupPop {width:800px;}
+/* 통계 리스트 상세 팝업 공통 */
+.stsDetailPop {width:1100px;overflow:hidden;
+  .modalbody {max-height:calc(90vh - 75px);height:668px;overflow:auto;}
+}
+/* 학원 관리 쿠폰적용 팝업 */
+.couponPop {width:1100px;
+  .choiceStyle .chView .tls {height:134px;}
+  .choiceStyle .chSearch .chListArea {height:228px;}
+  .grayBgMsg {padding:1rem;text-align:center;border:2px dotted #6d6d6d;}
+}
+/* 설문조사 미리보기 팝업 */
+.surveyPreviewPop {display:flex;max-width:80%;width:820px;height:80%;flex-direction:column;overflow:hidden;
+  .modalbody {flex:auto;overflow:hidden;}
+  .surveyPreview {display:flex;flex-direction:column;height:100%;}
+  .surveyHead {padding-bottom:2rem;}
+  .surveyCts {position:relative;flex:auto;padding:0;overflow:hidden;
+    .step {position:relative;height:100%;overflow:hidden;padding-bottom:7rem;}
+    .step.end {text-align:center;}
+    .step.end strong {display:inline-block;margin-top:8rem;font-size:20px;}
+    .scrollArea {@include setScrollStyle;padding:0 1rem;height:100%;overflow:auto;}
+    .quesItem {margin-bottom:30px;
+      dt {padding:0 0 10px;font-size:15px;font-weight:600;border-bottom:2px solid #000;}
+      dd ul li {margin-top:10px;}
+      .direct__input {display:inline-block;width:300px;
+        input {height:25px;}
+      }
+    }
+    .btnArea {position:absolute;bottom:0;left:0;right:0;}
+  }
+}
+/* 영수증 */
+.receiptPop {
+  .infoMsg.fGray {font-size:12px;}
+}
+
+.refundReasonPop {width:500px;
+  .modalbody {height:600px;overflow:auto;}
+}
+/* 아침기상인증 */
+.goodMorningPop {
+  .modalContainer {width:660px;padding: 20px 30px 0;}
+  .modalheader {padding:0 0 15px;border-bottom:2px solid #333;
+    h1 {padding:5px 0 10px;font-size:$txtSizeP10;font-family:'Roboto';font-weight:bold;letter-spacing:-0.04em;}
+    p {color:$lightBlackColor;
+      em {display:block;color:$lightBlackColor;}
+      strong {color:#d1555f;}
+    }
+    .btnMorning {position:absolute;right:70px;top:5px;@include iconBtn(90px, 90px);border-radius:90px;box-shadow:0 6px 15px rgba(0,0,0,.2);background:url('../images/btn_morning.png') no-repeat center;}
+  }
+  .modalbody {height:630px;padding:65px 0 0;max-height:none;overflow-y:hidden;
+    .vc-container {border-radius:0;border:1px solid $grayColor;border-width:0 0 1px 1px;
+      &:before {content:'';position:absolute;top:-50px;left:0;display:inline-block;width:100%;height:45px;box-sizing:border-box;border:1px solid $grayColor;}
+    }
+    .vc-pane {border:1px solid $grayColor;border-width:1px 1px 0 0;}
+    .vc-arrows-container {top:-50px;height:45px;}
+    .vc-header .vc-title {padding:0 40px;font-size:14px;border-radius:38px;background:#f5f5f5;
+      &:after {content:'년'}
+    }
+    .vc-weekday {color:$lightBlackColor;font-weight:normal;}
+    .vc-day-content {font-weight:normal;font-size:12px;}
+    .vc-nav-items * {color:#fff;}
+    .vc-nav-item.is-active {color:#666;}
+    .vc-popover-content.direction-bottom .vc-svg-icon path {fill:#fff;}
+  }
+}
+
+#joinWrap.pwChangePop {
+  .formBack {padding:0;width:100%;}
+  .whiteBox {padding:2rem 0 0;}
+  .basicIp {padding:2rem 0 1rem;}
+}
+
+.goodsMgtView {
+  .modalbody .imgbox img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+
+// 강좌 관리 qr
+.subjectQrWrap{
+  width:1001px;
+  height: 100%;
+  position:relative;
+  overflow: hidden;
+  background: url(../images/qr_back.png) no-repeat center center;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  &>div{display: inline-block;vertical-align: top;
+    &.header{
+      padding:{left:5%;bottom:30px;}
+      box-sizing: border-box;
+      width: 45%;
+      .logo{height: 40px;margin-top: 25px;
+        img{height: 100%;}
+      }
+      .main_title{margin-top: 35px;
+        &>dt{font-size: 85px; line-height: 1.05;}
+        &>dd{font-size: 100px;color:#1f76bd;line-height: 0.9;font-family: 'BlackHanSans';margin-top:20px;}
+      }
+      .qrBox{
+        width: 235px;
+        height:198px;
+        border-radius: 10px;
+        background: linear-gradient(#2399a9  ,#20b98c);;
+        padding:10px 11px 5px;
+        margin:{top: 30px;left: 45px;}
+        box-sizing: border-box;
+        text-align: center;
+        .qrBoxTitle{padding-bottom: 20px;}
+        dd,dt{color:white;font-size: 15px;}
+        .qrBoxContent{
+          background-color: white;
+          height: 60%;
+          border-radius: 5px;
+          padding-top:10px;
+          box-sizing: border-box;
+          img{height: 90%;}
+        }
+      }
+    }
+    &.body{width: 55%;vertical-align: bottom;text-align: right;}
+  }
+  .design{ height: 200px;width:100%;
+      img{width: 100%;}
+      .front{
+        width: 55%;
+        height: 100%;
+        position:absolute;
+        display: inline-block;
+        top:60%;
+        right:-144px;
+      }
+  }
+  .print_button_box{text-align: center;display: block;
+    .btnArea{padding:0 0}
+  }
+}

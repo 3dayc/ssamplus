@@ -1,0 +1,481 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _subSammall.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+/* ===== 쌤몰 공통 ===== */
+/* 백퍼후기 목록 */
+.reviewBoxList {font-size:0;margin:0;
+  .reviewBox {display:inline-block;width:350px;
+    & > a {display:block;position:relative;background:$whiteColor;}
+    .reviewImg {@extend %imgAlignA;width:100%;height:190px;overflow:hidden;background:#F7F7F7;}
+    .reviewInfo {padding:15px 0 0;
+      strong {display:inline-block;margin:10px 0 8px;width:100%;font-size:$txtSizeP2;letter-spacing:-0.96px;}
+      p {margin-bottom:23px;color:$lightBlackColor;line-height:1.6;font-weight:200;display:-webkit-box;word-wrap:break-word;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;}
+      span {color:$lightBlackColor;font-weight:200;}
+    }
+    .about {display:block;padding:20px 0 0;background:$whiteColor;
+      & > a {display:block;
+        em {position:relative;display:block;padding:8px 30px 8px 10px;width:100%;color:#666;box-sizing:border-box;background:#F2F2F2;text-align:left;
+          &:after {content:'';position:absolute;display:inline-block;right:1rem;top:50%;margin-top:-4px;width:9px;height:9px;box-sizing:border-box;border:2px solid $blackColor;border-top:0;border-right:0;
+            @include venderPrefix(transform, rotate(225deg));
+          }
+        }
+      }
+    }
+  }
+}
+/* 도서형식 */
+.bookGoods {display:inline-block;vertical-align:top;
+  .goodsImg {@extend %imgAlignCenter;display:block;position:relative;margin-bottom:15px;width:100%;height:248px;overflow:hidden;
+    img {position:relative;width:100%;display:block;}
+    .ranking {display:inline-block;position:absolute;left:0;top:0;width:40px;height:40px;line-height:2.9;color:$whiteColor;background:#222;text-align:center;z-index:1;}
+  }
+  .goodsDetail {
+    & > strong {margin:9px 0 6px;width:100%;letter-spacing:-0.9px;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp: 2;-webkit-box-orient:vertical;}
+    .price strong {display:block;}
+  }
+}
+/* 저자소개 */
+.introTeacher {@extend %clearBh;display:inline-block;width:100%;
+  .imgBox {@extend %imgAlignA;display:inline-block;position:relative;width:120px;height:120px;vertical-align:top;overflow:hidden;border:1px solid $grayColor;background:$whiteColor;}
+  div {display:inline-block;padding-left:48px;width:calc(100% - 130px);box-sizing:border-box;}
+  dl {display:inline-block;box-sizing:border-box;
+    dt {display:block;padding-bottom:10px;font-size:$txtSizeP2;font-weight:600;}
+    dt.moreTit {padding:18px 0 10px;}
+    li {position:relative;padding-left:6px;font-size:$txtSizeP2;color:$lightBlackColor;line-height:1.7;letter-spacing:-0.02em;font-weight:200;
+      &::before {content:'-';position:absolute;left:0;top:0;color:$lightBlackColor;}
+    }
+  }
+}
+/* 학습기기 목록 */
+.saleIcon {position:absolute;left:10px;top:10px;z-index:1;display:block;padding-top:11px;width:60px;height:60px;line-height:1;text-align:center;color:$whiteColor;font-size:$txtSizeM1;font-weight:200;border-radius:50%;box-sizing:border-box;background:#FC5353;
+  strong {display:block;font-family:'Roboto';color:$whiteColor;font-size:$txtSizeP10;}
+  em {margin:0 0 0 2px;color:$whiteColor;font-family:'Roboto';font-size:$txtSizeM1;}
+}
+.dday {position:relative;display:inline-block;padding-top:12px;width:60px;height:60px;line-height:1;text-align:center;vertical-align:middle;font-weight:100;letter-spacing:0.01em;color:$whiteColor;font-size:16px;font-family:'Roboto';border-radius:50%;box-sizing:border-box;background:#009940;
+  span {display:block;font-family:'Roboto';color:$whiteColor;font-size:24px;font-weight:bold;}
+  i {color:$whiteColor;font-size:$txtSizeM1;}
+}
+.deviceList {font-size:0;margin:0 0 0;
+  li {display:inline-block;position:relative;width:350px;height:438px;vertical-align:top;
+    & ~ li {margin-left:25px}
+    &:nth-child(3n+1) {margin-left:0}
+    & > a {display:block;}
+    .deviceGoods {display:block;width:100%;
+      .goodsImg {position:relative;display:inline-block;width:100%;height:300px;overflow:hidden;background:#F7F7F7;
+        .img {position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);@extend %imgAlignA;width:250px;height:250px;}
+        .saleIcon + .img {margin-left:20px;}
+        .iSet {position:absolute;top:15px;left:15px;padding:0 8px;border-radius:12px;z-index:1;}
+      }
+      .goodsDetail {display:inline-block;width:100%;padding-top:13px;
+        .name {display:block;font-size:$txtSizeP2;letter-spacing:-1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+        .name02 {font-size:$txtSizeP2;letter-spacing:-1px;}
+        .iPro {margin-bottom:5px;}
+        .iSbjSetMini {margin:-3px 5px 0 0;}
+        .price {display:block;margin-top:5px;}
+      }
+    }
+  }
+}
+/* ===== 쌤몰 메인 ===== */
+/* 쌤몰 메인 */
+.ssammallIndex {
+  .subTit {padding-bottom:13px;}
+  .subTit h3 {font-size:$txtSizeP10 !important;letter-spacing:-0.07em;line-height:1.58;}
+  .newBook {padding:50px 0 6px;
+    .swiper-container{padding:20px 0 0 ;}
+    .swiper-button-prev,
+    .swiper-button-next {display:inline-block;position:relative;top:1px;right:0;left:auto;margin-top:0;width:32px;height:32px;border:1px solid $lightBlackColor;text-align:left;line-height:2.2;padding-left:13px;
+      &::after {color:#aaa;font-size:15px;color:$lightBlackColor}
+    }
+    .swiper-button-prev {margin-right:5px;padding-left:9px;}
+  }
+  .bestReview {padding:50px 0 43px 0;background:$lightGrayColor;
+    .frameBack {position:relative;width:1128px;
+      .subTit {width:1100px !important;margin:0 auto;padding-bottom:18px;}
+      .reviewBoxList {margin:-14px 0 0 0;padding:14px;
+        .reviewBox {padding:0;box-shadow:3px 3px 12px rgba(0,0,0,0.04);
+          .reviewImg {height:240px;}
+          .reviewInfo {padding:27px 20px  0;height:210px;}
+          &:last-child {margin-right:0;}
+        }
+        .about {padding:0 20px 20px 20px;}
+      }
+    }
+    .bothArrows .swiper-button-prev,
+    .bothArrows .swiper-button-next {margin-top:21px;box-shadow:none;}
+    .bothArrows .swiper-button-prev {left:-61px;}
+    .bothArrows .swiper-button-next {right:-61px;}
+  }
+  .bestDevice {padding:50px 0 100px;
+    .subTit {padding-bottom:18px;}
+  }
+}
+/* 쌤몰 검색결과  */
+.searchResult .sec {padding:50px 0 0;
+  .productList li .productDetail {padding:0 0 0 20px;}
+  .productList li .productBtn {right:0;}
+}
+
+/* ===== 교재도서 ===== */
+/* 교재도서 메인 */
+.ssammallBook {
+  .bookList {padding-top:20px;
+    li ~ li {margin-left:50px;}
+    li:nth-child(4n+1) {margin-left:0}
+  }
+}
+/* 섬생님 별 교재 목록 */
+.ssammallBookTeacher {
+  .subTit.noLine em {color:$lightBlackColor;}
+  .introTeacher {padding:20px 20px 18px;background:$lightGrayColor;}
+  .teacherBookList {margin-top:44px;}
+}
+
+/* ===== 학습기기 ===== */
+@mixin whiteTxt {font-family:'Roboto';color:$whiteColor;}
+/* 학습기기 메인 */
+.ssammallDevice {
+  /* 놓치기 아까운 힛템  */
+  .hitItem {
+    .itemDetail {display:table;width:100%;margin:20px 0 50px;}
+    .imgBox {display:table-cell;position:relative;width:351px;height:300px;vertical-align:top;background:$lightGrayColor;
+      .img {position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);@extend %imgAlignA;width:250px;height:250px;}
+      .saleIcon + .img {margin-left:20px;}
+    }
+    .infoBox {display:table-cell;padding:10px 0 0 55px;vertical-align:top;
+      .dday{margin:-20px 0 0;}
+      .titBox {display:block;margin-bottom:15px;font-size:0;
+        strong {margin-right:30px;font-size:$txtSizeP14;vertical-align:middle;letter-spacing:-0.06em;
+        }
+      }
+      .importTxt {display:block;margin-bottom:15px;color:#666;font-size:$txtSizeP4;line-height:1.4;letter-spacing:-0.06em;
+        strong {display:block;font-size:$txtSizeP4;color:#0E935D;letter-spacing:-0.06em;}
+      }
+      p {display:block;margin-bottom:17px;color:#666;font-weight:200;line-height:1.6;letter-spacing:-0.07em;}
+      .price {display:block;
+        strong {font-size:$txtSizeP6;}
+        del {font-size:$txtSizeP2;margin-right:9px;}
+      }
+      .goDetail {display:inline-block;position:relative;margin-top:19px;padding:0 0 0 11px;color:#666;width:110px;height:30px;line-height:1.9;box-sizing:border-box;border-radius:15px;border:1px solid #666;
+        &::after {content:'';position:absolute;right:15px;top:50%;transform:translateY(-50%) rotate(-45deg);width:6px;height:6px;border-width:0 1px 1px 0;border-style:solid;border-color:#888;}
+      }
+    }
+  }
+  .sortSet {padding:15px 0;
+    label {width:80px;height:36px;padding:0 15px;line-height:2.2;}
+  }
+  .deviceList {
+    li {width:276px;height:372px;
+      & ~ li {margin-left:21px}
+      &:nth-child(3n+1) {margin-left:0}
+      .deviceGoods {
+        .goodsImg {height:237px;}
+        .img {width:180px;height:180px;}
+      }
+    }
+  }
+  .goodDevice {
+    .deviceList li .deviceGoods .goodsDetail {padding-top:9px;}
+  }
+}
+
+/* ===== 쌤몰 제품 상세 ===== */
+.moreBtn {display:inline-block;position:relative;margin:11px 0 7px;width:72px;height:23px;padding:0 0 0 12px;line-height:1.7;text-align:left;font-size:13px;color:#888888;border:1px solid #DDDDDD;border-radius:3px;
+  &::after {content:'';position:absolute;right:10px;top:45%;transform:translateY(-50%) rotate(45deg);width:5px;height:5px;border-width:0 1px 1px 0;border-style:solid;border-color:#666;}
+  &.open {
+    &::after {transform:translateY(-50%) rotate(225deg);top:55%;}
+  }
+}
+.mallProductView {
+  /* 제품 기본정보 및 수량 체크 */
+  .productBox {position:relative;display:table;width:100%;height:300px;margin-bottom:50px;border:1px solid $grayColor;
+    .productInfo {display:table-cell;padding:0 20px 0 20px;vertical-align:middle;
+      .imgBox {float:left;margin-left:0;
+        span {@extend %imgAlignA;display:inline-block;width:210px;height:180px;}
+      }
+      .txtBox {float:left;display:inline-block;padding-left:24px;
+        strong {display:block;margin:11px 0 10px;font-size:$txtSizeP4;letter-spacing:-1px;line-height:1.2;
+          &.notBook {font-size:$txtSizeP6;}
+        }
+        .lecLimit {display:block;margin-bottom:13px;font-size:$txtSizeM2;}
+        .moreInfo {
+          & > span {display:block;font-size:$txtSizeM2;
+            em {display:inline-block;width:53px;margin-right:0;color:#888;font-size:$txtSizeM2;font-weight:200;}
+          }
+          span ~ span {margin-top:3px;}
+        }
+      }
+    }
+    .orderInfo {display:table-cell;padding:18px 16px;width:288px;border-left:1px solid $grayColor;vertical-align:top;
+      .priceArea {height:220px;}
+      dl {display:flex;position:relative;width:100%; justify-content: space-between;
+        dt {vertical-align:middle;max-width:150px;font-size:$txtSizeP2;color:#000;letter-spacing:-1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+        dd {text-align:right;color:#888;}
+        dd em.cost {margin-right:3px;font-size:$txtSizeP2;color:#888;}
+        &.productPrice {padding:0 0;
+          dt {font-weight:600;}
+          dd {color:$blackColor;}
+          dd {font-size:$txtSizeP2;opacity:1;}
+        }
+        dd .price em {margin-left:5px;}
+        .deliveryTxt {font-size:$txtSizeP2;color:$lightBlackColor;
+          em {font-size:$txtSizeP2;}
+          button {display:inline-block;margin-left:5px;width:16px;font-size:$txtSizeM2;color:$whiteColor;text-align:center;line-height:1.4;border-radius:50%;background:#666;}
+        }
+      }
+      dl ~ dl {margin-top:10px;}
+      .withLec {
+        dl {padding:2px 0;}
+        dl dt {font-size:$txtSize;color:#999;}
+        dl ~ dl {margin-top:0;}
+      }
+      .btnArea {
+        [class*=btn] {width:calc(50% - 3px);margin:0;}
+        [class*=btn] ~ [class*=btn] {margin-left:5px;}
+        [class*=btn].solo {width:100%;margin-left:0;}
+        [class*=btn]:last-child {margin-right:0;}
+      }
+    }
+  }
+  /* 구매할인 팁 */
+  .mallDiscount {
+    .mallDiscountBack {height:0;overflow:hidden;
+      .btnDiscount {margin:14px auto 4px;background:$lightGrayColor;}
+      &.open {height:auto;}
+      &.open .btnDiscount::after {margin:0 0 0 8px;@include venderPrefix(transform, rotate(225deg));}
+    }
+  }
+  /* 제품 상세 퀵무브 */
+  .quickMove {position:sticky;top:0;margin-top:50px;z-index:20;background:$whiteColor;
+    ul {display:table;width:100%;table-layout:fixed;
+      li {position:relative;display:table-cell;vertical-align:top;
+        &:before {content:'';position:absolute;top:0;left:-1px;display:inline-block;width:0;height:100%;border-left:1px solid #ddd;}
+        button {position:relative;display:block;width:100%;padding:0 5px;height:49px;font-size:$txtSizeP2;color:#888;line-height:2.9;text-align:center;box-sizing:border-box;background:$lightGrayColor;}
+        &.on button {z-index:2;color:$whiteColor;background:$blackColor;}
+        &.on &:before {border-color:#007D4A;}
+        &.new button::after {content: 'N';display: inline-block;margin-left: 5px;font-weight: 600;font-size: 10px;color: #FF7B52;vertical-align: top;}
+        &:first-child:before {display:none;}
+      }
+    }
+  }
+  /* 제품 상세 공통 */
+  .mallContents {
+    .subTit {margin:0 0 25px;padding-bottom:14px;
+      .btnVideo {display:inline-block; float: right; padding:0 25px 0 45px; height: 35px; box-sizing: border-box; border: 1px solid #999; border-radius: 5px; position: relative; font-size: 14px; color: #666666;
+        &:before {content:''; display: block;  width:18px; height: 18px; background:url('../images/i_playBtn.svg') no-repeat left center;background-size:auto 100%; position: absolute; top: 50%; left: 18px; transform: translateY(-50%);}
+      }
+      .btnDiscount {margin:16px 0 0 0;}
+
+      & + *:not(ul) {padding: 0 15px;}
+    }
+    .contentsBox {padding-top:50px;
+      &:first-child {padding-top:20px;}
+    }
+    .fGray {letter-spacing:-0.04em;font-weight:200; font-size: $txtSizeP2;
+      // editor style (start)
+      ol {padding-left:1.5rem;
+        li {list-style-type:decimal;height:auto;border:none;}
+      }
+      ul {padding-left:1.5rem;
+        li {list-style-type:disc;height:auto;border:none;}
+        &.todo-list > li{
+          list-style:none;
+        }
+      }
+      i {font-style:italic;}
+      table {width:100%;border-collapse:collapse;border:1px solid #ccc;
+        th, td {
+          border:1px solid #ccc;padding:0 10px;
+        }
+        th {background-color: #fafafa;}
+      }
+      input {-webkit-appearance: checkbox;}
+      figure.table {margin: 0;}
+      // editor style (end)
+    }
+    .introTeacher {
+       dl {padding-left:0;}
+       dl dt.moreTit {padding:20px 0 6px;}
+       dl dd li {line-height:1.75;}
+    }
+    .detailArea {
+      img {margin:0 auto;width:auto;max-width:100%;}
+    }
+    /* 백퍼후기 */
+    .bookReview {
+      .subTit {margin-bottom:0;}
+      ul {padding-top:4px;}
+      li {display:table;padding:19px 16px 13px;width:100%;min-height:117px;border-bottom:1px solid $grayColor;
+        .txtBox {display:table-cell;width:auto;vertical-align:top;
+          .util {display:block;margin-bottom:13px;
+            em {display:inline-block;color:$brightGrayColor;font-weight:100;letter-spacing:0;font-family:'Roboto';}
+            em ~ em {margin-left:13px;}
+          }
+          p {display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:2;-webkit-box-orient:vertical;color:$blackColor;line-height:1.58;
+            &.open {-webkit-line-clamp:unset;}
+          }
+        }
+        .imgBox {display:table-cell;padding-left:80px;vertical-align:top;width:142px;
+          img {width:100%;cursor:pointer;}
+        }
+      }
+    }
+  }
+  /* 교재일 경우 : 이 교재와 관련된 강좌 */
+  .relatedLecture {margin-bottom:50px;
+    .subTit.noLine {padding-bottom:10px;}
+    .tit {display:block;margin-bottom:10px;font-size:$txtSizeP2;}
+    li {display:inline-block;margin-right:15px;padding:12px 15px 15px;width:calc(33.33% - 10px);height:120px;vertical-align:top;border:1px solid $grayColor;
+      &:nth-child(3n) {margin-right:0;}
+      &:nth-child(n+4) {margin-top:15px;}
+      em {font-size:$txtSizeM2;}
+      strong {display:block;margin:0 0 17px;font-size:$txtSizeP4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+      div {@extend %clearBh;
+        .btnSmartDetail {float:left;margin:-3px 0 0;width:90px;border-radius:0;border:1px solid #666; height:30px; padding-left:10px;}
+        .btnTcHome {float:right;font-weight:200;color:#666;}
+      }
+    }
+  }
+  /* 교재일 경우 : 선생님의 다른 교재 */
+  .otherbook {position:relative;width:870px;@extend %clearBh;
+    a {display:block;}
+    .bookGoods .goodsDetail .price strong {display:inline-block;}
+    .bookGoods .goodsImg img {height:248px;}
+    .swiper-container {height:390px;}
+    .swiper-slide {width:180px;}
+    .swiper-scrollbar {height:5px;}
+  }
+  /* 교재일 경우 : 목차 */
+  .bookOrgan {
+    .organBox {max-height:170px;overflow:hidden;transition:all 0.3s;
+      dl {margin-bottom:20px;
+        dt {margin-bottom:15px;font-weight:600;font-size: $txtSizeP2;}
+        dd {padding-left:10px;color:#666;font-size: $txtSizeP2;
+          ul {padding:10px 0 0 10px;
+            li {color:#666;font-size: $txtSizeP2;}
+          }
+        }
+      }
+      &.open {max-height:none;}
+      ol li{list-style-type: disc;}
+      ul li{list-style-type:decimal;}
+      i {font-style:italic;}
+      table {width:100%;border-collapse:collapse;
+        th, td {
+          border:1px solid #ccc;padding:0 10px;
+        }
+        th {background-color: #fafafa;}
+      }
+      input {-webkit-appearance: checkbox;}
+    }
+  }
+  /* 학습기기일 경우 : 학습기기 강좌선택 */
+  .choiceLecture {position:relative;margin-top:50px;
+    div {display:block;position:relative;padding:10px 20px 0;font-size:$txtSizeP2;cursor:pointer;height:45px;border:1px solid $grayColor;
+      &::after {content:'';position:absolute;right:20px;top:50%;transform:translateY(-50%);width:16px;height:8px;background:url(../images/i_toggleArrow.svg) no-repeat center;background-size:100%;transition:all 0.3s;}
+    }
+    div.on::after {top:33%;transform:rotate(-180deg);}
+    ul {position:absolute;z-index:36;top:40px;left:0;right:0;padding:15px 25px 15px 20px;border:1px solid $grayColor;background:$whiteColor;transition:all 0.3s;
+      li {display:table;table-layout:fixed;width:100%;padding:2px 0;cursor:pointer;}
+      span {display:table-cell;width:60%;}
+      .tit em {display:block;color:#111;font-weight:600;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+      .price {width:40%;text-align:right;}
+    }
+  }
+  /* 학습기기일 경우 : 제품 상세보기 */
+  .productDetailView {text-align:center;
+    .detailArea {height:300px;text-align:left;/*overflow:hidden;*/overflow-y:auto;
+      &:after {content:'';position:absolute;left:0;bottom:0;display:inline-block;width:100%;height:100px;background: linear-gradient( to bottom, rgba(255,255,255,0), #fff);}
+      // editor style (start)
+      ol {padding-left:1.5rem;
+        li {list-style-type:decimal;height:auto;border:none;}
+      }
+      ul {padding-left:1.5rem;
+        li {list-style-type:disc;height:auto;border:none;}
+        &.todo-list > li{
+          list-style:none;
+        }
+      }
+      i {font-style:italic;}
+      table {width:100%;border-collapse:collapse;border:1px solid #ccc;
+        th, td {
+          border:1px solid #ccc;padding:0 10px;
+        }
+        th {background-color: #fafafa;}
+      }
+      input {-webkit-appearance: checkbox;}
+      figure.table {margin: 0;}
+      // editor style (end)
+    }
+    &.open .detailArea {height:auto;}
+    &.open .detailArea:after {display:none;}
+    .btnL {margin:30px auto 0;width:150px;}
+  }
+  /* 학습기기일 경우 : 학습기기 + 강좌 */
+  .deviceList.withLecCase {
+    .swiper-slide {width:276px;height:auto;
+      &:nth-child(3n+1) {margin-left:0}
+      .deviceGoods {
+        .goodsImg {display:block;margin-bottom:15px;height:237px;background:$lightGrayColor;}
+        .img {@extend %imgAlignA;display:block;margin:0 auto;width:276px;height:237px;}
+        .name {display:block;padding-bottom:10px;font-size:$txtSizeP2;}
+      }
+    }
+    .goodsDetail2 {
+      .selectSet {margin:0 0 10px;
+        select {padding:0 32px 0 10px;height:47px;font-size:$txtSizeP2;color:$blackColor;font-weight:500;}
+      }
+      .priceArea {@extend %clearBh;border-bottom:1px solid $grayColor;
+        dl {float:left;display:inline-block;width:101px;height:65px;padding:5px 0 0;
+          dt {float:left;padding-bottom:5px;display:inline-block;width:24px;font-weight:600;}
+          dd {float:right;padding-bottom:5px;text-align:right;}
+          dd em {color:$lightBlackColor;}
+          dd i {margin-left:3px;font-size:$txtSizeM2;color:$lightBlackColor;}
+        }
+        p {float:right;display:inline-block;padding:21px 0 0;text-align:right;
+          * {color:$redColor;}
+          strong {font-size:$txtSizeP2;}
+          i {margin-left:2px;}
+        }
+      }
+    }
+    .swiper-container {padding-bottom:10px;}
+    .swiper-scrollbar {height:5px;}
+    .btn {padding:14px 0 0 0;text-align:center;
+      .btnL {width:124px;}
+      .btnL ~ .btnL {margin-left:6px;}
+    }
+  }
+}
+/* 학습기기 상세 예외처리 */
+.ssammallDeviceView {
+  .mallView {
+    .productInfo {
+      .imgBox {width:12.857rem;height:14.286rem;}
+      .txtBox {padding-left:20px;width:calc(100% - 12.857rem);}
+    }
+  }
+}
+
+/* ===== 백퍼 추천하는 솔직 후기 ===== */
+.ssammallReview {
+  .sortSet {padding:15px 0 15px;display:block;vertical-align:top;
+    label {width:90px;}
+    a {width:90px;height:36px;line-height:2.26;vertical-align:top;}
+  }
+  .reviewBoxList {border-bottom:1px solid $grayColor;
+    @extend %clearBh;
+    li {float:left;margin-top:30px;width:277px;height:373px;}
+    li~li {margin-left:19px;}
+    li:nth-child(3n+1) {margin-left:0;}
+    li:nth-child(-n+3) {margin-top:0;}
+    .iSbjSetMini, .iLocSet, .iPro, .iSet, .inComeDed {vertical-align:top;}
+    .reviewInfo p {margin-bottom:8px;-webkit-line-clamp:3;line-height:1.5;}
+  }
+}

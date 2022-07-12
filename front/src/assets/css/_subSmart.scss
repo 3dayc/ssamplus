@@ -1,0 +1,293 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _sub.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+
+.smartIndex {padding:30px 0 0;
+  h2 {font-size:$txtSizeP10;}
+  h3 {padding-bottom:20px;font-size:$txtSizeP4;}
+  .guideBox {padding:0 0 0 48px;background:none;}
+  .guideBox.info:before {left:0;}
+}
+.smartStep {background:$lightGrayColor;
+  .frameBack {@extend %clearBh;padding:20px 0 0 0;height:150px;box-sizing:border-box;}
+  .btnSRefresh {float:left;display:inline-block;width:60px;height:60px;text-indent:-9999px;overflow:hidden;border-radius:50%;background:$whiteColor url('../images/btn_smart_refresh.svg') no-repeat center;}
+  ol {float:right;@extend %clearBh;display:inline-block;}
+  li {float:left;position:relative;width:220px;margin-right:45px;
+    strong {position:relative;display:inline-block;padding:0 0 0 60px;width:220px;height:60px;font-size:$txtSizeP2;line-height:3.4;cursor:pointer;box-sizing:border-box;border-radius:30px;background:$whiteColor;}
+    strong:before {position:absolute;left:10px;top:10px;content:'';display:inline-block;width:40px;height:40px;border-radius:50%;background:$lightGrayColor;}
+    div {display:none;margin-top:15px;height:35px;font-size:$txtSizeM2;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-overflow:ellipsis;word-wrap:break-word;overflow:hidden;}
+    &:after {content:'';position:absolute;right:-28px;top:20px;transform:rotate(-45deg);width:18px;height:18px;border-width:0 2px 2px 0;border-style:solid;border-color:$blackColor;}
+    &:last-child {margin-right:0;}
+    &:last-child div {text-align:center;}
+    &:last-child:after {display:none;}
+    @for $i from 1 to 5 {
+      &.step0#{$i} strong:before {background:$lightGrayColor url('../images/i_smart_step0'+$i+'.svg') no-repeat center;background-size:50% auto;}
+      &.on.step0#{$i} strong:before {background:$whiteColor url('../images/i_smart_step0'+$i+'_on.svg') no-repeat center;background-size:50% auto;}
+    }
+    &.on {
+      strong {color:$whiteColor;background:$greenColor;cursor:initial;}
+      strong:before {background:$whiteColor;}
+      div {display:-webkit-box;}
+    }
+    &.end {
+      strong {color:$whiteColor;background:$blackColor;}
+      strong:before {background:$whiteColor url('../images/i_smart_stepend.svg') no-repeat center;background-size:50% auto;}
+      div {display:-webkit-box;}
+    }
+  }
+}
+.smartFoot {position:sticky;left:0;right:0;bottom:0;z-index:9;background:$blackColor;
+  .frameBack {@extend %clearBh;padding:20px 0;}
+  .pageGo {float:left;position:relative;width:70px;height:60px;color:#fff;
+    &::before {content:"";position:absolute;left:3px;top:50%;margin-top:1px;display:block;height:14px;width:14px;border:2px solid $whiteColor;border-width:2px 0 0 2px;
+        @include venderPrefix(transform, translateY(-50%) rotate(-45deg));
+        pointer-events:none;
+    }
+    &.next {float:right;
+      &::before {left:auto;right:3px;@include venderPrefix(transform, translateY(-50%) rotate(135deg));}
+    }
+    &:disabled {opacity:.5}
+  }
+  .choiceArea {position:relative;float:left;width:960px;}
+  .smartChoiceList {position:relative;height:64px;
+    .swiper-container {margin:0 35px;}
+    .swiper-slide {width:140px;
+      span {position:relative;display:inline-block;padding:8px 20px 0 10px;height:60px;width:100%;font-size:$txtSizeM2;border-radius:5px;box-sizing:border-box;background:$whiteColor;
+        white-space:nowrap;overflow: hidden;text-overflow:ellipsis;
+        strong {display:block;font-size:$txtSizeP2;}
+        strong i {font-size:$txtSizeM2;}
+        .btnDelete {position:absolute;right:5px;top:5px;width:18px;height:18px;border-radius:20px;background:$grayColor;
+          &::before, &::after {width:1px;height:10px;}
+        }
+      }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {margin-top:-12px;width:24px;height:24px;border-radius:50%;background:$whiteColor;
+      &::before {content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;height:12px;background:url(../images/i_arrow.svg) no-repeat center;background-size:100% 100%;}
+      &::after {font-size:0;}
+    }
+    .swiper-button-prev {left:0;}
+    .swiper-button-next {right:0;
+      &::before {transform:translate(-50%,-50%) rotate(180deg);}
+    }
+    .swiper-button-prev.swiper-button-disabled,
+    .swiper-button-next.swiper-button-disabled {opacity:0.15;}
+    &.lecCase {margin-right:200px;
+      .swiper-slide {width:220px;
+        span {width:220px;}
+      }
+    }
+  }
+  .totalPrice {position:absolute;right:20px;top:2px;display:inline-block;width:198px;text-align:right;color:$whiteColor;
+    span {display:block;color:$whiteColor;}
+    strong {font-size:$txtSizeP12;color:$whiteColor;}
+  }
+}
+
+/* ===== 과목, 선생님 ===== */
+.smartSubject {
+  .gridItem {padding:27px 0;vertical-align:top;}
+  /**/
+  .ssList {width:325px;border-right:1px solid #ddd;
+    ul {padding:0 0 20px;}
+    li {position:relative;padding:4px 0;}
+    li.on:after {content:'';position:absolute;right:-6px;top:23px;transform:rotate(-45deg);width:10px;height:10px;border-width:0 1px 1px 0;border-style:solid;border-color:$grayColor;background:$whiteColor;}
+    label {padding:5px 12px 0 36px;width:300px;height:50px;box-sizing:border-box;border:1px solid $grayColor}
+    label i {left:12px;}
+    label strong {line-height:2.8;letter-spacing:-0.05em;}
+    label span {float:right;display:table;width:180px;}
+    label span em {display:table-cell;height:36px;text-align:right;vertical-align:middle;font-size:$txtSizeM2;letter-spacing:-0.03em;word-break:keep-all;}
+    label span em div {display:inline-block;text-align:left;max-height:28px;font-size:$txtSizeM2;letter-spacing:-0.03em;white-space: nowrap; overflow: hidden; text-overflow: ellipsis; /* 여러 줄 자르기 추가 스타일 */ white-space: normal; line-height: 1.2;word-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+
+    .checkSet {margin-right:0;}
+    .checkSet:hover label {border-color:$blackColor;}
+    .checkSet input:checked + label {border-color:green;box-shadow:0 0 0 1px $greenColor;}
+    .checkSet input:checked:disabled + label i {background:#fff;}
+    .checkSet input:checked:disabled + label i:before {border-color:$greenColor;}
+    li.on .checkSet input:checked + label {background:#F6FFFB;}
+  }
+  /**/
+  .ssKindList {padding:27px 0 27px 55px;}
+  .ssKindSet {
+    .tit {display:block;padding:30px 0 20px;font-size:$txtSizeP2;}
+    .checkSet {margin:0 1.538rem 1.538rem 0;
+      label {position:relative;width:198px;height:178px;padding:0;overflow:hidden;box-sizing:border-box;border:1px solid $grayColor}
+      label i {position:absolute;top:14px;left:14px;margin:0;}
+      label span {position:absolute;top:40px;left:14px;display:block;width:73px;word-break:keep-all;font-size:$txtSizeM2;}
+      label span strong {display:block;padding-bottom:5px;font-size:$txtSizeP2;}
+      label span p {font-size:$txtSizeM2;}
+      label em {position:absolute;top:8px;right:8px;display:inline-block;padding:0 5px 1px;font-size:$txtSizeM2;color:$whiteColor;border-radius:3px;background:#C2000F;}
+      label img {display:block;width:198px;height:178px;}
+      input:checked + label {border-color:$blackColor;box-shadow:0 0 0 1px $blackColor;}
+      input:checked + label i:before {border-color:$blackColor;}
+    }
+  }
+}
+/* ===== 강좌 ===== */
+.smartLecture {
+  .gridItem {padding:27px 0;vertical-align:top;}
+  /**/
+  .ssam {padding-bottom:20px;width:106px;border-right:1px solid #ddd;
+    li {position:relative;padding:0 0 15px;
+      .ssamChoice {position:relative;display:block;
+        input {position:absolute;opacity:0;left:0;top:0;width:100%;height:100%;border:none;background:transparent;z-index:10;}
+        label {display:block;width:80px;text-align:center;}
+        label span {display:block;width:80px;height:80px;border:1px solid $grayColor;}
+        label span img {display:block;width:80px;height:80px;}
+        label strong {display:block;padding-top:5px;font-weight:normal;}
+        input:checked + label span {border:1px solid $greenColor;box-shadow:0 0 0 1px $greenColor;}
+        input:checked + label strong {}
+        input:checked + label:after {content:'';position:absolute;right:-6px;top:23px;transform:rotate(-45deg);width:10px;height:10px;border-width:0 1px 1px 0;border-style:solid;border-color:$grayColor;background:$whiteColor;}
+      }
+    }
+  }
+  /**/
+  .ssamInfo {padding:27px 25px;width:260px;border-right:1px solid #ddd;
+    .tit {display:block;padding-bottom:20px;font-size:$txtSizeP4;}
+    dl {padding:0 0 22px;
+      dt {height:34px;font-size:$txtSizeP2;}
+    }
+    .ssamEvent {
+      dd {border:1px solid $grayColor;border-bottom:0;}
+      span {display:table;width:100%;border-bottom:1px solid $grayColor;}
+      em {display:table-cell;padding:0 10px;height:50px;vertical-align:middle;font-size:$txtSizeM2;color:$lightBlackColor;}
+    }
+    .ssamRecommend {
+      ol li {counter-increment:item;display:inline-block;padding:4px 0;width:100%;font-size:$txtSizeM2;color:$lightBlackColor;box-sizing:border-box;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+      ol li:before {margin:-1px 7px 0 0;display:inline-block;content:counter(item);width:20px;height:20px;font-size:$txtSizeM2;color:$whiteColor;text-align:center;vertical-align:middle;border-radius:10px;background:$greenColor;}
+    }
+  }
+  /**/
+  .slList {padding:27px 0 27px 23px;
+    .smartTabwrap {padding:27px 0 0;
+      .tabNav ul li {width:calc(100% / 3);}
+    }
+    .sortSet {height:63px;
+      label {padding:0;width:75px;}
+      input:checked+label {font-weight:normal;}
+    }
+    .priceCheck label em {margin-left:5px;line-height:1 !important;color:#E22B13 !important;font-size:12px;}
+    .ssamLecList {
+      .kindTit {display:block;padding-bottom:10px;font-size:$txtSizeP2;}
+      ul {border-top:none;}
+      ul>li {margin:0 0 20px;border:1px solid $grayColor;}
+      ul>li.on {box-shadow:0 0 0 1px $greenColor;border-color:$greenColor;}
+      .lecTt {cursor:pointer;
+        .tt {font-size:$txtSizeP2;}
+        .msg {font-size:$txtSizeM1;}
+        .iLocSet {font-size:$txtSizeM2;}
+      }
+      .choice {display:table;width:155px;height:100%;top:0;bottom:0;right:0;transform:none;border-left:1px solid $grayColor;background:$lightGrayColor;
+        .priceCheck {display:table-cell;margin:0 0;height:100%;vertical-align:middle;}
+        .priceCheck .price {display:block;margin-top:0;letter-spacing:-0.03em;}
+        .priceCheck label {position:absolute;right:0;top:50%;transform:translateY(-50%);display:inline-block;padding:0px 12px 0 0;height:56px;width:155px;border:none;border-radius:0;background:none;}
+        .priceCheck label i {left:13px;}
+        .priceCheck input:checked+label {border:none;border-radius:0;background:none;box-shadow:none;}
+        .priceCheck del {display:inline-block;}
+        .priceCheck strong {display:block;font-size:$txtSizeP4;}
+      }
+    }
+    .lecBenefit {padding:0 5px;line-height:1.3;}
+    .moreInfo {position:absolute;right:200px;top:50%;transform:translateY(-50%);display:inline-block;width:80px;
+      .btnSmartDetail:last-child {border-bottom:1px solid $lightBlackColor;}
+    }
+  }
+}
+/* ===== 교재 ===== */
+.smartBook {padding:27px 0 50px;
+  .subTit {padding-bottom:0 !important;margin-bottom:0 !important;border-bottom:1px solid $grayColor !important;box-sizing:border-box;
+    h3 {width:100%;padding-bottom:12px;border-bottom:2px solid $blackColor;}
+    div {padding:15px;font-size:$txtSizeM2;line-height:1.6;background:$lightGrayColor;}
+    div p {margin-bottom:5px;}
+  }
+  .ssamBookSet {padding:15px 15px 15px;border-bottom:1px solid $grayColor;
+    /**/
+    .ssamInfo {position:relative;display:inline-block;width:100%;height:80px;box-sizing:border-box;
+      .img {float:left;@extend %imgAlignA;display:inline-block;width:80px;height:80px;border:1px solid $grayColor;box-sizing:border-box;}
+      .lecTit {float:left;padding:0 0 0 20px;
+        .iSet {font-size:11px;margin-bottom:3px;}
+        strong {font-size:$txtSizeP2;display:block;padding:0 0 5px;}
+      }
+      .choiceBook {float:right;display:table;width:300px;cursor:pointer;
+        em {display:table-cell;width:100%;height:80px;padding:0 20px 0 0;vertical-align:middle;text-align:right;}
+      }
+      &:after {content:"";position:absolute;left:auto;right:0;top:50%;display:block;margin-top:-5px;height:0;width:0;background:0;border:3px solid $blackColor;border-top-color:transparent;border-left-color:transparent;
+          @include venderPrefix(transform, rotate(45deg));
+          pointer-events:none;
+      }
+      &.open:after {margin-top:0;@include venderPrefix(transform, rotate(225deg));}
+    }
+    /**/
+    .bookInfo {
+      ul {@extend %clearBh;}
+      ul>li {position:relative;float:left;width:340px;height:260px;margin:20px 25px 5px 0;padding:15px;border:1px solid $grayColor;
+        &:nth-child(4n-1) {margin-right:0;}
+        .bookBasic {position:relative;@extend %clearBh;padding:0 100px 0 0;width:100%;height:65px;border-bottom:1px solid $grayColor;box-sizing:border-box;
+          .checkSet {margin-right:5px;
+            input:checked+label i:before {border-color:$greenColor;}
+          }
+          .price {position:absolute;right:0;bottom:10px;text-align:right;
+            del {margin-right:5px;}
+            em {margin-right:7px;}
+          }
+          strong.bookname {display:inline-block;padding:7px 0;width:100%;font-size:$txtSizeP2;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;overflow:hidden;}
+        }
+        .bookMore {@extend %clearBh;padding:18px 0 0;
+          .imgBox {float:left;@extend %imgAlignA;display:inline-block;width:80px;height:110px;}
+          div {float:right;width:190px;
+            * {font-size:$txtSizeM2;}
+            dl {display:table;padding:2px 0;}
+            dl dt {display:table-cell;width:50px;color:$lightBlackColor;}
+            dl dd {display:table-cell;}
+            dl dd span {width:100%;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+          }
+        }
+        p {@extend %clearBh;position:absolute;left:8px;bottom:15px;color:$redColor;font-size:$txtSizeM2;letter-spacing:-0.03em;word-spacing:-0.1em;}
+        &.on {box-shadow:0 0 0 1px $greenColor;border-color:$greenColor;}
+      }
+    }
+  }
+}
+/* ===== 수강신청 ===== */
+.smartApply {padding:27px 0 50px;
+  .subTit {padding-bottom:0 !important;margin-bottom:0 !important;border-color:$grayColor !important;box-sizing:border-box;
+    h3 {width:100%;padding-bottom:12px;border-bottom:2px solid $blackColor;}
+  }
+  .smartPrice {@extend %clearBh;padding:28px 30px;background:$lightGrayColor;
+    .choicePrice {@extend %clearBh;display:inline-block;
+      strong {position:relative;display:inline-block;padding:0 0 0 45px;font-size:$txtSizeP6;letter-spacing:-0.04em;line-height:1.3;}
+      strong:after {content:'';position:absolute;left:0;bottom:2px;width:20px;height:20px;background:url('../images/i_smartPrice_plus.png') no-repeat center;}
+      em {display:block;height:13px;color:$lightBlackColor;letter-spacing:0;line-height:0.4;}
+      span {font-weight:normal;}
+      .lec {width:128px;padding:0;}
+      .lec:after {display:none;}
+      .book {width:100px;}
+      .delivery {width:90px;}
+      .sale {width:100px;}
+      .sale:after {background:url('../images/i_smartPrice_minus.png') no-repeat center;}
+      .total {color:$redColor;font-size:$txtSizeP10;}
+      .total:after {background:url('../images/i_smartPrice_total.png') no-repeat center;}
+      .total span {color:$redColor;font-size:$txtSizeP4;}
+      .total em {overflow:hidden;font-size:0;text-indent:-99999px;}
+    }
+    .btn {float:right;}
+    .btn * {width:124px;margin:0 3px;}
+  }
+  .smartApplyInfo {padding:20px 0 0 15px;font-size:$txtSizeM2;line-height:1.6;
+    p {margin-bottom:5px;}
+  }
+  .basketContents {padding:50px 0 100px;width:100%;
+    .checkSet input:checked+label i:before {border-color:$greenColor;}
+    .basketSet ul li .price {
+      del {display:inline-block;margin:0 5px 0 8px;}
+      em {font-size:$txtSizeM2;}
+    }
+  }
+
+}

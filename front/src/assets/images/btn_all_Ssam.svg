@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 40 26">
+  <g id="그룹_3261" data-name="그룹 3261" transform="translate(-740 -84)">
+    <g id="사각형_57" data-name="사각형 57" transform="translate(740 84)" fill="#fff" stroke="#aaa" stroke-width="1">
+      <rect width="40" height="26" rx="3" stroke="none"/>
+      <rect x="0.5" y="0.5" width="39" height="25" rx="2.5" fill="none"/>
+    </g>
+    <text id="ALL" transform="translate(759.82 102)" fill="#888" font-size="12" font-family="Roboto-Bold, Roboto" font-weight="700" letter-spacing="-0.03em"><tspan x="-10.175" y="0">ALL</tspan></text>
+  </g>
+</svg>

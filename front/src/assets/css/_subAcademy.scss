@@ -1,0 +1,325 @@
+/*===================================================================
+* INFORMATION
+* -------------------------------------------------------------------
+* @File Name: _sub.scss
+* @Description : 각 화면별 정의
+* @Create Date: 2021-06-23
+* @Last Update Date: N/A
+* @History: N/A
+* ====================================================================*/
+
+/* ===== 희소 고시학원 메인  ===== */
+.academyTopBtn {display:none;height:60px;text-align:center;border-bottom:1px solid $grayColor;box-shadow:0px 3px 3px rgba(0, 0, 0, 0.05);background:$whiteColor;
+  div {margin:0 auto;width:1100px;}
+  span {position:relative;display:inline-block;width:156px;height:59px;}
+  span:before {content:'';position:absolute;left:0;top:17px;display:inline-block;height:24px;border-left:1px solid $grayColor;}
+  span:last-child::after {content:'';position:absolute;right:0;top:17px;display:inline-block;height:24px;border-left:1px solid $grayColor;}
+  button, a {display:block;width:100%;height:100%;}
+  button em, a em{display:inline-block;height:100%;font-size:$txtSizeP2;color:$brightGrayColor;line-height:3.6;border-bottom:3px solid $whiteColor;box-sizing:border-box;}
+  span.on em {color:$blackColor;font-weight:600;border-bottom-color:#0e935d;}
+  &.active {position:sticky;top:0;display:block;z-index:6;}
+}
+.academyIndex {
+  h2 {padding:90px 0 60px;font-size:36px;text-align:center;letter-spacing:-0.08em;
+    span {font-size:inherit;}
+  }
+  .mainSlogan {position:relative;height:760px;overflow:hidden;background:url('../images/bg_academy_mainSlogan01.jpg') no-repeat center top;
+    * {color:$whiteColor;}
+    .txt {position:absolute;top:0;bottom:0;left:0;right:0;padding:156px 0 150px;text-align:center;
+      .mainTxt {font-size:36px;}
+      .mainTxt strong {color:#55CF96;font-size:inherit;}
+      .mainTxt em {display:block;font-size:inherit;}
+      .mainTxt span {display:block;font-size:36px;}
+      p {padding-top:35px;font-size:$txtSizeP10;}
+    }
+    button.more {position:absolute;left:50%;bottom:290px;margin:0 0 0 -30px;z-index:2;display:block;width:60px;height:60px;text-indent:-9999px;overflow:hidden;border-radius:60px;border:1px solid $whiteColor;animation:ani_arrow 2s infinite;}
+    button.more:after {content:"";position:absolute;left:50%;top:50%;display:block;margin-top:-7px;height:16px;width:16px;border:1px solid $whiteColor;border-width:1px 1px 0 0 ;
+        @include venderPrefix(transform, translate(-50%,-50%) rotate(135deg));
+        pointer-events:none;
+    }
+    @keyframes ani_arrow {0%{margin-bottom:0;} 50%{margin-bottom:10px} 100%{margin-bottom:0}}
+    .btn {position:absolute;z-index:2;bottom:0;left:0;width:100%;height:150px;text-align:center;background:rgba(255,255,255,.3);
+      .frameBack {@extend %clearBh;width:auto;display:inline-block;margin:0 auto;padding:38px 49px 0 0;}
+      * {color:$whiteColor;}
+      button {float:left;display:inline-block;padding:44px 0 0 0;height:72px;font-size:$txtSizeP2;text-align:center;box-sizing:border-box;}
+      button ~ button {margin-left:55px;}
+      @for $i from 1 to 8 {
+        button.goArea0#{$i} {background:transparent url('../images/i_academy_mainSlogan0'+$i+'.svg') no-repeat center top;}
+      }
+      &.off {display:none;}
+    }
+    .plusImg1 {position:absolute;z-index:1;bottom:-203px;right:50%;margin:0 47px 0 0;}
+    .plusImg2 {position:absolute;z-index:1;bottom:-66px;left:50%;margin:0 0 0 366px;}
+    .plusImg3 {position:absolute;z-index:1;top:143px;left:50%;margin:0 0 0 -147px;}
+  }
+  /* 강의실 배정표 */
+  .classSchedule {padding:50px 0 95px;
+    .classRoomInfo {@extend %clearBh;padding:43px 0 0 32px;height:140px;background:$lightGrayColor url('../images/bg_classSchedule.svg') no-repeat calc(100% - 73px) 57px;
+      .box {@extend %clearBh;display:inline-block;width:100%;}
+      .timeBox {float:left;display:inline-block;width:424px;
+        .iLocSet {float:left;width:50px;height:50px;border-radius:100%;vertical-align:middle;text-indent:-9999px;overflow:hidden;background:#85a5d0 url('../images/i_academy_direct01.png') no-repeat center;background-size:100% auto;}
+        .iLocSet.idea {background:#a2b299 url('../images/i_academy_direct02.png') no-repeat center;background-size:100% auto;}
+        dl {float:left;display:inline-block;padding:4px 0 0 8px;}
+        dt {font-size:$txtSizeP2;font-weight:600;}
+        dd {color:$lightBlackColor;letter-spacing:-0.02em;
+          span {margin-right:10px;color:$lightBlackColor;}
+        }
+      }
+      p {float:left;display:inline-block;padding-top:4px;color:$lightBlackColor;
+        span {position:relative;display:block;padding-left:10px;color:$lightBlackColor;
+          &:before {content:'';display:inline-block;position:absolute;left:0;top:9px;width:3px;border-bottom:1px solid $lightBlackColor;}
+        }
+      }
+    }
+    h2 {padding:50px 0 0;}
+    .scheduleArea {
+      .dateChoice {padding:50px 0 31px;text-align:center;
+        strong {display:inline-block;width:174px;font-size:$txtSizeP2;}
+        button {position:relative;display:inline-block;width:30px;height:30px;text-indent:-9999px;overflow:hidden;border-radius:50%;background:$whiteColor;
+          &::before {content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;height:20px;background:url(../images/i_arrow.svg) no-repeat center;background-size:100% 100%;}
+        }
+        button.prev {opacity:0.5;}
+        button.next::before {transform:translate(-50%,-50%) rotate(180deg);}
+      }
+      .tabLayout {padding-top:45px;}
+      .scheduleTabwrap .tabNav .blackLineTab li {width:50%;}
+      .scheduleCal {
+        table {width:100%;border-collapse:collapse;table-layout:fixed;
+          th, td {position:relative;width:calc((100% - 138px)/13);border:1px solid $grayColor;}
+          tr th:first-child,
+          tr td:first-child {width:138px;}
+          tr.time th:first-child {width:calc((100% - 138px)/13);}
+          thead th {height:34px;color:$lightBlackColor;background:$lightGrayColor;}
+          thead tr.time th {font-family:'Roboto';font-weight:normal;font-size:$txtSizeM2;}
+          tbody th {height:68px;color:$lightBlackColor;}
+          tbody td {height:68px;}
+        }
+        .schBar {position:relative;top:0;display:table;width:calc(100% + 2px);height:calc(100% + 2px);margin:-1px 0 -1px -1px;z-index:1;background:#fff;}
+        .schBar:before {content:"";position:absolute;left:0;top:0;bottom:0;right:0;z-index:-1;}
+        .schBar.hidden span {display:none;}
+        .schBar .schBarInner {display:table-cell;padding:5px 10px;height:100%;text-align:center;vertical-align:middle;}
+        .schBar span {-webkit-line-clamp:2;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;word-break:break-word;overflow:hidden;font-size:12px;text-align:center;}
+        .schBar strong {font-size:inherit;font-weight:400;}
+        .schBar .iSet {margin:0 5px 3px 0;}
+        @each $style, $value in $map-subjBgStyle {
+          .schBar.#{$style} {border:1px solid map-get($value, solo-color);}
+          .schBar.#{$style}:before {background:map-get($value, rgba-color);}
+        }
+      }
+    }
+  }
+  /* 학원 보충강의 */
+  .infoAddition {position:relative;height:800px;background:url('../images/bg_academy_infoAddition.jpg') no-repeat center top;background-size:cover;
+    .frameBack {position:relative;z-index:2;text-align:center;
+      * {color:$whiteColor;}
+      h2 {font-weight:200;padding-bottom:58px;
+        strong {color:$greenColor;font-size:inherit;}
+      }
+      div {@extend %clearBh;padding:0 0 77px;text-align:left;
+        dl {float:left;padding:23px 0 25px 28px;width:520px;height:380px;border-radius:15px;border:1px solid rgba(255,255,255,.3);}
+        dl ~ dl {margin-left:60px;}
+        dt {padding:7px 0 0 87px;height:81px;font-size:$txtSizeP6;}
+        @for $i from 1 to 3 {
+          .tit0#{$i} {background:transparent url('../images/i_academy_infoAddition0'+$i+'.svg') no-repeat left top;}
+        }
+        dd {position:relative;padding:0 0 5px 9px;font-weight:200;letter-spacing:-0.03em;
+          &:before {content:'';position:absolute;left:0;top:7px;margin:0 0 0 0;display:inline-block;width:4px;height:4px;vertical-align:middle;;border-radius:10px;background:$whiteColor;}
+          &:last-child {color:#FF8899;
+            &:before {background:#FF8899;}
+          }
+        }
+      }
+      .btnL {margin:0 auto;width:280px;height:50px;line-height:2.6;font-size:$txtSizeP4;}
+    }
+  }
+  /* 사물함 신청 */
+  .goLocker {padding:0 0 104px;
+    h2 {padding:90px 0 48px;}
+    .box {@extend %clearBh;}
+    .left {padding:70px 0 0;width:500px;height:380px;text-align:center;border:1px solid $grayColor;border-right:0;
+      div {width:395px;margin:0 auto;}
+      strong {display:block;padding:70px 0 0;font-size:$txtSizeP6;background: url('../images/i_academy_goLocker.svg') no-repeat center top;}
+      p {padding:10px 0 37px;color:#666;}
+    }
+    .btnL {margin:0 auto;width:280px;height:50px;line-height:2.6;font-size:$txtSizeP4;}
+    .bothArrows {float:right;position:relative;width:600px;height:380px;overflow:hidden;
+      .mbPage {position:absolute;bottom:75px;right:75px;display:inline-block;z-index:5;}
+      .swiper-button-prev,
+      .swiper-button-next {margin-top:0;background:#333;}
+      .swiper-button-prev {left:-60px;}
+      .swiper-button-prev::before,
+      .swiper-button-next::before {background: url('../images/i_arrow_white.svg') no-repeat center;background-size: 100% 100%;}
+    }
+  }
+  /* 스터디 하실래요 */
+  .goStudy {height:160px;background: url('../images/bg_academy_goStudy01.png') no-repeat center bottom;background-size:auto 120px;
+    .frameBack {padding:55px 0 0;height:160px;background: url('../images/bg_academy_goStudy02.svg') no-repeat right bottom;}
+    h2 {float:left;position:relative;z-index:2;padding:0;display:inline-block;color:$whiteColor;font-family:'SourceHanSerifK';
+      &:after {content:'';position:absolute;left:0;bottom:0;z-index:-1;display:inline-block;width:100%;height:12px;background:rgba(91, 206, 246, .6);}
+    }
+    p {float:left;padding:10px 0 0 74px;display:inline-block;color:#3B476B;font-weight:200;line-height:1.5;
+      a {position:relative;display:block;margin-top:14px;font-size:12px;letter-spacing:-0.05em;
+        &::after {content:'';display:inline-block;width:6px;height:6px;margin:-1px 0 0 7px;vertical-align:middle;border-width:0 1px 1px 0;border-style:solid;border-color:#3B476B;transform:rotate(-45deg);}
+      }
+    }
+  }
+  /* 학원 시설 */
+  .directPanorama {text-align:center;height:850px;
+    h2 {padding:92px 0 0 0;height:236px;line-height:1.4;}
+    .tabNav ul {width: 1100px; margin: 0 auto; display: flex;}
+    .tabNav ul li {flex: 1; width: 50%;}
+    .tabLayout {padding-top:53px;text-align:left;}
+    .swiper-slide {width: 444px;}
+    .swiper-slide>div {height: 294px;}
+    .swiper-slide img {width: 100%; height: 100%; object-fit: cover;}
+    .swiperProgressSet {z-index:1; width: 170px;
+      .swiper-button-prev {right: unset;}
+    }
+    em {display: block; padding-top: 15px; font-size: 16px;}
+    .swiper-pagination {font-size: 14px; color: #666;
+      .swiper-pagination-current {font-size: 16px; font-weight: 700;}
+    }
+    .tabLayout {width: 1100px; position: relative; margin: 0 auto;}
+    .panorama03, .panorama02 {position: relative; 
+      &::after {content: ''; clear: both; display: block;}
+    }
+  }
+  /* 1:1 상담하기 */
+  .goCounsel {padding:0 0 100px;background:$lightGrayColor;
+    h2 {padding:102px 0 0 0;height:254px;line-height:1.4;}
+    .detail {display:table;width:100%;border:1px solid $grayColor;
+      span {display:table-cell;width:50%;height:238px;padding-bottom:10px;text-align:center;vertical-align:middle;box-sizing:border-box;background:$whiteColor}
+      span:first-child {border-right:1px solid $grayColor;}
+      em {display:block;padding:50px 0 0;color:$lightBlackColor;}
+      strong {padding:1px 0 15px;display:block;font-size:$txtSizeP6;}
+      strong i {color:$greenColor;font-size:inherit;font-weight: bold;}
+      .btnM {width:180px;}
+      @for $i from 1 to 3 {
+        .item0#{$i} em {background:transparent url('../images/i_academy_goCounsel0'+$i+'.svg') no-repeat center top;}
+      }
+    }
+  }
+  /* 학원 위치 */
+  .directLocation {padding-bottom:100px;
+    h2 {padding:98px 0 57px;}
+    .lInfo04 {display:none;}
+    .tabNav .blackLineTab li {width:50%;}
+  }
+}
+
+/* 카카오맵 */
+.map #map {width: 100%;height: 480px;}
+.placeBox {position:absolute;left:0;bottom:50px;padding:0 0 20px;width:380px;margin-left:-190px;text-align:left;overflow:hidden;font-family:'NotoSans';border-radius:5px;border:0;box-shadow:0px 1px 2px #888;background:#fff;
+  * {margin:0;padding:0;}
+  // .placeBoxBody:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom:-37px;width:40px;height:42px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+  .placeBoxBody .title {font-size:1.214rem;font-weight:700;padding:20px 50px 0 20px;white-space:normal;word-break:break-all;letter-spacing:-1px;}
+  .placeBoxBody .placeClose {position: absolute;font-size:0;text-indent:-9999px;overflow:hidden;top:15px;right:14px;color:#888;width:32px;height:32px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png') no-repeat center;}
+  .placeBoxBody .placeClose:hover {cursor:pointer;}
+  .placeBoxBody .info {display:flex;padding:14px 20px 0;width:100%;position:relative;overflow:hidden;flex-direction:row;}
+  .placeBoxBody .desc {padding-right:20px;flex:auto;position:relative;}
+  .placeBoxBody .desc .address {overflow: hidden;text-overflow:ellipsis;white-space:nowrap;font-size:0.86rem;line-height:17px;font-weight:300;}
+  .placeBoxBody .desc .jibun {padding-top:4px;color:#919191;margin-top:-2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.86rem;line-height:16px;font-weight:300;}
+  .placeBoxBody .desc .jibun * {font-size:inherit;color:inherit;font-weight:inherit;}
+  .placeBoxBody .desc .jibun .zipcode {margin-right:10px;}
+  .placeBoxBody .contact {padding-top:1px;}
+  .placeBoxBody .contact * {display:inline-block;vertical-align:middle;font-weight:300;}
+  .placeBoxBody .contact *:not(:last-child):after {content:"";display:inline-block;margin:0 3px 0 5px;vertical-align:middle;width:3px;height:3px;border-radius:100%;background:#dcdcdc;}
+  .placeBoxBody .contact .phone {font-size:13px;color:#288756;}
+  .placeBoxBody .contact .link {color: #5085BB;font-size:12px;}
+  .placeBoxBody .thumbnail {width:104px;height:104px;overflow: hidden;}
+  .placeBoxBody .thumbnail img {width:100%;height:100%;}
+  .placeBoxBody .tools {padding:12px 0 0;text-align:left;}
+  .placeBoxBody .tools .btnDirection {display:inline-block;width:74px;height:34px;font-weight:400;color:#fff;border-radius:3px;background:#3396ff;text-align:center;line-height:2.3;}
+}
+
+/* ===== 스터디 ===== */
+.academyStudy {
+  .mBr {display: none;}
+  .mainSlogan {position:relative;height:760px;background:url('../images/bg_academy_study.jpg') no-repeat center top;background-size:cover;
+    .txt {position:absolute;top:0;bottom:0;left:0;right:0;padding:80px 0 0;text-align:center;
+      * {color:$whiteColor;}
+      strong {font-size:36px;color:#55CF96;}
+      strong span {display:block;color:$whiteColor;font-size:inherit;font-weight:normal;}
+      p {padding-top:22px;font-size:$txtSizeP2;}
+      p em {font-size:inherit;}
+    }
+    .infoGuide {position:absolute;bottom:60px;left:50%;@extend %clearBh;width:1100px;transform:translateX(-50%);
+      dl {float:left;padding-top:28px;width:255px;height:270px;text-align:center;border-radius:20px;background:$whiteColor;}
+      dl ~ dl {margin-left:26px;}
+      dt {padding:65px 0 0;font-size:$txtSizeP4;}
+      dd {padding:12px 51px 0;line-height:1.4;}
+      dd span {display:block;}
+      @for $i from 1 to 5 {
+        dl.item0#{$i} dt {background:transparent url('../images/i_academy_study0'+$i+'.svg') no-repeat center top;}
+      }
+    }
+  }
+  .frameBack {padding:50px 0;
+    .right-po {top: 24px;
+      .btnM {height: 30px; line-height: 1.9; width: 100px;margin-top: 34px;}
+    }
+  }
+  .boardTop {padding:25px 0;text-align:right;
+    .selectSet {width:160px;margin-right:5px;}
+    .selectSet select {height:40px;}
+  }
+  .studyList {
+    li {position:relative;float:left;width:260px;margin-bottom:20px;
+      a {position:relative;display:block;padding:15px 20px;height:270px;border:1px solid $grayColor;}
+      .iSet {position:absolute;right:20px;top:15px;margin-right:0;}
+      span.id {position:relative;display:block;height:36px;margin-bottom:14px;padding:8px 0 0 52px;box-sizing:border-box;
+        &:before {content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);display:inline-block;width:36px;height:36px;border-radius:50px;border:1px solid $grayColor;background:$grayColor url('../images/i_comment_female.svg') no-repeat center;background-size:105%;}
+        &.male:before {background:$grayColor url('../images/i_comment_male.svg') no-repeat center;background-size:105%;}
+      }
+      strong {padding:16px 0 0;margin-bottom:16px;display:block;font-size:$txtSizeP2;border-top:1px solid $grayColor;line-height:1.4;-webkit-line-clamp:2;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;word-wrap:break-word;overflow:hidden;}
+      em {display:block;padding:5px 0;color:$lightBlackColor;}
+      em i {display:inline-block;width:40px;}
+      &.off {
+        &:after {content:'';display:block;position:absolute;top:1px;bottom:1px;left:1px;right:1px;background:$whiteColor;opacity:0.5;}
+        strong {color:$darkGrayColor;}
+      }
+      &.noList {display:block;margin:0 !important;padding:10px 15px !important;width:100% !important;height:auto !important;text-align:center;color:#666;}
+    }
+    li ~ li {margin-left:20px;}
+    li:nth-child(4n+1) {margin-left:0;}
+  }
+}
+.academyStudyWrite {
+  p {padding:20px 25px;color:$lightBlackColor;line-height:1.8;background:$lightGrayColor;
+    span {color:$lightBlackColor;}
+  }
+  .kindSet {padding-bottom:5px;
+    .autoCom {width:434px;}
+  }
+  .timeSet {padding:15px 0;border:1px solid $grayColor;border-width:1px 0;
+    strong {display:inline-block;width:70px;text-align:center;}
+    .radioArea {display:inline-block;width:437px;
+      span.radioSet {width:auto;width:100px !important;}
+      input + label {color:$lightBlackColor;}
+      input:checked + label {color:$blackColor;}
+    }
+    .sortSet {
+      span:first-child label {width:60px;}
+      label {min-width:40px !important;padding:0;border-radius: 20px;background-color: #fff;}
+      input:checked + label {font-weight:normal;background-color: #333}
+    }
+  }
+  .boardBtn {
+    .btnL {height: 50px; line-height: 44px;}
+  }
+  .detailSet {@extend %clearBh;padding:5px 0 0;
+    .inputBox {float:left;display:inline-block;min-width:212px !important;width:212px !important;
+      &.inError {margin-bottom: 0;}
+      .selectSet {min-width:212px !important;}
+    }
+    .inputBox ~ .inputBox {margin-left:10px;}
+  }
+}
+.academyStudyView {
+  .asDetail.tableList {margin:30px 0 0 0;
+    dl {width:25%;}
+    dd {height:52px;text-align:center;}
+    dl:nth-child(n+5):nth-child(-n+8) {border-top:1px solid $grayColor;}
+  }
+  .boardView {padding-top:20px;}
+}

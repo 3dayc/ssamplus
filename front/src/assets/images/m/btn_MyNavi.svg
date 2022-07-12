@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="61" height="46" viewBox="0 0 61 46">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.865" y1="0.5" x2="0.135" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#19975a"/>
+      <stop offset="1" stop-color="#6eb754"/>
+      <stop offset="1" stop-color="#72b954"/>
+    </linearGradient>
+    <filter id="패스_3014" x="0" y="0" width="61" height="46" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="MY_" data-name="MY+" transform="translate(-302 -5)">
+    <g transform="matrix(1, 0, 0, 1, 302, 5)" filter="url(#패스_3014)">
+      <path id="패스_3014-2" data-name="패스 3014" d="M305,25a20,20,0,0,0,20,20h35V5H325A20,20,0,0,0,305,25Z" transform="translate(-302 -5)" fill="url(#linear-gradient)"/>
+    </g>
+    <text id="my" transform="translate(317 30)" fill="#fff" font-size="14" font-family="NotoSansCJKkr-Bold, Noto Sans CJK KR" font-weight="700" letter-spacing="-0.03em"><tspan x="0" y="0">my</tspan></text>
+    <g id="그룹_3054" data-name="그룹 3054">
+      <path id="패스_1731" data-name="패스 1731" d="M338,16.982a1.4,1.4,0,0,0,1.4,1.4h4.211V22.6a1.4,1.4,0,1,0,2.807,0V16.568a.99.99,0,0,0-.99-.99H339.4A1.4,1.4,0,0,0,338,16.982Z" fill="#fff"/>
+      <path id="패스_1732" data-name="패스 1732" d="M352,17.018a1.4,1.4,0,0,0-1.4-1.4h-4.211V11.4a1.4,1.4,0,0,0-2.807,0v6.028a.99.99,0,0,0,.99.99H350.6A1.4,1.4,0,0,0,352,17.018Z" fill="#fff" opacity="0.502"/>
+    </g>
+  </g>
+</svg>
